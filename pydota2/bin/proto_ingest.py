@@ -29,7 +29,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from pydota2.lib.proto_connector import ProtoThread
+from pydota2.lib.proto_connector import createRadiantThread, createDireThread
 
 from absl import app
 
@@ -38,8 +38,8 @@ def main(unused_argv):
     threads = []
     try:
         # Create our threads and set func callback to our save to file function
-        t1 = ProtoThread(1, 'Radiant', save_proto=True)
-        t2 = ProtoThread(2, 'Dire', save_proto=True)
+        t1 = createRadiantThread(save_to_proto=True)
+        t2 = createDireThread(save_to_proto=True)
 
         # Start our threads
         t1.start()

@@ -74,6 +74,7 @@ class ProtoThread(threading.Thread):
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
+    @staticmethod
     def connect_with_server(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, self.port))
@@ -103,3 +104,11 @@ class ProtoThread(threading.Thread):
 
             print("Closing Socket")
             s.close()
+
+
+def createRadiantThread(save_to_proto=False, callback=None):
+    return ProtoThread(1, 'Radiant', save_to_proto, callback)
+
+
+def createDireThread(save_to_proto=False, callback=None):
+    return ProtoThread(2, 'Dire', save_to_proto, callback)
