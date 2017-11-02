@@ -30,10 +30,11 @@ from __future__ import print_function
 
 import socket
 import threading
-import os
 from datetime import datetime
 
 from struct import *
+
+from pydota2.lib import gfile
 
 HOST            = '127.0.0.1'      # The remote host
 RADIANT_PORT    = 12120 # The same port as used by the server
@@ -60,23 +61,20 @@ class ProtoThread(threading.Thread):
 
     def run(self):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
-        path = os.path.join(DIR_REPLAY, sDate + self.name)
+        path = JoinPath(DIR_REPLAY, sDate + self.name)
         print("Save Path: %s" % path)
         self.create_save_directory(path)
         self.connect_with_server()
 
-    #@staticmethod
     def save_proto_to_file(self, bin_data):
-        with open(os.path.join(DIR_REPLAY, sDate + self.name, str(self.num_proto).zfill(6) + '.bin'), 'bw') as f:
+        with open(JoinPath(DIR_REPLAY, sDate + self.name, str(self.num_proto).zfill(6) + '.bin'), 'bw') as f:
             f.write(bin_data)
 
-    #@staticmethod
     def create_save_directory(self, dir_path):
         # check if directory exists, if not, make it
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
+        if not Exists(dir_path):
+            MakeDirs(dir_path)
 
-    #@staticmethod
     def connect_with_server(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, self.port))
