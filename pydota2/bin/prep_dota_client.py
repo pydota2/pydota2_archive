@@ -34,7 +34,7 @@ from pydota2.lib import gfile
 from absl import app
 
 BOT_REPO = JoinPath('pydota2', 'bot_code')
-DEFAULT_WIN_INSTALL_PATH = 'C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game'
+DEFAULT_WIN_INSTALL_PATH = 'C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\scripts\\vscripts'
 DEFAULT_LIN_INSTALL_PATH = 'TODO'
 
 
