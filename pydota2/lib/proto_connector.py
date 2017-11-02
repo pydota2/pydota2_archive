@@ -60,21 +60,23 @@ class ProtoThread(threading.Thread):
 
     def run(self):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
-        self.create_save_directory(os.path.join(DIR_REPLAY, sDate + self.name))
+        path = os.path.join(DIR_REPLAY, sDate + self.name)
+        print("Save Path: %s" % path)
+        self.create_save_directory(path)
         self.connect_with_server()
 
-    @staticmethod
+    #@staticmethod
     def save_proto_to_file(self, bin_data):
         with open(os.path.join(DIR_REPLAY, sDate + self.name, str(self.num_proto).zfill(6) + '.bin'), 'bw') as f:
             f.write(bin_data)
 
-    @staticmethod
+    #@staticmethod
     def create_save_directory(self, dir_path):
         # check if directory exists, if not, make it
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
 
-    @staticmethod
+    #@staticmethod
     def connect_with_server(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, self.port))
