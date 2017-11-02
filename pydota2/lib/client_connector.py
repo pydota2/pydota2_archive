@@ -29,7 +29,6 @@ from __future__ import print_function
 
 import traceback
 import threading
-from datetime import datetime
 
 from flask import Flask, request, jsonify
 
@@ -58,11 +57,7 @@ class ClientThread(threading.Thread):
             data = request.get_json()
 
             if request.content_length < 1000 and request.content_length != 0:
-                filename = 'out/{0}.json'.format(str(datetime.now()))
-                with open(filename, 'w') as f:
-                     f.write(data)
-
-                print('Wrote', filename)
+                print("Received Post: %s", data['timestamp'])
             else:
                 print("Request too long", request.content_length)
                 response = {"status": 413, "content_length": request.content_length, "content": data}
