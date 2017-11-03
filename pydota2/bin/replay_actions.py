@@ -173,23 +173,36 @@ class ReplayProcessor(multiprocessing.Process):
             self._print("Got replay: '%s'" % replay_path)
             self._update_stage("open replay directory")
             #TODO - process the replay info (total game time, winner, timestep interval)
-            replay_data = self.load_replay(replay_path)
-            replay_info = self.summarize_replay(replay_data)
+            replay_info = self.summarize_replay(replay_path)
+            self.replay_data = queue.Queue(maxsize=100)
+            #self.load_replay(replay_path)
             self._print((" Replay Info %s " % replay_name).center(60, "-"))
             self._print(replay_info)
             self._print("-" * 60)
             if valid_replay(replay_info):
               self._update_stage("process replay")
-              self.process_replay(replay_data, replay_info['team_id'])
+              self.process_replay(replay_path, replay_info['team_id'])
           finally:
             self.replay_queue.task_done()
         self._update_stage("shutdown")
-      except KeyboardInterrupt:
+      except KeyboardInterrupt, SystemExit:
         return
       except:
         print("[Run Replay] Unexpected error:", sys.exc_info()[0])
         self.stats.replay_stats.crashing_replays.add(replay_name)
         raise
+
+  def _ingest_frame(self, frame_name):
+    """Load a specific frame into an object."""
+    try:
+      proto_frame = open(frame_name, 'rb')
+      data_frame = _pb.CMsgBotWorldState()
+      data_frame.ParseFromString(proto_frame.read())
+      proto_frame.close()
+      return data_frame
+    except Exception as e:
+      print('Protobuf Frame Loading Error: %s for frame %s' % (str(e), frame_name))
+      raise
 
   def load_replay(self, replay_path):
     """Load the replay data into memory through time-ordered JSON objects."""
@@ -197,54 +210,63 @@ class ReplayProcessor(multiprocessing.Process):
     
     files = sorted(glob.glob(os.path.join(replay_path, '*.bin')))
 
+    for fname in files[0:100]:
+      try:
+        self.replay_data.put(self._ingest_frame(fname))
+      except Exception as e:
+        print('Protobuf loading error: %s for file %s' % (str(e), fname))
+        break
+
+  def summarize_replay(self, replay_path):
+    """Summarize the replay (length of time, winner, heroes, roles)."""
+    self._update_stage("summarizing replay")
+
+    files = sorted(glob.glob(os.path.join(replay_path, '*.bin')))
+
     data = {}
     indx = 0
     for fname in [files[0], files[-1]]:
-      #indx = int(os.path.basename(fname[:-4]))
-      #print("Loading Protobuf file: %d" % indx)
       try:
-        proto_file = open(fname, 'rb')
-        data_frame = _pb.CMsgBotWorldState()
-        data_frame.ParseFromString(proto_file.read())
-        data[indx] = data_frame
-        proto_file.close()
+        data[indx] = self._ingest_frame(fname)
       except Exception as e:
         print('Protobuf loading error: %s for file %s' % (str(e), fname))
         break
       indx += 1
 
-    return data
-
-  def summarize_replay(self, replay_data):
-    """Summarize the replay (length of time, winner, heroes, roles)."""
-    self._update_stage("summarizing replay")
-
     info = {}
 
     try:
-      print('Replay Length: %d' % (len(replay_data)))
-      info['game_length'] = replay_data[len(replay_data)-1].game_time - replay_data[0].game_time
-      info['team_id'] = replay_data[0].team_id
+      frame_indx = int(os.path.basename(files[-1])[:-4])+1
+      print('Replay Length: %d' % (frame_indx))
+      info['game_length'] = data[1].game_time - data[0].game_time
+      info['frame_delta'] = info['game_length']/frame_indx
+      info['team_id'] = data[0].team_id
 
-      for unit in replay_data[len(replay_data)-1].units:
+      for unit in data[1].units:
         if unit.unit_type == 9:
-            info['ancient_hp_' + str(unit.team_id)] = unit.health
+          info['ancient_hp_' + str(unit.team_id)] = unit.health
     except:
       print("[Summarize Replay] Unexpected error:", sys.exc_info()[0])
-      print(replay_data[0])
-      print(replay_data[len(replay_data)-1])
+      print(data[0])
+      print(data[1])
       raise
     
     return info
 
-  def process_replay(self, replay_data, team_id):
+  def process_replay(self, replay_path, team_id):
     """Process a single replay, updating the stats."""
     self._update_stage("start_replay")
 
     self.stats.replay_stats.replays += 1
-    for step, data in replay_data.items():
+
+    files = sorted(glob.glob(os.path.join(replay_path, '*.bin')))
+    max_frames = int(os.path.basename(files[-1])[:-4])+1
+
+    for fname in files:
       self.stats.replay_stats.steps += 1
-      self._update_stage('Step %d of %d - Observe' % (step, len(replay_data)-1))
+      step = int(os.path.basename(fname)[:-4])+1
+      data = self._ingest_frame(fname)
+      self._update_stage('Step %d of %d - Observe' % (step, max_frames))
       
       # TODO - complete the actual Reinforcement Learning
 
