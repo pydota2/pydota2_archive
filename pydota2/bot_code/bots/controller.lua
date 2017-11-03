@@ -11,7 +11,10 @@ dbg = require( GetScriptDirectory().."/debug" )
 local packet = require( GetScriptDirectory().."/data_packet" )
 local server = require( GetScriptDirectory().."/webserver_out" )
 
+local THROTTLE_RATE = 0.1   -- in seconds (0.1 == 10 times per second)
+
 local X = {}
+X.lastUpdateTime = -1000.0
 
 function X:new()
     local agent = {}
@@ -60,8 +63,12 @@ function X:Think(hBot)
     -- draw debug info to Game UI
     --dbg.draw()
 
-    -- check if bot has updated directives from our AI
-    local highestDesiredMode, highestDesiredValue = ServerUpdate()
+    -- throttle how often we query the back-end server
+    if (GameTime() - X.lastUpdateTime) >= THROTTLE_RATE then
+        -- check if bot has updated directives from our AI
+        local highestDesiredMode, highestDesiredValue = ServerUpdate()
+        X.lastUpdateTime = GameTime()
+    end
 end
 
 function X:DoInit(hBot)

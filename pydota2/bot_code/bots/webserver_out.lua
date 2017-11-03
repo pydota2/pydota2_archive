@@ -11,8 +11,8 @@ local packet = require( GetScriptDirectory().."/data_packet" )
 
 local webserver = {}
 
-local webserverFound 		= false
-local webserverAuthTried 	= false
+local webserverFound         = false
+local webserverAuthTried     = false
 
 webserver.startTime         = -1000.0
 webserver.lastPollPacket    = -1000.0
@@ -36,7 +36,7 @@ function webserver.SendPacket( json )
                     if jsonReply.Type == packet.TYPE_AUTH then
                         webserverFound = true
                         print("Connected Successfully to Backend Server")
-					elseif jsonReply.Type == packet.TYPE_POLL then
+                    elseif jsonReply.Type == packet.TYPE_POLL then
                         print("Received Update from Server")
                     end
                 end
@@ -64,7 +64,7 @@ function webserver.SendData(hBot)
             webserver.lastPollPacket = GameTime()
             webserver.SendPacket(jsonData)
         end
-	end
+    end
 end
 
 function webserver.CreateAuthPacket()
