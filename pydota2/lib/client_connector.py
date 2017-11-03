@@ -30,7 +30,7 @@ from __future__ import print_function
 import traceback
 import threading
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 
 app = Flask('__name__')
 
@@ -56,8 +56,13 @@ class ClientThread(threading.Thread):
         try:
             data = request.get_json()
 
+            if data == None:
+                # this should raise an HTTPException
+                abort(400, 'POST Data was not JSON')
+
             if request.content_length < 1000 and request.content_length != 0:
-                print("Received Post: %s", data['timestamp'])
+                print("Received Post: %s", str(data))
+                reponse['Time'] = data.Time
             else:
                 print("Request too long", request.content_length)
                 response = {"status": 413, "content_length": request.content_length, "content": data}
@@ -65,6 +70,6 @@ class ClientThread(threading.Thread):
         except:
             traceback.print_exc()
             response['status'] = 500
-            return jsonify(response)
 
         return jsonify(response)
+

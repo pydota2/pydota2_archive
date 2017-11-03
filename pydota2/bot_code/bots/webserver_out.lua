@@ -1,5 +1,6 @@
 -------------------------------------------------------------------------------
------ AUTHOR: Nostrademous
+--- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/pydota2
 ---------------------------------------------------------------------------------
 
 dkjson = require( "game/dkjson" )
@@ -58,7 +59,7 @@ function webserver.SendData(hBot)
     if webserverFound then
         if packet.LastPacket[packet.TYPE_POLL] == nil or (packet.LastPacket[packet.TYPE_POLL].processed
             and (GameTime() - webserver.lastPollPacket) > 0.1) then
-            local jsonData = webserver.CreatePollPacket()
+            local jsonData = webserver.CreatePollPacket(hBot)
             packet:CreatePacket(packet.TYPE_POLL, jsonData)
             webserver.lastPollPacket = GameTime()
             webserver.SendPacket(jsonData)
@@ -75,11 +76,12 @@ function webserver.CreateAuthPacket()
     return dkjson.encode(json)
 end
 
-function webserver.CreatePollPacket()
+function webserver.CreatePollPacket(hBot)
     local json = {}
     
     json.Type = packet.TYPE_POLL
     json.Time = RealTime()
+    json.PlayerID = hBot:GetPlayerID()
     
     return dkjson.encode(json)
 end
