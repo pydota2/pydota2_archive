@@ -34,7 +34,7 @@ from datetime import datetime
 
 from struct import *
 
-from pydota2.lib import gfile
+from pydota2.lib.gfile import *
 
 HOST            = '127.0.0.1'      # The remote host
 RADIANT_PORT    = 12120 # The same port as used by the server
