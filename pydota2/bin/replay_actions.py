@@ -185,7 +185,7 @@ class ReplayProcessor(multiprocessing.Process):
           finally:
             self.replay_queue.task_done()
         self._update_stage("shutdown")
-      except KeyboardInterrupt, SystemExit:
+      except KeyboardInterrupt:
         return
       except:
         print("[Run Replay] Unexpected error:", sys.exc_info()[0])
@@ -202,7 +202,7 @@ class ReplayProcessor(multiprocessing.Process):
       return data_frame
     except Exception as e:
       print('Protobuf Frame Loading Error: %s for frame %s' % (str(e), frame_name))
-      raise
+      pass
 
   def load_replay(self, replay_path):
     """Load the replay data into memory through time-ordered JSON objects."""
@@ -215,7 +215,7 @@ class ReplayProcessor(multiprocessing.Process):
         self.replay_data.put(self._ingest_frame(fname))
       except Exception as e:
         print('Protobuf loading error: %s for file %s' % (str(e), fname))
-        break
+        pass
 
   def summarize_replay(self, replay_path):
     """Summarize the replay (length of time, winner, heroes, roles)."""
