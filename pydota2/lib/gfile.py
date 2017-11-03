@@ -21,7 +21,6 @@ from __future__ import division
 from __future__ import print_function
 
 import os
-from distutils.dir_util import copy_tree
 
 # pylint: disable=invalid-name
 Exists = os.path.exists
@@ -30,4 +29,3 @@ ListDir = os.listdir
 MakeDirs = os.makedirs
 JoinPath = os.path.join
 Open = open
-CopyDir = copy_tree

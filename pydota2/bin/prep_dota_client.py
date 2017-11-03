@@ -27,9 +27,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import os
 import sys
+from distutils.dir_util import copy_tree
 
-from pydota2.lib import gfile
+from pydota2.lib.gfile import *
 
 from absl import app
 
@@ -41,10 +43,10 @@ DEFAULT_LIN_INSTALL_PATH = 'TODO'
 def main(unused_argv):
     if sys.platform == 'linux':
         print('Linux')
-        CopyDir(BOT_REPO, DEFAULT_LIN_INSTALL_PATH, update=1)
+        copy_tree(BOT_REPO, DEFAULT_LIN_INSTALL_PATH, update=1)
     elif sys.platform[:3] == 'win':
         print('Windows')
-        CopyDir(BOT_REPO, DEFAULT_WIN_INSTALL_PATH, update=1)
+        copy_tree(BOT_REPO, DEFAULT_WIN_INSTALL_PATH, update=1)
     else:
         print('Unsupported OS: %s' % sys.platform)
 
