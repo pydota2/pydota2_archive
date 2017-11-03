@@ -19,7 +19,8 @@ webserver.lastPollPacket    = -1000.0
 webserver.lastReply         = nil
 
 function webserver.SendPacket( json )    
-    local req = CreateHTTPRequest( web_config.IP_ADDR .. ":" .. web_config.IP_PORT )
+    -- for RADIANT port will be 2222, for DIRE 2223
+    local req = CreateHTTPRequest( web_config.IP_ADDR .. ":" .. (web_config.IP_BASE_PORT + GetTeam()) )
     req:SetHTTPRequestRawPostBody("application/json", json)
     req:Send( function( result )
         for k,v in pairs( result ) do
