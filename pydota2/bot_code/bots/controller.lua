@@ -17,15 +17,15 @@ local X = {}
 X.lastUpdateTime = -1000.0
 
 function X:new()
-    local agent = {}
-    setmetatable(agent, self)
+    local mybot = {}
+    setmetatable(mybot, self)
     self.__index = self
     
     -- TODO - other stats we want to track?
     
-    GetBot().agent = agent     -- make mybot accessible anywhere after calling GetBot()
+    GetBot().mybot = mybot     -- make mybot accessible anywhere after calling GetBot()
     
-    return agent
+    return mybot
 end
 
 local function ServerUpdate()
@@ -62,10 +62,13 @@ function X:Think(hBot)
 
     -- draw debug info to Game UI
     --dbg.draw()
+    
+    dbg.myPrint("IN GAME")
 
     -- throttle how often we query the back-end server
     if (GameTime() - X.lastUpdateTime) >= THROTTLE_RATE then
         -- check if bot has updated directives from our AI
+        dbg.myPrint("SENDING SERVER UPDATE")
         local highestDesiredMode, highestDesiredValue = ServerUpdate()
         X.lastUpdateTime = GameTime()
     end

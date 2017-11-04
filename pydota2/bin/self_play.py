@@ -43,13 +43,13 @@ CLIENT_DIRE_PORT    = 2223
 def processRadiantData(data):
     data_frame = _pb.CMsgBotWorldState()
     data_frame.ParseFromString(data)
-    print('Radiant Data Size:\n%s' % str(data_frame))
+    #print('Radiant Data Size:\n%s' % str(data_frame))
 
 
 def processDireData(data):
     data_frame = _pb.CMsgBotWorldState()
     data_frame.ParseFromString(data)
-    print('Dire Data:\n%s' % str(data_frame))
+    #print('Dire Data:\n%s' % str(data_frame))
 
 
 def main(unused_argv):
@@ -62,7 +62,6 @@ def main(unused_argv):
         # create our CMsgBotWorldState threads
         t1 = createRadiantThread(save_to_proto=True, callback=processRadiantData)
         t2 = createDireThread(save_to_proto=True, callback=processDireData)
-
         thrRadiantControl = ClientThread(3, 'Radiant', CLIENT_RADIANT_PORT)
         thrDireControl = ClientThread(4, 'Dire', CLIENT_DIRE_PORT)
         
