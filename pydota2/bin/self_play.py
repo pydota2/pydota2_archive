@@ -32,6 +32,7 @@ from __future__ import print_function
 from pydota2.bin import prep_dota_client
 from pydota2.lib.proto_connector import createRadiantThread, createDireThread
 from pydota2.lib.client_connector import ClientThread
+import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
 
 from absl import app
 
@@ -40,17 +41,21 @@ CLIENT_DIRE_PORT    = 2223
 
 
 def processRadiantData(data):
-    print('Radiant Data:\n%s' % str(data))
+    data_frame = _pb.CMsgBotWorldState()
+    data_frame.ParseFromString(data)
+    print('Radiant Data Size:\n%s' % str(data_frame))
 
 
 def processDireData(data):
-    print('Dire Data:\n%s' % str(data))
+    data_frame = _pb.CMsgBotWorldState()
+    data_frame.ParseFromString(data)
+    print('Dire Data:\n%s' % str(data_frame))
 
 
 def main(unused_argv):
     # move over all the bot code to correct steam location so when a bot
     # game is launched it reads it from the Local Dev Script default location
-    prep_dota_client.main()
+    prep_dota_client.main(None)
 
     threads = []
     try:
