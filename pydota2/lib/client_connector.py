@@ -48,11 +48,13 @@ class ClientThread(threading.Thread):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
         app.run(host=HOST, debug=False, port=self.port)
 
-    @app.route('/', methods=['POST'])
-    def post(self):
-        response = {}
-        response['status'] = 200
-
+@app.route('/', methods=['GET', 'POST'])
+def post():
+    print('IN POST')
+    response = {}
+    response['status'] = 200
+    
+    if request.method == 'POST':
         try:
             data = request.get_json()
 
@@ -61,8 +63,15 @@ class ClientThread(threading.Thread):
                 abort(400, 'POST Data was not JSON')
 
             if request.content_length < 1000 and request.content_length != 0:
-                print("Received Post: %s", str(data))
-                reponse['Time'] = data.Time
+                print("Received Post: ", str(data))
+                
+                response['Type'] = data['Type']
+                
+                if data['Type'] == 'P':
+                    print("TODO - fill out with actions for agents")
+                    #reponse['Data'] = {}
+                
+                response['Time'] = data['Time']
             else:
                 print("Request too long", request.content_length)
                 response = {"status": 413, "content_length": request.content_length, "content": data}
@@ -70,6 +79,8 @@ class ClientThread(threading.Thread):
         except:
             traceback.print_exc()
             response['status'] = 500
+    else:
+        response['status'] = 401
+        abort(400, 'Request Method is not POST')
 
-        return jsonify(response)
-
+    return jsonify(response)

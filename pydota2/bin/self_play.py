@@ -61,21 +61,21 @@ def main(unused_argv):
     try:
         # create our CMsgBotWorldState threads
         t1 = createRadiantThread(save_to_proto=True, callback=processRadiantData)
-        t2 = createDireThread(save_to_proto=True, callback=processDireData)
+        #t2 = createDireThread(save_to_proto=True, callback=processDireData)
         thrRadiantControl = ClientThread(3, 'Radiant', CLIENT_RADIANT_PORT)
-        thrDireControl = ClientThread(4, 'Dire', CLIENT_DIRE_PORT)
+        #thrDireControl = ClientThread(4, 'Dire', CLIENT_DIRE_PORT)
         
         # Start our threads
         t1.start()
-        t2.start()
+        #t2.start()
         thrRadiantControl.start()
-        thrDireControl.start()
+        #thrDireControl.start()
 
         # Append to list
         threads.append(t1)
-        threads.append(t2)
+        #threads.append(t2)
         threads.append(thrRadiantControl)
-        threads.append(thrDireControl)
+        #threads.append(thrDireControl)
 
     except KeyboardInterrupt:
         print("Caught KeyboardInterrupt, exiting.")

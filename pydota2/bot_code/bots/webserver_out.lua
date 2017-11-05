@@ -20,7 +20,9 @@ webserver.lastReply         = nil
 
 function webserver.SendPacket( json )    
     -- for RADIANT port will be 2222, for DIRE 2223
-    local req = CreateHTTPRequest( web_config.IP_ADDR .. ":" .. (web_config.IP_BASE_PORT + GetTeam()) )
+    local ip_addr = web_config.IP_ADDR .. ":" .. tostring(web_config.IP_BASE_PORT + GetTeam())
+    -- print("CreateRemoteHTTPRequest: " .. ip_addr)
+    local req = CreateRemoteHTTPRequest( ip_addr )
     req:SetHTTPRequestRawPostBody("application/json", json)
     req:Send( function( result )
         for k,v in pairs( result ) do

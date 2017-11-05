@@ -62,8 +62,6 @@ function X:Think(hBot)
 
     -- draw debug info to Game UI
     --dbg.draw()
-    
-    dbg.myPrint("IN GAME")
 
     -- throttle how often we query the back-end server
     if (GameTime() - X.lastUpdateTime) >= THROTTLE_RATE then
