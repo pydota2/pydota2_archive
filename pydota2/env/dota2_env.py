@@ -92,8 +92,15 @@ class Dota2Env(environment.Base):
         self._episode_length = game_steps_per_episode
         self._episode_steps = 0
 
+
+        #################### START OF DOTA 2 SPECIFIC CODE ##########################
+
+        for hero in player_setup[0]:
+            print(hero)
+
         # TODO - need to add much more here
 
+        ###################### END OF DOTA 2 SPECIFIC CODE ##########################
         self._episode_count = 0
         self._state = environment.StepType.LAST # Want to jump to `reset`.
         logging.info("Environment is ready.")

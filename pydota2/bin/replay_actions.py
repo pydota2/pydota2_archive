@@ -174,7 +174,7 @@ class ReplayProcessor(multiprocessing.Process):
             self._update_stage("open replay directory")
             #TODO - process the replay info (total game time, winner, timestep interval)
             replay_info = self.summarize_replay(replay_path)
-            self.replay_data = queue.Queue(maxsize=100)
+            #self.replay_data = queue.Queue(maxsize=100)
             #self.load_replay(replay_path)
             self._print((" Replay Info %s " % replay_name).center(60, "-"))
             self._print(replay_info)
@@ -269,6 +269,7 @@ class ReplayProcessor(multiprocessing.Process):
       self._update_stage('Step %d of %d - Observe' % (step, max_frames))
       
       # TODO - complete the actual Reinforcement Learning
+
 
   def _print(self, s):
     for line in str(s).strip().splitlines():
