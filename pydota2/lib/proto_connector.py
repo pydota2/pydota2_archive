@@ -63,7 +63,8 @@ class ProtoThread(threading.Thread):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
         path = JoinPath(DIR_REPLAY, sDate + self.name)
         print("Save Path: %s" % path)
-        self.create_save_directory(path)
+        if self.save_proto:
+            self.create_save_directory(path)
         self.connect_with_server()
 
     def save_proto_to_file(self, bin_data):
