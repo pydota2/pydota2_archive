@@ -87,7 +87,7 @@ class ProtoThread(threading.Thread):
                     break
 
                 if binSize:
-                    protoSize = unpack("<I", binSize)
+                    protoSize = unpack("@I", binSize)
                     print("%s protoSize: %d" % (self.name, protoSize[0]))
                     binData = s.recv(protoSize[0])
 
