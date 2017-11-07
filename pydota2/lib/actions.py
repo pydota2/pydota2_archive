@@ -56,19 +56,19 @@ class ArgumentType(collections.namedtuple(
         return cls(-1, "<none>", (len(options),), lambda a: options[a[0]])
 
     @classmethod
-    def handle(cls, value):
+    def handle(cls):
         """Create an ArgumentType with a single handle value (uint32)."""
-        return cls(-1, "<none>", (value,), lambda a: a[0])
+        return cls(-1, "<none>", (0,), lambda a: a[0])
 
     @classmethod
-    def point(cls):  # No range because it's unknown at this time.
+    def location(cls):  # No range because it's unknown at this time.
         """Create an ArgumentType that is represented by a point.Point."""
         return cls(-1, "<none>", (0, 0), lambda a: point.Point(*a).floor())
 
     @classmethod
     def tree_id(cls):
         """Create an ArgumentType that is a tree ID (uint32)."""
-        return cls(-1, "<none>", (value,), lambda a: a[0])
+        return cls(-1, "<none>", (0,), lambda a: a[0])
     
     @classmethod
     def spec(cls, id_, name, sizes):
@@ -76,7 +76,7 @@ class ArgumentType(collections.namedtuple(
         return cls(id_, name, sizes, None)
 
 class Arguments(collections.namedtuple("Arguments", [
-    "location", "obj_handle", "tree_id", "queued"])):
+    "location", "handle", "tree_id", "queued"])):
     """The full list of argument types.
     Take a look at TYPES and FUNCTION_TYPES for more details.
     Attributes:
@@ -102,15 +102,14 @@ ArgType_QUEUE   = 2
 # The list of known types.
 TYPES = Arguments.types(
     queued = ArgumentType.enum([ArgType_NORMAL, ArgType_PUSH, ArgType_QUEUE]),
-    location = ArgumentType.point(),
+    location = ArgumentType.location(),
     handle = ArgumentType.handle(),
-    treeID = ArgumentType.tree_id(),
+    tree_id = ArgumentType.tree_id(),
 )
         
 # Which argument types do each function need?
 FUNCTION_TYPES = {
     no_op: [],
-    location: [],
 }
 
 always = lambda _: True
@@ -203,9 +202,47 @@ FUNCTIONS = Functions([
 # Some indexes to support features.py and action conversion.
 ABILITY_IDS = collections.defaultdict(set)  # {ability_id: {funcs}}
 for func in FUNCTIONS:
-  if func.ability_id >= 0:
-    ABILITY_IDS[func.ability_id].add(func)
+    if func.ability_id >= 0:
+        ABILITY_IDS[func.ability_id].add(func)
 ABILITY_IDS = {k: frozenset(v) for k, v in six.iteritems(ABILITY_IDS)}
 FUNCTIONS_AVAILABLE = {f.id: f for f in FUNCTIONS if f.avail_fn}
 
 
+class FunctionCall(collections.namedtuple(
+    "FunctionCall", ["function", "arguments"])):
+    """Represents a function call action.
+      Attributes:
+        function: Store the function id, eg 2 for select_point.
+        arguments: The list of arguments for that function, each being a list of
+                   ints. For select_point this could be: [[0], [23, 38]].
+    """
+    __slots__ = ()
+
+    @classmethod
+    def all_arguments(cls, function, arguments):
+        """Helper function for creating `FunctionCall`s with `Arguments`.
+        Args:
+          function: The value to store for the action function.
+          arguments: The values to store for the arguments of the action. Can either
+            be an `Arguments` object, a `dict`, or an iterable. If a `dict` or an
+            iterable is provided, the values will be unpacked into an `Arguments`
+            object.
+        Returns:
+          A new `FunctionCall` instance.
+        """
+        if isinstance(arguments, dict):
+            arguments = Arguments(**arguments)
+        elif not isinstance(arguments, Arguments):
+            arguments = Arguments(*arguments)
+        return cls(function, arguments)
+
+
+class ValidActions(collections.namedtuple(
+    "ValidActions", ["types", "functions"])):
+    """The set of types and functions that are valid for an agent to use.
+    Attributes:
+      types: A namedtuple of the types that the functions require. Unlike TYPES
+             above, this includes the sizes for screen and minimap.
+      functions: A namedtuple of all the functions.
+    """
+    __slots__ = ()

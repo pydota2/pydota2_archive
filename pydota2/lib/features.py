@@ -91,8 +91,8 @@ class GlyphFeatures(collections.namedtuple("GlyphFeatures", [
         for name, (scale, type_) in six.iteritems(kwargs):
             feats[name] = Feature(
                 index=GlyphFeatures._fields.index(name),
-                name=name
-                scale=scale
+                name=name,
+                scale=scale,
                 type=type_)
         return super(GlyphFeatures, cls).__new__(cls, **feats)
 

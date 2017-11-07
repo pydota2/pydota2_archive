@@ -50,11 +50,11 @@ flags.mark_flag_as_required("team")
 def processData(data):
     data_frame = _pb.CMsgBotWorldState()
     data_frame.ParseFromString(data)
-    print('Data:\n%s' % str(data_frame))
+    #print('Data:\n%s' % str(data_frame))
 
 
 def main(unused_argv):
-    print("Flag: ", FLAGS.team, ", Value: ", dota2_env.teams[FLAGS.team])
+    #print("Flag: ", FLAGS.team, ", Value: ", dota2_env.teams[FLAGS.team])
     PORT = BASE_PORT + dota2_env.teams[FLAGS.team]  # Assert the team was selected
     
     # move over all the bot code to correct steam location so when a bot
@@ -64,7 +64,7 @@ def main(unused_argv):
     threads = []
     try:
         # create our CMsgBotWorldState threads
-        thread_proto = ProtoThread(1, FLAGS.team, FLAGS.save_replay, processData)
+        thread_proto = ProtoThread(1, FLAGS.team, save_proto=FLAGS.save_replay, func_callback=processData)
         thread_http = ClientThread(2, FLAGS.team, PORT)
         
         # Start our threads
