@@ -4,9 +4,6 @@
 
 """A Dota 2 environment."""
 
-"""
-THIS FILE IS NOT COMPLETE AND WILL NOT COMPILE CURRENTLY
-"""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -20,8 +17,17 @@ from pydota2.lib import stopwatch
 
 sw = stopwatch.sw
 
+"""
+THIS FILE IS NOT COMPLETE AND WILL NOT COMPILE CURRENTLY
+"""
+
 difficulties = {
     "1": "Easy"
+}
+
+teams = {
+    "Radiant": 2,
+    "Dire": 3,
 }
 
 class Dota2Env(environment.Base):
@@ -32,51 +38,50 @@ class Dota2Env(environment.Base):
     """
 
     def __init__(self, # pylint: disable=invalid-name
-                )
+                ):
         # pylint: disable=g-doc-args
-		"""
-		Create a Dota 2 Env
+        """
+        Create a Dota 2 Env
+        Args:
+          _only_use_kwargs: Don't pass args, only kwargs.
+          discount: Returned as part of the observation.
+          agent_heroes: A list of Dota 2 heroes (max 5). These are the heroes you control.
+          enemy_heroes: A list of Dota 2 heroes (max 5). These are the heroes controlled by
+                        the built-in bot.
+          difficulty: One of 1-9,A. How strong should the bot be?
+          step_mul: How many game steps per agent step (action/observation). None
+                means use the map default.
+          game_steps_per_episode: Game steps per episode, independent of the
+                              step_mul. 0 means no limit. None means use the map default.
+          score_index: -1 means use the win/loss reward, >=0 is the index into the
+                   score_cumulative with 0 being the curriculum score. None means use
+                   the map default.
+          score_multiplier: How much to multiply the score by. Useful for negating.
 
-		Args:
-			  _only_use_kwargs: Don't pass args, only kwargs.
-		  discount: Returned as part of the observation.
-		  agent_heroes: A list of Dota 2 heroes (max 5). These are the heroes you control.
-		  enemy_heroes: A list of Dota 2 heroes (max 5). These are the heroes controlled by
-			  the built-in bot.
-		  difficulty: One of 1-9,A. How strong should the bot be?
-		  step_mul: How many game steps per agent step (action/observation). None
-			  means use the map default.
-		  game_steps_per_episode: Game steps per episode, independent of the
-			  step_mul. 0 means no limit. None means use the map default.
-		  score_index: -1 means use the win/loss reward, >=0 is the index into the
-			  score_cumulative with 0 being the curriculum score. None means use
-			  the map default.
-		  score_multiplier: How much to multiply the score by. Useful for negating.
+        Raises:
+          ValueError: if the agent_heroes, enemy_heroes or difficulty are invalid.
+        """
+        # pylint: enable=g-doc-args
+        if _only_use_kwargs:
+            raise ValueError("All arguments must be passed as keyword arguments.")
 
-		Raises:
-		  ValueError: if the agent_heroes, enemy_heroes or difficulty are invalid.
-		"""
-		# pylint: enable=g-doc-args
-		if _only_use_kwargs:
-			raise ValueError("All arguments must be passed as keyword arguments.")
+        agent_heroes = agent_heroes
+        for agent_hero in agent_heroes:
+            if agent_hero not in heroes:
+                raise ValueError("Bad agent_hero args: %s" % (agent_hero))
 
-		agent_heroes = agent_heroes
-		for agent_hero in agent_heroes:
-			if agent_hero not in heroes:
-				raise ValueError("Bad agent_hero args: %s" % (agent_hero))
+        enemy_heroes = enemy_heroes
+        for enemy_hero in enemy_heroes:
+            if enemy_hero not in heroes:
+                raise ValueError("Bad enemy_hero args: %s" % (enemy_hero))
 
-		enemy_heroes = enemy_heroes
-		for enemy_hero in enemy_heroes
-			if enemy_hero not in heroes:
-				raise ValueError("Bad enemy_hero args: %s" % (enemy_hero))
+            difficulty = difficulty and str(difficulty) or "1"
+            if difficulty not in difficulties:
+                raise ValueError("Bad difficulty")
 
-        difficulty = difficulty and str(difficulty) or "1"
-        if difficulty not in difficulties:
-            raise ValueError("Bad difficulty")
+            self._num_players = 5
 
-        self._num_players = 5
-
-        self._setup((agent_heroes, enemy_heroes, difficulty), **kwargs)
+            self._setup((agent_heroes, enemy_heroes, difficulty), **kwargs)
 
     def _setup(self,
                player_setup,
@@ -121,8 +126,8 @@ class Dota2Env(environment.Base):
         """Start a new episode."""
         self._episode_steps = 0
         if self._episode_count:
-          	# No need to restart for the first episode.
-          	self._restart()
+              # No need to restart for the first episode.
+              self._restart()
 
         self._episode_count += 1
         logging.info("Starting episode: %s", self._episode_count)
