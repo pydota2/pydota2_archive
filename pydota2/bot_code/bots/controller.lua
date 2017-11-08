@@ -11,7 +11,7 @@ dbg = require( GetScriptDirectory().."/debug" )
 local packet = require( GetScriptDirectory().."/data_packet" )
 local server = require( GetScriptDirectory().."/webserver_out" )
 
-local THROTTLE_RATE = 0.1   -- in seconds (0.1 == 10 times per second)
+local THROTTLE_RATE = 0.25   -- in seconds (0.1 == 10 times per second)
 
 local X = {}
 X.lastUpdateTime = -1000.0
