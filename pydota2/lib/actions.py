@@ -114,6 +114,7 @@ TYPES = Arguments.types(
 # Which argument types do each function need?
 FUNCTION_TYPES = {
     no_op: [],
+    move_to_location: [TYPES.location],
 }
 
 always = lambda _: True
