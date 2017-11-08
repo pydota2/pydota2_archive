@@ -29,6 +29,7 @@ from __future__ import print_function
 
 import traceback
 import threading
+import multiprocessing
 
 from flask import Flask, request, jsonify, abort
 
@@ -43,7 +44,14 @@ class ClientThread(threading.Thread):
         self.threadID = threadID
         self.name = name  # should be either 'Radiant' or 'Dire'
         self.port = port
+        self.post_queue = multiprocessing.Queue()
+        
+    def add_to_post_queue(self, value_tuple):
+        self.post_queue.put(value_tuple)
 
+    def get_from_post_queue(self):
+        self.post_queue.get()
+        
     def run(self):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
         app.run(host=HOST, debug=False, port=self.port)
