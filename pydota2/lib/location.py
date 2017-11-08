@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Basic Point and Rect classes."""
+"""Basic Location class."""
 
 from __future__ import absolute_import
 from __future__ import division
@@ -21,30 +21,26 @@ import collections
 import math
 import random
 
-"""
-THIS FILE IS COMPLETE AND WILL COMPILE BUT IT CURRENTLY REPRESENTS A
-SCREEN X,Y POINT, NOT A WORLD X,Y,Z LOCATION AS PERTINENT TO DOTA 2.
-PLAN IS TO LEVERAGE THIS CLASS FOR A LOCATION CLASS.
-"""
 
-class Point(collections.namedtuple("Point", ["x", "y"])):
-  """A basic Point class."""
+class Location(collections.namedtuple("Location", ["x", "y", "z"])):
+  """A basic Location class."""
   __slots__ = ()
 
   @classmethod
   def build(cls, obj):
-    """Build a Point from an object that has properties `x` and `y`."""
-    return cls(obj.x, obj.y)
+    """Build a Location from an object that has properties `x`, `y` and `z`."""
+    return cls(obj.x, obj.y, obj.z)
 
   @classmethod
   def unit_rand(cls):
-    """Return a Point with x, y chosen randomly with 0 <= x < 1, 0 <= y < 1."""
-    return cls(random.random(), random.random())
+    """Return a Location with x, y chosen randomly with 0 <= x < 1, 0 <= y < 1."""
+    return cls(random.random(), random.random(), 0)
 
   def assign_to(self, obj):
-    """Assign `x` and `y` to an object that has properties `x` and `y`."""
+    """Assign `x`, `y` and `z` to an object that has properties `x`, `y`, and `z`."""
     obj.x = self.x
     obj.y = self.y
+    obj.z = self.z
 
   def dist(self, other):
     """Distance to some other point."""
@@ -60,19 +56,19 @@ class Point(collections.namedtuple("Point", ["x", "y"])):
 
   def round(self):
     """Round `x` and `y` to integers."""
-    return Point(int(round(self.x)), int(round(self.y)))
+    return Location(int(round(self.x)), int(round(self.y)), int(round(self.z)))
 
   def floor(self):
     """Round `x` and `y` down to integers."""
-    return Point(int(math.floor(self.x)), int(math.floor(self.y)))
+    return Location(int(math.floor(self.x)), int(math.floor(self.y)))
 
   def ceil(self):
     """Round `x` and `y` up to integers."""
-    return Point(int(math.ceil(self.x)), int(math.ceil(self.y)))
+    return Location(int(math.ceil(self.x)), int(math.ceil(self.y)))
 
   def abs(self):
     """Take the absolute value of `x` and `y`."""
-    return Point(abs(self.x), abs(self.y))
+    return Location(abs(self.x), abs(self.y))
 
   def len(self):
     """Length of the vector to this point."""
@@ -98,63 +94,58 @@ class Point(collections.namedtuple("Point", ["x", "y"])):
 
   def transpose(self):
     """Flip x and y."""
-    return Point(self.y, self.x)
+    return Location(self.y, self.x, self.z)
 
   def rotate_deg(self, angle):
     return self.rotate_rad(math.radians(angle))
 
   def rotate_rad(self, angle):
-    return Point(self.x * math.cos(angle) - self.y * math.sin(angle),
+    return Location(self.x * math.cos(angle) - self.y * math.sin(angle),
                  self.x * math.sin(angle) + self.y * math.cos(angle))
 
   def rotate_rand(self, angle=180):
     return self.rotate_deg(random.randint(-angle, angle))
 
-  def contained_circle(self, pt, radius):
-    """Is this point inside the circle defined by (`pt`, `radius`)?"""
-    return self.dist(pt) < radius
-
-  def bound(self, p1, p2=None):
-    """Bound this point within the rect defined by (`p1`, `p2`)."""
-    r = Rect(p1, p2)
-    return Point(min(max(self.x, r.l), r.r), min(max(self.y, r.t), r.b))
+  def contained_circle(self, loc, radius):
+    """Is this location inside the circle defined by (`loc`, `radius`)?"""
+    return self.dist(loc) < radius
 
   def __str__(self):
     return "%.6f,%.6f" % self
 
   def __neg__(self):
-    return Point(-self.x, -self.y)
+    return Location(-self.x, -self.y)
 
-  def __add__(self, pt_or_val):
-    if isinstance(pt_or_val, Point):
-      return Point(self.x + pt_or_val.x, self.y + pt_or_val.y)
+  def __add__(self, loc_or_val):
+    if isinstance(loc_or_val, Location):
+      return Location(self.x + loc_or_val.x, self.y + loc_or_val.y)
     else:
-      return Point(self.x + pt_or_val, self.y + pt_or_val)
+      return Location(self.x + loc_or_val, self.y + loc_or_val)
 
-  def __sub__(self, pt_or_val):
-    if isinstance(pt_or_val, Point):
-      return Point(self.x - pt_or_val.x, self.y - pt_or_val.y)
+  def __sub__(self, loc_or_val):
+    if isinstance(loc_or_val, Location):
+      return Location(self.x - loc_or_val.x, self.y - loc_or_val.y)
     else:
-      return Point(self.x - pt_or_val, self.y - pt_or_val)
+      return Location(self.x - loc_or_val, self.y - loc_or_val)
 
-  def __mul__(self, pt_or_val):
-    if isinstance(pt_or_val, Point):
-      return Point(self.x * pt_or_val.x, self.y * pt_or_val.y)
+  def __mul__(self, loc_or_val):
+    if isinstance(loc_or_val, Location):
+      return Location(self.x * loc_or_val.x, self.y * loc_or_val.y)
     else:
-      return Point(self.x * pt_or_val, self.y * pt_or_val)
+      return Location(self.x * loc_or_val, self.y * loc_or_val)
 
-  def __truediv__(self, pt_or_val):
-    if isinstance(pt_or_val, Point):
-      return Point(self.x / pt_or_val.x, self.y / pt_or_val.y)
+  def __truediv__(self, loc_or_val):
+    if isinstance(loc_or_val, Location):
+      return Location(self.x / loc_or_val.x, self.y / loc_or_val.y)
     else:
-      return Point(self.x / pt_or_val, self.y / pt_or_val)
+      return Location(self.x / loc_or_val, self.y / loc_or_val)
 
-  def __floordiv__(self, pt_or_val):
-    if isinstance(pt_or_val, Point):
-      return Point(int(self.x // pt_or_val.x), int(self.y // pt_or_val.y))
+  def __floordiv__(self, loc_or_val):
+    if isinstance(loc_or_val, Location):
+      return Location(int(self.x // loc_or_val.x), int(self.y // loc_or_val.y))
     else:
-      return Point(int(self.x // pt_or_val), int(self.y // pt_or_val))
+      return Location(int(self.x // loc_or_val), int(self.y // loc_or_val))
 
   __div__ = __truediv__
 
-center = Point(0, 0)
+center = Location(0, 0, 0)

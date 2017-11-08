@@ -25,7 +25,7 @@ import collections
 import numbers
 
 import six
-from pydota2.lib import point
+from pydota2.lib import location
 
 
 """
@@ -62,8 +62,8 @@ class ArgumentType(collections.namedtuple(
 
     @classmethod
     def location(cls):  # No range because it's unknown at this time.
-        """Create an ArgumentType that is represented by a point.Point."""
-        return cls(-1, "<none>", (0, 0), lambda a: point.Point(*a).floor())
+        """Create an ArgumentType that is represented by a location.Location."""
+        return cls(-1, "<none>", (0, 0), lambda a: location.Location(*a).floor())
 
     @classmethod
     def tree_id(cls):
@@ -80,7 +80,7 @@ class Arguments(collections.namedtuple("Arguments", [
     """The full list of argument types.
     Take a look at TYPES and FUNCTION_TYPES for more details.
     Attributes:
-        location: A point vector (X, Y, Z(optional))
+        location: A location vector (X, Y, Z(optional))
         obj_handle: a handle to a unit or ability object
         tree_id: A unique ID for a specific tree in map
         queued: Whether the action should be done now or later.
@@ -212,9 +212,9 @@ class FunctionCall(collections.namedtuple(
     "FunctionCall", ["function", "arguments"])):
     """Represents a function call action.
       Attributes:
-        function: Store the function id, eg 2 for select_point.
+        function: Store the function id, eg 2 for select_location.
         arguments: The list of arguments for that function, each being a list of
-                   ints. For select_point this could be: [[0], [23, 38]].
+                   ints. For select_location this could be: [[0], [23, 38]].
     """
     __slots__ = ()
 
