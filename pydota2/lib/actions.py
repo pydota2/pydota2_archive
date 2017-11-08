@@ -200,6 +200,7 @@ class Functions(object):
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
     Function.hero_func(0, "no_op", no_op),
+    Function.hero_func(1, "move_to_location", move_to_location),
 ])
 # pylint: enable=line-too-long
 
