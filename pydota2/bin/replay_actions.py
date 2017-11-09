@@ -244,7 +244,7 @@ class ReplayProcessor(multiprocessing.Process):
 
         data = {}
         indx = 0
-        for fname in [files[0], files[-1]]:
+        for fname in [files[0], files[-2500]]:
             try:
                 data[indx] = self._ingest_frame(fname)
             except Exception as e:

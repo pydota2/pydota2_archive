@@ -127,7 +127,9 @@ class Features(object):
         """
 
         return {
-            "player": (11,),
+            "game_loop": (1,),
+            "team": (5,),
+            "available_actions": (0,),
         }
 
     def action_spec(self):
@@ -135,14 +137,58 @@ class Features(object):
 
     @sw.decorate
     def transorm_obs(self, obs):
-        """Render some Dota2 observations into somethin an agent can handle."""
-        empty = np.array([], dtype=np.int32).reshape((0,7)) #TODO - fix sizes once implemented
+        """
+           Transform Dota2 observations into something an agent can handle.
+           Observations come to us through the CMsgBotWorldState protobufs, 
+           and we have to select which pieces of data to send to our RL agent.
+        """
+
+        # empty np.array stub (for quick-reuse) # TODO - fix size once implemented
+        empty = np.array([], dtype=np.int32).reshape((0,7))
+
+        # prepare our output observations for agents RL, prefil those that might
+        # be empty with emtpy stub in case they are not present in protobuf
         out = {}
 
-        out['player'] = np.array([
-            obs.player_common.net_worth,
-        ], dtype=np.int32)
+        out["game_loop"] = np.array([obs.game_loop], dtype=np.int32)
 
+        # team specific observations
+        out['team'] = np.array([
+            obs.team.dota_time,
+            obs.team.net_worth,
+            obs.team.glyph_timer,
+            obs.team.roshan_state,
+            obs.team.courier_state,
+        ], dtype=np.int32)
+        
+        # hero specific observations
+        def hero_vec(u):
+            return np.array((
+                u.hero_id,
+                u.level,
+                u.health,
+                u.health_ratio,
+                u.health_regen,
+                u.mana,
+                u.mana_ratio,
+                u.mana_regen,
+                u.net_worth,
+            ), dtype=np.int32)
+
+        heroes = obs.players
+        units = obs.units
+        out['heroes'] = np.array([], dtype=np.int32)
+        with sw('heroes'):
+            for hero in heroes:
+                for unit in units:
+                    if unit.unit_type == 1 and unit.player_id == hero.player_id:
+                        out['heroes'] = np.append(out['heroes'], hero_vec(unit))
+
+        # unit specific observations
+
+        # event specific observations
+
+        # comprehensive list of all available actions
         out['available_actions'] = np.array(self.available_actions(obs), dtype=np.int32)
 
         return out
