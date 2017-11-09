@@ -33,11 +33,11 @@ THIS FILE IS NOT COMPLETE
 """
 
 def no_op(post_connection, hero_id):
-    post_connection.add_to_post_queue((hero_id, "no_op"))
+    post_connection.add_to_post_queue((hero_id, ["no_op"]))
 
 def move_to_location(post_connection, hero_id, locVec):
     """move to location x,y,z."""
-    post_connection.add_to_post_queue((hero_id, "move_to_location", locVec))
+    post_connection.add_to_post_queue((hero_id, ["move_to_location", locVec]))
 
 class ArgumentType(collections.namedtuple(
     "ArgumentType", ["id", "name", "sizes", "fn"])):

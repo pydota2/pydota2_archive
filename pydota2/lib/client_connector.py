@@ -76,8 +76,10 @@ class ClientThread(threading.Thread):
                     response['Type'] = data['Type']
                     
                     if data['Type'] == 'P':
-                        print("TODO - fill out with actions for agents")
                         response['Data'] = {}
+                        while not self.post_queue.empty():
+                            action_tuple = self.get_from_post_queue()
+                            response['Data'][str(action_tuple[0])] = action_tuple[1]
                     
                     response['Time'] = data['Time']
                 else:

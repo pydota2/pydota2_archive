@@ -160,5 +160,15 @@ class Features(object):
 
     def _init_valid_functions(self):
         """Initialize ValidFunctions and setup the callbacks."""
+        sizes = {
+            "global": tuple(int(i) for i in (11,11)),
+        }
+        types = actions.Arguments(*[
+            actions.ArgumentType.spec(t.id, t.name, sizes.get(t.name, t.sizes))
+            for t in actions.TYPES])
+
+        functions = actions.Functions([
+            actions.Function.spec(f.id, f.name, tuple(types[t.id] for t in f.args))
+            for f in actions.FUNCTIONS])
         
         return actions.ValidActions(types, functions)

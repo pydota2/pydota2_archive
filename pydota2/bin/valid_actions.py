@@ -35,7 +35,7 @@ flags.DEFINE_bool("hide_specific", False, "Hide the specific actions")
 
 def main(unused_argv):
     """Print the valid actions."""
-    feats = features.Features()
+    feats = features.Features(None)
     action_spec = feats.action_spec()
     flattened = 0
     count = 0
