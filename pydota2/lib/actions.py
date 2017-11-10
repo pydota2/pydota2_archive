@@ -31,6 +31,8 @@ from pydota2.lib import location
 """
 THIS FILE IS NOT COMPLETE
 """
+def use_glyph(post_connection, hero_id=-1):
+    post_connection.add_to_post_queue((hero_id, ["use_glyph"]))
 
 def no_op(post_connection, hero_id):
     post_connection.add_to_post_queue((hero_id, ["no_op"]))
@@ -38,6 +40,10 @@ def no_op(post_connection, hero_id):
 def move_to_location(post_connection, hero_id, locVec):
     """move to location x,y,z."""
     post_connection.add_to_post_queue((hero_id, ["move_to_location", locVec]))
+
+def attack_unit(post_connection, hero_id, target_handle):
+    """attack a unit referenced by a handle_id."""
+    post_connection.add_to_post_queue((hero_id, ["attack_unit", target_handle]))
 
 class ArgumentType(collections.namedtuple(
     "ArgumentType", ["id", "name", "sizes", "fn"])):
@@ -113,8 +119,10 @@ TYPES = Arguments.types(
         
 # Which argument types do each function need?
 FUNCTION_TYPES = {
+    use_glyph: [],
     no_op: [],
     move_to_location: [TYPES.location],
+    attack_unit: [TYPES.handle],
 }
 
 always = lambda _: True
@@ -138,15 +146,14 @@ class Function(collections.namedtuple(
     __slots__ = ()
 
     @classmethod
-    def courier_func(cls):
-        """Define a function representing a courier action."""
-        return cls(id_, name, function_type, FUNCTION_TYPES[function_type], avail_fn)
+    def team_func(cls, id_, name, function_type, avail_fn=always):
+        """Define a function representing team-wide actions take by master-agent."""
+        return cls(id_, name, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
 
     @classmethod
     def hero_func(cls, id_, name, function_type, avail_fn=always):
         """Define a function representing a hero action."""
-        return cls(id_, name, 0, 0, function_type, FUNCTION_TYPES[function_type],
-               avail_fn)
+        return cls(id_, name, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
     
     @classmethod
     def ability(cls, id_, name, function_type, ability_id, general_id=0):
@@ -168,7 +175,7 @@ class Function(collections.namedtuple(
     
     def str(self, space=False):
         """String version. Set space=True to line them all up nicely."""
-        return "%s/%s (%s)" % (str(self.id).rjust(space and 4),
+        return "%s/%s (%s)" % (str(self.id).rjust(space and 5),
                            self.name.ljust(space and 50),
                            "; ".join(str(a) for a in self.args))
     
@@ -200,8 +207,11 @@ class Functions(object):
         
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
+    Function.team_func(10000, "use_glyph", use_glyph),
+
     Function.hero_func(0, "no_op", no_op),
     Function.hero_func(1, "move_to_location", move_to_location),
+    Function.hero_func(2, "attack_unit", attack_unit),
 ])
 # pylint: enable=line-too-long
 

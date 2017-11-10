@@ -31,7 +31,7 @@ class WorldData(object):
     """Expose static data in a more useful form than the raw protos."""
 
     def __init__(self, data):
-        """Takes data from CMsgBotWorldState."""
+        """Takes data from Valve provided JSON-like text files."""
         self._units = {u.unit_id: u.name for u in data.units}
         self._abilities = {a.ability_id: a for a in data.abilities}
         self._general_abilities = {a.remaps_to_ability_id
