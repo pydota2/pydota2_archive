@@ -45,8 +45,6 @@ flags.DEFINE_integer("game_steps_per_episode", 0, "Game steps per episode.")
 flags.DEFINE_integer("step_mul", 8, "Game steps per agent step.")
 
 flags.DEFINE_string("agent", "pydota2.agents.random_agent.RandomAgent", "Which agent to run")
-flags.DEFINE_enum("agent_race", None, dota2_env.races.keys(), "Agent's race.")
-flags.DEFINE_enum("bot_race", None, dota2_env.races.keys(), "Bot's race.")
 flags.DEFINE_enum("difficulty", None, dota2_env.difficulties.keys(), "Bot's strength.")
 
 flags.DEFINE_bool("profile", False, "Whether to turn on code profiling.")
@@ -57,8 +55,6 @@ flags.DEFINE_bool("save_replay", True, "Whether to save a replay at the end.")
 
 def run_thread(agent_cls, visualize):
     with dota2_env.Dota2Env(
-            agent_race=FLAGS.agent_race,
-            bot_race=FLAGS.bot_race,
             difficulty=FLAGS.difficulty,
             step_mul=FLAGS.step_mul,
             game_steps_per_episode=FLAGS.game_steps_per_episode,

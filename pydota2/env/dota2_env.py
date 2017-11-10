@@ -21,6 +21,11 @@ sw = stopwatch.sw
 THIS FILE IS NOT COMPLETE AND WILL NOT COMPILE CURRENTLY
 """
 
+_possible_results = {
+    "Victory": 1,
+    "Defeat": -1,
+}
+
 difficulties = {
     "1": "Easy"
 }
@@ -38,16 +43,15 @@ class Dota2Env(environment.Base):
     """
 
     def __init__(self, # pylint: disable=invalid-name
-                ):
+                _only_use_kwargs=None,
+                difficulty=None,
+                **kwargs):
         # pylint: disable=g-doc-args
         """
         Create a Dota 2 Env
         Args:
           _only_use_kwargs: Don't pass args, only kwargs.
           discount: Returned as part of the observation.
-          agent_heroes: A list of Dota 2 heroes (max 5). These are the heroes you control.
-          enemy_heroes: A list of Dota 2 heroes (max 5). These are the heroes controlled by
-                        the built-in bot.
           difficulty: One of 1-9,A. How strong should the bot be?
           step_mul: How many game steps per agent step (action/observation). None
                 means use the map default.
@@ -65,23 +69,13 @@ class Dota2Env(environment.Base):
         if _only_use_kwargs:
             raise ValueError("All arguments must be passed as keyword arguments.")
 
-        agent_heroes = agent_heroes
-        for agent_hero in agent_heroes:
-            if agent_hero not in heroes:
-                raise ValueError("Bad agent_hero args: %s" % (agent_hero))
+        difficulty = difficulty and str(difficulty) or "1"
+        if difficulty not in difficulties:
+            raise ValueError("Bad difficulty")
 
-        enemy_heroes = enemy_heroes
-        for enemy_hero in enemy_heroes:
-            if enemy_hero not in heroes:
-                raise ValueError("Bad enemy_hero args: %s" % (enemy_hero))
+        self._num_players = 5
 
-            difficulty = difficulty and str(difficulty) or "1"
-            if difficulty not in difficulties:
-                raise ValueError("Bad difficulty")
-
-            self._num_players = 5
-
-            self._setup((agent_heroes, enemy_heroes, difficulty), **kwargs)
+        self._setup((agent_heroes, enemy_heroes, difficulty), **kwargs)
 
     def _setup(self,
                player_setup,
@@ -97,6 +91,7 @@ class Dota2Env(environment.Base):
         self._episode_length = game_steps_per_episode
         self._episode_steps = 0
 
+        self._parallel = run_parallel.RunParallel()  # Needed for multiplayer
 
         #################### START OF DOTA 2 SPECIFIC CODE ##########################
 
@@ -106,6 +101,9 @@ class Dota2Env(environment.Base):
         # TODO - need to add much more here
 
         ###################### END OF DOTA 2 SPECIFIC CODE ##########################
+
+        self._features = features.Features()
+
         self._episode_count = 0
         self._state = environment.StepType.LAST # Want to jump to `reset`.
         logging.info("Environment is ready.")

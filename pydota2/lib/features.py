@@ -38,9 +38,9 @@ sw = stopwatch.sw
 """
 THIS FILE IS NOT COMPLETE AND WILL NOT COMPILE CURRENTLY
 
-Features for Dota 2 represent the layers of actionable interfaces the agent can
-control. These are separated into types of controllable feature layersi where an
-action at each layer can be taken simultaneously. 
+Features for Dota 2 represent the structured data available to the agents.
+These are separated into types of controllable features where an
+action from each set can be taken simultaneously. 
 These include:
     * Players (5 per team)
     * Illusions
@@ -82,24 +82,9 @@ class Feature(collections.namedtuple(
     }
 
 
-class GlyphFeatures(collections.namedtuple("GlyphFeatures", [
-    "available"])):
-    __slots__ = ()
-
-    def __new__(cls, **kwargs):
-        feats = {}
-        for name, (scale, type_) in six.iteritems(kwargs):
-            feats[name] = Feature(
-                index=GlyphFeatures._fields.index(name),
-                name=name,
-                scale=scale,
-                type=type_)
-        return super(GlyphFeatures, cls).__new__(cls, **feats)
-
-
 class Features(object):
     """
-        Transform feature lauyers from Dota2 Observation protos into numpy arrays.
+        Transform structured Dota2 data (observation protobufs) into numpy arrays.
 
         This has the implementation details of how to transform a Dota 2 environment.
         It translates between agent action/observation formats and Dota 2 
@@ -110,9 +95,8 @@ class Features(object):
         contexts, e.g. a supervised dataset pipeline.
     """
 
-    def __init__(self, feature_layer, hide_specific_actions=True):
+    def __init__(self, hide_specific_actions=True):
         """Initialize a Features instance."""
-        self._feature_layer = feature_layer
         self._hide_specific_actions = hide_specific_actions
         self._valid_functions = self._init_valid_functions()
 
@@ -205,6 +189,39 @@ class Features(object):
                 available_actions.add(i)
 
         return list(available_actions)
+
+    @sw.decorate
+    def reverse_action(self, action):
+        """
+           Transform a Dota2-style action into an agent-style action.
+        """
+
+        def func_call(func_id, args):
+            return actions.FunctionCall(func_id, [[int(v) for v in a] for a in args])
+
+        def func_call_ability(ability_id, cmd_type, args):
+            """Get the function id for a specific ability id and action type."""
+            if ability_id not in actions.ABILITY_IDS:
+                logging.warning("Unknown ability_id: %s. Treating as a no-op.", ability_id)
+                return func_call_name("no_op", [])
+
+            if self._hide_specific_actions:
+                general_id = next(iter(actions.ABILITY_IDS[ability_id])).general_id
+                if general_id:
+                    ability_id = general_id
+
+            for func in actions.ABILITY_IDS[ability_id]:
+                if func.function_type is cmd_type:
+                    return func_call(func.id, args)
+
+            raise ValueError("Unknown ability_id: %s, type: %s. Likely a bug." % (
+                ability_id, cmd_type.__name__))
+
+        def func_call_name(name, args):
+            return func_call(actions.FUNCTIONS[name].id, args)
+
+        return func_call_name("no_op", [])
+
 
     def _init_valid_functions(self):
         """Initialize ValidFunctions and setup the callbacks."""
