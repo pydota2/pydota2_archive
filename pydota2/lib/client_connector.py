@@ -37,6 +37,7 @@ app = Flask('__name__')
 
 HOST = '127.0.0.1'
 
+post_queue = multiprocessing.Queue()
 
 class ClientThread(threading.Thread):
     def __init__(self, threadID, name, port):
@@ -44,19 +45,21 @@ class ClientThread(threading.Thread):
         self.threadID = threadID
         self.name = name  # should be either 'Radiant' or 'Dire'
         self.port = port
-        self.post_queue = multiprocessing.Queue()
-        
-    def add_to_post_queue(self, value_tuple):
-        self.post_queue.put(value_tuple)
+    
+    @staticmethod
+    def add_to_post_queue(value_tuple):
+        post_queue.put(value_tuple)
 
-    def get_from_post_queue(self):
-        self.post_queue.get()
+    @staticmethod
+    def get_from_post_queue():
+        post_queue.get()
         
     def run(self):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
         app.run(host=HOST, debug=False, port=self.port)
-
-    @app.route('/', methods=['GET', 'POST'])
+        
+    @staticmethod
+    @app.route('/', methods=['POST'])
     def post():
         #print('IN POST')
         response = {}
@@ -77,8 +80,8 @@ class ClientThread(threading.Thread):
                     
                     if data['Type'] == 'P':
                         response['Data'] = {}
-                        while not self.post_queue.empty():
-                            action_tuple = self.get_from_post_queue()
+                        while not post_queue.empty():
+                            action_tuple = get_from_post_queue()
                             response['Data'][str(action_tuple[0])] = action_tuple[1]
                     
                     response['Time'] = data['Time']
