@@ -187,6 +187,8 @@ class Features(object):
         # unit specific observations
 
         # event specific observations
+        ability_events = obs.ability_events
+        damage_events = obs.damage_events
 
         # comprehensive list of all available actions
         out['available_actions'] = np.array(self.available_actions(obs), dtype=np.int32)
