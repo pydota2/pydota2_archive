@@ -12,7 +12,8 @@ from __future__ import print_function
 from absl import logging
 
 from pydota2.env import environment
-
+from pydota2.lib import features
+from pydota2.lib import run_parallel
 from pydota2.lib import stopwatch
 
 sw = stopwatch.sw
@@ -52,6 +53,8 @@ class Dota2Env(environment.Base):
         Args:
           _only_use_kwargs: Don't pass args, only kwargs.
           discount: Returned as part of the observation.
+          visualize: Whether to pop up a window showing the camera and feature
+                     layers. This won't work without access to a window manager.
           difficulty: One of 1-9,A. How strong should the bot be?
           step_mul: How many game steps per agent step (action/observation). None
                 means use the map default.
@@ -63,7 +66,7 @@ class Dota2Env(environment.Base):
           score_multiplier: How much to multiply the score by. Useful for negating.
 
         Raises:
-          ValueError: if the agent_heroes, enemy_heroes or difficulty are invalid.
+          ValueError: if the difficulty is invalid.
         """
         # pylint: enable=g-doc-args
         if _only_use_kwargs:
@@ -75,11 +78,12 @@ class Dota2Env(environment.Base):
 
         self._num_players = 5
 
-        self._setup((agent_heroes, enemy_heroes, difficulty), **kwargs)
+        self._setup((difficulty), **kwargs)
 
     def _setup(self,
                player_setup,
                discount=1.0,
+               visualize=False,
                step_mul=None,
                game_steps_per_episode=None):
         
@@ -103,8 +107,12 @@ class Dota2Env(environment.Base):
         ###################### END OF DOTA 2 SPECIFIC CODE ##########################
 
         self._features = features.Features()
+        
+        if visualize:
+            print("Rendering Requested but NOT IMPLEMENTED!!!")
 
         self._episode_count = 0
+        self._obs = None
         self._state = environment.StepType.LAST # Want to jump to `reset`.
         logging.info("Environment is ready.")
 
@@ -140,8 +148,11 @@ class Dota2Env(environment.Base):
         if self._state == environment.StepType.LAST:
             return self.reset()
 
-        # TODO - more
-        
+        self._parallel.run(
+            (c.act, self._features.transform_action(o.observation, a))
+            for c, o, a in zip(self._controllers, self._obs, actions)
+        )
+
         self._state = environment.StepType.MID
         return self._step()
 
@@ -151,7 +162,10 @@ class Dota2Env(environment.Base):
             logging.info("Episode finished. Outcome: %s, Reward: %s, Score: %s",
                          outcome, reward, [o["score_cumulative"][0] for o in agent_obs])
 
-        return tuple()
+        return tuple(environment.TimeStep(step_type=self._state,
+                     reward=r * self._score_multiplier,
+                     discount=discount, observation=o)
+                     for r, o in zip(reward, agent_obs))
 
     @property
     def state(self):
