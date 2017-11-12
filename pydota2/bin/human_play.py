@@ -43,7 +43,6 @@ from pydota2.lib import stopwatch
 from pydota2.bin import prep_dota_client
 from pydota2.lib.proto_connector import ProtoThread
 from pydota2.lib.client_connector import ClientThread
-import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
 from pydota2.env import dota2_env
 
 from absl import app
@@ -67,13 +66,15 @@ flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 flags.mark_flag_as_required("team")
 
 
-def run_agent_thread(agent_cls, visualize):
+def run_agent_thread(agent_cls, visualize, post_controller, client_controller):
     print("Starting Thread for Agent(s)")
     with dota2_env.Dota2Env(
             difficulty=FLAGS.difficulty,
             step_mul=FLAGS.step_mul,
             game_steps_per_episode=FLAGS.game_steps_per_episode,
-            visualize=visualize) as env:
+            visualize=visualize,
+            p_controller=post_controller,
+            c_controller=client_controller) as env:
         env = available_actions_printer.AvailableActionsPrinter(env)
         agent = agent_cls()
         run_loop.run_loop([agent], env, FLAGS.max_agent_steps)
@@ -81,12 +82,6 @@ def run_agent_thread(agent_cls, visualize):
             env.save_replay(agent_cls.__name__)
 
             
-def processData(data):
-    data_frame = _pb.CMsgBotWorldState()
-    data_frame.ParseFromString(data)
-    #print('Data:\n%s' % str(data_frame))
-
-
 def main(unused_argv):
     """Run an agent."""
     stopwatch.sw.enabled = FLAGS.profile or FLAGS.trace
@@ -101,7 +96,7 @@ def main(unused_argv):
     threads = []
     try:
         # create our CMsgBotWorldState threads
-        thread_proto = ProtoThread(1, FLAGS.team, save_proto=FLAGS.save_replay, func_callback=processData)
+        thread_proto = ProtoThread(1, FLAGS.team, save_proto=FLAGS.save_replay)
         thread_http = ClientThread(2, FLAGS.team, PORT)
         
         agent_module, agent_name = FLAGS.agent.rsplit(".", 1)
@@ -122,7 +117,7 @@ def main(unused_argv):
             threads.append(t)
             
         # and start our main agent (or only agent if only running one)
-        t = threading.Thread(target=run_agent_thread, args=(agent_cls, FLAGS.render))
+        t = threading.Thread(target=run_agent_thread, args=(agent_cls, FLAGS.render, thread_proto, thread_http))
         t.start()
         threads.append(t)
 

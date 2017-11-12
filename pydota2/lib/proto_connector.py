@@ -31,10 +31,12 @@ from __future__ import print_function
 import socket
 import threading
 from datetime import datetime
+from six.moves.queue import Queue
 
 from struct import *
 
 from pydota2.lib.gfile import *
+import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
 
 HOST            = '127.0.0.1'      # The remote host
 RADIANT_PORT    = 12120 # The same port as used by the server
@@ -45,9 +47,8 @@ sDate = "{:%Y_%m_%d_%H%M_}".format(datetime.now())
 
 threadLock = threading.Lock()
 
-
 class ProtoThread(threading.Thread):
-    def __init__(self, threadID, name, save_proto=True, func_callback=None):
+    def __init__(self, threadID, name, save_proto=True):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name  # should be either 'Radiant' or 'Dire'
@@ -57,15 +58,35 @@ class ProtoThread(threading.Thread):
             self.port = DIRE_PORT
         self.num_proto = 0
         self.save_proto = save_proto
-        self.func = func_callback
+        self.bDone = False
+        self.proto_queue = Queue(maxsize=1)
 
+    def add_to_proto_queue(self, data):
+        data_frame = _pb.CMsgBotWorldState()
+        data_frame.ParseFromString(data)
+        # Get lock to synchronize threads
+        #threadLock.acquire()
+        self.proto_queue.put(data_frame)
+        # Free lock to release for next thread
+        #threadLock.release()
+
+    def get_from_proto_queue(self):
+        # Get lock to synchronize threads
+        #threadLock.acquire()
+        return self.proto_queue.get()
+        # Free lock to release for next thread
+        #threadLock.release()
+        
     def run(self):
-        print("Starting Thread %d for %s" % (self.threadID, self.name))
+        print("Starting Protobuf Thread %d for %s" % (self.threadID, self.name))
         path = JoinPath(DIR_REPLAY, sDate + self.name)
-        print("Save Path: %s" % path)
         if self.save_proto:
+            print("Save Path: %s" % path)
             self.create_save_directory(path)
         self.connect_with_server()
+        
+    def quit(self):
+        self.bDone = True
 
     def save_proto_to_file(self, bin_data):
         with open(JoinPath(DIR_REPLAY, sDate + self.name, str(self.num_proto).zfill(6) + '.bin'), 'bw') as f:
@@ -79,9 +100,10 @@ class ProtoThread(threading.Thread):
     def connect_with_server(self):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, self.port))
-
+            
             try:
-                while True:
+                self.bDone = False
+                while not self.bDone:
                     binSize = s.recv(4)
 
                     if not binSize:
@@ -93,18 +115,12 @@ class ProtoThread(threading.Thread):
                         print("%s protoSize: %d" % (self.name, protoSize[0]))
                         binData = s.recv(protoSize[0])
 
-                        # Get lock to synchronize threads
-                        threadLock.acquire()
                         if self.save_proto:
                             self.save_proto_to_file(binData)
-                        if self.func:
-                            self.func(binData)
-                        # Free lock to release for next thread
-                        threadLock.release()
+                        self.add_to_proto_queue(binData)
 
                         self.num_proto += 1
-            except KeyboardInterrupt:
-                print("Caught KeyboardInterrupt, ProtoThread exiting.")
+                        print("Process %d protos" % self.num_proto)
             finally:
                 print("Closing Socket")
                 s.close()

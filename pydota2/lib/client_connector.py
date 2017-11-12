@@ -55,11 +55,14 @@ class ClientThread(threading.Thread):
         post_queue.get()
         
     def run(self):
-        print("Starting Thread %d for %s" % (self.threadID, self.name))
+        print("Starting HTTP POST Thread %d for %s" % (self.threadID, self.name))
         try:
             app.run(host=HOST, debug=False, port=self.port)
         except KeyboardInterrupt:
             print("Caught KeyboardInterrupt, ClientThread exiting.")
+            
+    def quit(self):
+        abort(400, 'Quit requested')
         
     @staticmethod
     @app.route('/', methods=['POST'])

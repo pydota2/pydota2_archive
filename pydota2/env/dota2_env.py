@@ -85,6 +85,8 @@ class Dota2Env(environment.Base):
                player_setup,
                discount=1.0,
                visualize=False,
+               p_controller=None,
+               c_controller=None,
                team='Radiant',
                step_mul=None,
                game_steps_per_episode=None):
@@ -97,6 +99,8 @@ class Dota2Env(environment.Base):
         self._episode_length = game_steps_per_episode
         self._episode_steps = 0
 
+        self._p_controller = p_controller
+        self._c_controller = c_controller
         self._parallel = run_parallel.RunParallel()  # Needed for multiplayer
 
         self._features = features.Features()
@@ -118,7 +122,7 @@ class Dota2Env(environment.Base):
         return self._features.action_spec()
 
     def _restart(self):
-        self._controllers[0].restart()
+        raise Exception("dota2 env _restart() not implemented")
 
     @sw.decorate
     def reset(self):
@@ -141,17 +145,30 @@ class Dota2Env(environment.Base):
         if self._state == environment.StepType.LAST:
             return self.reset()
 
+        # send each agent action to the dota2 client bot(s)
         self._parallel.run(
-            (c.act, self._features.transform_action(o.observation, a))
-            for c, o, a in zip(self._controllers, self._obs, actions)
+            (c.add_to_post_queue, self._features.transform_action(o.observation, a))
+            for c, o, a in zip(self._c_controller, self._obs, actions)
         )
 
         self._state = environment.StepType.MID
         return self._step()
 
     def _step(self):
+        self._obs = self._p_controller.get_from_proto_queue()
+        
+        # TODO(tewalds): How should we handle more than 2 agents and the case where
+        # the episode can end early for some agents?
+        outcome = [0] * self._num_players
+        discount = self._discount
+        
+        print("Game State: %d" % (self._obs.game_state))
+        if self._obs.game_state == 5:  # Episode over.
+            self._state = environment.StepType.LAST
+            discount = 0
+    
         # TODO - lots to fill out
-        if self._state  == environment.StepType.LAST:
+        if self._state == environment.StepType.LAST:
             logging.info("Episode finished. Outcome: %s, Reward: %s, Score: %s",
                          outcome, reward, [o["score_cumulative"][0] for o in agent_obs])
 
@@ -167,9 +184,7 @@ class Dota2Env(environment.Base):
     def close(self):
         logging.info("Environment Close")
 
-        if hasattr(self, "_controller") and self._controller:
-            for c in self._controllers:
-                c.quit()
-            self._controllers = None
+        self._p_controller.quit()
+        self._c_controller.quit()
 
         logging.info(sw)
