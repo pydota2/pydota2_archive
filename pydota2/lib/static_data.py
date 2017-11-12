@@ -27,7 +27,7 @@ import six
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
 """
 
-class WorldData(object):
+class StaticData(object):
     """Expose static data in a more useful form than the raw protos."""
 
     def __init__(self, data):

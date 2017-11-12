@@ -56,7 +56,10 @@ class ClientThread(threading.Thread):
         
     def run(self):
         print("Starting Thread %d for %s" % (self.threadID, self.name))
-        app.run(host=HOST, debug=False, port=self.port)
+        try:
+            app.run(host=HOST, debug=False, port=self.port)
+        except KeyboardInterrupt:
+            print("Caught KeyboardInterrupt, ClientThread exiting.")
         
     @staticmethod
     @app.route('/', methods=['POST'])

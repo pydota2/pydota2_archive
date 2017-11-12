@@ -80,31 +80,34 @@ class ProtoThread(threading.Thread):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((HOST, self.port))
 
-            while True:
-                binSize = s.recv(4)
+            try:
+                while True:
+                    binSize = s.recv(4)
 
-                if not binSize:
-                    print("%s proto stream not found! Exiting!" % self.name)
-                    break
+                    if not binSize:
+                        print("%s proto stream not found! Exiting!" % self.name)
+                        break
 
-                if binSize:
-                    protoSize = unpack("@I", binSize)
-                    print("%s protoSize: %d" % (self.name, protoSize[0]))
-                    binData = s.recv(protoSize[0])
+                    if binSize:
+                        protoSize = unpack("@I", binSize)
+                        print("%s protoSize: %d" % (self.name, protoSize[0]))
+                        binData = s.recv(protoSize[0])
 
-                    # Get lock to synchronize threads
-                    threadLock.acquire()
-                    if self.save_proto:
-                        self.save_proto_to_file(binData)
-                    if self.func:
-                        self.func(binData)
-                    # Free lock to release for next thread
-                    threadLock.release()
+                        # Get lock to synchronize threads
+                        threadLock.acquire()
+                        if self.save_proto:
+                            self.save_proto_to_file(binData)
+                        if self.func:
+                            self.func(binData)
+                        # Free lock to release for next thread
+                        threadLock.release()
 
-                    self.num_proto += 1
-
-            print("Closing Socket")
-            s.close()
+                        self.num_proto += 1
+            except KeyboardInterrupt:
+                print("Caught KeyboardInterrupt, ProtoThread exiting.")
+            finally:
+                print("Closing Socket")
+                s.close()
 
 
 def createRadiantThread(save_to_proto=False, callback=None):

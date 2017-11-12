@@ -16,6 +16,7 @@ from pydota2.lib import features
 from pydota2.lib import run_parallel
 from pydota2.lib import stopwatch
 
+
 sw = stopwatch.sw
 
 """
@@ -84,6 +85,7 @@ class Dota2Env(environment.Base):
                player_setup,
                discount=1.0,
                visualize=False,
+               team='Radiant',
                step_mul=None,
                game_steps_per_episode=None):
         
@@ -97,15 +99,6 @@ class Dota2Env(environment.Base):
 
         self._parallel = run_parallel.RunParallel()  # Needed for multiplayer
 
-        #################### START OF DOTA 2 SPECIFIC CODE ##########################
-
-        for hero in player_setup[0]:
-            print(hero)
-
-        # TODO - need to add much more here
-
-        ###################### END OF DOTA 2 SPECIFIC CODE ##########################
-
         self._features = features.Features()
         
         if visualize:
@@ -115,7 +108,7 @@ class Dota2Env(environment.Base):
         self._obs = None
         self._state = environment.StepType.LAST # Want to jump to `reset`.
         logging.info("Environment is ready.")
-
+        
     def observation_spec(self):
         """Look at Features for full specs."""
         return self._features.observation_spec()
