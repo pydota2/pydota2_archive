@@ -85,8 +85,8 @@ class Dota2Env(environment.Base):
                player_setup,
                discount=1.0,
                visualize=False,
-               p_controller=None,
-               c_controller=None,
+               proto_controller=None,
+               post_controller=None,
                team='Radiant',
                step_mul=None,
                game_steps_per_episode=None):
@@ -94,13 +94,14 @@ class Dota2Env(environment.Base):
         self._discount = discount
         self._step_mul = step_mul
         self._total_steps = 0
+        self._score_index = 0
 
         self._last_score = None
         self._episode_length = game_steps_per_episode
         self._episode_steps = 0
 
-        self._p_controller = p_controller
-        self._c_controller = c_controller
+        self._proto_controller = proto_controller
+        self._post_controller = post_controller
         self._parallel = run_parallel.RunParallel()  # Needed for multiplayer
 
         self._features = features.Features()
@@ -148,14 +149,14 @@ class Dota2Env(environment.Base):
         # send each agent action to the dota2 client bot(s)
         self._parallel.run(
             (c.add_to_post_queue, self._features.transform_action(o.observation, a))
-            for c, o, a in zip(self._c_controller, self._obs, actions)
+            for c, o, a in zip(self._post_controller, self._obs, actions)
         )
 
         self._state = environment.StepType.MID
         return self._step()
 
     def _step(self):
-        self._obs = self._p_controller.get_from_proto_queue()
+        self._obs = self._proto_controller.get_from_proto_queue()
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
@@ -167,6 +168,16 @@ class Dota2Env(environment.Base):
             self._state = environment.StepType.LAST
             discount = 0
     
+        if self._score_index >= 0:  # Game score, not win/loss reward.
+            cur_score = [o["score_cumulative"][self._score_index] for o in agent_obs]
+            if self._episode_steps == 0:  # First reward is always 0.
+                reward = [0] * self._num_players
+            else:
+                reward = [cur - last for cur, last in zip(cur_score, self._last_score)]
+            self._last_score = cur_score
+        else:
+            reward = outcome
+      
         # TODO - lots to fill out
         if self._state == environment.StepType.LAST:
             logging.info("Episode finished. Outcome: %s, Reward: %s, Score: %s",
@@ -184,7 +195,9 @@ class Dota2Env(environment.Base):
     def close(self):
         logging.info("Environment Close")
 
-        self._p_controller.quit()
-        self._c_controller.quit()
+        if self._proto_controller:
+            self._proto_controller.quit()
+        if self._post_controller:
+            self._post_controller.quit()
 
         logging.info(sw)

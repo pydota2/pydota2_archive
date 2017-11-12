@@ -135,6 +135,9 @@ class Features(object):
         out = {}
 
         out["game_loop"] = np.array([obs.game_loop], dtype=np.int32)
+        out["score_cumulative"] = np.array([
+            obs.score.score,
+        ], dtype=np.int32)
 
         # team specific observations
         out['team'] = np.array([

@@ -66,15 +66,15 @@ flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 flags.mark_flag_as_required("team")
 
 
-def run_agent_thread(agent_cls, visualize, post_controller, client_controller):
+def run_agent_thread(agent_cls, visualize, proto_controller, post_controller):
     print("Starting Thread for Agent(s)")
     with dota2_env.Dota2Env(
             difficulty=FLAGS.difficulty,
             step_mul=FLAGS.step_mul,
             game_steps_per_episode=FLAGS.game_steps_per_episode,
             visualize=visualize,
-            p_controller=post_controller,
-            c_controller=client_controller) as env:
+            proto_controller=proto_controller,
+            post_controller=post_controller) as env:
         env = available_actions_printer.AvailableActionsPrinter(env)
         agent = agent_cls()
         run_loop.run_loop([agent], env, FLAGS.max_agent_steps)

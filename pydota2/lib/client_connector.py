@@ -62,7 +62,11 @@ class ClientThread(threading.Thread):
             print("Caught KeyboardInterrupt, ClientThread exiting.")
             
     def quit(self):
-        abort(400, 'Quit requested')
+        func = request.environ.get('werkzeug.server.shutdown')
+        if func is None:
+            raise RuntimeError('Not running with the Werkzeug Server')
+        print("Shutting down the POST listener")
+        func()
         
     @staticmethod
     @app.route('/', methods=['POST'])
