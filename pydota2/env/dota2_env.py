@@ -157,18 +157,20 @@ class Dota2Env(environment.Base):
 
     def _step(self):
         self._obs = self._proto_controller.get_from_proto_queue()
-        agent_obs = [self._features.transform_obs(o.observation) for o in self._obs]
+        print("Current Protobuf Timestamp: %f" % self._obs['dotaTime'])
+        agent_obs = self._features.transform_obs(self._obs)
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
         outcome = [0] * self._num_players
         discount = self._discount
         
-        print("Game State: %d" % (self._obs.game_state))
-        if self._obs.game_state == 5:  # Episode over.
+        print("Game State: %d" % (self._obs['gameState']))
+        if self._obs['gameState'] == 5:  # Episode over.
             self._state = environment.StepType.LAST
             discount = 0
     
+        """
         if self._score_index >= 0:  # Game score, not win/loss reward.
             cur_score = [o["score_cumulative"][self._score_index] for o in agent_obs]
             if self._episode_steps == 0:  # First reward is always 0.
@@ -178,6 +180,10 @@ class Dota2Env(environment.Base):
             self._last_score = cur_score
         else:
             reward = outcome
+        """
+        
+        self._score_multiplier = 0.0
+        reward = outcome
       
         # TODO - lots to fill out
         if self._state == environment.StepType.LAST:

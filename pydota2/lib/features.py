@@ -111,8 +111,7 @@ class Features(object):
         """
 
         return {
-            "game_loop": (1,),
-            "team": (5,),
+            "team": (3,),
             "available_actions": (0,),
         }
 
@@ -134,49 +133,40 @@ class Features(object):
         # be empty with emtpy stub in case they are not present in protobuf
         out = {}
 
-        out["game_loop"] = np.array([obs.game_loop], dtype=np.int32)
-        out["score_cumulative"] = np.array([
-            obs.score.score,
-        ], dtype=np.int32)
-
         # team specific observations
         out['team'] = np.array([
-            obs.team.dota_time,
-            obs.team.net_worth,
-            obs.team.glyph_timer,
-            obs.team.roshan_state,
-            obs.team.courier_state,
-        ], dtype=np.int32)
+            obs['dotaTime'],
+            obs['timeOfDay'],
+            obs['glyphCooldown'],
+        ], dtype=np.float32)
         
+        """
         # hero specific observations
         def hero_vec(u):
             return np.array((
-                u.hero_id,
-                u.level,
-                u.health,
-                u.health_ratio,
-                u.health_regen,
-                u.mana,
-                u.mana_ratio,
-                u.mana_regen,
-                u.net_worth,
+                u['level'],
+                u['health'],
+                u['health_ratio'],
+                u['healthRegen'],
+                u['mana'],
+                u['mana_ratio'],
+                u['manaRegen'],
+                u['netWorth'],
+                u['primaryAttribute'],
             ), dtype=np.int32)
 
-        heroes = obs.players
-        units = obs.units
+        heroes = obs['players']
+        units = obs['units']
         out['heroes'] = np.array([], dtype=np.int32)
         with sw('heroes'):
             for hero in heroes:
                 for unit in units:
-                    if unit.unit_type == 1 and unit.player_id == hero.player_id:
+                    if unit['unitType'] == 1 and unit['playerId'] == hero['playerId']:
                         out['heroes'] = np.append(out['heroes'], hero_vec(unit))
 
         # unit specific observations
-
-        # event specific observations
-        ability_events = obs.ability_events
-        damage_events = obs.damage_events
-
+        """
+        
         # comprehensive list of all available actions
         out['available_actions'] = np.array(self.available_actions(obs), dtype=np.int32)
 
