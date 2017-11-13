@@ -120,7 +120,7 @@ class Features(object):
         return self._valid_functions
 
     @sw.decorate
-    def transorm_obs(self, obs):
+    def transform_obs(self, obs):
         """
            Transform Dota2 observations into something an agent can handle.
            Observations come to us through the CMsgBotWorldState protobufs, 

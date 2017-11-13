@@ -157,6 +157,7 @@ class Dota2Env(environment.Base):
 
     def _step(self):
         self._obs = self._proto_controller.get_from_proto_queue()
+        agent_obs = [self._features.transform_obs(o.observation) for o in self._obs]
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
