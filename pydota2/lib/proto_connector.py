@@ -30,10 +30,8 @@ from __future__ import print_function
 
 import socket
 import threading
-import json
 from datetime import datetime
 from six.moves.queue import Queue
-from google.protobuf.json_format import MessageToJson
 
 from struct import *
 
@@ -66,10 +64,9 @@ class ProtoThread(threading.Thread):
     def add_to_proto_queue(self, data):
         data_frame = _pb.CMsgBotWorldState()
         data_frame.ParseFromString(data)
-        json_frame = json.loads(MessageToJson(data_frame))
         # Get lock to synchronize threads
         #threadLock.acquire()
-        self.proto_queue.put(json_frame)
+        self.proto_queue.put(data_frame)
         # Free lock to release for next thread
         #threadLock.release()
 
@@ -126,6 +123,7 @@ class ProtoThread(threading.Thread):
                         print("Process %d protos" % self.num_proto)
             finally:
                 print("Closing Socket")
+                s.shutdown(socket.SHUT_RDWR)
                 s.close()
 
 

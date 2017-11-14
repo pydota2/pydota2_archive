@@ -31,20 +31,14 @@ from pydota2.lib import location
 """
 THIS FILE IS NOT COMPLETE
 """
-def use_glyph(post_connection, hero_id=-1):
-    post_connection.add_to_post_queue((hero_id, ["use_glyph"]))
 
-def no_op(post_connection, hero_id):
-    post_connection.add_to_post_queue((hero_id, ["no_op"]))
+def no_op(action):
+    del action
 
-def move_to_location(post_connection, hero_id, locVec):
-    """move to location x,y,z."""
-    post_connection.add_to_post_queue((hero_id, ["move_to_location", locVec]))
-
-def attack_unit(post_connection, hero_id, target_handle):
-    """attack a unit referenced by a handle_id."""
-    post_connection.add_to_post_queue((hero_id, ["attack_unit", target_handle]))
-
+def cmd_atomic(action):
+    print("hi")
+    print(action)
+    
 class ArgumentType(collections.namedtuple(
     "ArgumentType", ["id", "name", "sizes", "fn"])):
     """Represents a single argument type.
@@ -64,11 +58,16 @@ class ArgumentType(collections.namedtuple(
     def enum(cls, options):
         """Create an ArgumentType where you choose one of a set of known values."""
         return cls(-1, "<none>", (len(options),), lambda a: options[a[0]])
-
+    
     @classmethod
-    def handle(cls):
+    def scalar(cls, value):
+        """Create an ArgumentType with a single scalar in range(value)."""
+        return cls(-1, "<none>", (value,), lambda a: a[0])
+    
+    @classmethod
+    def handle(cls, valid_handles):
         """Create an ArgumentType with a single handle value (uint32)."""
-        return cls(-1, "<none>", (0,), lambda a: a[0])
+        return cls(-1, "<none>", (len(valid_handles),), lambda a: a[0])
 
     @classmethod
     def location(cls):  # No range because it's unknown at this time.
@@ -76,9 +75,9 @@ class ArgumentType(collections.namedtuple(
         return cls(-1, "<none>", (0, 0), lambda a: location.Location(*a).floor())
 
     @classmethod
-    def tree_id(cls):
+    def tree_id(cls, valid_tree_ids):
         """Create an ArgumentType that is a tree ID (uint32)."""
-        return cls(-1, "<none>", (0,), lambda a: a[0])
+        return cls(-1, "<none>", (len(valid_tree_ids),), lambda a: a[0])
     
     @classmethod
     def spec(cls, id_, name, sizes):
@@ -86,7 +85,7 @@ class ArgumentType(collections.namedtuple(
         return cls(id_, name, sizes, None)
 
 class Arguments(collections.namedtuple("Arguments", [
-    "location", "handle", "tree_id", "queued"])):
+    "player_id", "location", "handle", "tree_id", "queued"])):
     """The full list of argument types.
     Take a look at TYPES and FUNCTION_TYPES for more details.
     Attributes:
@@ -112,28 +111,34 @@ ArgType_QUEUE   = 2
 # The list of known types.
 TYPES = Arguments.types(
     queued = ArgumentType.enum([ArgType_NORMAL, ArgType_PUSH, ArgType_QUEUE]),
+    player_id = ArgumentType.scalar(10),
     location = ArgumentType.location(),
-    handle = ArgumentType.handle(),
-    tree_id = ArgumentType.tree_id(),
+    handle = ArgumentType.handle([0]),
+    tree_id = ArgumentType.tree_id([0]),
 )
         
 # Which argument types do each function need?
 FUNCTION_TYPES = {
-    use_glyph: [],
+    cmd_atomic: [],
+    #cmd_ability: [],
     no_op: [],
-    move_to_location: [TYPES.location],
-    attack_unit: [TYPES.handle],
+    #move_to_location: [TYPES.location],
+    #attack_unit: [TYPES.handle],
 }
+
+# Which ones need an ability?
+ABILITY_FUNCTIONS = {} #cmd_ability}
 
 always = lambda _: True
     
 class Function(collections.namedtuple(
-    "Function", ["id", "name", "ability_id", "general_id", "function_type",
-                 "args", "avail_fn"])):
+    "Function", ["id", "name", "player_id", "ability_id", "general_id", 
+                 "function_type", "args", "avail_fn"])):
     """Represents a function action.
     Attributes:
         id: The function id, which is what the agent will use.
         name: The name of the function. Should be unique.
+        player_id: The player_id of the player taking the action
         ability_id: The ability id to pass to dota2.
         general_id: 0 for normal abilities, and the ability_id of another ability if
             it can be represented by a more general action.
@@ -148,24 +153,25 @@ class Function(collections.namedtuple(
     @classmethod
     def team_func(cls, id_, name, function_type, avail_fn=always):
         """Define a function representing team-wide actions take by master-agent."""
-        return cls(id_, name, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
+        return cls(id_, name, -1, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
 
     @classmethod
-    def hero_func(cls, id_, name, function_type, avail_fn=always):
+    def hero_func(cls, id_, name, player_id, function_type, avail_fn=always):
         """Define a function representing a hero action."""
-        return cls(id_, name, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
+        return cls(id_, name, player_id, 0, 0, function_type, FUNCTION_TYPES[function_type], 
+                   avail_fn)
     
     @classmethod
-    def ability(cls, id_, name, function_type, ability_id, general_id=0):
+    def ability(cls, id_, name, player_id, function_type, ability_id, general_id=0):
         """Define a function represented as a game ability."""
         assert function_type in ABILITY_FUNCTIONS
-        return cls(id_, name, ability_id, general_id, function_type,
+        return cls(id_, name, player_id, ability_id, general_id, function_type,
                    FUNCTION_TYPES[function_type], None)
                
     @classmethod
     def spec(cls, id_, name, args):
         """Create a Function to be used in ValidActions."""
-        return cls(id_, name, None, None, None, args, None)
+        return cls(id_, name, None, None, None, None, args, None)
 
     def __hash__(self):  # So it can go in a set().
         return self.id
@@ -207,11 +213,11 @@ class Functions(object):
         
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
-    Function.team_func(10000, "use_glyph", use_glyph),
-
-    Function.hero_func(0, "no_op", no_op),
-    Function.hero_func(1, "move_to_location", move_to_location),
-    Function.hero_func(2, "attack_unit", attack_unit),
+    Function.hero_func(0, "no_op", -1, no_op),
+    Function.team_func(1, "use_glyph", cmd_atomic),
+    
+    #Function.hero_func(2, "move_to_location", move_to_location),
+    #Function.hero_func(3, "attack_unit", attack_unit),    
 ])
 # pylint: enable=line-too-long
 

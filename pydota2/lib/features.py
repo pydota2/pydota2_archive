@@ -79,6 +79,7 @@ class Feature(collections.namedtuple(
         8: np.uint8,
         16: np.uint16,
         32: np.uint32,
+        64: np.uint64,
     }
 
 
@@ -135,33 +136,33 @@ class Features(object):
 
         # team specific observations
         out['team'] = np.array([
-            obs['dotaTime'],
-            obs['timeOfDay'],
-            obs['glyphCooldown'],
+            obs.dota_time,
+            obs.time_of_day,
+            obs.glyph_cooldown,
         ], dtype=np.float32)
         
         """
         # hero specific observations
         def hero_vec(u):
             return np.array((
-                u['level'],
-                u['health'],
-                u['health_ratio'],
-                u['healthRegen'],
-                u['mana'],
-                u['mana_ratio'],
-                u['manaRegen'],
-                u['netWorth'],
-                u['primaryAttribute'],
-            ), dtype=np.int32)
+                u.level,
+                u.health,
+                u.health_ratio,
+                u.health_regen,
+                u.mana,
+                u.mana_ratio,
+                u.mana_regen,
+                u.net_worth,
+                u.primary_attribute,
+            ), dtype=np.float16)
 
-        heroes = obs['players']
-        units = obs['units']
-        out['heroes'] = np.array([], dtype=np.int32)
+        heroes = obs.players
+        units = obs.units
+        out['heroes'] = np.array([], dtype=np.float16)
         with sw('heroes'):
             for hero in heroes:
                 for unit in units:
-                    if unit['unitType'] == 1 and unit['playerId'] == hero['playerId']:
+                    if unit.unit_type == 1 and unit.player_id == hero.player_id:
                         out['heroes'] = np.append(out['heroes'], hero_vec(unit))
 
         # unit specific observations
@@ -185,7 +186,7 @@ class Features(object):
     
     @sw.decorate
     def transform_action(self, obs, func_call, skip_available=False):
-        """Tranform an agent-style action to one that SC2 can consume.
+        """Tranform an agent-style action to one that Dota2 can consume.
         Args:
           obs: a `sc_pb.Observation` from the previous frame.
           func_call: a `FunctionCall` to be turned into a `sc_pb.Action`.
@@ -227,15 +228,8 @@ class Features(object):
                 if not 0 <= a < s:
                     raise ValueError("Argument is out of range for %s, got: %s" % (
                     func, func_call.arguments))
-                    
-        # Convert them to python types.
-        kwargs = {type_.name: type_.fn(a) for type_, a in zip(func.args, func_call.arguments)}
-    
-        if func.ability_id:
-            kwargs["ability_id"] = func.ability_id
-        actions.FUNCTIONS[func_id].function_type(**kwargs)
         
-        return kwargs
+        return (func_id, func_call.arguments)
               
     @sw.decorate
     def reverse_action(self, action):
@@ -273,8 +267,9 @@ class Features(object):
     def _init_valid_functions(self):
         """Initialize ValidFunctions and setup the callbacks."""
         sizes = {
-            "global": tuple(int(i) for i in (11,11)),
+            "location": tuple(int(i) for i in (-7000,7000)),
         }
+        
         types = actions.Arguments(*[
             actions.ArgumentType.spec(t.id, t.name, sizes.get(t.name, t.sizes))
             for t in actions.TYPES])
@@ -283,4 +278,5 @@ class Features(object):
             actions.Function.spec(f.id, f.name, tuple(types[t.id] for t in f.args))
             for f in actions.FUNCTIONS])
         
+        print(types)
         return actions.ValidActions(types, functions)

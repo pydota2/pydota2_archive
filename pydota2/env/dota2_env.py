@@ -77,7 +77,7 @@ class Dota2Env(environment.Base):
         if difficulty not in difficulties:
             raise ValueError("Bad difficulty")
 
-        self._num_players = 5
+        self._num_players = 1
 
         self._setup((difficulty), **kwargs)
 
@@ -148,8 +148,8 @@ class Dota2Env(environment.Base):
 
         # send each agent action to the dota2 client bot(s)
         self._parallel.run(
-            (c.add_to_post_queue, self._features.transform_action(o.observation, a))
-            for c, o, a in zip(self._post_controller, self._obs, actions)
+            (c.add_to_post_queue, self._features.transform_action(o, a))
+            for c, o, a in zip([self._post_controller], [self._obs], actions)
         )
 
         self._state = environment.StepType.MID
@@ -157,16 +157,16 @@ class Dota2Env(environment.Base):
 
     def _step(self):
         self._obs = self._proto_controller.get_from_proto_queue()
-        print("Current Protobuf Timestamp: %f" % self._obs['dotaTime'])
-        agent_obs = self._features.transform_obs(self._obs)
+        print("Current Protobuf Timestamp: %f" % self._obs.dota_time)
+        agent_obs = [self._features.transform_obs(self._obs)]
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
         outcome = [0] * self._num_players
         discount = self._discount
         
-        print("Game State: %d" % (self._obs['gameState']))
-        if self._obs['gameState'] == 5:  # Episode over.
+        print("Game State: %d" % (self._obs.game_state))
+        if self._obs.game_state == 5:  # Episode over.
             self._state = environment.StepType.LAST
             discount = 0
     

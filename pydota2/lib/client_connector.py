@@ -48,11 +48,12 @@ class ClientThread(threading.Thread):
     
     @staticmethod
     def add_to_post_queue(value_tuple):
+        #print("ADDING TO POST QUEUE: ", value_tuple)
         post_queue.put(value_tuple)
 
     @staticmethod
     def get_from_post_queue():
-        post_queue.get()
+        return post_queue.get()
         
     def run(self):
         print("Starting HTTP POST Thread %d for %s" % (self.threadID, self.name))
@@ -91,8 +92,10 @@ class ClientThread(threading.Thread):
                     if data['Type'] == 'P':
                         response['Data'] = {}
                         while not post_queue.empty():
-                            action_tuple = get_from_post_queue()
-                            response['Data'][str(action_tuple[0])] = action_tuple[1]
+                            action_tuple = ClientThread.get_from_post_queue()
+                            print('Action Tuple To Send To Dota: ', action_tuple)
+                            if action_tuple:
+                                response['Data'][str(action_tuple[0])] = action_tuple[1]
                     
                     response['Time'] = data['Time']
                 else:
