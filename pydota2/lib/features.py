@@ -229,7 +229,7 @@ class Features(object):
                     raise ValueError("Argument is out of range for %s, got: %s" % (
                     func, func_call.arguments))
         
-        return (func_id, func_call.arguments)
+        return (func_call.player_id, func_id, func_call.arguments)
               
     @sw.decorate
     def reverse_action(self, action):

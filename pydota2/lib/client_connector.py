@@ -37,6 +37,7 @@ app = Flask('__name__')
 
 HOST = '127.0.0.1'
 
+post_connected = False
 post_queue = multiprocessing.Queue()
 
 class ClientThread(threading.Thread):
@@ -48,8 +49,9 @@ class ClientThread(threading.Thread):
     
     @staticmethod
     def add_to_post_queue(value_tuple):
-        #print("ADDING TO POST QUEUE: ", value_tuple)
-        post_queue.put(value_tuple)
+        if post_connected:
+            #print("ADDING TO POST QUEUE: ", value_tuple)
+            post_queue.put(value_tuple)
 
     @staticmethod
     def get_from_post_queue():
@@ -96,7 +98,9 @@ class ClientThread(threading.Thread):
                             print('Action Tuple To Send To Dota: ', action_tuple)
                             if action_tuple:
                                 response['Data'][str(action_tuple[0])] = action_tuple[1]
-                    
+                    elif data['Type'] == 'X':
+                        post_connected = True
+                        
                     response['Time'] = data['Time']
                 else:
                     print("Request too long", request.content_length)

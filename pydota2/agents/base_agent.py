@@ -43,4 +43,4 @@ class BaseAgent(object):
   def step(self, obs):
     self.steps += 1
     self.reward += obs.reward
-    return actions.FunctionCall(0, [])
+    return actions.FunctionCall(-1, 0, [])

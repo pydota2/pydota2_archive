@@ -32,12 +32,11 @@ from pydota2.lib import location
 THIS FILE IS NOT COMPLETE
 """
 
-def no_op(action):
-    del action
+#def no_op():
+#    print("no_op")
 
-def cmd_atomic(action):
-    print("hi")
-    print(action)
+#def cmd_atomic():
+#    print("cmd_atomic")
     
 class ArgumentType(collections.namedtuple(
     "ArgumentType", ["id", "name", "sizes", "fn"])):
@@ -85,7 +84,8 @@ class ArgumentType(collections.namedtuple(
         return cls(id_, name, sizes, None)
 
 class Arguments(collections.namedtuple("Arguments", [
-    "player_id", "location", "handle", "tree_id", "queued"])):
+    "player_id", "location", "handle", "tree_id", "ability_id",
+    "queued"])):
     """The full list of argument types.
     Take a look at TYPES and FUNCTION_TYPES for more details.
     Attributes:
@@ -112,6 +112,7 @@ ArgType_QUEUE   = 2
 TYPES = Arguments.types(
     queued = ArgumentType.enum([ArgType_NORMAL, ArgType_PUSH, ArgType_QUEUE]),
     player_id = ArgumentType.scalar(10),
+    ability_id = ArgumentType.scalar(1500),
     location = ArgumentType.location(),
     handle = ArgumentType.handle([0]),
     tree_id = ArgumentType.tree_id([0]),
@@ -119,26 +120,30 @@ TYPES = Arguments.types(
         
 # Which argument types do each function need?
 FUNCTION_TYPES = {
-    cmd_atomic: [],
-    #cmd_ability: [],
-    no_op: [],
-    #move_to_location: [TYPES.location],
-    #attack_unit: [TYPES.handle],
+    'cmd_atomic': [],
+    'cmd_level_ability': [TYPES.ability_id],
+    'cmd_ability': [],
+    'cmd_ability_location': [TYPES.location],
+    'cmd_ability_unit': [TYPES.handle],
+    'cmd_ability_tree': [TYPES.tree_id],
+    'cmd_ability_toggle': [], # for radiance, Medusa mana-shield, etc.
+    'cmd_no_op': [],
+    'move_to_location': [TYPES.location],
+    'attack_unit': [TYPES.handle],
 }
 
 # Which ones need an ability?
-ABILITY_FUNCTIONS = {} #cmd_ability}
+ABILITY_FUNCTIONS = {'cmd_ability'}
 
 always = lambda _: True
     
 class Function(collections.namedtuple(
-    "Function", ["id", "name", "player_id", "ability_id", "general_id", 
-                 "function_type", "args", "avail_fn"])):
+    "Function", ["id", "name", "ability_id", "general_id", 
+                 "args", "avail_fn"])):
     """Represents a function action.
     Attributes:
         id: The function id, which is what the agent will use.
         name: The name of the function. Should be unique.
-        player_id: The player_id of the player taking the action
         ability_id: The ability id to pass to dota2.
         general_id: 0 for normal abilities, and the ability_id of another ability if
             it can be represented by a more general action.
@@ -153,25 +158,22 @@ class Function(collections.namedtuple(
     @classmethod
     def team_func(cls, id_, name, function_type, avail_fn=always):
         """Define a function representing team-wide actions take by master-agent."""
-        return cls(id_, name, -1, 0, 0, function_type, FUNCTION_TYPES[function_type], avail_fn)
+        return cls(id_, name, 0, 0, function_type, avail_fn)
 
     @classmethod
-    def hero_func(cls, id_, name, player_id, function_type, avail_fn=always):
+    def hero_func(cls, id_, name, function_type, avail_fn=always):
         """Define a function representing a hero action."""
-        return cls(id_, name, player_id, 0, 0, function_type, FUNCTION_TYPES[function_type], 
-                   avail_fn)
+        return cls(id_, name, 0, 0, function_type, avail_fn)
     
     @classmethod
-    def ability(cls, id_, name, player_id, function_type, ability_id, general_id=0):
+    def ability(cls, id_, name, function_type, ability_id, general_id=0, avail_fn=always):
         """Define a function represented as a game ability."""
-        assert function_type in ABILITY_FUNCTIONS
-        return cls(id_, name, player_id, ability_id, general_id, function_type,
-                   FUNCTION_TYPES[function_type], None)
+        return cls(id_, name, ability_id, general_id, function_type, avail_fn)
                
     @classmethod
     def spec(cls, id_, name, args):
         """Create a Function to be used in ValidActions."""
-        return cls(id_, name, None, None, None, None, args, None)
+        return cls(id_, name, None, None, args, None)
 
     def __hash__(self):  # So it can go in a set().
         return self.id
@@ -213,11 +215,11 @@ class Functions(object):
         
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
-    Function.hero_func(0, "no_op", -1, no_op),
-    Function.team_func(1, "use_glyph", cmd_atomic),
-    
-    #Function.hero_func(2, "move_to_location", move_to_location),
-    #Function.hero_func(3, "attack_unit", attack_unit),    
+    Function.team_func(0, "use_glyph", FUNCTION_TYPES['cmd_atomic'],
+                       lambda obs: obs.glyph_cooldown < obs.dota_time),  
+    Function.hero_func(1, "no_op", FUNCTION_TYPES['cmd_no_op']),
+    Function.ability(2, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'], 1),
+                       #lambda player: player.getC),
 ])
 # pylint: enable=line-too-long
 
@@ -231,9 +233,10 @@ FUNCTIONS_AVAILABLE = {f.id: f for f in FUNCTIONS if f.avail_fn}
 
 
 class FunctionCall(collections.namedtuple(
-    "FunctionCall", ["function", "arguments"])):
+    "FunctionCall", ["player_id", "function", "arguments"])):
     """Represents a function call action.
       Attributes:
+        player_id: Stores the intended bot of the FunctionCall, -1 for "any"/"world"
         function: Store the function id, eg 2 for select_location.
         arguments: The list of arguments for that function, each being a list of
                    ints. For select_location this could be: [[0], [23, 38]].
@@ -241,7 +244,7 @@ class FunctionCall(collections.namedtuple(
     __slots__ = ()
 
     @classmethod
-    def all_arguments(cls, function, arguments):
+    def all_arguments(cls, player_id, function, arguments):
         """Helper function for creating `FunctionCall`s with `Arguments`.
         Args:
           function: The value to store for the action function.
@@ -256,7 +259,7 @@ class FunctionCall(collections.namedtuple(
             arguments = Arguments(**arguments)
         elif not isinstance(arguments, Arguments):
             arguments = Arguments(*arguments)
-        return cls(function, arguments)
+        return cls(player_id, [function, arguments])
 
 
 class ValidActions(collections.namedtuple(

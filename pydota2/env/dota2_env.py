@@ -15,7 +15,7 @@ from pydota2.env import environment
 from pydota2.lib import features
 from pydota2.lib import run_parallel
 from pydota2.lib import stopwatch
-
+from pydota2.lib import world_data
 
 sw = stopwatch.sw
 
@@ -36,6 +36,9 @@ teams = {
     "Radiant": 2,
     "Dire": 3,
 }
+
+g_world_data = None
+g_hero_selection = None
 
 class Dota2Env(environment.Base):
     """
@@ -149,15 +152,25 @@ class Dota2Env(environment.Base):
         # send each agent action to the dota2 client bot(s)
         self._parallel.run(
             (c.add_to_post_queue, self._features.transform_action(o, a))
-            for c, o, a in zip([self._post_controller], [self._obs], actions)
+            for c, o, a in zip([self._post_controller], [self._obs], actions[0])
         )
 
         self._state = environment.StepType.MID
         return self._step()
 
     def _step(self):
+        global g_world_data, g_hero_selection
+        
         self._obs = self._proto_controller.get_from_proto_queue()
         print("Current Protobuf Timestamp: %f" % self._obs.dota_time)
+        
+        # TODO - do we need to create a separate world_state object or can 
+        #        we just leverage self._features.transform_obs for this???
+        if self._obs.game_state == 4:
+            g_world_data = world_data.WorldData(self._obs)
+            #print(g_world_data.get_my_players)
+            #print(g_world_data.get_my_minions)
+        
         agent_obs = [self._features.transform_obs(self._obs)]
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
