@@ -42,7 +42,7 @@ class WorldData(object):
     def __init__(self, data):
         """Takes data from Valve provided JSON-like text files."""
         # make sure we are in game
-        assert data.game_state == 4
+        assert data.game_state in [4,5]
         
         self.team_id = data.team_id
         
@@ -59,6 +59,7 @@ class WorldData(object):
         self.good_courier = None
         self.bad_courier = None
         
+        bInvalidFound = False
         for unit in unit_data:
             if unit.unit_type == 1:  # HERO
                 if unit.team_id == self.team_id:
@@ -79,7 +80,8 @@ class WorldData(object):
                     self.bad_courier = unit
             
             elif unit.unit_type == 0:  # INVALID
-                print("INVALID UNIT TYPE:\n", str(unit))
+                print("INVALID UNIT TYPE:\n%s" % str(unit))
+                bInvalidFound = True
     
     def update_players(self, player_data):
         for player in player_data:
@@ -87,6 +89,21 @@ class WorldData(object):
                 self.good_players[player.player_id]['player'] = player
             elif player.player_id in self.bad_players.keys():
                 self.bad_players[player.player_id]['player'] = player
+
+    def get_available_level_points(self, player_id):
+        if player_id in self.good_players.keys():
+            skilled_pts = 0
+            for ability in self.good_players[player_id]['unit'].abilities:
+                skilled_pts += ability.level
+            level = self.good_players[player_id]['unit'].level
+            if level > skilled_pts:
+                print('%s is able to level %d abilities' % (self.good_players[player_id]['unit'].name, level-skilled_pts))
+
+    def get_unit_by_handle(self, unit_data, handle):
+        for unit in unit_data:
+            if unit.handle == handle:
+                return unit
+        return None
 
     @property
     def get_my_players(self):

@@ -43,6 +43,8 @@ replay_dir = 'replays'
 from absl import app
 from absl import flags
 
+from pydota2.lib import world_data
+
 FLAGS = flags.FLAGS
 flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 flags.DEFINE_integer("step_mul", 1, "How many game steps per observation.")
@@ -297,7 +299,17 @@ class ReplayProcessor(multiprocessing.Process):
             self._update_stage('Step %d of %d - Observe' % (step, max_frames))
             
             # TODO - complete the actual Reinforcement Learning
-
+            if data:
+                print('Game State: %d -- Step %d' % (data.game_state, step))
+                if data.game_state in [4,5]:
+                    #print(data)
+                    world_state = world_data.WorldData(data)
+                    #print(world_state.get_my_players)
+                    world_state.get_available_level_points(0)
+                    
+                    uoi = world_state.get_unit_by_handle(data.units, 822)
+                    if uoi:
+                        print(uoi)
 
     def _print(self, s):
         for line in str(s).strip().splitlines():
@@ -348,7 +360,8 @@ def main(unused_argv):
     stats_thread = threading.Thread(target=stats_printer, args=(stats_queue,))
     stats_thread.start()
 
-    FLAGS.replays = get_available_replays(replay_dir)
+    # TODO - get rid of the [1:] at end, currently testing looking only at RADIANT replay
+    FLAGS.replays = get_available_replays(replay_dir)[1:]
     #print(FLAGS.replays)
 
     try:
@@ -362,7 +375,7 @@ def main(unused_argv):
         print(len(replay_list), "replays found.\n")
         replay_queue = multiprocessing.JoinableQueue(FLAGS.parallel * 10)
         replay_queue_thread = threading.Thread(target=replay_queue_filler,
-                                                                                     args=(replay_queue, replay_list))
+                                               args=(replay_queue, replay_list))
         replay_queue_thread.daemon = True
         replay_queue_thread.start()
 
