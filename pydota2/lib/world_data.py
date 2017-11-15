@@ -96,14 +96,36 @@ class WorldData(object):
             for ability in self.good_players[player_id]['unit'].abilities:
                 skilled_pts += ability.level
             level = self.good_players[player_id]['unit'].level
-            if level > skilled_pts:
-                print('%s is able to level %d abilities' % (self.good_players[player_id]['unit'].name, level-skilled_pts))
+            delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
+            if delta > 0:
+                print('%s is able to level %d abilities' % (self.good_players[player_id]['unit'].name, delta))
+            return max(delta,0)
+        return 0
 
     def get_unit_by_handle(self, unit_data, handle):
         for unit in unit_data:
             if unit.handle == handle:
                 return unit
         return None
+
+    def get_player_by_id(self, player_id):
+        if player_id in self.good_players.keys():
+            return self.good_players[player_id]
+        elif player_id in self.bad_players.keys():
+            return self.bad_players[player_id]
+        return None
+
+    def get_player_abilities(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player['unit'].abilities
+        return []
+
+    def get_player_items(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player['unit'].items
+        return []
 
     @property
     def get_my_players(self):
