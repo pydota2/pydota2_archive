@@ -41,12 +41,14 @@ local function ServerUpdate()
         if serverReply.status == 200 then
             dbg.myPrint("Packet RTT: ", RealTime() - serverReply.Time)
             dbg.myPrint("Server Data: ", serverReply.Data)
+            if serverReply.Data[tostring(hBot:GetPlayerID())]:
+                return serverReply.Data[tostring(hBot:GetPlayerID())]
         else
             dbg.myPrint("Server Error: ", serverReply.Data)
         end
     end
 
-    return nil, BOT_MODE_DESIRE_NONE
+    return {}
 end
 
 function X:Think(hBot)
@@ -67,7 +69,12 @@ function X:Think(hBot)
     if (GameTime() - X.lastUpdateTime) >= THROTTLE_RATE then
         -- check if bot has updated directives from our AI
         dbg.myPrint("SENDING SERVER UPDATE")
-        local highestDesiredMode, highestDesiredValue = ServerUpdate()
+        local action_arg_dict = ServerUpdate()
+        
+        if action_arg_dict then
+            dbg.myPrint("Need to Process:", tostring(action_arg_dic))
+        end
+
         X.lastUpdateTime = GameTime()
     end
 end
