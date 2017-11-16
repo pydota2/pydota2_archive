@@ -134,6 +134,11 @@ class Features(object):
         # be empty with emtpy stub in case they are not present in protobuf
         out = {}
 
+        # game loop
+        out['game_loop'] = np.array([
+            obs.game_state,
+        ], dtype=np.int32)
+        
         # team specific observations
         out['team'] = np.array([
             obs.dota_time,

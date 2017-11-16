@@ -58,6 +58,9 @@ class ClientThread(threading.Thread):
         return post_queue.get()
         
     def run(self):
+        global post_connected
+        post_connected = False
+        
         print("Starting HTTP POST Thread %d for %s" % (self.threadID, self.name))
         try:
             app.run(host=HOST, debug=False, port=self.port)
@@ -74,6 +77,8 @@ class ClientThread(threading.Thread):
     @staticmethod
     @app.route('/', methods=['POST'])
     def post():
+        global post_connected
+        
         #print('IN POST')
         response = {}
         response['status'] = 200
@@ -97,7 +102,8 @@ class ClientThread(threading.Thread):
                             action_tuple = ClientThread.get_from_post_queue()
                             print('Action Tuple To Send To Dota: ', action_tuple)
                             if action_tuple:
-                                response['Data'][str(action_tuple[0])] = action_tuple[1]
+                                response['Data'][str(action_tuple[0])] = {}
+                                response['Data'][str(action_tuple[0])][str(action_tuple[1])] = action_tuple[2]
                     elif data['Type'] == 'X':
                         post_connected = True
                         
@@ -113,5 +119,5 @@ class ClientThread(threading.Thread):
             response['status'] = 401
             abort(400, 'Request Method is not POST')
 
-        print('SENDING RESPONSE:\n', str(response))
+        print('SENDING RESPONSE:\n', response)
         return jsonify(response)

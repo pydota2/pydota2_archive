@@ -151,8 +151,9 @@ class Dota2Env(environment.Base):
 
         # send each agent action to the dota2 client bot(s)
         self._parallel.run(
-            (c.add_to_post_queue, self._features.transform_action(o, a))
-            for c, o, a in zip([self._post_controller], [self._obs], actions[0])
+            (self._post_controller.add_to_post_queue, 
+             self._features.transform_action(self._obs, a))
+            for a in actions[0]
         )
 
         self._state = environment.StepType.MID
@@ -166,7 +167,7 @@ class Dota2Env(environment.Base):
         
         # TODO - do we need to create a separate world_state object or can 
         #        we just leverage self._features.transform_obs for this???
-        if self._obs.game_state == 4:
+        if self._obs.game_state in [4, 5]:
             g_world_data = world_data.WorldData(self._obs)
             #print(g_world_data.get_my_players)
             #print(g_world_data.get_my_minions)

@@ -1,3 +1,7 @@
+# NOTE: This code is to a large degree based on DeepMind work for 
+#       AI in StarCraft2, just ported towards the Dota 2 game.
+#       DeepMind's License is posted below.
+
 # Copyright 2017 Google Inc. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,22 +27,12 @@ from pydota2.agents import base_agent
 from pydota2.lib import actions
 
 
-class RandomAgent(base_agent.BaseAgent):
+class Agent(base_agent.BaseAgent):
     """
-       A random agent for Dota2.
-       It does NOT learn, just takes an available actions at a given time
-       completely at random.
+       A hero select agent for Dota2.
     """
 
     def step(self, obs):
-        super(RandomAgent, self).step(obs)
+        super(Agent, self).step(obs)
         
-        selected_actions = []
-        for player_id in range(1, 6):
-            function_id = numpy.random.choice(obs.observation['available_actions'])
-            print('RandomAgent chose random action: %d for player_id %d' % (function_id, player_id))
-            args = [[numpy.random.randint(0, size) for size in arg.sizes]
-                     for arg in self.action_spec.functions[function_id].args]
-            selected_actions.append(actions.FunctionCall(player_id, function_id, args))
-        #print("RandomAgent selected actions:", selected_actions)
-        return selected_actions
+        return []

@@ -127,6 +127,12 @@ class WorldData(object):
             return player['unit'].items
         return []
 
+    def get_player_location(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player['unit'].location
+        return []
+        
     @property
     def get_my_players(self):
         return self.good_players

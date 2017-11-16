@@ -57,7 +57,8 @@ flags.DEFINE_bool("render", False, "Whether to render with pygame.")
 flags.DEFINE_integer("max_agent_steps", 10000, "Total agent steps.")
 flags.DEFINE_integer("game_steps_per_episode", 0, "Game steps per episode.")
 flags.DEFINE_integer("step_mul", 8, "Game steps per agent step.")
-flags.DEFINE_string("agent", "pydota2.agents.random_agent.RandomAgent", "Which agent to run")
+flags.DEFINE_string("agent", "pydota2.agents.random_agent.RandomAgent", "Which agent to run for game phase")
+flags.DEFINE_string("hs_agent", "pydota2.agents.hero_select_agent.Agent", "Which agent to run for hero select phase")
 flags.DEFINE_enum("difficulty", None, dota2_env.difficulties.keys(), "Bot's strength.")
 flags.DEFINE_bool("profile", False, "Whether to turn on code profiling.")
 flags.DEFINE_bool("trace", False, "Whether to trace the code execution.")
@@ -66,7 +67,7 @@ flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 flags.mark_flag_as_required("team")
 
 
-def run_agent_thread(agent_cls, visualize, proto_controller, post_controller):
+def run_agent_thread(agent_cls, hs_agent_cls, visualize, proto_controller, post_controller):
     print("Starting Thread for Agent(s)")
     with dota2_env.Dota2Env(
             difficulty=FLAGS.difficulty,
@@ -77,7 +78,8 @@ def run_agent_thread(agent_cls, visualize, proto_controller, post_controller):
             post_controller=post_controller) as env:
         env = available_actions_printer.AvailableActionsPrinter(env)
         agent = agent_cls()
-        run_loop.run_loop([agent], env, FLAGS.max_agent_steps)
+        hs_agent = hs_agent_cls()
+        run_loop.run_loop([agent], [hs_agent], env, FLAGS.max_agent_steps)
         if FLAGS.save_replay:
             env.save_replay(agent_cls.__name__)
 
@@ -102,6 +104,9 @@ def main(unused_argv):
         agent_module, agent_name = FLAGS.agent.rsplit(".", 1)
         agent_cls = getattr(importlib.import_module(agent_module), agent_name)
         
+        hs_agent_module, hs_agent_name = FLAGS.agent.rsplit(".", 1)
+        hs_agent_cls = getattr(importlib.import_module(hs_agent_module), hs_agent_name)
+        
         # Start our protocol threads
         thread_proto.start()
         thread_http.start()
@@ -112,12 +117,12 @@ def main(unused_argv):
         
         # if we are running multiple agents, start and append them
         for _ in range(FLAGS.parallel - 1):
-            t = threading.Thread(target=run_agent_thread, args=(agent_cls, False))
+            t = threading.Thread(target=run_agent_thread, args=(agent_cls, hs_agent_cls, False))
             t.start()
             threads.append(t)
             
         # and start our main agent (or only agent if only running one)
-        t = threading.Thread(target=run_agent_thread, args=(agent_cls, FLAGS.render, thread_proto, thread_http))
+        t = threading.Thread(target=run_agent_thread, args=(agent_cls, hs_agent_cls, FLAGS.render, thread_proto, thread_http))
         t.start()
         threads.append(t)
 

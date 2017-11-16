@@ -24,15 +24,19 @@ from __future__ import print_function
 import time
 
 
-def run_loop(agents, env, max_frames=0):
+def run_loop(agents, hs_agents, env, max_frames=0):
     """A run loop to have agents and an environment interact."""
     total_frames = 0
     start_time = time.time()
 
     action_spec = env.action_spec()
     observation_spec = env.observation_spec()
+    
     for agent in agents:
         agent.setup(observation_spec, action_spec)
+        
+    for agent in hs_agents:
+        print("IMPLEMENT HS AGENT SETUP")
 
     try:
         while True:
@@ -41,13 +45,25 @@ def run_loop(agents, env, max_frames=0):
                 a.reset()
             while True:
                 total_frames += 1
-                actions = [agent.step(timestep)
-                           for agent, timestep in zip(agents, timesteps)]
-                if max_frames and total_frames >= max_frames:
-                    return
-                if timesteps[0].last():
-                    break
-                timesteps = env.step(actions)
+                
+                if timesteps[0].observation['game_loop'][0] in [4,5]:
+                    actions = [agent.step(timestep)
+                               for agent, timestep in zip(agents, timesteps)]
+                    #print('run_loop actions:', actions)
+                    if max_frames and total_frames >= max_frames:
+                        return
+                    if timesteps[0].last():
+                        break
+                    timesteps = env.step(actions)
+                # TODO - fix below for Hero Selection
+                else:
+                    actions = [agent.step(timestep)
+                               for agent, timestep in zip(agents, timesteps)]
+                    if max_frames and total_frames >= max_frames:
+                        return
+                    if timesteps[0].last():
+                        break
+                    timesteps = env.step(actions)
     except KeyboardInterrupt:
         pass
     finally:
