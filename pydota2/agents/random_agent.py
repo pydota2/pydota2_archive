@@ -21,7 +21,7 @@ import numpy
 
 from pydota2.agents import base_agent
 from pydota2.lib import actions
-from pydota2.gen_data.json_lookup import getNameOfKey
+from pydota2.gen_data.json_lookup import getNameOfKey, isAbilityHidden
 
 class RandomAgent(base_agent.BaseAgent):
     """
@@ -45,10 +45,14 @@ class RandomAgent(base_agent.BaseAgent):
                         if len(ability_ids) > 0:
                             rand = numpy.random.randint(0, len(ability_ids))
                             name = getNameOfKey('abilities.json', str(ability_ids[rand]))
-                            print('PID: %d, Rand: %d, RandName: %s, AbilityIDS: %s' % (player_id, rand, name, str(ability_ids)))
-                            args = [[]]
+                            hidden = isAbilityHidden('abilities.json', str(ability_ids[rand]))
+                            if not hidden:
+                                print('PID: %d, Rand: %d, RandName: %s, AbilityIDS: %s' % (player_id, rand, name, str(ability_ids)))
+                                args = [[name]]
+                            else:
+                                args = [[0]]
                         else:
-                            break
+                            args = [[0]]
                     else:
                         args = [[numpy.random.randint(0, size) for size in arg.sizes]
                                 for arg in self.action_spec.functions[function_id].args]

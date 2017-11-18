@@ -14,6 +14,7 @@ def writeData(data):
 shiftCount = 0
 abilitiesCount = 0
 currName = None
+abilityID = None
 if __name__ == "__main__":
     fName = open('C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\scripts\\npc\\npc_abilities.txt', 'r')
 
@@ -35,6 +36,7 @@ if __name__ == "__main__":
             
             if shiftCount == 1:
                 currName = None
+                abilityID = None
                 
             continue
         
@@ -52,12 +54,21 @@ if __name__ == "__main__":
                 if line[:4] == '"ID"':
                     res = re.split(r'\s{2,}', line)
                     res[1] = res[1].replace('"','')
+                    abilityID = res[1]
                     abilities[res[1]] = {}
                     if currName != None:
                         abilities[res[1]]['Name'] = currName
                     else:
-                        print("ERROR")
+                        print("ERROR: Name missing!")
                         break
+                if line[:17] == '"AbilityBehavior"':
+                    if line.find("DOTA_ABILITY_BEHAVIOR_HIDDEN") >= 0:
+                        if abilityID != None:
+                            abilities[abilityID]['Hidden'] = 1
+                        else:
+                            print("Error: AbilityID missing!")
+                            break
+                
     
     #print(abilities)
     print('Processed %d abilities' % (abilitiesCount))

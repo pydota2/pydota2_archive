@@ -48,7 +48,8 @@
         "Name": "bane_nightmare"
     },
     "5523": {
-        "Name": "bane_nightmare_end"
+        "Name": "bane_nightmare_end",
+        "Hidden": 1
     },
     "5015": {
         "Name": "bloodseeker_bloodrage"
@@ -111,7 +112,8 @@
         "Name": "kunkka_x_marks_the_spot"
     },
     "5034": {
-        "Name": "kunkka_return"
+        "Name": "kunkka_return",
+        "Hidden": 1
     },
     "5035": {
         "Name": "kunkka_ghostship"
@@ -162,7 +164,8 @@
         "Name": "morphling_adaptive_strike_str"
     },
     "5054": {
-        "Name": "morphling_morph"
+        "Name": "morphling_morph",
+        "Hidden": 1
     },
     "5055": {
         "Name": "morphling_morph_agi"
@@ -174,10 +177,12 @@
         "Name": "morphling_replicate"
     },
     "5058": {
-        "Name": "morphling_morph_replicate"
+        "Name": "morphling_morph_replicate",
+        "Hidden": 1
     },
     "5674": {
-        "Name": "morphling_hybrid"
+        "Name": "morphling_hybrid",
+        "Hidden": 1
     },
     "5059": {
         "Name": "nevermore_shadowraze1"
@@ -333,7 +338,8 @@
         "Name": "tiny_craggy_exterior"
     },
     "6937": {
-        "Name": "tiny_toss_tree"
+        "Name": "tiny_toss_tree",
+        "Hidden": 1
     },
     "5109": {
         "Name": "tiny_grow"
@@ -345,7 +351,8 @@
         "Name": "zuus_lightning_bolt"
     },
     "6325": {
-        "Name": "zuus_cloud"
+        "Name": "zuus_cloud",
+        "Hidden": 1
     },
     "5112": {
         "Name": "zuus_static_field"
@@ -495,7 +502,8 @@
         "Name": "necrolyte_sadist"
     },
     "6316": {
-        "Name": "necrolyte_sadist_stop"
+        "Name": "necrolyte_sadist_stop",
+        "Hidden": 1
     },
     "5161": {
         "Name": "necrolyte_reapers_scythe"
@@ -720,28 +728,36 @@
         "Name": "life_stealer_infest"
     },
     "5671": {
-        "Name": "life_stealer_assimilate"
+        "Name": "life_stealer_assimilate",
+        "Hidden": 1
     },
     "5675": {
-        "Name": "life_stealer_assimilate_eject"
+        "Name": "life_stealer_assimilate_eject",
+        "Hidden": 1
     },
     "5253": {
-        "Name": "life_stealer_consume"
+        "Name": "life_stealer_consume",
+        "Hidden": 1
     },
     "5655": {
-        "Name": "life_stealer_control"
+        "Name": "life_stealer_control",
+        "Hidden": 1
     },
     "5657": {
-        "Name": "life_stealer_empty_1"
+        "Name": "life_stealer_empty_1",
+        "Hidden": 1
     },
     "5658": {
-        "Name": "life_stealer_empty_2"
+        "Name": "life_stealer_empty_2",
+        "Hidden": 1
     },
     "5659": {
-        "Name": "life_stealer_empty_3"
+        "Name": "life_stealer_empty_3",
+        "Hidden": 1
     },
     "5660": {
-        "Name": "life_stealer_empty_4"
+        "Name": "life_stealer_empty_4",
+        "Hidden": 1
     },
     "5255": {
         "Name": "dark_seer_vacuum"
@@ -942,7 +958,8 @@
         "Name": "ancient_apparition_ice_blast"
     },
     "5349": {
-        "Name": "ancient_apparition_ice_blast_release"
+        "Name": "ancient_apparition_ice_blast_release",
+        "Hidden": 1
     },
     "5353": {
         "Name": "spirit_breaker_charge_of_darkness"
@@ -987,7 +1004,8 @@
         "Name": "alchemist_unstable_concoction"
     },
     "5367": {
-        "Name": "alchemist_unstable_concoction_throw"
+        "Name": "alchemist_unstable_concoction_throw",
+        "Hidden": 1
     },
     "5368": {
         "Name": "alchemist_goblins_greed"
@@ -1017,37 +1035,47 @@
         "Name": "invoker_attribute_bonus"
     },
     "5376": {
-        "Name": "invoker_cold_snap"
+        "Name": "invoker_cold_snap",
+        "Hidden": 1
     },
     "5381": {
-        "Name": "invoker_ghost_walk"
+        "Name": "invoker_ghost_walk",
+        "Hidden": 1
     },
     "5382": {
-        "Name": "invoker_tornado"
+        "Name": "invoker_tornado",
+        "Hidden": 1
     },
     "5383": {
-        "Name": "invoker_emp"
+        "Name": "invoker_emp",
+        "Hidden": 1
     },
     "5384": {
-        "Name": "invoker_alacrity"
+        "Name": "invoker_alacrity",
+        "Hidden": 1
     },
     "5385": {
-        "Name": "invoker_chaos_meteor"
+        "Name": "invoker_chaos_meteor",
+        "Hidden": 1
     },
     "5386": {
-        "Name": "invoker_sun_strike"
+        "Name": "invoker_sun_strike",
+        "Hidden": 1
     },
     "5387": {
-        "Name": "invoker_forge_spirit"
+        "Name": "invoker_forge_spirit",
+        "Hidden": 1
     },
     "5388": {
         "Name": "forged_spirit_melting_strike"
     },
     "5389": {
-        "Name": "invoker_ice_wall"
+        "Name": "invoker_ice_wall",
+        "Hidden": 1
     },
     "5390": {
-        "Name": "invoker_deafening_blast"
+        "Name": "invoker_deafening_blast",
+        "Hidden": 1
     },
     "5377": {
         "Name": "silencer_curse_of_the_silent"
@@ -1104,16 +1132,19 @@
         "Name": "lone_druid_savage_roar"
     },
     "5687": {
-        "Name": "lone_druid_savage_roar_bear"
+        "Name": "lone_druid_savage_roar_bear",
+        "Hidden": 1
     },
     "5415": {
         "Name": "lone_druid_true_form"
     },
     "5416": {
-        "Name": "lone_druid_true_form_druid"
+        "Name": "lone_druid_true_form_druid",
+        "Hidden": 1
     },
     "5417": {
-        "Name": "lone_druid_true_form_battle_cry"
+        "Name": "lone_druid_true_form_battle_cry",
+        "Hidden": 1
     },
     "5418": {
         "Name": "lone_druid_spirit_bear_return"
@@ -1209,7 +1240,8 @@
         "Name": "treant_overgrowth"
     },
     "5649": {
-        "Name": "treant_eyes_in_the_forest"
+        "Name": "treant_eyes_in_the_forest",
+        "Hidden": 1
     },
     "5438": {
         "Name": "ogre_magi_fireblast"
@@ -1236,7 +1268,8 @@
         "Name": "undying_tombstone"
     },
     "5445": {
-        "Name": "undying_tombstone_zombie_aura"
+        "Name": "undying_tombstone_zombie_aura",
+        "Hidden": 1
     },
     "5446": {
         "Name": "undying_tombstone_zombie_deathstrike"
@@ -1248,7 +1281,8 @@
         "Name": "rubick_telekinesis"
     },
     "5449": {
-        "Name": "rubick_telekinesis_land"
+        "Name": "rubick_telekinesis_land",
+        "Hidden": 1
     },
     "5450": {
         "Name": "rubick_fade_bolt"
@@ -1266,13 +1300,16 @@
         "Name": "rubick_empty2"
     },
     "5455": {
-        "Name": "rubick_hidden1"
+        "Name": "rubick_hidden1",
+        "Hidden": 1
     },
     "5456": {
-        "Name": "rubick_hidden2"
+        "Name": "rubick_hidden2",
+        "Hidden": 1
     },
     "5457": {
-        "Name": "rubick_hidden3"
+        "Name": "rubick_hidden3",
+        "Hidden": 1
     },
     "5458": {
         "Name": "disruptor_thunder_strike"
@@ -1299,10 +1336,12 @@
         "Name": "nyx_assassin_vendetta"
     },
     "5666": {
-        "Name": "nyx_assassin_burrow"
+        "Name": "nyx_assassin_burrow",
+        "Hidden": 1
     },
     "5673": {
-        "Name": "nyx_assassin_unburrow"
+        "Name": "nyx_assassin_unburrow",
+        "Hidden": 1
     },
     "5467": {
         "Name": "naga_siren_mirror_image"
@@ -1317,7 +1356,8 @@
         "Name": "naga_siren_song_of_the_siren"
     },
     "5478": {
-        "Name": "naga_siren_song_of_the_siren_cancel"
+        "Name": "naga_siren_song_of_the_siren_cancel",
+        "Hidden": 1
     },
     "5471": {
         "Name": "keeper_of_the_light_illuminate"
@@ -1344,13 +1384,16 @@
         "Name": "keeper_of_the_light_blinding_light"
     },
     "5477": {
-        "Name": "keeper_of_the_light_illuminate_end"
+        "Name": "keeper_of_the_light_illuminate_end",
+        "Hidden": 1
     },
     "5479": {
-        "Name": "keeper_of_the_light_spirit_form_illuminate"
+        "Name": "keeper_of_the_light_spirit_form_illuminate",
+        "Hidden": 1
     },
     "5503": {
-        "Name": "keeper_of_the_light_spirit_form_illuminate_end"
+        "Name": "keeper_of_the_light_spirit_form_illuminate_end",
+        "Hidden": 1
     },
     "5480": {
         "Name": "visage_grave_chill"
@@ -1380,7 +1423,8 @@
         "Name": "wisp_relocate"
     },
     "5489": {
-        "Name": "wisp_tether_break"
+        "Name": "wisp_tether_break",
+        "Hidden": 1
     },
     "5490": {
         "Name": "wisp_spirits_in"
@@ -1464,13 +1508,16 @@
         "Name": "shredder_chakram"
     },
     "5645": {
-        "Name": "shredder_chakram_2"
+        "Name": "shredder_chakram_2",
+        "Hidden": 1
     },
     "5528": {
-        "Name": "shredder_return_chakram"
+        "Name": "shredder_return_chakram",
+        "Hidden": 1
     },
     "5646": {
-        "Name": "shredder_return_chakram_2"
+        "Name": "shredder_return_chakram_2",
+        "Hidden": 1
     },
     "5548": {
         "Name": "bristleback_viscous_nasal_goo"
@@ -1488,13 +1535,15 @@
         "Name": "tusk_ice_shards"
     },
     "5668": {
-        "Name": "tusk_ice_shards_stop"
+        "Name": "tusk_ice_shards_stop",
+        "Hidden": 1
     },
     "5566": {
         "Name": "tusk_snowball"
     },
     "5641": {
-        "Name": "tusk_launch_snowball"
+        "Name": "tusk_launch_snowball",
+        "Hidden": 1
     },
     "5567": {
         "Name": "tusk_frozen_sigil"
@@ -1503,7 +1552,8 @@
         "Name": "tusk_walrus_punch"
     },
     "5672": {
-        "Name": "tusk_walrus_kick"
+        "Name": "tusk_walrus_kick",
+        "Hidden": 1
     },
     "5581": {
         "Name": "skywrath_mage_arcane_bolt"
@@ -1539,7 +1589,8 @@
         "Name": "elder_titan_ancestral_spirit"
     },
     "5592": {
-        "Name": "elder_titan_return_spirit"
+        "Name": "elder_titan_return_spirit",
+        "Hidden": 1
     },
     "5593": {
         "Name": "elder_titan_natural_order"
@@ -1590,7 +1641,8 @@
         "Name": "earth_spirit_stone_caller"
     },
     "5648": {
-        "Name": "earth_spirit_petrify"
+        "Name": "earth_spirit_petrify",
+        "Hidden": 1
     },
     "5612": {
         "Name": "earth_spirit_magnetize"
@@ -1608,7 +1660,8 @@
         "Name": "abyssal_underlord_dark_rift"
     },
     "5617": {
-        "Name": "abyssal_underlord_cancel_dark_rift"
+        "Name": "abyssal_underlord_cancel_dark_rift",
+        "Hidden": 1
     },
     "5619": {
         "Name": "terrorblade_reflection"
@@ -1626,7 +1679,8 @@
         "Name": "phoenix_icarus_dive"
     },
     "5624": {
-        "Name": "phoenix_icarus_dive_stop"
+        "Name": "phoenix_icarus_dive_stop",
+        "Hidden": 1
     },
     "5625": {
         "Name": "phoenix_fire_spirits"
@@ -1635,7 +1689,8 @@
         "Name": "phoenix_sun_ray"
     },
     "5627": {
-        "Name": "phoenix_sun_ray_stop"
+        "Name": "phoenix_sun_ray_stop",
+        "Hidden": 1
     },
     "5628": {
         "Name": "phoenix_sun_ray_toggle_move"
@@ -1644,7 +1699,8 @@
         "Name": "phoenix_supernova"
     },
     "5631": {
-        "Name": "phoenix_launch_fire_spirit"
+        "Name": "phoenix_launch_fire_spirit",
+        "Hidden": 1
     },
     "5637": {
         "Name": "oracle_fortunes_end"
@@ -1668,7 +1724,8 @@
         "Name": "monkey_king_mischief"
     },
     "5722": {
-        "Name": "monkey_king_untransform"
+        "Name": "monkey_king_untransform",
+        "Hidden": 1
     },
     "5721": {
         "Name": "monkey_king_tree_dance"
@@ -1677,7 +1734,8 @@
         "Name": "monkey_king_primal_spring"
     },
     "5726": {
-        "Name": "monkey_king_primal_spring_early"
+        "Name": "monkey_king_primal_spring_early",
+        "Hidden": 1
     },
     "5725": {
         "Name": "monkey_king_wukongs_command"
@@ -1698,7 +1756,8 @@
         "Name": "pangolier_gyroshell"
     },
     "6459": {
-        "Name": "pangolier_gyroshell_stop"
+        "Name": "pangolier_gyroshell_stop",
+        "Hidden": 1
     },
     "6339": {
         "Name": "dark_willow_bramble_maze"
@@ -1752,7 +1811,8 @@
         "Name": "courier_transfer_items"
     },
     "6328": {
-        "Name": "courier_transfer_items_to_other_player"
+        "Name": "courier_transfer_items_to_other_player",
+        "Hidden": 1
     },
     "5207": {
         "Name": "courier_return_stash_items"
@@ -1761,7 +1821,8 @@
         "Name": "courier_take_stash_items"
     },
     "5676": {
-        "Name": "courier_take_stash_and_transfer_items"
+        "Name": "courier_take_stash_and_transfer_items",
+        "Hidden": 1
     },
     "5209": {
         "Name": "courier_shield"
@@ -1770,16 +1831,20 @@
         "Name": "courier_burst"
     },
     "5642": {
-        "Name": "courier_morph"
+        "Name": "courier_morph",
+        "Hidden": 1
     },
     "6329": {
-        "Name": "courier_go_to_enemy_secretshop"
+        "Name": "courier_go_to_enemy_secretshop",
+        "Hidden": 1
     },
     "6333": {
-        "Name": "courier_go_to_sideshop"
+        "Name": "courier_go_to_sideshop",
+        "Hidden": 1
     },
     "6334": {
-        "Name": "courier_go_to_sideshop2"
+        "Name": "courier_go_to_sideshop2",
+        "Hidden": 1
     },
     "5213": {
         "Name": "roshan_spell_block"
@@ -1794,10 +1859,12 @@
         "Name": "roshan_slam"
     },
     "5216": {
-        "Name": "roshan_inherent_buffs"
+        "Name": "roshan_inherent_buffs",
+        "Hidden": 1
     },
     "5217": {
-        "Name": "roshan_devotion"
+        "Name": "roshan_devotion",
+        "Hidden": 1
     },
     "5293": {
         "Name": "kobold_taskmaster_speed_aura"
@@ -1926,16 +1993,19 @@
         "Name": "forest_troll_high_priest_mana_aura"
     },
     "9990": {
-        "Name": "roshan_halloween_candy"
+        "Name": "roshan_halloween_candy",
+        "Hidden": 1
     },
     "9991": {
-        "Name": "roshan_halloween_angry"
+        "Name": "roshan_halloween_angry",
+        "Hidden": 1
     },
     "9993": {
         "Name": "roshan_halloween_wave_of_force"
     },
     "9994": {
-        "Name": "roshan_halloween_greater_bash"
+        "Name": "roshan_halloween_greater_bash",
+        "Hidden": 1
     },
     "9995": {
         "Name": "roshan_halloween_toss"
@@ -1950,7 +2020,8 @@
         "Name": "roshan_halloween_burn"
     },
     "10000": {
-        "Name": "roshan_halloween_levels"
+        "Name": "roshan_halloween_levels",
+        "Hidden": 1
     },
     "10001": {
         "Name": "roshan_halloween_summon"
@@ -2112,7 +2183,8 @@
         "Name": "techies_minefield_sign"
     },
     "5661": {
-        "Name": "cny_beast_force_attack"
+        "Name": "cny_beast_force_attack",
+        "Hidden": 1
     },
     "5662": {
         "Name": "cny2015_sonic_wave"
@@ -2136,7 +2208,8 @@
         "Name": "winter_wyvern_winters_curse"
     },
     "5665": {
-        "Name": "cny_beast_teleport"
+        "Name": "cny_beast_teleport",
+        "Hidden": 1
     },
     "5677": {
         "Name": "arc_warden_flux"
@@ -4485,7 +4558,8 @@
         "Name": "special_bonus_unique_dark_willow_2"
     },
     "6251": {
-        "Name": "generic_hidden"
+        "Name": "generic_hidden",
+        "Hidden": 1
     },
     "82": {
         "Name": "bear_empty1"
