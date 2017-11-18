@@ -75,7 +75,7 @@ function X:Think(hBot)
     -- draw debug info to Game UI
     --dbg.draw()
 
-    dbg.myPrint("Process Commands")
+    --dbg.myPrint("Process Commands")
     self:ProcessCommands(hBot)
 end
 
