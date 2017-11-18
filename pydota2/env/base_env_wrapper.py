@@ -38,6 +38,9 @@ class BaseEnvWrapper(environment.Base):
 
   def observation_spec(self, *args, **kwargs):
     return self._env.observation_spec(*args, **kwargs)
+    
+  def world_state(self, *args, **kwargs):
+    return self._env.world_state(*args, **kwargs)
 
   def reset(self, *args, **kwargs):
     return self._env.reset(*args, **kwargs)

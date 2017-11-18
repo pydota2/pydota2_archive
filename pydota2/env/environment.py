@@ -117,6 +117,13 @@ class Base(object):
     Returns:
       Something that defines the shape of the actions.
     """
+    
+  @abc.abstractmethod
+  def world_state(self):
+    """Defines the world state to be provided to `agent`.
+    Returns:
+      WorldData objet.
+    """
 
   def close(self):
     """Frees any resources used by the environment.

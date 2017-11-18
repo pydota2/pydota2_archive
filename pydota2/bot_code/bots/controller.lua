@@ -4,9 +4,11 @@
 -------------------------------------------------------------------------------
 
 --- LOAD OUR GLOBAL CONSTANTS
+dbg = require( GetScriptDirectory().."/debug" ) -- globally accessible
+require( GetScriptDirectory().."/utility/util_funcs" )
 
 --- LOAD OUR HELPERS
-dbg = require( GetScriptDirectory().."/debug" )
+local cmd_proc = require( GetScriptDirectory().."/actions/cmd_processor" )
 
 local packet = require( GetScriptDirectory().."/data_packet" )
 local server = require( GetScriptDirectory().."/webserver_out" )
@@ -34,21 +36,22 @@ local function ServerUpdate()
     -- send our POLL to webserver to receive instructions back
     -- or our authentication packet if first time sending
     server.SendData(hBot)
+end
 
-    local serverReply = server.GetLastReply(packet.TYPE_POLL)
+local function GetLastServerReply(hBot)
+    local serverReply = server.GetLastReply(packet.TYPE_POLL, hBot:GetPlayerID())
     if serverReply ~= nil then
-        dbg.myPrint("Need to Process new Server Reply")
+        -- dbg.myPrint("Need to Process new Server Reply")
         if serverReply.status == 200 then
             dbg.myPrint("Packet RTT: ", RealTime() - serverReply.Time)
-            dbg.myPrint("Server Data: ", serverReply.Data)
-            if serverReply.Data[tostring(hBot:GetPlayerID())]:
-                return serverReply.Data[tostring(hBot:GetPlayerID())]
+            -- dbg.myPrint("Server Data: ", serverReply.Data)
+            return serverReply.Data[tostring(hBot:GetPlayerID())]
         else
             dbg.myPrint("Server Error: ", serverReply.Data)
         end
     end
 
-    return {}
+    return nil
 end
 
 function X:Think(hBot)
@@ -62,21 +65,17 @@ function X:Think(hBot)
 
     if GetGameState() ~= GAME_STATE_GAME_IN_PROGRESS and GetGameState() ~= GAME_STATE_PRE_GAME then return end
 
-    -- draw debug info to Game UI
-    --dbg.draw()
-
     -- throttle how often we query the back-end server
     if (GameTime() - X.lastUpdateTime) >= THROTTLE_RATE then
         -- check if bot has updated directives from our AI
-        dbg.myPrint("SENDING SERVER UPDATE")
-        local action_arg_dict = ServerUpdate()
-        
-        if action_arg_dict then
-            dbg.myPrint("Need to Process:", tostring(action_arg_dic))
-        end
-
+        ServerUpdate()
         X.lastUpdateTime = GameTime()
     end
+    
+    -- draw debug info to Game UI
+    --dbg.draw()
+
+    self:ProcessCommands(hBot)
 end
 
 function X:DoInit(hBot)
@@ -91,5 +90,11 @@ function X:DoInit(hBot)
     self.Name = string.sub(fullName, 15, string.len(fullName))
 end
 
-return X
+function X:ProcessCommands(hBot)
+    local tblActions = GetLastServerReply(hBot)
+    if tblActions then
+        cmd_proc:Run(hBot, tblActions)
+    end
+end
 
+return X

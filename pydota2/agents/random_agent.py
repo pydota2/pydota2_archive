@@ -21,7 +21,7 @@ import numpy
 
 from pydota2.agents import base_agent
 from pydota2.lib import actions
-
+from pydota2.gen_data.json_lookup import getNameOfKey
 
 class RandomAgent(base_agent.BaseAgent):
     """
@@ -30,15 +30,29 @@ class RandomAgent(base_agent.BaseAgent):
        completely at random.
     """
 
-    def step(self, obs):
+    def step(self, obs, world_state):
         super(RandomAgent, self).step(obs)
         
         selected_actions = []
-        for player_id in range(1, 6):
-            function_id = numpy.random.choice(obs.observation['available_actions'])
-            print('RandomAgent chose random action: %d for player_id %d' % (function_id, player_id))
-            args = [[numpy.random.randint(0, size) for size in arg.sizes]
-                     for arg in self.action_spec.functions[function_id].args]
-            selected_actions.append(actions.FunctionCall(player_id, function_id, args))
+        if world_state:
+            pIDs = world_state.get_player_ids()
+            if len(pIDs) == 5:
+                for player_id in pIDs:
+                    function_id = numpy.random.choice(obs.observation['available_actions'])
+                    print('RandomAgent chose random action: %d for player_id %d' % (function_id, player_id))
+                    if function_id == 2:
+                        ability_ids = world_state.get_player_ability_ids(player_id, False) #TODO - remove False when implemented
+                        if len(ability_ids) > 0:
+                            rand = numpy.random.randint(0, len(ability_ids))
+                            name = getNameOfKey('abilities.json', str(ability_ids[rand]))
+                            print('PID: %d, Rand: %d, RandName: %s, AbilityIDS: %s' % (player_id, rand, name, str(ability_ids)))
+                            args = [[]]
+                        else:
+                            break
+                    else:
+                        args = [[numpy.random.randint(0, size) for size in arg.sizes]
+                                for arg in self.action_spec.functions[function_id].args]
+                    selected_actions.append(actions.FunctionCall(player_id, function_id, args))
+
         #print("RandomAgent selected actions:", selected_actions)
         return selected_actions

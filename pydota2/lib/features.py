@@ -221,6 +221,7 @@ class Features(object):
                 func, func_call.arguments))
         
         # Args are valid?
+        '''
         for t, arg in zip(func.args, func_call.arguments):
             sizes = t.sizes
             
@@ -228,12 +229,14 @@ class Features(object):
                 raise ValueError(
                     "Wrong number of values for argument of %s, got: %s" % (
                     func, func_call.arguments))
-                    
+            
+            """
             for s, a in zip(sizes, arg):
                 if not 0 <= a < s:
                     raise ValueError("Argument is out of range for %s, got: %s" % (
                     func, func_call.arguments))
-        
+            """
+        ''' 
         return (func_call.player_id, func_id, func_call.arguments)
               
     @sw.decorate

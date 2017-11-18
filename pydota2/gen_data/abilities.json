@@ -1,0 +1,4496 @@
+{
+    "0": {
+        "Name": "ability_base"
+    },
+    "5001": {
+        "Name": "default_attack"
+    },
+    "5002": {
+        "Name": "attribute_bonus"
+    },
+    "5669": {
+        "Name": "ability_deward"
+    },
+    "5003": {
+        "Name": "antimage_mana_break"
+    },
+    "5004": {
+        "Name": "antimage_blink"
+    },
+    "5005": {
+        "Name": "antimage_spell_shield"
+    },
+    "5006": {
+        "Name": "antimage_mana_void"
+    },
+    "5007": {
+        "Name": "axe_berserkers_call"
+    },
+    "5008": {
+        "Name": "axe_battle_hunger"
+    },
+    "5009": {
+        "Name": "axe_counter_helix"
+    },
+    "5010": {
+        "Name": "axe_culling_blade"
+    },
+    "5012": {
+        "Name": "bane_enfeeble"
+    },
+    "5011": {
+        "Name": "bane_brain_sap"
+    },
+    "5013": {
+        "Name": "bane_fiends_grip"
+    },
+    "5014": {
+        "Name": "bane_nightmare"
+    },
+    "5523": {
+        "Name": "bane_nightmare_end"
+    },
+    "5015": {
+        "Name": "bloodseeker_bloodrage"
+    },
+    "5016": {
+        "Name": "bloodseeker_blood_bath"
+    },
+    "5017": {
+        "Name": "bloodseeker_thirst"
+    },
+    "5018": {
+        "Name": "bloodseeker_rupture"
+    },
+    "5019": {
+        "Name": "drow_ranger_frost_arrows"
+    },
+    "5020": {
+        "Name": "drow_ranger_silence"
+    },
+    "5632": {
+        "Name": "drow_ranger_wave_of_silence"
+    },
+    "5021": {
+        "Name": "drow_ranger_trueshot"
+    },
+    "5022": {
+        "Name": "drow_ranger_marksmanship"
+    },
+    "5023": {
+        "Name": "earthshaker_fissure"
+    },
+    "5024": {
+        "Name": "earthshaker_enchant_totem"
+    },
+    "5025": {
+        "Name": "earthshaker_aftershock"
+    },
+    "5026": {
+        "Name": "earthshaker_echo_slam"
+    },
+    "5027": {
+        "Name": "juggernaut_blade_dance"
+    },
+    "5028": {
+        "Name": "juggernaut_blade_fury"
+    },
+    "5029": {
+        "Name": "juggernaut_healing_ward"
+    },
+    "5030": {
+        "Name": "juggernaut_omni_slash"
+    },
+    "5031": {
+        "Name": "kunkka_torrent"
+    },
+    "5032": {
+        "Name": "kunkka_tidebringer"
+    },
+    "5033": {
+        "Name": "kunkka_x_marks_the_spot"
+    },
+    "5034": {
+        "Name": "kunkka_return"
+    },
+    "5035": {
+        "Name": "kunkka_ghostship"
+    },
+    "5040": {
+        "Name": "lina_dragon_slave"
+    },
+    "5041": {
+        "Name": "lina_light_strike_array"
+    },
+    "5042": {
+        "Name": "lina_fiery_soul"
+    },
+    "5043": {
+        "Name": "lina_laguna_blade"
+    },
+    "5044": {
+        "Name": "lion_impale"
+    },
+    "5045": {
+        "Name": "lion_voodoo"
+    },
+    "5046": {
+        "Name": "lion_mana_drain"
+    },
+    "5047": {
+        "Name": "lion_finger_of_death"
+    },
+    "5048": {
+        "Name": "mirana_arrow"
+    },
+    "5049": {
+        "Name": "mirana_invis"
+    },
+    "5050": {
+        "Name": "mirana_leap"
+    },
+    "5051": {
+        "Name": "mirana_starfall"
+    },
+    "5052": {
+        "Name": "morphling_waveform"
+    },
+    "5053": {
+        "Name": "morphling_adaptive_strike_agi"
+    },
+    "7000": {
+        "Name": "morphling_adaptive_strike_str"
+    },
+    "5054": {
+        "Name": "morphling_morph"
+    },
+    "5055": {
+        "Name": "morphling_morph_agi"
+    },
+    "5056": {
+        "Name": "morphling_morph_str"
+    },
+    "5057": {
+        "Name": "morphling_replicate"
+    },
+    "5058": {
+        "Name": "morphling_morph_replicate"
+    },
+    "5674": {
+        "Name": "morphling_hybrid"
+    },
+    "5059": {
+        "Name": "nevermore_shadowraze1"
+    },
+    "5060": {
+        "Name": "nevermore_shadowraze2"
+    },
+    "5061": {
+        "Name": "nevermore_shadowraze3"
+    },
+    "5062": {
+        "Name": "nevermore_necromastery"
+    },
+    "5063": {
+        "Name": "nevermore_dark_lord"
+    },
+    "5064": {
+        "Name": "nevermore_requiem"
+    },
+    "5065": {
+        "Name": "phantom_lancer_spirit_lance"
+    },
+    "5066": {
+        "Name": "phantom_lancer_doppelwalk"
+    },
+    "5067": {
+        "Name": "phantom_lancer_juxtapose"
+    },
+    "5068": {
+        "Name": "phantom_lancer_phantom_edge"
+    },
+    "5069": {
+        "Name": "puck_illusory_orb"
+    },
+    "5070": {
+        "Name": "puck_ethereal_jaunt"
+    },
+    "5071": {
+        "Name": "puck_waning_rift"
+    },
+    "5072": {
+        "Name": "puck_phase_shift"
+    },
+    "5073": {
+        "Name": "puck_dream_coil"
+    },
+    "5074": {
+        "Name": "pudge_flesh_heap"
+    },
+    "5075": {
+        "Name": "pudge_meat_hook"
+    },
+    "5076": {
+        "Name": "pudge_rot"
+    },
+    "5077": {
+        "Name": "pudge_dismember"
+    },
+    "5078": {
+        "Name": "shadow_shaman_ether_shock"
+    },
+    "5079": {
+        "Name": "shadow_shaman_voodoo"
+    },
+    "5080": {
+        "Name": "shadow_shaman_shackles"
+    },
+    "5081": {
+        "Name": "shadow_shaman_mass_serpent_ward"
+    },
+    "5082": {
+        "Name": "razor_plasma_field"
+    },
+    "5083": {
+        "Name": "razor_static_link"
+    },
+    "5084": {
+        "Name": "razor_unstable_current"
+    },
+    "5085": {
+        "Name": "razor_eye_of_the_storm"
+    },
+    "5086": {
+        "Name": "skeleton_king_hellfire_blast"
+    },
+    "5087": {
+        "Name": "skeleton_king_vampiric_aura"
+    },
+    "5088": {
+        "Name": "skeleton_king_mortal_strike"
+    },
+    "5089": {
+        "Name": "skeleton_king_reincarnation"
+    },
+    "5090": {
+        "Name": "death_prophet_carrion_swarm"
+    },
+    "5091": {
+        "Name": "death_prophet_silence"
+    },
+    "5092": {
+        "Name": "death_prophet_witchcraft"
+    },
+    "5685": {
+        "Name": "death_prophet_spirit_siphon"
+    },
+    "5093": {
+        "Name": "death_prophet_exorcism"
+    },
+    "5094": {
+        "Name": "sven_storm_bolt"
+    },
+    "5095": {
+        "Name": "sven_great_cleave"
+    },
+    "5096": {
+        "Name": "sven_warcry"
+    },
+    "5097": {
+        "Name": "sven_gods_strength"
+    },
+    "5098": {
+        "Name": "storm_spirit_static_remnant"
+    },
+    "5099": {
+        "Name": "storm_spirit_electric_vortex"
+    },
+    "5100": {
+        "Name": "storm_spirit_overload"
+    },
+    "5101": {
+        "Name": "storm_spirit_ball_lightning"
+    },
+    "5102": {
+        "Name": "sandking_burrowstrike"
+    },
+    "5103": {
+        "Name": "sandking_sand_storm"
+    },
+    "5104": {
+        "Name": "sandking_caustic_finale"
+    },
+    "5105": {
+        "Name": "sandking_epicenter"
+    },
+    "5106": {
+        "Name": "tiny_avalanche"
+    },
+    "5107": {
+        "Name": "tiny_toss"
+    },
+    "5108": {
+        "Name": "tiny_craggy_exterior"
+    },
+    "6937": {
+        "Name": "tiny_toss_tree"
+    },
+    "5109": {
+        "Name": "tiny_grow"
+    },
+    "5110": {
+        "Name": "zuus_arc_lightning"
+    },
+    "5111": {
+        "Name": "zuus_lightning_bolt"
+    },
+    "6325": {
+        "Name": "zuus_cloud"
+    },
+    "5112": {
+        "Name": "zuus_static_field"
+    },
+    "5113": {
+        "Name": "zuus_thundergods_wrath"
+    },
+    "5114": {
+        "Name": "slardar_sprint"
+    },
+    "5115": {
+        "Name": "slardar_slithereen_crush"
+    },
+    "5116": {
+        "Name": "slardar_bash"
+    },
+    "5117": {
+        "Name": "slardar_amplify_damage"
+    },
+    "5118": {
+        "Name": "tidehunter_gush"
+    },
+    "5119": {
+        "Name": "tidehunter_kraken_shell"
+    },
+    "5120": {
+        "Name": "tidehunter_anchor_smash"
+    },
+    "5121": {
+        "Name": "tidehunter_ravage"
+    },
+    "5122": {
+        "Name": "vengefulspirit_magic_missile"
+    },
+    "5123": {
+        "Name": "vengefulspirit_command_aura"
+    },
+    "5124": {
+        "Name": "vengefulspirit_wave_of_terror"
+    },
+    "5125": {
+        "Name": "vengefulspirit_nether_swap"
+    },
+    "5126": {
+        "Name": "crystal_maiden_crystal_nova"
+    },
+    "5127": {
+        "Name": "crystal_maiden_frostbite"
+    },
+    "5128": {
+        "Name": "crystal_maiden_brilliance_aura"
+    },
+    "5129": {
+        "Name": "crystal_maiden_freezing_field"
+    },
+    "5130": {
+        "Name": "windrunner_shackleshot"
+    },
+    "5131": {
+        "Name": "windrunner_powershot"
+    },
+    "5132": {
+        "Name": "windrunner_windrun"
+    },
+    "5133": {
+        "Name": "windrunner_focusfire"
+    },
+    "5134": {
+        "Name": "lich_frost_nova"
+    },
+    "5135": {
+        "Name": "lich_frost_armor"
+    },
+    "5136": {
+        "Name": "lich_dark_ritual"
+    },
+    "5137": {
+        "Name": "lich_chain_frost"
+    },
+    "5138": {
+        "Name": "witch_doctor_paralyzing_cask"
+    },
+    "5139": {
+        "Name": "witch_doctor_voodoo_restoration"
+    },
+    "5140": {
+        "Name": "witch_doctor_maledict"
+    },
+    "5141": {
+        "Name": "witch_doctor_death_ward"
+    },
+    "5142": {
+        "Name": "riki_smoke_screen"
+    },
+    "5143": {
+        "Name": "riki_blink_strike"
+    },
+    "5144": {
+        "Name": "riki_permanent_invisibility"
+    },
+    "5145": {
+        "Name": "riki_tricks_of_the_trade"
+    },
+    "5146": {
+        "Name": "enigma_malefice"
+    },
+    "5147": {
+        "Name": "enigma_demonic_conversion"
+    },
+    "5148": {
+        "Name": "enigma_midnight_pulse"
+    },
+    "5149": {
+        "Name": "enigma_black_hole"
+    },
+    "5150": {
+        "Name": "tinker_laser"
+    },
+    "5151": {
+        "Name": "tinker_heat_seeking_missile"
+    },
+    "5152": {
+        "Name": "tinker_march_of_the_machines"
+    },
+    "5153": {
+        "Name": "tinker_rearm"
+    },
+    "5154": {
+        "Name": "sniper_shrapnel"
+    },
+    "5155": {
+        "Name": "sniper_headshot"
+    },
+    "5156": {
+        "Name": "sniper_take_aim"
+    },
+    "5157": {
+        "Name": "sniper_assassinate"
+    },
+    "5158": {
+        "Name": "necrolyte_death_pulse"
+    },
+    "5159": {
+        "Name": "necrolyte_heartstopper_aura"
+    },
+    "5160": {
+        "Name": "necrolyte_sadist"
+    },
+    "6316": {
+        "Name": "necrolyte_sadist_stop"
+    },
+    "5161": {
+        "Name": "necrolyte_reapers_scythe"
+    },
+    "5162": {
+        "Name": "warlock_fatal_bonds"
+    },
+    "5163": {
+        "Name": "warlock_shadow_word"
+    },
+    "5164": {
+        "Name": "warlock_upheaval"
+    },
+    "5165": {
+        "Name": "warlock_rain_of_chaos"
+    },
+    "5166": {
+        "Name": "warlock_golem_flaming_fists"
+    },
+    "5167": {
+        "Name": "warlock_golem_permanent_immolation"
+    },
+    "5168": {
+        "Name": "beastmaster_wild_axes"
+    },
+    "5169": {
+        "Name": "beastmaster_call_of_the_wild"
+    },
+    "5170": {
+        "Name": "beastmaster_hawk_invisibility"
+    },
+    "5171": {
+        "Name": "beastmaster_boar_poison"
+    },
+    "5352": {
+        "Name": "beastmaster_greater_boar_poison"
+    },
+    "5172": {
+        "Name": "beastmaster_inner_beast"
+    },
+    "5177": {
+        "Name": "beastmaster_primal_roar"
+    },
+    "5173": {
+        "Name": "queenofpain_shadow_strike"
+    },
+    "5174": {
+        "Name": "queenofpain_blink"
+    },
+    "5175": {
+        "Name": "queenofpain_scream_of_pain"
+    },
+    "5176": {
+        "Name": "queenofpain_sonic_wave"
+    },
+    "5178": {
+        "Name": "venomancer_venomous_gale"
+    },
+    "5179": {
+        "Name": "venomancer_poison_sting"
+    },
+    "5180": {
+        "Name": "venomancer_plague_ward"
+    },
+    "5181": {
+        "Name": "venomancer_poison_nova"
+    },
+    "5182": {
+        "Name": "faceless_void_time_walk"
+    },
+    "5183": {
+        "Name": "faceless_void_backtrack"
+    },
+    "5184": {
+        "Name": "faceless_void_time_lock"
+    },
+    "5691": {
+        "Name": "faceless_void_time_dilation"
+    },
+    "5185": {
+        "Name": "faceless_void_chronosphere"
+    },
+    "5186": {
+        "Name": "pugna_nether_blast"
+    },
+    "5187": {
+        "Name": "pugna_decrepify"
+    },
+    "5188": {
+        "Name": "pugna_nether_ward"
+    },
+    "5189": {
+        "Name": "pugna_life_drain"
+    },
+    "5190": {
+        "Name": "phantom_assassin_stifling_dagger"
+    },
+    "5191": {
+        "Name": "phantom_assassin_phantom_strike"
+    },
+    "5192": {
+        "Name": "phantom_assassin_blur"
+    },
+    "5193": {
+        "Name": "phantom_assassin_coup_de_grace"
+    },
+    "5194": {
+        "Name": "templar_assassin_refraction"
+    },
+    "5195": {
+        "Name": "templar_assassin_meld"
+    },
+    "5196": {
+        "Name": "templar_assassin_psi_blades"
+    },
+    "5197": {
+        "Name": "templar_assassin_psionic_trap"
+    },
+    "5198": {
+        "Name": "templar_assassin_trap"
+    },
+    "5199": {
+        "Name": "templar_assassin_self_trap"
+    },
+    "5218": {
+        "Name": "viper_poison_attack"
+    },
+    "5219": {
+        "Name": "viper_nethertoxin"
+    },
+    "5220": {
+        "Name": "viper_corrosive_skin"
+    },
+    "5221": {
+        "Name": "viper_viper_strike"
+    },
+    "5222": {
+        "Name": "luna_lucent_beam"
+    },
+    "5223": {
+        "Name": "luna_moon_glaive"
+    },
+    "5224": {
+        "Name": "luna_lunar_blessing"
+    },
+    "5225": {
+        "Name": "luna_eclipse"
+    },
+    "5226": {
+        "Name": "dragon_knight_breathe_fire"
+    },
+    "5227": {
+        "Name": "dragon_knight_dragon_tail"
+    },
+    "5228": {
+        "Name": "dragon_knight_dragon_blood"
+    },
+    "5229": {
+        "Name": "dragon_knight_elder_dragon_form"
+    },
+    "5232": {
+        "Name": "dragon_knight_frost_breath"
+    },
+    "5233": {
+        "Name": "dazzle_poison_touch"
+    },
+    "5234": {
+        "Name": "dazzle_shallow_grave"
+    },
+    "5235": {
+        "Name": "dazzle_shadow_wave"
+    },
+    "5236": {
+        "Name": "dazzle_weave"
+    },
+    "5237": {
+        "Name": "rattletrap_battery_assault"
+    },
+    "5238": {
+        "Name": "rattletrap_power_cogs"
+    },
+    "5239": {
+        "Name": "rattletrap_rocket_flare"
+    },
+    "5240": {
+        "Name": "rattletrap_hookshot"
+    },
+    "5241": {
+        "Name": "leshrac_split_earth"
+    },
+    "5242": {
+        "Name": "leshrac_diabolic_edict"
+    },
+    "5243": {
+        "Name": "leshrac_lightning_storm"
+    },
+    "5244": {
+        "Name": "leshrac_pulse_nova"
+    },
+    "5245": {
+        "Name": "furion_sprout"
+    },
+    "5246": {
+        "Name": "furion_teleportation"
+    },
+    "5247": {
+        "Name": "furion_force_of_nature"
+    },
+    "5248": {
+        "Name": "furion_wrath_of_nature"
+    },
+    "5249": {
+        "Name": "life_stealer_rage"
+    },
+    "5250": {
+        "Name": "life_stealer_feast"
+    },
+    "5251": {
+        "Name": "life_stealer_open_wounds"
+    },
+    "5252": {
+        "Name": "life_stealer_infest"
+    },
+    "5671": {
+        "Name": "life_stealer_assimilate"
+    },
+    "5675": {
+        "Name": "life_stealer_assimilate_eject"
+    },
+    "5253": {
+        "Name": "life_stealer_consume"
+    },
+    "5655": {
+        "Name": "life_stealer_control"
+    },
+    "5657": {
+        "Name": "life_stealer_empty_1"
+    },
+    "5658": {
+        "Name": "life_stealer_empty_2"
+    },
+    "5659": {
+        "Name": "life_stealer_empty_3"
+    },
+    "5660": {
+        "Name": "life_stealer_empty_4"
+    },
+    "5255": {
+        "Name": "dark_seer_vacuum"
+    },
+    "5256": {
+        "Name": "dark_seer_ion_shell"
+    },
+    "5257": {
+        "Name": "dark_seer_surge"
+    },
+    "5258": {
+        "Name": "dark_seer_wall_of_replica"
+    },
+    "5259": {
+        "Name": "clinkz_strafe"
+    },
+    "5260": {
+        "Name": "clinkz_searing_arrows"
+    },
+    "5261": {
+        "Name": "clinkz_wind_walk"
+    },
+    "5262": {
+        "Name": "clinkz_death_pact"
+    },
+    "5263": {
+        "Name": "omniknight_purification"
+    },
+    "5264": {
+        "Name": "omniknight_repel"
+    },
+    "5265": {
+        "Name": "omniknight_degen_aura"
+    },
+    "5266": {
+        "Name": "omniknight_guardian_angel"
+    },
+    "5267": {
+        "Name": "enchantress_untouchable"
+    },
+    "5268": {
+        "Name": "enchantress_enchant"
+    },
+    "5269": {
+        "Name": "enchantress_natures_attendants"
+    },
+    "5270": {
+        "Name": "enchantress_impetus"
+    },
+    "5271": {
+        "Name": "huskar_inner_vitality"
+    },
+    "5272": {
+        "Name": "huskar_burning_spear"
+    },
+    "5273": {
+        "Name": "huskar_berserkers_blood"
+    },
+    "5274": {
+        "Name": "huskar_life_break"
+    },
+    "5275": {
+        "Name": "night_stalker_void"
+    },
+    "5276": {
+        "Name": "night_stalker_crippling_fear"
+    },
+    "5277": {
+        "Name": "night_stalker_hunter_in_the_night"
+    },
+    "5278": {
+        "Name": "night_stalker_darkness"
+    },
+    "5279": {
+        "Name": "broodmother_spawn_spiderlings"
+    },
+    "5284": {
+        "Name": "broodmother_poison_sting"
+    },
+    "5283": {
+        "Name": "broodmother_spawn_spiderite"
+    },
+    "5280": {
+        "Name": "broodmother_spin_web"
+    },
+    "5281": {
+        "Name": "broodmother_incapacitating_bite"
+    },
+    "5282": {
+        "Name": "broodmother_insatiable_hunger"
+    },
+    "5285": {
+        "Name": "bounty_hunter_shuriken_toss"
+    },
+    "5286": {
+        "Name": "bounty_hunter_jinada"
+    },
+    "5287": {
+        "Name": "bounty_hunter_wind_walk"
+    },
+    "5288": {
+        "Name": "bounty_hunter_track"
+    },
+    "5289": {
+        "Name": "weaver_the_swarm"
+    },
+    "5290": {
+        "Name": "weaver_shukuchi"
+    },
+    "5291": {
+        "Name": "weaver_geminate_attack"
+    },
+    "5292": {
+        "Name": "weaver_time_lapse"
+    },
+    "5297": {
+        "Name": "jakiro_dual_breath"
+    },
+    "5298": {
+        "Name": "jakiro_ice_path"
+    },
+    "5299": {
+        "Name": "jakiro_liquid_fire"
+    },
+    "5300": {
+        "Name": "jakiro_macropyre"
+    },
+    "5320": {
+        "Name": "batrider_sticky_napalm"
+    },
+    "5321": {
+        "Name": "batrider_flamebreak"
+    },
+    "5322": {
+        "Name": "batrider_firefly"
+    },
+    "5323": {
+        "Name": "batrider_flaming_lasso"
+    },
+    "5328": {
+        "Name": "chen_penitence"
+    },
+    "5329": {
+        "Name": "chen_test_of_faith"
+    },
+    "5522": {
+        "Name": "chen_test_of_faith_teleport"
+    },
+    "5330": {
+        "Name": "chen_holy_persuasion"
+    },
+    "5331": {
+        "Name": "chen_hand_of_god"
+    },
+    "5334": {
+        "Name": "spectre_spectral_dagger"
+    },
+    "5335": {
+        "Name": "spectre_desolate"
+    },
+    "5336": {
+        "Name": "spectre_dispersion"
+    },
+    "5337": {
+        "Name": "spectre_haunt"
+    },
+    "5338": {
+        "Name": "spectre_reality"
+    },
+    "5339": {
+        "Name": "doom_bringer_devour"
+    },
+    "5340": {
+        "Name": "doom_bringer_scorched_earth"
+    },
+    "5341": {
+        "Name": "doom_bringer_infernal_blade"
+    },
+    "5342": {
+        "Name": "doom_bringer_doom"
+    },
+    "5343": {
+        "Name": "doom_bringer_empty1"
+    },
+    "5344": {
+        "Name": "doom_bringer_empty2"
+    },
+    "5345": {
+        "Name": "ancient_apparition_cold_feet"
+    },
+    "5346": {
+        "Name": "ancient_apparition_ice_vortex"
+    },
+    "5347": {
+        "Name": "ancient_apparition_chilling_touch"
+    },
+    "5348": {
+        "Name": "ancient_apparition_ice_blast"
+    },
+    "5349": {
+        "Name": "ancient_apparition_ice_blast_release"
+    },
+    "5353": {
+        "Name": "spirit_breaker_charge_of_darkness"
+    },
+    "5354": {
+        "Name": "spirit_breaker_empowering_haste"
+    },
+    "5355": {
+        "Name": "spirit_breaker_greater_bash"
+    },
+    "5356": {
+        "Name": "spirit_breaker_nether_strike"
+    },
+    "5357": {
+        "Name": "ursa_earthshock"
+    },
+    "5358": {
+        "Name": "ursa_overpower"
+    },
+    "5359": {
+        "Name": "ursa_fury_swipes"
+    },
+    "5360": {
+        "Name": "ursa_enrage"
+    },
+    "5361": {
+        "Name": "gyrocopter_rocket_barrage"
+    },
+    "5362": {
+        "Name": "gyrocopter_homing_missile"
+    },
+    "5363": {
+        "Name": "gyrocopter_flak_cannon"
+    },
+    "5364": {
+        "Name": "gyrocopter_call_down"
+    },
+    "5365": {
+        "Name": "alchemist_acid_spray"
+    },
+    "5366": {
+        "Name": "alchemist_unstable_concoction"
+    },
+    "5367": {
+        "Name": "alchemist_unstable_concoction_throw"
+    },
+    "5368": {
+        "Name": "alchemist_goblins_greed"
+    },
+    "5369": {
+        "Name": "alchemist_chemical_rage"
+    },
+    "5370": {
+        "Name": "invoker_quas"
+    },
+    "5371": {
+        "Name": "invoker_wex"
+    },
+    "5372": {
+        "Name": "invoker_exort"
+    },
+    "5373": {
+        "Name": "invoker_empty1"
+    },
+    "5374": {
+        "Name": "invoker_empty2"
+    },
+    "5375": {
+        "Name": "invoker_invoke"
+    },
+    "5690": {
+        "Name": "invoker_attribute_bonus"
+    },
+    "5376": {
+        "Name": "invoker_cold_snap"
+    },
+    "5381": {
+        "Name": "invoker_ghost_walk"
+    },
+    "5382": {
+        "Name": "invoker_tornado"
+    },
+    "5383": {
+        "Name": "invoker_emp"
+    },
+    "5384": {
+        "Name": "invoker_alacrity"
+    },
+    "5385": {
+        "Name": "invoker_chaos_meteor"
+    },
+    "5386": {
+        "Name": "invoker_sun_strike"
+    },
+    "5387": {
+        "Name": "invoker_forge_spirit"
+    },
+    "5388": {
+        "Name": "forged_spirit_melting_strike"
+    },
+    "5389": {
+        "Name": "invoker_ice_wall"
+    },
+    "5390": {
+        "Name": "invoker_deafening_blast"
+    },
+    "5377": {
+        "Name": "silencer_curse_of_the_silent"
+    },
+    "5378": {
+        "Name": "silencer_glaives_of_wisdom"
+    },
+    "5379": {
+        "Name": "silencer_last_word"
+    },
+    "5380": {
+        "Name": "silencer_global_silence"
+    },
+    "5391": {
+        "Name": "obsidian_destroyer_arcane_orb"
+    },
+    "5392": {
+        "Name": "obsidian_destroyer_astral_imprisonment"
+    },
+    "5393": {
+        "Name": "obsidian_destroyer_essence_aura"
+    },
+    "5684": {
+        "Name": "obsidian_destroyer_mind_over_matter"
+    },
+    "5394": {
+        "Name": "obsidian_destroyer_sanity_eclipse"
+    },
+    "5395": {
+        "Name": "lycan_summon_wolves"
+    },
+    "5396": {
+        "Name": "lycan_howl"
+    },
+    "5397": {
+        "Name": "lycan_feral_impulse"
+    },
+    "5398": {
+        "Name": "lycan_shapeshift"
+    },
+    "5399": {
+        "Name": "lycan_summon_wolves_critical_strike"
+    },
+    "5500": {
+        "Name": "lycan_summon_wolves_invisibility"
+    },
+    "5412": {
+        "Name": "lone_druid_spirit_bear"
+    },
+    "5413": {
+        "Name": "lone_druid_rabid"
+    },
+    "5414": {
+        "Name": "lone_druid_savage_roar"
+    },
+    "5687": {
+        "Name": "lone_druid_savage_roar_bear"
+    },
+    "5415": {
+        "Name": "lone_druid_true_form"
+    },
+    "5416": {
+        "Name": "lone_druid_true_form_druid"
+    },
+    "5417": {
+        "Name": "lone_druid_true_form_battle_cry"
+    },
+    "5418": {
+        "Name": "lone_druid_spirit_bear_return"
+    },
+    "5419": {
+        "Name": "lone_druid_spirit_bear_entangle"
+    },
+    "5420": {
+        "Name": "lone_druid_spirit_bear_demolish"
+    },
+    "5400": {
+        "Name": "brewmaster_thunder_clap"
+    },
+    "5401": {
+        "Name": "brewmaster_drunken_haze"
+    },
+    "5402": {
+        "Name": "brewmaster_drunken_brawler"
+    },
+    "5403": {
+        "Name": "brewmaster_primal_split"
+    },
+    "5404": {
+        "Name": "brewmaster_earth_hurl_boulder"
+    },
+    "5405": {
+        "Name": "brewmaster_earth_spell_immunity"
+    },
+    "5406": {
+        "Name": "brewmaster_earth_pulverize"
+    },
+    "5408": {
+        "Name": "brewmaster_storm_dispel_magic"
+    },
+    "5409": {
+        "Name": "brewmaster_storm_cyclone"
+    },
+    "5410": {
+        "Name": "brewmaster_storm_wind_walk"
+    },
+    "5411": {
+        "Name": "brewmaster_fire_permanent_immolation"
+    },
+    "5421": {
+        "Name": "shadow_demon_disruption"
+    },
+    "5422": {
+        "Name": "shadow_demon_soul_catcher"
+    },
+    "5423": {
+        "Name": "shadow_demon_shadow_poison"
+    },
+    "5424": {
+        "Name": "shadow_demon_shadow_poison_release"
+    },
+    "5425": {
+        "Name": "shadow_demon_demonic_purge"
+    },
+    "5426": {
+        "Name": "chaos_knight_chaos_bolt"
+    },
+    "5427": {
+        "Name": "chaos_knight_reality_rift"
+    },
+    "5428": {
+        "Name": "chaos_knight_chaos_strike"
+    },
+    "5429": {
+        "Name": "chaos_knight_phantasm"
+    },
+    "5430": {
+        "Name": "meepo_earthbind"
+    },
+    "5431": {
+        "Name": "meepo_poof"
+    },
+    "5432": {
+        "Name": "meepo_geostrike"
+    },
+    "5433": {
+        "Name": "meepo_divided_we_stand"
+    },
+    "5434": {
+        "Name": "treant_natures_guise"
+    },
+    "5435": {
+        "Name": "treant_leech_seed"
+    },
+    "5436": {
+        "Name": "treant_living_armor"
+    },
+    "5437": {
+        "Name": "treant_overgrowth"
+    },
+    "5649": {
+        "Name": "treant_eyes_in_the_forest"
+    },
+    "5438": {
+        "Name": "ogre_magi_fireblast"
+    },
+    "5466": {
+        "Name": "ogre_magi_unrefined_fireblast"
+    },
+    "5439": {
+        "Name": "ogre_magi_ignite"
+    },
+    "5440": {
+        "Name": "ogre_magi_bloodlust"
+    },
+    "5441": {
+        "Name": "ogre_magi_multicast"
+    },
+    "5442": {
+        "Name": "undying_decay"
+    },
+    "5443": {
+        "Name": "undying_soul_rip"
+    },
+    "5444": {
+        "Name": "undying_tombstone"
+    },
+    "5445": {
+        "Name": "undying_tombstone_zombie_aura"
+    },
+    "5446": {
+        "Name": "undying_tombstone_zombie_deathstrike"
+    },
+    "5447": {
+        "Name": "undying_flesh_golem"
+    },
+    "5448": {
+        "Name": "rubick_telekinesis"
+    },
+    "5449": {
+        "Name": "rubick_telekinesis_land"
+    },
+    "5450": {
+        "Name": "rubick_fade_bolt"
+    },
+    "5451": {
+        "Name": "rubick_null_field"
+    },
+    "5452": {
+        "Name": "rubick_spell_steal"
+    },
+    "5453": {
+        "Name": "rubick_empty1"
+    },
+    "5454": {
+        "Name": "rubick_empty2"
+    },
+    "5455": {
+        "Name": "rubick_hidden1"
+    },
+    "5456": {
+        "Name": "rubick_hidden2"
+    },
+    "5457": {
+        "Name": "rubick_hidden3"
+    },
+    "5458": {
+        "Name": "disruptor_thunder_strike"
+    },
+    "5459": {
+        "Name": "disruptor_glimpse"
+    },
+    "5460": {
+        "Name": "disruptor_kinetic_field"
+    },
+    "5461": {
+        "Name": "disruptor_static_storm"
+    },
+    "5462": {
+        "Name": "nyx_assassin_impale"
+    },
+    "5463": {
+        "Name": "nyx_assassin_mana_burn"
+    },
+    "5464": {
+        "Name": "nyx_assassin_spiked_carapace"
+    },
+    "5465": {
+        "Name": "nyx_assassin_vendetta"
+    },
+    "5666": {
+        "Name": "nyx_assassin_burrow"
+    },
+    "5673": {
+        "Name": "nyx_assassin_unburrow"
+    },
+    "5467": {
+        "Name": "naga_siren_mirror_image"
+    },
+    "5468": {
+        "Name": "naga_siren_ensnare"
+    },
+    "5469": {
+        "Name": "naga_siren_rip_tide"
+    },
+    "5470": {
+        "Name": "naga_siren_song_of_the_siren"
+    },
+    "5478": {
+        "Name": "naga_siren_song_of_the_siren_cancel"
+    },
+    "5471": {
+        "Name": "keeper_of_the_light_illuminate"
+    },
+    "5472": {
+        "Name": "keeper_of_the_light_mana_leak"
+    },
+    "5473": {
+        "Name": "keeper_of_the_light_chakra_magic"
+    },
+    "5501": {
+        "Name": "keeper_of_the_light_empty1"
+    },
+    "5502": {
+        "Name": "keeper_of_the_light_empty2"
+    },
+    "5474": {
+        "Name": "keeper_of_the_light_spirit_form"
+    },
+    "5475": {
+        "Name": "keeper_of_the_light_recall"
+    },
+    "5476": {
+        "Name": "keeper_of_the_light_blinding_light"
+    },
+    "5477": {
+        "Name": "keeper_of_the_light_illuminate_end"
+    },
+    "5479": {
+        "Name": "keeper_of_the_light_spirit_form_illuminate"
+    },
+    "5503": {
+        "Name": "keeper_of_the_light_spirit_form_illuminate_end"
+    },
+    "5480": {
+        "Name": "visage_grave_chill"
+    },
+    "5481": {
+        "Name": "visage_soul_assumption"
+    },
+    "5482": {
+        "Name": "visage_gravekeepers_cloak"
+    },
+    "5483": {
+        "Name": "visage_summon_familiars"
+    },
+    "5484": {
+        "Name": "visage_summon_familiars_stone_form"
+    },
+    "5485": {
+        "Name": "wisp_tether"
+    },
+    "5486": {
+        "Name": "wisp_spirits"
+    },
+    "5487": {
+        "Name": "wisp_overcharge"
+    },
+    "5488": {
+        "Name": "wisp_relocate"
+    },
+    "5489": {
+        "Name": "wisp_tether_break"
+    },
+    "5490": {
+        "Name": "wisp_spirits_in"
+    },
+    "5493": {
+        "Name": "wisp_spirits_out"
+    },
+    "5494": {
+        "Name": "slark_dark_pact"
+    },
+    "5495": {
+        "Name": "slark_pounce"
+    },
+    "5496": {
+        "Name": "slark_essence_shift"
+    },
+    "5497": {
+        "Name": "slark_shadow_dance"
+    },
+    "5504": {
+        "Name": "medusa_split_shot"
+    },
+    "5505": {
+        "Name": "medusa_mystic_snake"
+    },
+    "5506": {
+        "Name": "medusa_mana_shield"
+    },
+    "5507": {
+        "Name": "medusa_stone_gaze"
+    },
+    "5508": {
+        "Name": "troll_warlord_berserkers_rage"
+    },
+    "5509": {
+        "Name": "troll_warlord_whirling_axes_ranged"
+    },
+    "5510": {
+        "Name": "troll_warlord_whirling_axes_melee"
+    },
+    "5511": {
+        "Name": "troll_warlord_fervor"
+    },
+    "5512": {
+        "Name": "troll_warlord_battle_trance"
+    },
+    "5514": {
+        "Name": "centaur_hoof_stomp"
+    },
+    "5515": {
+        "Name": "centaur_double_edge"
+    },
+    "5516": {
+        "Name": "centaur_return"
+    },
+    "5517": {
+        "Name": "centaur_stampede"
+    },
+    "5518": {
+        "Name": "magnataur_shockwave"
+    },
+    "5519": {
+        "Name": "magnataur_empower"
+    },
+    "5520": {
+        "Name": "magnataur_skewer"
+    },
+    "5521": {
+        "Name": "magnataur_reverse_polarity"
+    },
+    "5524": {
+        "Name": "shredder_whirling_death"
+    },
+    "5525": {
+        "Name": "shredder_timber_chain"
+    },
+    "5526": {
+        "Name": "shredder_reactive_armor"
+    },
+    "5527": {
+        "Name": "shredder_chakram"
+    },
+    "5645": {
+        "Name": "shredder_chakram_2"
+    },
+    "5528": {
+        "Name": "shredder_return_chakram"
+    },
+    "5646": {
+        "Name": "shredder_return_chakram_2"
+    },
+    "5548": {
+        "Name": "bristleback_viscous_nasal_goo"
+    },
+    "5549": {
+        "Name": "bristleback_quill_spray"
+    },
+    "5550": {
+        "Name": "bristleback_bristleback"
+    },
+    "5551": {
+        "Name": "bristleback_warpath"
+    },
+    "5565": {
+        "Name": "tusk_ice_shards"
+    },
+    "5668": {
+        "Name": "tusk_ice_shards_stop"
+    },
+    "5566": {
+        "Name": "tusk_snowball"
+    },
+    "5641": {
+        "Name": "tusk_launch_snowball"
+    },
+    "5567": {
+        "Name": "tusk_frozen_sigil"
+    },
+    "5568": {
+        "Name": "tusk_walrus_punch"
+    },
+    "5672": {
+        "Name": "tusk_walrus_kick"
+    },
+    "5581": {
+        "Name": "skywrath_mage_arcane_bolt"
+    },
+    "5582": {
+        "Name": "skywrath_mage_concussive_shot"
+    },
+    "5583": {
+        "Name": "skywrath_mage_ancient_seal"
+    },
+    "5584": {
+        "Name": "skywrath_mage_mystic_flare"
+    },
+    "5585": {
+        "Name": "abaddon_death_coil"
+    },
+    "5586": {
+        "Name": "abaddon_aphotic_shield"
+    },
+    "5587": {
+        "Name": "abaddon_frostmourne"
+    },
+    "5588": {
+        "Name": "abaddon_borrowed_time"
+    },
+    "5589": {
+        "Name": "elder_titan_echo_stomp"
+    },
+    "5590": {
+        "Name": "elder_titan_echo_stomp_spirit"
+    },
+    "5591": {
+        "Name": "elder_titan_ancestral_spirit"
+    },
+    "5592": {
+        "Name": "elder_titan_return_spirit"
+    },
+    "5593": {
+        "Name": "elder_titan_natural_order"
+    },
+    "5750": {
+        "Name": "elder_titan_natural_order_spirit"
+    },
+    "5594": {
+        "Name": "elder_titan_earth_splitter"
+    },
+    "5595": {
+        "Name": "legion_commander_overwhelming_odds"
+    },
+    "5596": {
+        "Name": "legion_commander_press_the_attack"
+    },
+    "5597": {
+        "Name": "legion_commander_moment_of_courage"
+    },
+    "5598": {
+        "Name": "legion_commander_duel"
+    },
+    "5603": {
+        "Name": "ember_spirit_searing_chains"
+    },
+    "5604": {
+        "Name": "ember_spirit_sleight_of_fist"
+    },
+    "5605": {
+        "Name": "ember_spirit_flame_guard"
+    },
+    "5606": {
+        "Name": "ember_spirit_fire_remnant"
+    },
+    "5607": {
+        "Name": "ember_spirit_activate_fire_remnant"
+    },
+    "5608": {
+        "Name": "earth_spirit_boulder_smash"
+    },
+    "5609": {
+        "Name": "earth_spirit_rolling_boulder"
+    },
+    "5610": {
+        "Name": "earth_spirit_geomagnetic_grip"
+    },
+    "5611": {
+        "Name": "earth_spirit_stone_caller"
+    },
+    "5648": {
+        "Name": "earth_spirit_petrify"
+    },
+    "5612": {
+        "Name": "earth_spirit_magnetize"
+    },
+    "5613": {
+        "Name": "abyssal_underlord_firestorm"
+    },
+    "5614": {
+        "Name": "abyssal_underlord_pit_of_malice"
+    },
+    "5615": {
+        "Name": "abyssal_underlord_atrophy_aura"
+    },
+    "5616": {
+        "Name": "abyssal_underlord_dark_rift"
+    },
+    "5617": {
+        "Name": "abyssal_underlord_cancel_dark_rift"
+    },
+    "5619": {
+        "Name": "terrorblade_reflection"
+    },
+    "5620": {
+        "Name": "terrorblade_conjure_image"
+    },
+    "5621": {
+        "Name": "terrorblade_metamorphosis"
+    },
+    "5622": {
+        "Name": "terrorblade_sunder"
+    },
+    "5623": {
+        "Name": "phoenix_icarus_dive"
+    },
+    "5624": {
+        "Name": "phoenix_icarus_dive_stop"
+    },
+    "5625": {
+        "Name": "phoenix_fire_spirits"
+    },
+    "5626": {
+        "Name": "phoenix_sun_ray"
+    },
+    "5627": {
+        "Name": "phoenix_sun_ray_stop"
+    },
+    "5628": {
+        "Name": "phoenix_sun_ray_toggle_move"
+    },
+    "5630": {
+        "Name": "phoenix_supernova"
+    },
+    "5631": {
+        "Name": "phoenix_launch_fire_spirit"
+    },
+    "5637": {
+        "Name": "oracle_fortunes_end"
+    },
+    "5638": {
+        "Name": "oracle_fates_edict"
+    },
+    "5639": {
+        "Name": "oracle_purifying_flames"
+    },
+    "5640": {
+        "Name": "oracle_false_promise"
+    },
+    "5643": {
+        "Name": "broodmother_spin_web_destroy"
+    },
+    "5716": {
+        "Name": "monkey_king_boundless_strike"
+    },
+    "5719": {
+        "Name": "monkey_king_mischief"
+    },
+    "5722": {
+        "Name": "monkey_king_untransform"
+    },
+    "5721": {
+        "Name": "monkey_king_tree_dance"
+    },
+    "5724": {
+        "Name": "monkey_king_primal_spring"
+    },
+    "5726": {
+        "Name": "monkey_king_primal_spring_early"
+    },
+    "5725": {
+        "Name": "monkey_king_wukongs_command"
+    },
+    "5723": {
+        "Name": "monkey_king_jingu_mastery"
+    },
+    "6344\t// unique ID number for this ability.": {
+        "Name": "pangolier_swashbuckle"
+    },
+    "6461": {
+        "Name": "pangolier_shield_crash"
+    },
+    "6346\t// unique ID number for this ability.": {
+        "Name": "pangolier_heartpiercer"
+    },
+    "6343\t// unique ID number for this ability.": {
+        "Name": "pangolier_gyroshell"
+    },
+    "6459": {
+        "Name": "pangolier_gyroshell_stop"
+    },
+    "6339": {
+        "Name": "dark_willow_bramble_maze"
+    },
+    "6340": {
+        "Name": "dark_willow_bedlam"
+    },
+    "8340": {
+        "Name": "dark_willow_terrorize"
+    },
+    "6341": {
+        "Name": "dark_willow_shadow_realm"
+    },
+    "6342": {
+        "Name": "dark_willow_cursed_crown"
+    },
+    "5350": {
+        "Name": "backdoor_protection"
+    },
+    "5351": {
+        "Name": "backdoor_protection_in_base"
+    },
+    "6226": {
+        "Name": "filler_ability"
+    },
+    "5200": {
+        "Name": "necronomicon_warrior_last_will"
+    },
+    "5201": {
+        "Name": "necronomicon_warrior_sight"
+    },
+    "5202": {
+        "Name": "necronomicon_warrior_mana_burn"
+    },
+    "5203": {
+        "Name": "necronomicon_archer_mana_burn"
+    },
+    "8203": {
+        "Name": "necronomicon_archer_purge"
+    },
+    "5204": {
+        "Name": "necronomicon_archer_aoe"
+    },
+    "5205": {
+        "Name": "courier_return_to_base"
+    },
+    "5492": {
+        "Name": "courier_go_to_secretshop"
+    },
+    "5206": {
+        "Name": "courier_transfer_items"
+    },
+    "6328": {
+        "Name": "courier_transfer_items_to_other_player"
+    },
+    "5207": {
+        "Name": "courier_return_stash_items"
+    },
+    "5208": {
+        "Name": "courier_take_stash_items"
+    },
+    "5676": {
+        "Name": "courier_take_stash_and_transfer_items"
+    },
+    "5209": {
+        "Name": "courier_shield"
+    },
+    "5210": {
+        "Name": "courier_burst"
+    },
+    "5642": {
+        "Name": "courier_morph"
+    },
+    "6329": {
+        "Name": "courier_go_to_enemy_secretshop"
+    },
+    "6333": {
+        "Name": "courier_go_to_sideshop"
+    },
+    "6334": {
+        "Name": "courier_go_to_sideshop2"
+    },
+    "5213": {
+        "Name": "roshan_spell_block"
+    },
+    "5618": {
+        "Name": "roshan_halloween_spell_block"
+    },
+    "5214": {
+        "Name": "roshan_bash"
+    },
+    "5215": {
+        "Name": "roshan_slam"
+    },
+    "5216": {
+        "Name": "roshan_inherent_buffs"
+    },
+    "5217": {
+        "Name": "roshan_devotion"
+    },
+    "5293": {
+        "Name": "kobold_taskmaster_speed_aura"
+    },
+    "5294": {
+        "Name": "centaur_khan_endurance_aura"
+    },
+    "5295": {
+        "Name": "centaur_khan_war_stomp"
+    },
+    "6270": {
+        "Name": "spawnlord_master_stomp"
+    },
+    "6278": {
+        "Name": "spawnlord_master_freeze"
+    },
+    "5296": {
+        "Name": "gnoll_assassin_envenomed_weapon"
+    },
+    "5301": {
+        "Name": "ghost_frost_attack"
+    },
+    "5302": {
+        "Name": "polar_furbolg_ursa_warrior_thunder_clap"
+    },
+    "5303": {
+        "Name": "neutral_spell_immunity"
+    },
+    "5304": {
+        "Name": "ogre_magi_frost_armor"
+    },
+    "5305": {
+        "Name": "dark_troll_warlord_ensnare"
+    },
+    "5306": {
+        "Name": "dark_troll_warlord_raise_dead"
+    },
+    "5667": {
+        "Name": "mud_golem_rock_destroy"
+    },
+    "5670": {
+        "Name": "mud_golem_hurl_boulder"
+    },
+    "5307": {
+        "Name": "giant_wolf_critical_strike"
+    },
+    "5308": {
+        "Name": "alpha_wolf_critical_strike"
+    },
+    "5309": {
+        "Name": "alpha_wolf_command_aura"
+    },
+    "5310": {
+        "Name": "tornado_tempest"
+    },
+    "5312": {
+        "Name": "enraged_wildkin_tornado"
+    },
+    "5313": {
+        "Name": "enraged_wildkin_toughness_aura"
+    },
+    "5656": {
+        "Name": "granite_golem_hp_aura"
+    },
+    "5680": {
+        "Name": "granite_golem_bash"
+    },
+    "5314": {
+        "Name": "satyr_trickster_purge"
+    },
+    "5315": {
+        "Name": "satyr_soulstealer_mana_burn"
+    },
+    "5316": {
+        "Name": "satyr_hellcaller_shockwave"
+    },
+    "5686": {
+        "Name": "ancient_golem_rockslide"
+    },
+    "5317": {
+        "Name": "satyr_hellcaller_unholy_aura"
+    },
+    "5318": {
+        "Name": "forest_troll_high_priest_heal"
+    },
+    "5319": {
+        "Name": "harpy_storm_chain_lightning"
+    },
+    "5682": {
+        "Name": "big_thunder_lizard_wardrums_aura"
+    },
+    "5681": {
+        "Name": "black_dragon_dragonhide_aura"
+    },
+    "5689": {
+        "Name": "black_dragon_fireball"
+    },
+    "5688": {
+        "Name": "mudgolem_cloak_aura"
+    },
+    "5324": {
+        "Name": "black_dragon_splash_attack"
+    },
+    "5325": {
+        "Name": "blue_dragonspawn_sorcerer_evasion"
+    },
+    "5326": {
+        "Name": "blue_dragonspawn_overseer_evasion"
+    },
+    "6125": {
+        "Name": "spawnlord_aura"
+    },
+    "6126": {
+        "Name": "spawnlord_master_bash"
+    },
+    "5327": {
+        "Name": "blue_dragonspawn_overseer_devotion_aura"
+    },
+    "5332": {
+        "Name": "big_thunder_lizard_slam"
+    },
+    "5333": {
+        "Name": "big_thunder_lizard_frenzy"
+    },
+    "5491": {
+        "Name": "forest_troll_high_priest_mana_aura"
+    },
+    "9990": {
+        "Name": "roshan_halloween_candy"
+    },
+    "9991": {
+        "Name": "roshan_halloween_angry"
+    },
+    "9993": {
+        "Name": "roshan_halloween_wave_of_force"
+    },
+    "9994": {
+        "Name": "roshan_halloween_greater_bash"
+    },
+    "9995": {
+        "Name": "roshan_halloween_toss"
+    },
+    "9997": {
+        "Name": "roshan_halloween_shell"
+    },
+    "9998": {
+        "Name": "roshan_halloween_apocalypse"
+    },
+    "9999": {
+        "Name": "roshan_halloween_burn"
+    },
+    "10000": {
+        "Name": "roshan_halloween_levels"
+    },
+    "10001": {
+        "Name": "roshan_halloween_summon"
+    },
+    "10002": {
+        "Name": "roshan_halloween_fireball"
+    },
+    "5529": {
+        "Name": "greevil_magic_missile"
+    },
+    "5530": {
+        "Name": "greevil_cold_snap"
+    },
+    "5531": {
+        "Name": "greevil_decrepify"
+    },
+    "5532": {
+        "Name": "greevil_diabolic_edict"
+    },
+    "5533": {
+        "Name": "greevil_maledict"
+    },
+    "5534": {
+        "Name": "greevil_shadow_strike"
+    },
+    "5535": {
+        "Name": "greevil_laguna_blade"
+    },
+    "5546": {
+        "Name": "greevil_poison_nova"
+    },
+    "5547": {
+        "Name": "greevil_ice_wall"
+    },
+    "5552": {
+        "Name": "greevil_fatal_bonds"
+    },
+    "5553": {
+        "Name": "greevil_blade_fury"
+    },
+    "5554": {
+        "Name": "greevil_phantom_strike"
+    },
+    "5555": {
+        "Name": "greevil_time_lock"
+    },
+    "5556": {
+        "Name": "greevil_shadow_wave"
+    },
+    "5557": {
+        "Name": "greevil_leech_seed"
+    },
+    "5558": {
+        "Name": "greevil_echo_slam"
+    },
+    "5559": {
+        "Name": "greevil_natures_attendants"
+    },
+    "5560": {
+        "Name": "greevil_bloodlust"
+    },
+    "5561": {
+        "Name": "greevil_purification"
+    },
+    "5562": {
+        "Name": "greevil_flesh_golem"
+    },
+    "5563": {
+        "Name": "greevil_hook"
+    },
+    "5564": {
+        "Name": "greevil_rot"
+    },
+    "5569": {
+        "Name": "greevil_black_hole"
+    },
+    "5536": {
+        "Name": "greevil_miniboss_black_nightmare"
+    },
+    "5537": {
+        "Name": "greevil_miniboss_black_brain_sap"
+    },
+    "5538": {
+        "Name": "greevil_miniboss_blue_cold_feet"
+    },
+    "5539": {
+        "Name": "greevil_miniboss_blue_ice_vortex"
+    },
+    "5540": {
+        "Name": "greevil_miniboss_red_earthshock"
+    },
+    "5541": {
+        "Name": "greevil_miniboss_red_overpower"
+    },
+    "5542": {
+        "Name": "greevil_miniboss_yellow_ion_shell"
+    },
+    "5543": {
+        "Name": "greevil_miniboss_yellow_surge"
+    },
+    "5544": {
+        "Name": "greevil_miniboss_white_purification"
+    },
+    "5545": {
+        "Name": "greevil_miniboss_white_degen_aura"
+    },
+    "5570": {
+        "Name": "greevil_miniboss_green_living_armor"
+    },
+    "5571": {
+        "Name": "greevil_miniboss_green_overgrowth"
+    },
+    "5572": {
+        "Name": "greevil_miniboss_orange_dragon_slave"
+    },
+    "5573": {
+        "Name": "greevil_miniboss_orange_light_strike_array"
+    },
+    "5574": {
+        "Name": "greevil_miniboss_purple_venomous_gale"
+    },
+    "5575": {
+        "Name": "greevil_miniboss_purple_plague_ward"
+    },
+    "5576": {
+        "Name": "greevil_miniboss_sight"
+    },
+    "5577": {
+        "Name": "throw_snowball"
+    },
+    "5578": {
+        "Name": "throw_coal"
+    },
+    "5579": {
+        "Name": "healing_campfire"
+    },
+    "5650": {
+        "Name": "shoot_firework"
+    },
+    "5599": {
+        "Name": "techies_land_mines"
+    },
+    "5600": {
+        "Name": "techies_stasis_trap"
+    },
+    "5601": {
+        "Name": "techies_suicide"
+    },
+    "5602": {
+        "Name": "techies_remote_mines"
+    },
+    "5635// unique ID number for this ability.": {
+        "Name": "techies_focused_detonate"
+    },
+    "5636// unique ID number for this ability.": {
+        "Name": "techies_remote_mines_self_detonate"
+    },
+    "5644": {
+        "Name": "techies_minefield_sign"
+    },
+    "5661": {
+        "Name": "cny_beast_force_attack"
+    },
+    "5662": {
+        "Name": "cny2015_sonic_wave"
+    },
+    "5663": {
+        "Name": "cny2015_black_hole"
+    },
+    "5664": {
+        "Name": "cny2015_chronosphere"
+    },
+    "5651": {
+        "Name": "winter_wyvern_arctic_burn"
+    },
+    "5652\t// unique ID number for this ability.": {
+        "Name": "winter_wyvern_splinter_blast"
+    },
+    "5653": {
+        "Name": "winter_wyvern_cold_embrace"
+    },
+    "5654": {
+        "Name": "winter_wyvern_winters_curse"
+    },
+    "5665": {
+        "Name": "cny_beast_teleport"
+    },
+    "5677": {
+        "Name": "arc_warden_flux"
+    },
+    "5678": {
+        "Name": "arc_warden_magnetic_field"
+    },
+    "5679": {
+        "Name": "arc_warden_spark_wraith"
+    },
+    "5683": {
+        "Name": "arc_warden_tempest_double"
+    },
+    "6285": {
+        "Name": "special_bonus_undefined"
+    },
+    "5900": {
+        "Name": "special_bonus_hp_100"
+    },
+    "5901": {
+        "Name": "special_bonus_hp_125"
+    },
+    "5902": {
+        "Name": "special_bonus_hp_150"
+    },
+    "6034": {
+        "Name": "special_bonus_hp_175"
+    },
+    "5959": {
+        "Name": "special_bonus_hp_200"
+    },
+    "6405": {
+        "Name": "special_bonus_hp_225"
+    },
+    "5903": {
+        "Name": "special_bonus_hp_250"
+    },
+    "6311": {
+        "Name": "special_bonus_hp_275"
+    },
+    "5993": {
+        "Name": "special_bonus_hp_300"
+    },
+    "6423": {
+        "Name": "special_bonus_hp_325"
+    },
+    "6195": {
+        "Name": "special_bonus_hp_350"
+    },
+    "5976": {
+        "Name": "special_bonus_hp_400"
+    },
+    "6235": {
+        "Name": "special_bonus_hp_500"
+    },
+    "6377": {
+        "Name": "special_bonus_hp_600"
+    },
+    "6415": {
+        "Name": "special_bonus_hp_700"
+    },
+    "6905": {
+        "Name": "special_bonus_hp_800"
+    },
+    "6096": {
+        "Name": "special_bonus_mp_100"
+    },
+    "5904": {
+        "Name": "special_bonus_mp_125"
+    },
+    "5905": {
+        "Name": "special_bonus_mp_150"
+    },
+    "6067": {
+        "Name": "special_bonus_mp_175"
+    },
+    "6094": {
+        "Name": "special_bonus_mp_200"
+    },
+    "6504": {
+        "Name": "special_bonus_mp_225"
+    },
+    "6006": {
+        "Name": "special_bonus_mp_250"
+    },
+    "5990": {
+        "Name": "special_bonus_mp_300"
+    },
+    "6254": {
+        "Name": "special_bonus_mp_350"
+    },
+    "6321": {
+        "Name": "special_bonus_mp_400"
+    },
+    "6185": {
+        "Name": "special_bonus_mp_500"
+    },
+    "6382": {
+        "Name": "special_bonus_mp_600"
+    },
+    "6816": {
+        "Name": "special_bonus_mp_800"
+    },
+    "6686": {
+        "Name": "special_bonus_mp_1000"
+    },
+    "6118": {
+        "Name": "special_bonus_attack_speed_10"
+    },
+    "6119": {
+        "Name": "special_bonus_attack_speed_15"
+    },
+    "5906": {
+        "Name": "special_bonus_attack_speed_20"
+    },
+    "6016": {
+        "Name": "special_bonus_attack_speed_25"
+    },
+    "5907": {
+        "Name": "special_bonus_attack_speed_30"
+    },
+    "6196": {
+        "Name": "special_bonus_attack_speed_35"
+    },
+    "6210": {
+        "Name": "special_bonus_attack_speed_40"
+    },
+    "6224": {
+        "Name": "special_bonus_attack_speed_45"
+    },
+    "6020": {
+        "Name": "special_bonus_attack_speed_50"
+    },
+    "5908": {
+        "Name": "special_bonus_attack_speed_60"
+    },
+    "6444": {
+        "Name": "special_bonus_attack_speed_70"
+    },
+    "6030": {
+        "Name": "special_bonus_attack_speed_80"
+    },
+    "6037": {
+        "Name": "special_bonus_attack_speed_100"
+    },
+    "6650": {
+        "Name": "special_bonus_attack_speed_120"
+    },
+    "6555": {
+        "Name": "special_bonus_attack_speed_140"
+    },
+    "6605": {
+        "Name": "special_bonus_attack_speed_160"
+    },
+    "6622": {
+        "Name": "special_bonus_attack_speed_200"
+    },
+    "7020": {
+        "Name": "special_bonus_attack_speed_250"
+    },
+    "7011": {
+        "Name": "special_bonus_corruption_4"
+    },
+    "6846": {
+        "Name": "special_bonus_corruption_5"
+    },
+    "6845": {
+        "Name": "special_bonus_cleave_15"
+    },
+    "6603": {
+        "Name": "special_bonus_cleave_20"
+    },
+    "6801": {
+        "Name": "special_bonus_cleave_25"
+    },
+    "6631": {
+        "Name": "special_bonus_cleave_60"
+    },
+    "6827": {
+        "Name": "special_bonus_cleave_100"
+    },
+    "6629": {
+        "Name": "special_bonus_haste"
+    },
+    "6922": {
+        "Name": "special_bonus_truestrike"
+    },
+    "7034": {
+        "Name": "special_bonus_spell_block_15"
+    },
+    "7035": {
+        "Name": "special_bonus_spell_block_20"
+    },
+    "6987": {
+        "Name": "special_bonus_mana_break_20"
+    },
+    "6830": {
+        "Name": "special_bonus_mana_break_25"
+    },
+    "6825": {
+        "Name": "special_bonus_mana_break_35"
+    },
+    "6695": {
+        "Name": "special_bonus_mana_break_40"
+    },
+    "6646": {
+        "Name": "special_bonus_spell_immunity"
+    },
+    "5909": {
+        "Name": "special_bonus_hp_regen_4"
+    },
+    "5910": {
+        "Name": "special_bonus_hp_regen_5"
+    },
+    "5969": {
+        "Name": "special_bonus_hp_regen_6"
+    },
+    "5966": {
+        "Name": "special_bonus_hp_regen_7"
+    },
+    "5911": {
+        "Name": "special_bonus_hp_regen_8"
+    },
+    "5912": {
+        "Name": "special_bonus_hp_regen_10"
+    },
+    "6730": {
+        "Name": "special_bonus_hp_regen_12"
+    },
+    "5913": {
+        "Name": "special_bonus_hp_regen_14"
+    },
+    "5914": {
+        "Name": "special_bonus_hp_regen_15"
+    },
+    "6079": {
+        "Name": "special_bonus_hp_regen_20"
+    },
+    "6308": {
+        "Name": "special_bonus_hp_regen_25"
+    },
+    "6351": {
+        "Name": "special_bonus_hp_regen_30"
+    },
+    "8351": {
+        "Name": "special_bonus_hp_regen_35"
+    },
+    "6022": {
+        "Name": "special_bonus_hp_regen_40"
+    },
+    "6302": {
+        "Name": "special_bonus_hp_regen_50"
+    },
+    "6660": {
+        "Name": "special_bonus_hp_regen_80"
+    },
+    "5915": {
+        "Name": "special_bonus_mp_regen_1"
+    },
+    "6926": {
+        "Name": "special_bonus_mp_regen_175"
+    },
+    "5961": {
+        "Name": "special_bonus_mp_regen_2"
+    },
+    "5916": {
+        "Name": "special_bonus_mp_regen_4"
+    },
+    "6410": {
+        "Name": "special_bonus_mp_regen_5"
+    },
+    "6160": {
+        "Name": "special_bonus_mp_regen_3"
+    },
+    "5980": {
+        "Name": "special_bonus_mp_regen_6"
+    },
+    "6243": {
+        "Name": "special_bonus_mp_regen_8"
+    },
+    "6116": {
+        "Name": "special_bonus_mp_regen_10"
+    },
+    "6255": {
+        "Name": "special_bonus_mp_regen_14"
+    },
+    "5958": {
+        "Name": "special_bonus_movement_speed_10"
+    },
+    "5917": {
+        "Name": "special_bonus_movement_speed_15"
+    },
+    "5918": {
+        "Name": "special_bonus_movement_speed_20"
+    },
+    "5919": {
+        "Name": "special_bonus_movement_speed_25"
+    },
+    "6141": {
+        "Name": "special_bonus_movement_speed_30"
+    },
+    "6077": {
+        "Name": "special_bonus_movement_speed_35"
+    },
+    "6093": {
+        "Name": "special_bonus_movement_speed_40"
+    },
+    "6249": {
+        "Name": "special_bonus_movement_speed_45"
+    },
+    "6306": {
+        "Name": "special_bonus_movement_speed_50"
+    },
+    "6373": {
+        "Name": "special_bonus_movement_speed_60"
+    },
+    "6355": {
+        "Name": "special_bonus_movement_speed_75"
+    },
+    "6706": {
+        "Name": "special_bonus_movement_speed_90"
+    },
+    "6422": {
+        "Name": "special_bonus_movement_speed_100"
+    },
+    "6158": {
+        "Name": "special_bonus_lifesteal_10"
+    },
+    "6289": {
+        "Name": "special_bonus_lifesteal_15"
+    },
+    "6078": {
+        "Name": "special_bonus_lifesteal_20"
+    },
+    "6111": {
+        "Name": "special_bonus_lifesteal_25"
+    },
+    "6121": {
+        "Name": "special_bonus_lifesteal_30"
+    },
+    "6721": {
+        "Name": "special_bonus_lifesteal_100"
+    },
+    "5920": {
+        "Name": "special_bonus_all_stats_4"
+    },
+    "5921": {
+        "Name": "special_bonus_all_stats_5"
+    },
+    "5922": {
+        "Name": "special_bonus_all_stats_6"
+    },
+    "6074": {
+        "Name": "special_bonus_all_stats_7"
+    },
+    "5923": {
+        "Name": "special_bonus_all_stats_8"
+    },
+    "6168": {
+        "Name": "special_bonus_all_stats_10"
+    },
+    "6139": {
+        "Name": "special_bonus_all_stats_12"
+    },
+    "6252": {
+        "Name": "special_bonus_all_stats_14"
+    },
+    "6135": {
+        "Name": "special_bonus_all_stats_15"
+    },
+    "6309": {
+        "Name": "special_bonus_all_stats_20"
+    },
+    "5924": {
+        "Name": "special_bonus_intelligence_6"
+    },
+    "6117": {
+        "Name": "special_bonus_intelligence_7"
+    },
+    "5925": {
+        "Name": "special_bonus_intelligence_8"
+    },
+    "5965": {
+        "Name": "special_bonus_intelligence_10"
+    },
+    "5926": {
+        "Name": "special_bonus_intelligence_12"
+    },
+    "6042": {
+        "Name": "special_bonus_intelligence_13"
+    },
+    "6567": {
+        "Name": "special_bonus_intelligence_14"
+    },
+    "5991": {
+        "Name": "special_bonus_intelligence_15"
+    },
+    "6332": {
+        "Name": "special_bonus_intelligence_16"
+    },
+    "5995": {
+        "Name": "special_bonus_intelligence_20"
+    },
+    "6050": {
+        "Name": "special_bonus_intelligence_25"
+    },
+    "6060": {
+        "Name": "special_bonus_intelligence_30"
+    },
+    "6248": {
+        "Name": "special_bonus_intelligence_35"
+    },
+    "6817": {
+        "Name": "special_bonus_spell_lifesteal_6"
+    },
+    "6565": {
+        "Name": "special_bonus_spell_lifesteal_8"
+    },
+    "6564": {
+        "Name": "special_bonus_spell_lifesteal_10"
+    },
+    "6560": {
+        "Name": "special_bonus_spell_lifesteal_13"
+    },
+    "6550": {
+        "Name": "special_bonus_spell_lifesteal_15"
+    },
+    "6166": {
+        "Name": "special_bonus_spell_lifesteal_20"
+    },
+    "6513": {
+        "Name": "special_bonus_spell_lifesteal_30"
+    },
+    "6575": {
+        "Name": "special_bonus_spell_lifesteal_60"
+    },
+    "6061": {
+        "Name": "special_bonus_spell_lifesteal_70"
+    },
+    "6002": {
+        "Name": "special_bonus_strength_3"
+    },
+    "6005": {
+        "Name": "special_bonus_strength_4"
+    },
+    "5927": {
+        "Name": "special_bonus_strength_5"
+    },
+    "6048": {
+        "Name": "special_bonus_strength_6"
+    },
+    "6115": {
+        "Name": "special_bonus_strength_7"
+    },
+    "5982": {
+        "Name": "special_bonus_strength_8"
+    },
+    "6250": {
+        "Name": "special_bonus_strength_9"
+    },
+    "6137": {
+        "Name": "special_bonus_strength_10"
+    },
+    "5928": {
+        "Name": "special_bonus_strength_12"
+    },
+    "6281": {
+        "Name": "special_bonus_strength_14"
+    },
+    "6145": {
+        "Name": "special_bonus_strength_15"
+    },
+    "6080": {
+        "Name": "special_bonus_strength_20"
+    },
+    "5984": {
+        "Name": "special_bonus_strength_25"
+    },
+    "6708": {
+        "Name": "special_bonus_strength_30"
+    },
+    "6633": {
+        "Name": "special_bonus_strength_40"
+    },
+    "6014": {
+        "Name": "special_bonus_agility_8"
+    },
+    "6029": {
+        "Name": "special_bonus_agility_10"
+    },
+    "6011": {
+        "Name": "special_bonus_agility_13"
+    },
+    "6170": {
+        "Name": "special_bonus_agility_14"
+    },
+    "5929": {
+        "Name": "special_bonus_agility_15"
+    },
+    "6169": {
+        "Name": "special_bonus_agility_16"
+    },
+    "5962": {
+        "Name": "special_bonus_agility_20"
+    },
+    "6150": {
+        "Name": "special_bonus_agility_25"
+    },
+    "6406": {
+        "Name": "special_bonus_agility_30"
+    },
+    "6430": {
+        "Name": "special_bonus_agility_40"
+    },
+    "6705": {
+        "Name": "special_bonus_agility_100"
+    },
+    "6110": {
+        "Name": "special_bonus_armor_2"
+    },
+    "5930": {
+        "Name": "special_bonus_armor_3"
+    },
+    "5931": {
+        "Name": "special_bonus_armor_4"
+    },
+    "5932": {
+        "Name": "special_bonus_armor_5"
+    },
+    "5933": {
+        "Name": "special_bonus_armor_6"
+    },
+    "5970": {
+        "Name": "special_bonus_armor_7"
+    },
+    "5934": {
+        "Name": "special_bonus_armor_8"
+    },
+    "6136": {
+        "Name": "special_bonus_armor_9"
+    },
+    "6004": {
+        "Name": "special_bonus_armor_10"
+    },
+    "6286": {
+        "Name": "special_bonus_armor_12"
+    },
+    "6175": {
+        "Name": "special_bonus_armor_15"
+    },
+    "6503": {
+        "Name": "special_bonus_armor_20"
+    },
+    "6645": {
+        "Name": "special_bonus_armor_30"
+    },
+    "5935": {
+        "Name": "special_bonus_magic_resistance_5"
+    },
+    "5994": {
+        "Name": "special_bonus_magic_resistance_6"
+    },
+    "5936": {
+        "Name": "special_bonus_magic_resistance_8"
+    },
+    "5937": {
+        "Name": "special_bonus_magic_resistance_10"
+    },
+    "6299": {
+        "Name": "special_bonus_magic_resistance_12"
+    },
+    "6138": {
+        "Name": "special_bonus_magic_resistance_15"
+    },
+    "6000": {
+        "Name": "special_bonus_magic_resistance_20"
+    },
+    "6091": {
+        "Name": "special_bonus_magic_resistance_25"
+    },
+    "6221": {
+        "Name": "special_bonus_magic_resistance_30"
+    },
+    "6386": {
+        "Name": "special_bonus_magic_resistance_35"
+    },
+    "6663": {
+        "Name": "special_bonus_magic_resistance_40"
+    },
+    "6641": {
+        "Name": "special_bonus_magic_resistance_50"
+    },
+    "6965": {
+        "Name": "special_bonus_magic_resistance_80"
+    },
+    "6874": {
+        "Name": "special_bonus_magic_resistance_100"
+    },
+    "6092": {
+        "Name": "special_bonus_day_vision_400"
+    },
+    "6920": {
+        "Name": "special_bonus_night_vision_400"
+    },
+    "7022": {
+        "Name": "special_bonus_night_vision_500"
+    },
+    "7019": {
+        "Name": "special_bonus_night_vision_600"
+    },
+    "6888": {
+        "Name": "special_bonus_night_vision_1000"
+    },
+    "6228": {
+        "Name": "special_bonus_vision_200"
+    },
+    "6095": {
+        "Name": "special_bonus_attack_damage_10"
+    },
+    "6159": {
+        "Name": "special_bonus_attack_damage_12"
+    },
+    "5938": {
+        "Name": "special_bonus_attack_damage_15"
+    },
+    "5960": {
+        "Name": "special_bonus_attack_damage_20"
+    },
+    "6009": {
+        "Name": "special_bonus_attack_damage_25"
+    },
+    "5939": {
+        "Name": "special_bonus_attack_damage_30"
+    },
+    "6164": {
+        "Name": "special_bonus_attack_damage_35"
+    },
+    "5940": {
+        "Name": "special_bonus_attack_damage_40"
+    },
+    "6253": {
+        "Name": "special_bonus_attack_damage_45"
+    },
+    "5941": {
+        "Name": "special_bonus_attack_damage_50"
+    },
+    "6396": {
+        "Name": "special_bonus_attack_damage_55"
+    },
+    "6366": {
+        "Name": "special_bonus_attack_damage_60"
+    },
+    "6142": {
+        "Name": "special_bonus_attack_damage_65"
+    },
+    "5942": {
+        "Name": "special_bonus_attack_damage_75"
+    },
+    "5968": {
+        "Name": "special_bonus_attack_damage_90"
+    },
+    "5979": {
+        "Name": "special_bonus_attack_damage_100"
+    },
+    "6112": {
+        "Name": "special_bonus_attack_damage_120"
+    },
+    "6247": {
+        "Name": "special_bonus_attack_damage_150"
+    },
+    "6556": {
+        "Name": "special_bonus_attack_damage_250"
+    },
+    "7039": {
+        "Name": "special_bonus_attack_damage_251"
+    },
+    "6553": {
+        "Name": "special_bonus_attack_damage_400"
+    },
+    "5992": {
+        "Name": "special_bonus_attack_range_50"
+    },
+    "6027": {
+        "Name": "special_bonus_attack_range_75"
+    },
+    "5943": {
+        "Name": "special_bonus_attack_range_100"
+    },
+    "5944": {
+        "Name": "special_bonus_attack_range_125"
+    },
+    "5963": {
+        "Name": "special_bonus_attack_range_150"
+    },
+    "6186": {
+        "Name": "special_bonus_attack_range_175"
+    },
+    "5945": {
+        "Name": "special_bonus_attack_range_200"
+    },
+    "6040": {
+        "Name": "special_bonus_attack_range_250"
+    },
+    "6051": {
+        "Name": "special_bonus_attack_range_300"
+    },
+    "6307": {
+        "Name": "special_bonus_attack_range_400"
+    },
+    "5946": {
+        "Name": "special_bonus_cast_range_50"
+    },
+    "6032": {
+        "Name": "special_bonus_cast_range_60"
+    },
+    "5947": {
+        "Name": "special_bonus_cast_range_75"
+    },
+    "6003": {
+        "Name": "special_bonus_cast_range_100"
+    },
+    "6197": {
+        "Name": "special_bonus_cast_range_125"
+    },
+    "6056": {
+        "Name": "special_bonus_cast_range_150"
+    },
+    "6120": {
+        "Name": "special_bonus_cast_range_175"
+    },
+    "6114": {
+        "Name": "special_bonus_cast_range_200"
+    },
+    "6161": {
+        "Name": "special_bonus_cast_range_250"
+    },
+    "6213": {
+        "Name": "special_bonus_cast_range_300"
+    },
+    "6930": {
+        "Name": "special_bonus_cast_range_350"
+    },
+    "6384": {
+        "Name": "special_bonus_cast_range_400"
+    },
+    "6162": {
+        "Name": "special_bonus_spell_amplify_3"
+    },
+    "6015": {
+        "Name": "special_bonus_spell_amplify_4"
+    },
+    "5948": {
+        "Name": "special_bonus_spell_amplify_5"
+    },
+    "5996": {
+        "Name": "special_bonus_spell_amplify_6"
+    },
+    "5949": {
+        "Name": "special_bonus_spell_amplify_8"
+    },
+    "5989": {
+        "Name": "special_bonus_spell_amplify_10"
+    },
+    "6326": {
+        "Name": "special_bonus_spell_amplify_12"
+    },
+    "6055": {
+        "Name": "special_bonus_spell_amplify_15"
+    },
+    "6236": {
+        "Name": "special_bonus_spell_amplify_20"
+    },
+    "6327": {
+        "Name": "special_bonus_spell_amplify_25"
+    },
+    "5950": {
+        "Name": "special_bonus_cooldown_reduction_8"
+    },
+    "6021": {
+        "Name": "special_bonus_cooldown_reduction_10"
+    },
+    "6190": {
+        "Name": "special_bonus_cooldown_reduction_12"
+    },
+    "5951": {
+        "Name": "special_bonus_cooldown_reduction_15"
+    },
+    "5952": {
+        "Name": "special_bonus_cooldown_reduction_20"
+    },
+    "6222": {
+        "Name": "special_bonus_cooldown_reduction_25"
+    },
+    "6561": {
+        "Name": "special_bonus_cooldown_reduction_30"
+    },
+    "6445": {
+        "Name": "special_bonus_cooldown_reduction_40"
+    },
+    "6804": {
+        "Name": "special_bonus_cooldown_reduction_50"
+    },
+    "5975": {
+        "Name": "special_bonus_respawn_reduction_15"
+    },
+    "5953": {
+        "Name": "special_bonus_respawn_reduction_20"
+    },
+    "5954": {
+        "Name": "special_bonus_respawn_reduction_25"
+    },
+    "5964": {
+        "Name": "special_bonus_respawn_reduction_30"
+    },
+    "6038": {
+        "Name": "special_bonus_respawn_reduction_35"
+    },
+    "6066": {
+        "Name": "special_bonus_respawn_reduction_40"
+    },
+    "6375": {
+        "Name": "special_bonus_respawn_reduction_45"
+    },
+    "6269": {
+        "Name": "special_bonus_respawn_reduction_50"
+    },
+    "6059": {
+        "Name": "special_bonus_respawn_reduction_60"
+    },
+    "5955": {
+        "Name": "special_bonus_gold_income_5"
+    },
+    "5956": {
+        "Name": "special_bonus_gold_income_10"
+    },
+    "6007": {
+        "Name": "special_bonus_gold_income_15"
+    },
+    "6008": {
+        "Name": "special_bonus_gold_income_20"
+    },
+    "5957": {
+        "Name": "special_bonus_gold_income_25"
+    },
+    "6026": {
+        "Name": "special_bonus_gold_income_30"
+    },
+    "6301": {
+        "Name": "special_bonus_gold_income_40"
+    },
+    "6318": {
+        "Name": "special_bonus_gold_income_50"
+    },
+    "6446": {
+        "Name": "special_bonus_gold_income_70"
+    },
+    "5971": {
+        "Name": "special_bonus_evasion_10"
+    },
+    "6239": {
+        "Name": "special_bonus_evasion_12"
+    },
+    "5972": {
+        "Name": "special_bonus_evasion_15"
+    },
+    "5973": {
+        "Name": "special_bonus_evasion_20"
+    },
+    "5974": {
+        "Name": "special_bonus_evasion_25"
+    },
+    "6700": {
+        "Name": "special_bonus_evasion_30"
+    },
+    "6613": {
+        "Name": "special_bonus_evasion_50"
+    },
+    "6882": {
+        "Name": "special_bonus_evasion_75"
+    },
+    "6025": {
+        "Name": "special_bonus_20_bash_2"
+    },
+    "6851": {
+        "Name": "special_bonus_30_crit_2"
+    },
+    "7045": {
+        "Name": "special_bonus_20_crit_15"
+    },
+    "5983": {
+        "Name": "special_bonus_exp_boost_5"
+    },
+    "5985": {
+        "Name": "special_bonus_exp_boost_10"
+    },
+    "5986": {
+        "Name": "special_bonus_exp_boost_15"
+    },
+    "6017": {
+        "Name": "special_bonus_exp_boost_20"
+    },
+    "5987": {
+        "Name": "special_bonus_exp_boost_25"
+    },
+    "6317": {
+        "Name": "special_bonus_exp_boost_30"
+    },
+    "6372": {
+        "Name": "special_bonus_exp_boost_35"
+    },
+    "6447": {
+        "Name": "special_bonus_exp_boost_40"
+    },
+    "5977": {
+        "Name": "special_bonus_unique_clockwerk"
+    },
+    "6364": {
+        "Name": "special_bonus_unique_clockwerk_2"
+    },
+    "6512": {
+        "Name": "special_bonus_unique_clockwerk_3"
+    },
+    "7028": {
+        "Name": "special_bonus_unique_clockwerk_4"
+    },
+    "5981": {
+        "Name": "special_bonus_unique_omniknight_1"
+    },
+    "6300": {
+        "Name": "special_bonus_unique_omniknight_2"
+    },
+    "6709": {
+        "Name": "special_bonus_unique_omniknight_3"
+    },
+    "7010": {
+        "Name": "special_bonus_unique_omniknight_4"
+    },
+    "6322": {
+        "Name": "special_bonus_unique_centaur_1"
+    },
+    "5988": {
+        "Name": "special_bonus_unique_centaur_2"
+    },
+    "6616": {
+        "Name": "special_bonus_unique_centaur_3"
+    },
+    "6617": {
+        "Name": "special_bonus_unique_centaur_4"
+    },
+    "5998": {
+        "Name": "special_bonus_unique_witch_doctor_1"
+    },
+    "6298": {
+        "Name": "special_bonus_unique_witch_doctor_2"
+    },
+    "6524": {
+        "Name": "special_bonus_unique_witch_doctor_3"
+    },
+    "6995": {
+        "Name": "special_bonus_unique_witch_doctor_4"
+    },
+    "6996": {
+        "Name": "special_bonus_unique_witch_doctor_5"
+    },
+    "6010": {
+        "Name": "special_bonus_unique_necrophos"
+    },
+    "6703": {
+        "Name": "special_bonus_unique_necrophos_2"
+    },
+    "6012": {
+        "Name": "special_bonus_unique_antimage"
+    },
+    "6353": {
+        "Name": "special_bonus_unique_antimage_2"
+    },
+    "6606": {
+        "Name": "special_bonus_unique_antimage_3"
+    },
+    "6607": {
+        "Name": "special_bonus_unique_antimage_4"
+    },
+    "6800": {
+        "Name": "special_bonus_unique_antimage_5"
+    },
+    "6013": {
+        "Name": "special_bonus_unique_mirana_1"
+    },
+    "6242": {
+        "Name": "special_bonus_unique_mirana_2"
+    },
+    "6397": {
+        "Name": "special_bonus_unique_mirana_3"
+    },
+    "6692": {
+        "Name": "special_bonus_unique_mirana_4"
+    },
+    "6018": {
+        "Name": "special_bonus_unique_bounty_hunter"
+    },
+    "6358": {
+        "Name": "special_bonus_unique_bounty_hunter_2"
+    },
+    "7040": {
+        "Name": "special_bonus_unique_bounty_hunter_3"
+    },
+    "6407": {
+        "Name": "special_bonus_unique_queen_of_pain"
+    },
+    "6856": {
+        "Name": "special_bonus_unique_queen_of_pain_2"
+    },
+    "6019": {
+        "Name": "special_bonus_unique_underlord"
+    },
+    "6967": {
+        "Name": "special_bonus_unique_underlord_2"
+    },
+    "6968": {
+        "Name": "special_bonus_unique_underlord_3"
+    },
+    "6969": {
+        "Name": "special_bonus_unique_underlord_4"
+    },
+    "6023": {
+        "Name": "special_bonus_unique_pudge_1"
+    },
+    "6245": {
+        "Name": "special_bonus_unique_pudge_2"
+    },
+    "6506": {
+        "Name": "special_bonus_unique_pudge_3"
+    },
+    "6024": {
+        "Name": "special_bonus_unique_treant"
+    },
+    "6531": {
+        "Name": "special_bonus_unique_treant_2"
+    },
+    "6955": {
+        "Name": "special_bonus_unique_treant_3"
+    },
+    "6956": {
+        "Name": "special_bonus_unique_treant_4"
+    },
+    "6957": {
+        "Name": "special_bonus_unique_treant_5"
+    },
+    "6028": {
+        "Name": "special_bonus_unique_razor"
+    },
+    "6408": {
+        "Name": "special_bonus_unique_razor_2"
+    },
+    "6860": {
+        "Name": "special_bonus_unique_razor_3"
+    },
+    "6861": {
+        "Name": "special_bonus_unique_razor_4"
+    },
+    "6031": {
+        "Name": "special_bonus_unique_visage_1"
+    },
+    "6320": {
+        "Name": "special_bonus_unique_visage_2"
+    },
+    "6522": {
+        "Name": "special_bonus_unique_visage_3"
+    },
+    "6983": {
+        "Name": "special_bonus_unique_visage_4"
+    },
+    "6984": {
+        "Name": "special_bonus_unique_visage_5"
+    },
+    "6985": {
+        "Name": "special_bonus_unique_visage_6"
+    },
+    "6035": {
+        "Name": "special_bonus_unique_earthshaker"
+    },
+    "6425": {
+        "Name": "special_bonus_unique_earthshaker_2"
+    },
+    "6511": {
+        "Name": "special_bonus_unique_earthshaker_3"
+    },
+    "6039": {
+        "Name": "special_bonus_unique_lich_1"
+    },
+    "6292": {
+        "Name": "special_bonus_unique_lich_2"
+    },
+    "6387": {
+        "Name": "special_bonus_unique_lich_3"
+    },
+    "6041": {
+        "Name": "special_bonus_unique_rubick"
+    },
+    "6862": {
+        "Name": "special_bonus_unique_rubick_2"
+    },
+    "6863": {
+        "Name": "special_bonus_unique_rubick_3"
+    },
+    "6864": {
+        "Name": "special_bonus_unique_rubick_4"
+    },
+    "6870": {
+        "Name": "special_bonus_unique_rubick_5"
+    },
+    "6045": {
+        "Name": "special_bonus_unique_sven"
+    },
+    "6910": {
+        "Name": "special_bonus_unique_sven_2"
+    },
+    "6911": {
+        "Name": "special_bonus_unique_sven_3"
+    },
+    "6047": {
+        "Name": "special_bonus_unique_dark_seer"
+    },
+    "6365": {
+        "Name": "special_bonus_unique_dark_seer_2"
+    },
+    "6624": {
+        "Name": "special_bonus_unique_dark_seer_3"
+    },
+    "7046": {
+        "Name": "special_bonus_unique_dark_seer_4"
+    },
+    "6049": {
+        "Name": "special_bonus_unique_dazzle_1"
+    },
+    "6232": {
+        "Name": "special_bonus_unique_dazzle_2"
+    },
+    "6528": {
+        "Name": "special_bonus_unique_dazzle_3"
+    },
+    "6626": {
+        "Name": "special_bonus_unique_dazzle_4"
+    },
+    "6052": {
+        "Name": "special_bonus_unique_shadow_shaman_1"
+    },
+    "6295": {
+        "Name": "special_bonus_unique_shadow_shaman_2"
+    },
+    "6502": {
+        "Name": "special_bonus_unique_shadow_shaman_3"
+    },
+    "6521": {
+        "Name": "special_bonus_unique_shadow_shaman_4"
+    },
+    "6877": {
+        "Name": "special_bonus_unique_shadow_shaman_5"
+    },
+    "6053": {
+        "Name": "special_bonus_unique_warlock_1"
+    },
+    "6054": {
+        "Name": "special_bonus_unique_warlock_2"
+    },
+    "6412": {
+        "Name": "special_bonus_unique_warlock_3"
+    },
+    "6505": {
+        "Name": "special_bonus_unique_warlock_4"
+    },
+    "6982": {
+        "Name": "special_bonus_unique_warlock_5"
+    },
+    "6986": {
+        "Name": "special_bonus_unique_warlock_6"
+    },
+    "6310": {
+        "Name": "special_bonus_unique_vengeful_spirit_1"
+    },
+    "6237": {
+        "Name": "special_bonus_unique_vengeful_spirit_2"
+    },
+    "6057": {
+        "Name": "special_bonus_unique_vengeful_spirit_3"
+    },
+    "6977": {
+        "Name": "special_bonus_unique_vengeful_spirit_4"
+    },
+    "6978": {
+        "Name": "special_bonus_unique_vengeful_spirit_5"
+    },
+    "7018": {
+        "Name": "special_bonus_unique_vengeful_spirit_6"
+    },
+    "6058": {
+        "Name": "special_bonus_unique_venomancer"
+    },
+    "6532": {
+        "Name": "special_bonus_unique_venomancer_2"
+    },
+    "6979": {
+        "Name": "special_bonus_unique_venomancer_3"
+    },
+    "6980": {
+        "Name": "special_bonus_unique_venomancer_4"
+    },
+    "6981": {
+        "Name": "special_bonus_unique_venomancer_5"
+    },
+    "6999": {
+        "Name": "special_bonus_unique_venomancer_6"
+    },
+    "6062": {
+        "Name": "special_bonus_unique_morphling_1"
+    },
+    "6225": {
+        "Name": "special_bonus_unique_morphling_2"
+    },
+    "6698": {
+        "Name": "special_bonus_unique_morphling_3"
+    },
+    "6840": {
+        "Name": "special_bonus_unique_morphling_4"
+    },
+    "6927": {
+        "Name": "special_bonus_unique_morphling_5"
+    },
+    "7052": {
+        "Name": "special_bonus_unique_morphling_6"
+    },
+    "7056": {
+        "Name": "special_bonus_unique_morphling_7"
+    },
+    "7060": {
+        "Name": "special_bonus_unique_morphling_8"
+    },
+    "6063": {
+        "Name": "special_bonus_unique_leshrac_1"
+    },
+    "6240": {
+        "Name": "special_bonus_unique_leshrac_2"
+    },
+    "6672": {
+        "Name": "special_bonus_unique_leshrac_3"
+    },
+    "6064": {
+        "Name": "special_bonus_unique_jakiro"
+    },
+    "6381": {
+        "Name": "special_bonus_unique_jakiro_2"
+    },
+    "6538": {
+        "Name": "special_bonus_unique_jakiro_3"
+    },
+    "6661": {
+        "Name": "special_bonus_unique_jakiro_4"
+    },
+    "6065": {
+        "Name": "special_bonus_unique_enigma"
+    },
+    "6510": {
+        "Name": "special_bonus_unique_enigma_2"
+    },
+    "6649": {
+        "Name": "special_bonus_unique_enigma_3"
+    },
+    "6068": {
+        "Name": "special_bonus_unique_bane_1"
+    },
+    "6069": {
+        "Name": "special_bonus_unique_bane_2"
+    },
+    "6609": {
+        "Name": "special_bonus_unique_bane_3"
+    },
+    "6826": {
+        "Name": "special_bonus_unique_bane_4"
+    },
+    "6670": {
+        "Name": "special_bonus_unique_nevermore_1"
+    },
+    "6070": {
+        "Name": "special_bonus_unique_nevermore_2"
+    },
+    "6875": {
+        "Name": "special_bonus_unique_nevermore_3"
+    },
+    "6876": {
+        "Name": "special_bonus_unique_nevermore_4"
+    },
+    "6912": {
+        "Name": "special_bonus_unique_nevermore_5"
+    },
+    "6071": {
+        "Name": "special_bonus_unique_templar_assassin"
+    },
+    "6545": {
+        "Name": "special_bonus_unique_templar_assassin_2"
+    },
+    "6938": {
+        "Name": "special_bonus_unique_templar_assassin_3"
+    },
+    "6939": {
+        "Name": "special_bonus_unique_templar_assassin_4"
+    },
+    "6940": {
+        "Name": "special_bonus_unique_templar_assassin_5"
+    },
+    "7058": {
+        "Name": "special_bonus_unique_templar_assassin_6"
+    },
+    "6072": {
+        "Name": "special_bonus_unique_crystal_maiden_1"
+    },
+    "6234": {
+        "Name": "special_bonus_unique_crystal_maiden_2"
+    },
+    "6520": {
+        "Name": "special_bonus_unique_crystal_maiden_3"
+    },
+    "7042": {
+        "Name": "special_bonus_unique_crystal_maiden_4"
+    },
+    "6073": {
+        "Name": "special_bonus_unique_doom_1"
+    },
+    "6314": {
+        "Name": "special_bonus_unique_doom_2"
+    },
+    "6369": {
+        "Name": "special_bonus_unique_doom_3"
+    },
+    "6370": {
+        "Name": "special_bonus_unique_doom_4"
+    },
+    "6371": {
+        "Name": "special_bonus_unique_doom_5"
+    },
+    "6082": {
+        "Name": "special_bonus_unique_brewmaster"
+    },
+    "6359": {
+        "Name": "special_bonus_unique_brewmaster_2"
+    },
+    "6516": {
+        "Name": "special_bonus_unique_brewmaster_3"
+    },
+    "6614": {
+        "Name": "special_bonus_unique_brewmaster_4"
+    },
+    "6083": {
+        "Name": "special_bonus_unique_bristleback"
+    },
+    "6360": {
+        "Name": "special_bonus_unique_bristleback_2"
+    },
+    "6615": {
+        "Name": "special_bonus_unique_bristleback_3"
+    },
+    "6084": {
+        "Name": "special_bonus_unique_furion"
+    },
+    "6500": {
+        "Name": "special_bonus_unique_furion_2"
+    },
+    "6539": {
+        "Name": "special_bonus_unique_furion_3"
+    },
+    "6702": {
+        "Name": "special_bonus_unique_furion_4"
+    },
+    "6227": {
+        "Name": "special_bonus_unique_phoenix_1"
+    },
+    "6085": {
+        "Name": "special_bonus_unique_phoenix_2"
+    },
+    "6401": {
+        "Name": "special_bonus_unique_phoenix_3"
+    },
+    "6852": {
+        "Name": "special_bonus_unique_phoenix_4"
+    },
+    "6915": {
+        "Name": "special_bonus_unique_phoenix_5"
+    },
+    "6331": {
+        "Name": "special_bonus_unique_enchantress_1"
+    },
+    "6086": {
+        "Name": "special_bonus_unique_enchantress_2"
+    },
+    "6379": {
+        "Name": "special_bonus_unique_enchantress_3"
+    },
+    "6515": {
+        "Name": "special_bonus_unique_enchantress_4"
+    },
+    "6648": {
+        "Name": "special_bonus_unique_enchantress_5"
+    },
+    "6087": {
+        "Name": "special_bonus_unique_batrider_1"
+    },
+    "6229": {
+        "Name": "special_bonus_unique_batrider_2"
+    },
+    "6610": {
+        "Name": "special_bonus_unique_batrider_3"
+    },
+    "6201": {
+        "Name": "special_bonus_unique_wraith_king_1"
+    },
+    "6088": {
+        "Name": "special_bonus_unique_wraith_king_2"
+    },
+    "6414": {
+        "Name": "special_bonus_unique_wraith_king_3"
+    },
+    "6566": {
+        "Name": "special_bonus_unique_wraith_king_4"
+    },
+    "6821": {
+        "Name": "special_bonus_unique_wraith_king_5"
+    },
+    "6822": {
+        "Name": "special_bonus_unique_wraith_king_6"
+    },
+    "6089": {
+        "Name": "special_bonus_unique_kunkka"
+    },
+    "6385": {
+        "Name": "special_bonus_unique_kunkka_2"
+    },
+    "6666": {
+        "Name": "special_bonus_unique_kunkka_3"
+    },
+    "6667": {
+        "Name": "special_bonus_unique_kunkka_4"
+    },
+    "6090": {
+        "Name": "special_bonus_unique_dragon_knight"
+    },
+    "6635": {
+        "Name": "special_bonus_unique_dragon_knight_2"
+    },
+    "6097": {
+        "Name": "special_bonus_unique_invoker_1"
+    },
+    "6098": {
+        "Name": "special_bonus_unique_invoker_2"
+    },
+    "6099": {
+        "Name": "special_bonus_unique_invoker_3"
+    },
+    "6656": {
+        "Name": "special_bonus_unique_invoker_4"
+    },
+    "6657": {
+        "Name": "special_bonus_unique_invoker_5"
+    },
+    "6811": {
+        "Name": "special_bonus_unique_invoker_6"
+    },
+    "7016": {
+        "Name": "special_bonus_unique_invoker_7"
+    },
+    "7017": {
+        "Name": "special_bonus_unique_invoker_8"
+    },
+    "6100": {
+        "Name": "special_bonus_unique_abaddon"
+    },
+    "6601": {
+        "Name": "special_bonus_unique_abaddon_2"
+    },
+    "6602": {
+        "Name": "special_bonus_unique_abaddon_3"
+    },
+    "6101": {
+        "Name": "special_bonus_unique_alchemist"
+    },
+    "6350": {
+        "Name": "special_bonus_unique_alchemist_2"
+    },
+    "6604": {
+        "Name": "special_bonus_unique_alchemist_3"
+    },
+    "7054": {
+        "Name": "special_bonus_unique_alchemist_4"
+    },
+    "6102": {
+        "Name": "special_bonus_unique_axe"
+    },
+    "6608": {
+        "Name": "special_bonus_unique_axe_2"
+    },
+    "6815": {
+        "Name": "special_bonus_unique_axe_3"
+    },
+    "6103": {
+        "Name": "special_bonus_unique_beastmaster"
+    },
+    "6517": {
+        "Name": "special_bonus_unique_beastmaster_2"
+    },
+    "6611": {
+        "Name": "special_bonus_unique_beastmaster_3"
+    },
+    "6612": {
+        "Name": "special_bonus_unique_beastmaster_4"
+    },
+    "6104": {
+        "Name": "special_bonus_unique_clinkz_1"
+    },
+    "6231": {
+        "Name": "special_bonus_unique_clinkz_2"
+    },
+    "6620": {
+        "Name": "special_bonus_unique_clinkz_3"
+    },
+    "6105": {
+        "Name": "special_bonus_unique_juggernaut"
+    },
+    "6662": {
+        "Name": "special_bonus_unique_juggernaut_2"
+    },
+    "7021": {
+        "Name": "special_bonus_unique_juggernaut_3"
+    },
+    "6106": {
+        "Name": "special_bonus_unique_winter_wyvern_1"
+    },
+    "6297": {
+        "Name": "special_bonus_unique_winter_wyvern_2"
+    },
+    "6523": {
+        "Name": "special_bonus_unique_winter_wyvern_3"
+    },
+    "6994": {
+        "Name": "special_bonus_unique_winter_wyvern_4"
+    },
+    "6107": {
+        "Name": "special_bonus_unique_terrorblade"
+    },
+    "6942": {
+        "Name": "special_bonus_unique_terrorblade_2"
+    },
+    "6943": {
+        "Name": "special_bonus_unique_terrorblade_3"
+    },
+    "6180": {
+        "Name": "special_bonus_unique_luna_1"
+    },
+    "6127": {
+        "Name": "special_bonus_unique_luna_2"
+    },
+    "6682": {
+        "Name": "special_bonus_unique_luna_3"
+    },
+    "7047": {
+        "Name": "special_bonus_unique_luna_4"
+    },
+    "7055": {
+        "Name": "special_bonus_unique_luna_5"
+    },
+    "6128": {
+        "Name": "special_bonus_unique_faceless_void"
+    },
+    "6651": {
+        "Name": "special_bonus_unique_faceless_void_2"
+    },
+    "6807": {
+        "Name": "special_bonus_unique_faceless_void_3"
+    },
+    "7001": {
+        "Name": "special_bonus_unique_faceless_void_4"
+    },
+    "6129": {
+        "Name": "special_bonus_unique_night_stalker"
+    },
+    "6704": {
+        "Name": "special_bonus_unique_night_stalker_2"
+    },
+    "6130": {
+        "Name": "special_bonus_unique_nyx"
+    },
+    "6399": {
+        "Name": "special_bonus_unique_nyx_2"
+    },
+    "6814": {
+        "Name": "special_bonus_unique_nyx_3"
+    },
+    "6200": {
+        "Name": "special_bonus_unique_weaver_1"
+    },
+    "6131": {
+        "Name": "special_bonus_unique_weaver_2"
+    },
+    "6988": {
+        "Name": "special_bonus_unique_weaver_3"
+    },
+    "6989": {
+        "Name": "special_bonus_unique_weaver_4"
+    },
+    "6990": {
+        "Name": "special_bonus_unique_weaver_5"
+    },
+    "6132": {
+        "Name": "special_bonus_unique_ursa"
+    },
+    "6973": {
+        "Name": "special_bonus_unique_ursa_2"
+    },
+    "6974": {
+        "Name": "special_bonus_unique_ursa_3"
+    },
+    "6975": {
+        "Name": "special_bonus_unique_ursa_4"
+    },
+    "6976": {
+        "Name": "special_bonus_unique_ursa_5"
+    },
+    "6133": {
+        "Name": "special_bonus_unique_chaos_knight"
+    },
+    "6618": {
+        "Name": "special_bonus_unique_chaos_knight_2"
+    },
+    "6619": {
+        "Name": "special_bonus_unique_chaos_knight_3"
+    },
+    "6134": {
+        "Name": "special_bonus_unique_lycan_1"
+    },
+    "6140": {
+        "Name": "special_bonus_unique_lycan_2"
+    },
+    "6519": {
+        "Name": "special_bonus_unique_lycan_3"
+    },
+    "6684": {
+        "Name": "special_bonus_unique_lycan_4"
+    },
+    "6685": {
+        "Name": "special_bonus_unique_lycan_5"
+    },
+    "6144": {
+        "Name": "special_bonus_unique_windranger"
+    },
+    "6413": {
+        "Name": "special_bonus_unique_windranger_2"
+    },
+    "6562": {
+        "Name": "special_bonus_unique_windranger_3"
+    },
+    "6992": {
+        "Name": "special_bonus_unique_windranger_4"
+    },
+    "6993": {
+        "Name": "special_bonus_unique_windranger_5"
+    },
+    "6146": {
+        "Name": "special_bonus_unique_phantom_lancer"
+    },
+    "6400": {
+        "Name": "special_bonus_unique_phantom_lancer_2"
+    },
+    "6849": {
+        "Name": "special_bonus_unique_phantom_lancer_3"
+    },
+    "6850": {
+        "Name": "special_bonus_unique_phantom_lancer_4"
+    },
+    "6147": {
+        "Name": "special_bonus_unique_slark"
+    },
+    "6892": {
+        "Name": "special_bonus_unique_slark_2"
+    },
+    "6893": {
+        "Name": "special_bonus_unique_slark_3"
+    },
+    "6894": {
+        "Name": "special_bonus_unique_slark_4"
+    },
+    "6148": {
+        "Name": "special_bonus_unique_spectre"
+    },
+    "6900": {
+        "Name": "special_bonus_unique_spectre_2"
+    },
+    "6901": {
+        "Name": "special_bonus_unique_spectre_3"
+    },
+    "6902": {
+        "Name": "special_bonus_unique_spectre_4"
+    },
+    "6903": {
+        "Name": "special_bonus_unique_spectre_5"
+    },
+    "6149": {
+        "Name": "special_bonus_unique_spirit_breaker_1"
+    },
+    "6296": {
+        "Name": "special_bonus_unique_spirit_breaker_2"
+    },
+    "6543": {
+        "Name": "special_bonus_unique_spirit_breaker_3"
+    },
+    "6167": {
+        "Name": "special_bonus_unique_storm_spirit"
+    },
+    "6906": {
+        "Name": "special_bonus_unique_storm_spirit_2"
+    },
+    "6907": {
+        "Name": "special_bonus_unique_storm_spirit_3"
+    },
+    "6908": {
+        "Name": "special_bonus_unique_storm_spirit_4"
+    },
+    "6916": {
+        "Name": "special_bonus_unique_storm_spirit_5"
+    },
+    "6151": {
+        "Name": "special_bonus_unique_tidehunter"
+    },
+    "6945": {
+        "Name": "special_bonus_unique_tidehunter_2"
+    },
+    "6946": {
+        "Name": "special_bonus_unique_tidehunter_3"
+    },
+    "6947": {
+        "Name": "special_bonus_unique_tidehunter_4"
+    },
+    "6152": {
+        "Name": "special_bonus_unique_tinker"
+    },
+    "6952": {
+        "Name": "special_bonus_unique_tinker_2"
+    },
+    "6953": {
+        "Name": "special_bonus_unique_tinker_3"
+    },
+    "6153": {
+        "Name": "special_bonus_unique_tiny"
+    },
+    "6932": {
+        "Name": "special_bonus_unique_tiny_2"
+    },
+    "6933": {
+        "Name": "special_bonus_unique_tiny_3"
+    },
+    "6934": {
+        "Name": "special_bonus_unique_tiny_4"
+    },
+    "7005": {
+        "Name": "special_bonus_unique_tiny_5"
+    },
+    "6154": {
+        "Name": "special_bonus_unique_troll_warlord"
+    },
+    "6958": {
+        "Name": "special_bonus_unique_troll_warlord_2"
+    },
+    "6959": {
+        "Name": "special_bonus_unique_troll_warlord_3"
+    },
+    "6960": {
+        "Name": "special_bonus_unique_troll_warlord_4"
+    },
+    "6155": {
+        "Name": "special_bonus_unique_undying"
+    },
+    "6420": {
+        "Name": "special_bonus_unique_undying_2"
+    },
+    "6546": {
+        "Name": "special_bonus_unique_undying_3"
+    },
+    "6971": {
+        "Name": "special_bonus_unique_undying_4"
+    },
+    "6972": {
+        "Name": "special_bonus_unique_undying_5"
+    },
+    "6156": {
+        "Name": "special_bonus_unique_viper_1"
+    },
+    "6165": {
+        "Name": "special_bonus_unique_viper_2"
+    },
+    "6819": {
+        "Name": "special_bonus_unique_viper_3"
+    },
+    "6820": {
+        "Name": "special_bonus_unique_viper_4"
+    },
+    "6157": {
+        "Name": "special_bonus_unique_zeus"
+    },
+    "6501": {
+        "Name": "special_bonus_unique_zeus_2"
+    },
+    "6518": {
+        "Name": "special_bonus_unique_zeus_3"
+    },
+    "6171": {
+        "Name": "special_bonus_unique_elder_titan"
+    },
+    "6378": {
+        "Name": "special_bonus_unique_elder_titan_2"
+    },
+    "6720": {
+        "Name": "special_bonus_unique_elder_titan_3"
+    },
+    "6172": {
+        "Name": "special_bonus_unique_ember_spirit_1"
+    },
+    "6176": {
+        "Name": "special_bonus_unique_ember_spirit_2"
+    },
+    "6647": {
+        "Name": "special_bonus_unique_ember_spirit_3"
+    },
+    "7050": {
+        "Name": "special_bonus_unique_ember_spirit_4"
+    },
+    "7051": {
+        "Name": "special_bonus_unique_ember_spirit_5"
+    },
+    "6173": {
+        "Name": "special_bonus_unique_lifestealer"
+    },
+    "6676": {
+        "Name": "special_bonus_unique_lifestealer_2"
+    },
+    "7012": {
+        "Name": "special_bonus_unique_lifestealer_3"
+    },
+    "6677": {
+        "Name": "special_bonus_reincarnation_200"
+    },
+    "6174": {
+        "Name": "special_bonus_unique_lion"
+    },
+    "6389": {
+        "Name": "special_bonus_unique_lion_2"
+    },
+    "6600": {
+        "Name": "special_bonus_unique_lion_3"
+    },
+    "6678": {
+        "Name": "special_bonus_unique_lion_4"
+    },
+    "6181": {
+        "Name": "special_bonus_unique_skywrath"
+    },
+    "6884": {
+        "Name": "special_bonus_unique_skywrath_2"
+    },
+    "6885": {
+        "Name": "special_bonus_unique_skywrath_3"
+    },
+    "6886": {
+        "Name": "special_bonus_unique_skywrath_4"
+    },
+    "6921": {
+        "Name": "special_bonus_unique_skywrath_5"
+    },
+    "6182": {
+        "Name": "special_bonus_unique_medusa"
+    },
+    "6392": {
+        "Name": "special_bonus_unique_medusa_2"
+    },
+    "6687": {
+        "Name": "special_bonus_unique_medusa_3"
+    },
+    "6803": {
+        "Name": "special_bonus_unique_medusa_4"
+    },
+    "6183": {
+        "Name": "special_bonus_unique_ogre_magi"
+    },
+    "6707": {
+        "Name": "special_bonus_unique_ogre_magi_2"
+    },
+    "7030": {
+        "Name": "special_bonus_unique_ogre_magi_3"
+    },
+    "6184": {
+        "Name": "special_bonus_unique_silencer"
+    },
+    "6878": {
+        "Name": "special_bonus_unique_silencer_2"
+    },
+    "6879": {
+        "Name": "special_bonus_unique_silencer_3"
+    },
+    "6880": {
+        "Name": "special_bonus_unique_silencer_4"
+    },
+    "7048": {
+        "Name": "special_bonus_unique_silencer_5"
+    },
+    "6191": {
+        "Name": "special_bonus_unique_death_prophet"
+    },
+    "6367": {
+        "Name": "special_bonus_unique_death_prophet_2"
+    },
+    "6628": {
+        "Name": "special_bonus_unique_death_prophet_3"
+    },
+    "6805": {
+        "Name": "special_bonus_unique_death_prophet_4"
+    },
+    "6192": {
+        "Name": "special_bonus_unique_phantom_assassin"
+    },
+    "6847": {
+        "Name": "special_bonus_unique_phantom_assassin_2"
+    },
+    "6848": {
+        "Name": "special_bonus_unique_phantom_assassin_3"
+    },
+    "6330": {
+        "Name": "special_bonus_unique_riki_1"
+    },
+    "6193": {
+        "Name": "special_bonus_unique_riki_2"
+    },
+    "6865": {
+        "Name": "special_bonus_unique_riki_3"
+    },
+    "6866": {
+        "Name": "special_bonus_unique_riki_4"
+    },
+    "6867": {
+        "Name": "special_bonus_unique_riki_5"
+    },
+    "6194": {
+        "Name": "special_bonus_unique_tusk"
+    },
+    "6411": {
+        "Name": "special_bonus_unique_tusk_2"
+    },
+    "6961": {
+        "Name": "special_bonus_unique_tusk_3"
+    },
+    "6962": {
+        "Name": "special_bonus_unique_tusk_4"
+    },
+    "6963": {
+        "Name": "special_bonus_unique_tusk_5"
+    },
+    "6305": {
+        "Name": "special_bonus_unique_sniper_1"
+    },
+    "6198": {
+        "Name": "special_bonus_unique_sniper_2"
+    },
+    "6896": {
+        "Name": "special_bonus_unique_sniper_3"
+    },
+    "6897": {
+        "Name": "special_bonus_unique_sniper_4"
+    },
+    "6199": {
+        "Name": "special_bonus_unique_magnus"
+    },
+    "6390": {
+        "Name": "special_bonus_unique_magnus_2"
+    },
+    "6507": {
+        "Name": "special_bonus_unique_magnus_3"
+    },
+    "6690": {
+        "Name": "special_bonus_unique_magnus_4"
+    },
+    "6691": {
+        "Name": "special_bonus_unique_magnus_5"
+    },
+    "6202": {
+        "Name": "special_bonus_unique_drow_ranger_1"
+    },
+    "6209": {
+        "Name": "special_bonus_unique_drow_ranger_2"
+    },
+    "6280": {
+        "Name": "special_bonus_unique_drow_ranger_3"
+    },
+    "6634": {
+        "Name": "special_bonus_unique_drow_ranger_4"
+    },
+    "6203": {
+        "Name": "special_bonus_unique_earth_spirit"
+    },
+    "6514": {
+        "Name": "special_bonus_unique_earth_spirit_2"
+    },
+    "6640": {
+        "Name": "special_bonus_unique_earth_spirit_3"
+    },
+    "6204": {
+        "Name": "special_bonus_unique_huskar"
+    },
+    "6380": {
+        "Name": "special_bonus_unique_huskar_2"
+    },
+    "6655": {
+        "Name": "special_bonus_unique_huskar_3"
+    },
+    "6205": {
+        "Name": "special_bonus_unique_naga_siren"
+    },
+    "6398": {
+        "Name": "special_bonus_unique_naga_siren_2"
+    },
+    "6701": {
+        "Name": "special_bonus_unique_naga_siren_3"
+    },
+    "7029": {
+        "Name": "special_bonus_unique_naga_siren_4"
+    },
+    "6206": {
+        "Name": "special_bonus_unique_oracle"
+    },
+    "6540": {
+        "Name": "special_bonus_unique_oracle_2"
+    },
+    "6710": {
+        "Name": "special_bonus_unique_oracle_3"
+    },
+    "6970": {
+        "Name": "special_bonus_unique_oracle_4"
+    },
+    "6207": {
+        "Name": "special_bonus_unique_sand_king"
+    },
+    "6409": {
+        "Name": "special_bonus_unique_sand_king_2"
+    },
+    "6530": {
+        "Name": "special_bonus_unique_sand_king_3"
+    },
+    "6872": {
+        "Name": "special_bonus_unique_sand_king_4"
+    },
+    "6208": {
+        "Name": "special_bonus_unique_shadow_demon_1"
+    },
+    "6293": {
+        "Name": "special_bonus_unique_shadow_demon_2"
+    },
+    "6542": {
+        "Name": "special_bonus_unique_shadow_demon_3"
+    },
+    "6873": {
+        "Name": "special_bonus_unique_shadow_demon_4"
+    },
+    "7002": {
+        "Name": "special_bonus_unique_shadow_demon_5"
+    },
+    "6211": {
+        "Name": "special_bonus_unique_slardar"
+    },
+    "6889": {
+        "Name": "special_bonus_unique_slardar_2"
+    },
+    "6890": {
+        "Name": "special_bonus_unique_slardar_3"
+    },
+    "6212": {
+        "Name": "special_bonus_unique_lina_1"
+    },
+    "6313": {
+        "Name": "special_bonus_unique_lina_2"
+    },
+    "6388": {
+        "Name": "special_bonus_unique_lina_3"
+    },
+    "6509": {
+        "Name": "special_bonus_unique_lina_4"
+    },
+    "6214": {
+        "Name": "special_bonus_unique_ancient_apparition_1"
+    },
+    "6291": {
+        "Name": "special_bonus_unique_ancient_apparition_2"
+    },
+    "6352": {
+        "Name": "special_bonus_unique_ancient_apparition_3"
+    },
+    "6534": {
+        "Name": "special_bonus_unique_ancient_apparition_4"
+    },
+    "6810": {
+        "Name": "special_bonus_unique_ancient_apparition_5"
+    },
+    "6215": {
+        "Name": "special_bonus_unique_disruptor"
+    },
+    "6368": {
+        "Name": "special_bonus_unique_disruptor_2"
+    },
+    "6536": {
+        "Name": "special_bonus_unique_disruptor_3"
+    },
+    "6630": {
+        "Name": "special_bonus_unique_disruptor_4"
+    },
+    "6812": {
+        "Name": "special_bonus_unique_disruptor_5"
+    },
+    "6216": {
+        "Name": "special_bonus_unique_gyrocopter_1"
+    },
+    "6312": {
+        "Name": "special_bonus_unique_gyrocopter_2"
+    },
+    "6652": {
+        "Name": "special_bonus_unique_gyrocopter_3"
+    },
+    "6653": {
+        "Name": "special_bonus_unique_gyrocopter_4"
+    },
+    "6654": {
+        "Name": "special_bonus_unique_gyrocopter_5"
+    },
+    "6241": {
+        "Name": "special_bonus_unique_outworld_devourer"
+    },
+    "6711": {
+        "Name": "special_bonus_unique_outworld_devourer_2"
+    },
+    "6712": {
+        "Name": "special_bonus_unique_outworld_devourer_3"
+    },
+    "6217": {
+        "Name": "special_bonus_unique_keeper_of_the_light"
+    },
+    "6527": {
+        "Name": "special_bonus_unique_keeper_of_the_light_2"
+    },
+    "6665": {
+        "Name": "special_bonus_unique_keeper_of_the_light_3"
+    },
+    "6218": {
+        "Name": "special_bonus_unique_legion_commander"
+    },
+    "6449": {
+        "Name": "special_bonus_unique_legion_commander_2"
+    },
+    "6526": {
+        "Name": "special_bonus_unique_legion_commander_3"
+    },
+    "6671": {
+        "Name": "special_bonus_unique_legion_commander_4"
+    },
+    "6219": {
+        "Name": "special_bonus_unique_puck"
+    },
+    "6402": {
+        "Name": "special_bonus_unique_puck_2"
+    },
+    "6855": {
+        "Name": "special_bonus_unique_puck_3"
+    },
+    "7057": {
+        "Name": "special_bonus_unique_puck_4"
+    },
+    "6220": {
+        "Name": "special_bonus_unique_pugna_1"
+    },
+    "6238": {
+        "Name": "special_bonus_unique_pugna_2"
+    },
+    "6403": {
+        "Name": "special_bonus_unique_pugna_3"
+    },
+    "6448": {
+        "Name": "special_bonus_unique_pugna_4"
+    },
+    "6541": {
+        "Name": "special_bonus_unique_pugna_5"
+    },
+    "6859": {
+        "Name": "special_bonus_unique_pugna_6"
+    },
+    "6223": {
+        "Name": "special_bonus_unique_timbersaw"
+    },
+    "6948": {
+        "Name": "special_bonus_unique_timbersaw_2"
+    },
+    "6949": {
+        "Name": "special_bonus_unique_timbersaw_3"
+    },
+    "6230": {
+        "Name": "special_bonus_unique_bloodseeker"
+    },
+    "6356": {
+        "Name": "special_bonus_unique_bloodseeker_2"
+    },
+    "6357": {
+        "Name": "special_bonus_unique_bloodseeker_3"
+    },
+    "6809": {
+        "Name": "special_bonus_unique_bloodseeker_4"
+    },
+    "6257": {
+        "Name": "special_bonus_unique_broodmother_1"
+    },
+    "6258": {
+        "Name": "special_bonus_unique_broodmother_2"
+    },
+    "6361": {
+        "Name": "special_bonus_unique_broodmother_3"
+    },
+    "6362": {
+        "Name": "special_bonus_unique_broodmother_4"
+    },
+    "6259": {
+        "Name": "special_bonus_unique_chen_1"
+    },
+    "6260": {
+        "Name": "special_bonus_unique_chen_2"
+    },
+    "6363": {
+        "Name": "special_bonus_unique_chen_3"
+    },
+    "6535": {
+        "Name": "special_bonus_unique_chen_4"
+    },
+    "6261": {
+        "Name": "special_bonus_unique_lone_druid_1"
+    },
+    "6262": {
+        "Name": "special_bonus_unique_lone_druid_2"
+    },
+    "6263": {
+        "Name": "special_bonus_unique_lone_druid_3"
+    },
+    "6268": {
+        "Name": "special_bonus_unique_lone_druid_4"
+    },
+    "6508": {
+        "Name": "special_bonus_unique_lone_druid_5"
+    },
+    "6679": {
+        "Name": "special_bonus_unique_lone_druid_6"
+    },
+    "6680": {
+        "Name": "special_bonus_unique_lone_druid_7"
+    },
+    "6806": {
+        "Name": "special_bonus_unique_lone_druid_8"
+    },
+    "6265": {
+        "Name": "special_bonus_unique_wisp"
+    },
+    "7036": {
+        "Name": "special_bonus_unique_lone_druid_9"
+    },
+    "6537": {
+        "Name": "special_bonus_unique_wisp_2"
+    },
+    "6659": {
+        "Name": "special_bonus_unique_wisp_3"
+    },
+    "6808": {
+        "Name": "special_bonus_unique_wisp_4"
+    },
+    "6924": {
+        "Name": "special_bonus_unique_wisp_5"
+    },
+    "6282": {
+        "Name": "special_bonus_unique_techies"
+    },
+    "6552": {
+        "Name": "special_bonus_unique_techies_2"
+    },
+    "6997": {
+        "Name": "special_bonus_unique_techies_3"
+    },
+    "6998": {
+        "Name": "special_bonus_unique_techies_4"
+    },
+    "6287": {
+        "Name": "special_bonus_unique_arc_warden"
+    },
+    "6354": {
+        "Name": "special_bonus_unique_arc_warden_2"
+    },
+    "6288": {
+        "Name": "special_bonus_unique_meepo"
+    },
+    "6689": {
+        "Name": "special_bonus_unique_meepo_2"
+    },
+    "7027": {
+        "Name": "special_bonus_unique_meepo_3"
+    },
+    "6303": {
+        "Name": "special_bonus_unique_monkey_king"
+    },
+    "6421": {
+        "Name": "special_bonus_unique_monkey_king_2"
+    },
+    "6696": {
+        "Name": "special_bonus_unique_monkey_king_3"
+    },
+    "6697": {
+        "Name": "special_bonus_unique_monkey_king_4"
+    },
+    "7024": {
+        "Name": "special_bonus_unique_monkey_king_5"
+    },
+    "7025": {
+        "Name": "special_bonus_unique_monkey_king_6"
+    },
+    "6463": {
+        "Name": "special_bonus_unique_pangolier_2"
+    },
+    "9060": {
+        "Name": "special_bonus_unique_pangolier_3"
+    },
+    "9061": {
+        "Name": "special_bonus_unique_pangolier_4"
+    },
+    "9062": {
+        "Name": "special_bonus_unique_pangolier_5"
+    },
+    "6464": {
+        "Name": "special_bonus_unique_dark_willow_1"
+    },
+    "7038": {
+        "Name": "special_bonus_unique_monkey_king_7"
+    },
+    "6465": {
+        "Name": "special_bonus_unique_dark_willow_2"
+    },
+    "6251": {
+        "Name": "generic_hidden"
+    },
+    "82": {
+        "Name": "bear_empty1"
+    },
+    "83": {
+        "Name": "bear_empty2"
+    }
+}

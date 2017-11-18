@@ -37,9 +37,6 @@ teams = {
     "Dire": 3,
 }
 
-g_world_data = None
-g_hero_selection = None
-
 class Dota2Env(environment.Base):
     """
     A Dota 2 environment.
@@ -107,6 +104,7 @@ class Dota2Env(environment.Base):
         self._post_controller = post_controller
         self._parallel = run_parallel.RunParallel()  # Needed for multiplayer
 
+        self._world_state = None
         self._features = features.Features()
         
         if visualize:
@@ -125,6 +123,10 @@ class Dota2Env(environment.Base):
         """Look at Features for full specs."""
         return self._features.action_spec()
 
+    def world_state(self):
+        """Look at World Data for full specs."""
+        return self._world_state
+        
     def _restart(self):
         raise Exception("dota2 env _restart() not implemented")
 
@@ -160,17 +162,15 @@ class Dota2Env(environment.Base):
         return self._step()
 
     def _step(self):
-        global g_world_data, g_hero_selection
-        
         self._obs = self._proto_controller.get_from_proto_queue()
         print("Current Protobuf Timestamp: %f" % self._obs.dota_time)
         
         # TODO - do we need to create a separate world_state object or can 
         #        we just leverage self._features.transform_obs for this???
         if self._obs.game_state in [4, 5]:
-            g_world_data = world_data.WorldData(self._obs)
-            #print(g_world_data.get_my_players)
-            #print(g_world_data.get_my_minions)
+            self._world_state = world_data.WorldData(self._obs)
+            #print(self._world_state.get_my_players)
+            #print(self._world_state.get_my_minions)
         
         agent_obs = [self._features.transform_obs(self._obs)]
         

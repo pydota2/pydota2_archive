@@ -1,5 +1,6 @@
 -------------------------------------------------------------------------------
 --- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/pydota2
 -------------------------------------------------------------------------------
 
 local dbg = require( GetScriptDirectory().."/debug" )
@@ -21,6 +22,7 @@ function DataPacket:CreatePacket(key, packet)
     --DataPacket.LastPacket[key].seq = seq
     DataPacket.LastPacket[key].lastSent = packet
     DataPacket.LastPacket[key].processed = false
+    DataPacket.LastPacket[key].reported = {}
 end
 
 function DataPacket:ProcessPacket(key, reply)
@@ -28,15 +30,15 @@ function DataPacket:ProcessPacket(key, reply)
         --dbg.myPrint("Got Reply Key: ", key)
         DataPacket.LastPacket[key].lastReply = reply
         DataPacket.LastPacket[key].processed = true
-        DataPacket.LastPacket[key].reported = false
     else
         dbg.pause('Bad Reply Key:', key)
     end
 end
 
-function DataPacket:GetLastReply(key)
-    if DataPacket.LastPacket[key] and not DataPacket.LastPacket[key].reported then
-        DataPacket.LastPacket[key].reported = true
+function DataPacket:GetLastReply(key, pID)
+    if DataPacket.LastPacket[key] and not DataPacket.LastPacket[key].reported[pID] then
+        DataPacket.LastPacket[key].reported[pID] = true
+        dbg.myPrint("Getting Last Packet Reply")
         return DataPacket.LastPacket[key].lastReply
     end
     return nil

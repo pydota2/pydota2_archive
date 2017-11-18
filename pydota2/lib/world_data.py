@@ -80,7 +80,7 @@ class WorldData(object):
                     self.bad_courier = unit
             
             elif unit.unit_type == 0:  # INVALID
-                print("INVALID UNIT TYPE:\n%s" % str(unit))
+                #print("INVALID UNIT TYPE:\n%s" % str(unit))
                 bInvalidFound = True
     
     def update_players(self, player_data):
@@ -93,15 +93,15 @@ class WorldData(object):
     def get_available_level_points(self, player_id):
         if player_id in self.good_players.keys():
             skilled_pts = 0
-            for ability in self.good_players[player_id]['unit'].abilities:
+            for ability in self.get_player_abilities(player_id):
                 skilled_pts += ability.level
             level = self.good_players[player_id]['unit'].level
             delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
             if delta > 0:
-                print('%s is able to level %d abilities' % (self.good_players[player_id]['unit'].name, delta))
+                print('%s [Lvl: %d] is able to level %d abilities' % (self.good_players[player_id]['unit'].name, level, delta))
             return max(delta,0)
         return 0
-
+        
     def get_unit_by_handle(self, unit_data, handle):
         for unit in unit_data:
             if unit.handle == handle:
@@ -120,6 +120,19 @@ class WorldData(object):
         if player:
             return player['unit'].abilities
         return []
+        
+    def get_player_ability_ids(self, player_id, bCanBeLeveled=True):
+        abilities = self.get_player_abilities(player_id)
+        ids = []
+        if bCanBeLeveled:
+            player = self.get_player_by_id(player_id)
+            level = player['unit'].level
+        else:
+            for ability in abilities:
+                #TODO - remove this bandaide when fixed
+                if ability.ability_id != 6251:
+                    ids.append(ability.ability_id)
+        return ids
 
     def get_player_items(self, player_id):
         player = self.get_player_by_id(player_id)
@@ -132,7 +145,10 @@ class WorldData(object):
         if player:
             return player['unit'].location
         return []
-        
+    
+    def get_player_ids(self):
+        return self.good_players.keys()
+    
     @property
     def get_my_players(self):
         return self.good_players

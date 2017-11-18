@@ -1,6 +1,12 @@
+-------------------------------------------------------------------------------
+--- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/pydota2
+-------------------------------------------------------------------------------
+
 local MoveToLocation = {}
 
 MoveToLocation.Name = "Move to Location"
+MoveToLocation.NumArgs = 3
 
 -------------------------------------------------
 

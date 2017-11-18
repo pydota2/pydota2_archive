@@ -300,16 +300,18 @@ class ReplayProcessor(multiprocessing.Process):
             
             # TODO - complete the actual Reinforcement Learning
             if data:
-                print('Game State: %d -- Step %d' % (data.game_state, step))
+                #print('Game State: %d -- Step %d' % (data.game_state, step))
                 if data.game_state in [4,5]:
                     #print(data)
                     world_state = world_data.WorldData(data)
                     #print(world_state.get_my_players)
                     world_state.get_available_level_points(0)
-                    
-                    uoi = world_state.get_unit_by_handle(data.units, 822)
-                    if uoi:
-                        print(uoi)
+                    #p = world_state.get_player_by_id(0)
+                    #if p and p['unit'] and p['unit'].level > 2:
+                    #    val = world_state.get_player_abilities(0)
+                    #    if len(val) > 0:
+                    #        print(val)
+                    #        break
 
     def _print(self, s):
         for line in str(s).strip().splitlines():

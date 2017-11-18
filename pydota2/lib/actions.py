@@ -112,7 +112,7 @@ ArgType_QUEUE   = 2
 TYPES = Arguments.types(
     queued = ArgumentType.enum([ArgType_NORMAL, ArgType_PUSH, ArgType_QUEUE]),
     player_id = ArgumentType.scalar(10),
-    ability_id = ArgumentType.scalar(1500),
+    ability_id = ArgumentType.scalar(7000),
     location = ArgumentType.location(),
     handle = ArgumentType.handle([0]),
     tree_id = ArgumentType.tree_id([0]),
@@ -216,10 +216,10 @@ class Functions(object):
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
     Function.team_func(0, "use_glyph", FUNCTION_TYPES['cmd_atomic'],
-                       lambda obs: obs.glyph_cooldown < obs.dota_time),  
+                       lambda obs: obs.game_state in [4,5] and obs.glyph_cooldown < obs.dota_time),  
     Function.hero_func(1, "no_op", FUNCTION_TYPES['cmd_no_op']),
-    Function.ability(2, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'], 1),
-                       #lambda player: player.getC),
+    Function.ability(2, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'], 1,
+                       avail_fn=lambda obs: obs.game_state in [4,5]),
 ])
 # pylint: enable=line-too-long
 

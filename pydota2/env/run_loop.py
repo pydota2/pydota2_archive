@@ -47,7 +47,7 @@ def run_loop(agents, hs_agents, env, max_frames=0):
                 total_frames += 1
                 
                 if timesteps[0].observation['game_loop'][0] in [4,5]:
-                    actions = [agent.step(timestep)
+                    actions = [agent.step(timestep, env.world_state())
                                for agent, timestep in zip(agents, timesteps)]
                     #print('run_loop actions:', actions)
                     if max_frames and total_frames >= max_frames:
@@ -57,7 +57,7 @@ def run_loop(agents, hs_agents, env, max_frames=0):
                     timesteps = env.step(actions)
                 # TODO - fix below for Hero Selection
                 else:
-                    actions = [agent.step(timestep)
+                    actions = [agent.step(timestep, env.world_state())
                                for agent, timestep in zip(agents, timesteps)]
                     if max_frames and total_frames >= max_frames:
                         return

@@ -55,6 +55,7 @@ function webserver.SendData(hBot)
         webserverAuthTried = true
         local jsonData = webserver.CreateAuthPacket()
         packet:CreatePacket(packet.TYPE_AUTH, jsonData)
+        dbg.myPrint("SENDING AUTHENTICATION REQUEST")
         webserver.SendPacket(jsonData)
     end
     
@@ -65,6 +66,7 @@ function webserver.SendData(hBot)
             local jsonData = webserver.CreatePollPacket(hBot)
             packet:CreatePacket(packet.TYPE_POLL, jsonData)
             webserver.lastPollPacket = GameTime()
+            dbg.myPrint("SENDING POLL REQUEST")
             webserver.SendPacket(jsonData)
         end
     end
@@ -89,8 +91,8 @@ function webserver.CreatePollPacket(hBot)
     return dkjson.encode(json)
 end
 
-function webserver.GetLastReply(sType)
-    return packet:GetLastReply(sType)
+function webserver.GetLastReply(sType, pID)
+    return packet:GetLastReply(sType, pID)
 end
 
 return webserver
