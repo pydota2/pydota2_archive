@@ -68,8 +68,30 @@ if __name__ == "__main__":
                         else:
                             print("Error: AbilityID missing!")
                             break
-                
-    
+                if line[:13] == '"AbilityType"':
+                    if line.find("DOTA_ABILITY_TYPE_ULTIMATE") >= 0:
+                        if abilityID != None:
+                            abilities[abilityID]['Ultimate'] = 1
+                        else:
+                            print("Error: AbilityID missing!")
+                            break
+                if line[:15] == '"RequiredLevel"':
+                    res = re.split(r'\s{2,}', line)
+                    res[1] = res[1].replace('"','')
+                    if abilityID != None:
+                        abilities[abilityID]['LevelAvailable'] = int(res[1])
+                    else:
+                        print("ERROR: abilityID missing!")
+                        break
+                if line[:23] == '"LevelsBetweenUpgrades"':
+                    res = re.split(r'\s{2,}', line)
+                    res[1] = res[1].replace('"','')
+                    if abilityID != None:
+                        abilities[abilityID]['LevelsBetweenUpgrades'] = int(res[1])
+                    else:
+                        print("ERROR: abilityID missing!")
+                        break
+                        
     #print(abilities)
     print('Processed %d abilities' % (abilitiesCount))
     writeData(abilities)

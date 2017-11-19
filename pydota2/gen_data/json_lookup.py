@@ -13,5 +13,11 @@ def isAbilityHidden(fname, key):
         data = json.load(infile)
         return 'Hidden' in data[key].keys()
         
+def isAbilityUltimate(fname, key):
+    fname = JoinPath('pydota2', 'gen_data', fname)
+    with open(fname, 'r') as infile:
+        data = json.load(infile)
+        return 'Ultimate' in data[key].keys()
+        
 if __name__ == "__main__":
     print(getNameOfKey('abilities.json', '5014'))

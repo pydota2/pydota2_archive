@@ -22,6 +22,7 @@ from __future__ import division
 from __future__ import print_function
 
 import six
+from pydota2.gen_data.json_lookup import isAbilityHidden, isAbilityUltimate
 
 """
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
@@ -120,18 +121,34 @@ class WorldData(object):
         if player:
             return player['unit'].abilities
         return []
-        
+    
+    # this returns only ability IDs of abilties that can be leveled
     def get_player_ability_ids(self, player_id, bCanBeLeveled=True):
         abilities = self.get_player_abilities(player_id)
         ids = []
-        if bCanBeLeveled:
-            player = self.get_player_by_id(player_id)
-            level = player['unit'].level
-        else:
-            for ability in abilities:
-                #TODO - remove this bandaide when fixed
-                if ability.ability_id != 6251:
-                    ids.append(ability.ability_id)
+        for ability in abilities:
+            id = ability.ability_id
+            
+            # generic_hidden
+            if id == 6251:
+                continue
+
+            # skip hidden abilities
+            if isAbilityHidden('abilities.json', str(id)):
+                continue
+            
+            # if we are considering level-based restrictions
+            if bCanBeLeveled:
+                player = self.get_player_by_id(player_id)
+                p_level = player['unit'].level
+                a_level = ability.level
+                
+                if a_level >= int(float(p_level/2.0)+0.5):
+                    continue
+                
+                bUlt = isAbilityUltimate('abilities.json', str(id))
+
+            ids.append(id)
         return ids
 
     def get_player_items(self, player_id):

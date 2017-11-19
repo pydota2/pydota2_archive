@@ -21,7 +21,8 @@
         "Name": "antimage_spell_shield"
     },
     "5006": {
-        "Name": "antimage_mana_void"
+        "Name": "antimage_mana_void",
+        "Ultimate": 1
     },
     "5007": {
         "Name": "axe_berserkers_call"
@@ -33,7 +34,8 @@
         "Name": "axe_counter_helix"
     },
     "5010": {
-        "Name": "axe_culling_blade"
+        "Name": "axe_culling_blade",
+        "Ultimate": 1
     },
     "5012": {
         "Name": "bane_enfeeble"
@@ -42,7 +44,8 @@
         "Name": "bane_brain_sap"
     },
     "5013": {
-        "Name": "bane_fiends_grip"
+        "Name": "bane_fiends_grip",
+        "Ultimate": 1
     },
     "5014": {
         "Name": "bane_nightmare"
@@ -61,7 +64,8 @@
         "Name": "bloodseeker_thirst"
     },
     "5018": {
-        "Name": "bloodseeker_rupture"
+        "Name": "bloodseeker_rupture",
+        "Ultimate": 1
     },
     "5019": {
         "Name": "drow_ranger_frost_arrows"
@@ -76,7 +80,8 @@
         "Name": "drow_ranger_trueshot"
     },
     "5022": {
-        "Name": "drow_ranger_marksmanship"
+        "Name": "drow_ranger_marksmanship",
+        "Ultimate": 1
     },
     "5023": {
         "Name": "earthshaker_fissure"
@@ -88,7 +93,8 @@
         "Name": "earthshaker_aftershock"
     },
     "5026": {
-        "Name": "earthshaker_echo_slam"
+        "Name": "earthshaker_echo_slam",
+        "Ultimate": 1
     },
     "5027": {
         "Name": "juggernaut_blade_dance"
@@ -100,7 +106,8 @@
         "Name": "juggernaut_healing_ward"
     },
     "5030": {
-        "Name": "juggernaut_omni_slash"
+        "Name": "juggernaut_omni_slash",
+        "Ultimate": 1
     },
     "5031": {
         "Name": "kunkka_torrent"
@@ -116,7 +123,8 @@
         "Hidden": 1
     },
     "5035": {
-        "Name": "kunkka_ghostship"
+        "Name": "kunkka_ghostship",
+        "Ultimate": 1
     },
     "5040": {
         "Name": "lina_dragon_slave"
@@ -128,7 +136,8 @@
         "Name": "lina_fiery_soul"
     },
     "5043": {
-        "Name": "lina_laguna_blade"
+        "Name": "lina_laguna_blade",
+        "Ultimate": 1
     },
     "5044": {
         "Name": "lion_impale"
@@ -140,13 +149,15 @@
         "Name": "lion_mana_drain"
     },
     "5047": {
-        "Name": "lion_finger_of_death"
+        "Name": "lion_finger_of_death",
+        "Ultimate": 1
     },
     "5048": {
         "Name": "mirana_arrow"
     },
     "5049": {
-        "Name": "mirana_invis"
+        "Name": "mirana_invis",
+        "Ultimate": 1
     },
     "5050": {
         "Name": "mirana_leap"
@@ -174,10 +185,12 @@
         "Name": "morphling_morph_str"
     },
     "5057": {
-        "Name": "morphling_replicate"
+        "Name": "morphling_replicate",
+        "Ultimate": 1
     },
     "5058": {
         "Name": "morphling_morph_replicate",
+        "Ultimate": 1,
         "Hidden": 1
     },
     "5674": {
@@ -200,7 +213,8 @@
         "Name": "nevermore_dark_lord"
     },
     "5064": {
-        "Name": "nevermore_requiem"
+        "Name": "nevermore_requiem",
+        "Ultimate": 1
     },
     "5065": {
         "Name": "phantom_lancer_spirit_lance"
@@ -209,7 +223,8 @@
         "Name": "phantom_lancer_doppelwalk"
     },
     "5067": {
-        "Name": "phantom_lancer_juxtapose"
+        "Name": "phantom_lancer_juxtapose",
+        "Ultimate": 1
     },
     "5068": {
         "Name": "phantom_lancer_phantom_edge"
@@ -227,7 +242,8 @@
         "Name": "puck_phase_shift"
     },
     "5073": {
-        "Name": "puck_dream_coil"
+        "Name": "puck_dream_coil",
+        "Ultimate": 1
     },
     "5074": {
         "Name": "pudge_flesh_heap"
@@ -239,7 +255,8 @@
         "Name": "pudge_rot"
     },
     "5077": {
-        "Name": "pudge_dismember"
+        "Name": "pudge_dismember",
+        "Ultimate": 1
     },
     "5078": {
         "Name": "shadow_shaman_ether_shock"
@@ -251,7 +268,8 @@
         "Name": "shadow_shaman_shackles"
     },
     "5081": {
-        "Name": "shadow_shaman_mass_serpent_ward"
+        "Name": "shadow_shaman_mass_serpent_ward",
+        "Ultimate": 1
     },
     "5082": {
         "Name": "razor_plasma_field"
@@ -263,7 +281,8 @@
         "Name": "razor_unstable_current"
     },
     "5085": {
-        "Name": "razor_eye_of_the_storm"
+        "Name": "razor_eye_of_the_storm",
+        "Ultimate": 1
     },
     "5086": {
         "Name": "skeleton_king_hellfire_blast"
@@ -275,7 +294,8 @@
         "Name": "skeleton_king_mortal_strike"
     },
     "5089": {
-        "Name": "skeleton_king_reincarnation"
+        "Name": "skeleton_king_reincarnation",
+        "Ultimate": 1
     },
     "5090": {
         "Name": "death_prophet_carrion_swarm"
@@ -290,7 +310,8 @@
         "Name": "death_prophet_spirit_siphon"
     },
     "5093": {
-        "Name": "death_prophet_exorcism"
+        "Name": "death_prophet_exorcism",
+        "Ultimate": 1
     },
     "5094": {
         "Name": "sven_storm_bolt"
@@ -302,7 +323,8 @@
         "Name": "sven_warcry"
     },
     "5097": {
-        "Name": "sven_gods_strength"
+        "Name": "sven_gods_strength",
+        "Ultimate": 1
     },
     "5098": {
         "Name": "storm_spirit_static_remnant"
@@ -314,7 +336,8 @@
         "Name": "storm_spirit_overload"
     },
     "5101": {
-        "Name": "storm_spirit_ball_lightning"
+        "Name": "storm_spirit_ball_lightning",
+        "Ultimate": 1
     },
     "5102": {
         "Name": "sandking_burrowstrike"
@@ -326,7 +349,8 @@
         "Name": "sandking_caustic_finale"
     },
     "5105": {
-        "Name": "sandking_epicenter"
+        "Name": "sandking_epicenter",
+        "Ultimate": 1
     },
     "5106": {
         "Name": "tiny_avalanche"
@@ -342,7 +366,8 @@
         "Hidden": 1
     },
     "5109": {
-        "Name": "tiny_grow"
+        "Name": "tiny_grow",
+        "Ultimate": 1
     },
     "5110": {
         "Name": "zuus_arc_lightning"
@@ -358,7 +383,8 @@
         "Name": "zuus_static_field"
     },
     "5113": {
-        "Name": "zuus_thundergods_wrath"
+        "Name": "zuus_thundergods_wrath",
+        "Ultimate": 1
     },
     "5114": {
         "Name": "slardar_sprint"
@@ -370,7 +396,8 @@
         "Name": "slardar_bash"
     },
     "5117": {
-        "Name": "slardar_amplify_damage"
+        "Name": "slardar_amplify_damage",
+        "Ultimate": 1
     },
     "5118": {
         "Name": "tidehunter_gush"
@@ -382,7 +409,8 @@
         "Name": "tidehunter_anchor_smash"
     },
     "5121": {
-        "Name": "tidehunter_ravage"
+        "Name": "tidehunter_ravage",
+        "Ultimate": 1
     },
     "5122": {
         "Name": "vengefulspirit_magic_missile"
@@ -394,7 +422,8 @@
         "Name": "vengefulspirit_wave_of_terror"
     },
     "5125": {
-        "Name": "vengefulspirit_nether_swap"
+        "Name": "vengefulspirit_nether_swap",
+        "Ultimate": 1
     },
     "5126": {
         "Name": "crystal_maiden_crystal_nova"
@@ -406,7 +435,8 @@
         "Name": "crystal_maiden_brilliance_aura"
     },
     "5129": {
-        "Name": "crystal_maiden_freezing_field"
+        "Name": "crystal_maiden_freezing_field",
+        "Ultimate": 1
     },
     "5130": {
         "Name": "windrunner_shackleshot"
@@ -418,7 +448,8 @@
         "Name": "windrunner_windrun"
     },
     "5133": {
-        "Name": "windrunner_focusfire"
+        "Name": "windrunner_focusfire",
+        "Ultimate": 1
     },
     "5134": {
         "Name": "lich_frost_nova"
@@ -430,7 +461,8 @@
         "Name": "lich_dark_ritual"
     },
     "5137": {
-        "Name": "lich_chain_frost"
+        "Name": "lich_chain_frost",
+        "Ultimate": 1
     },
     "5138": {
         "Name": "witch_doctor_paralyzing_cask"
@@ -442,7 +474,8 @@
         "Name": "witch_doctor_maledict"
     },
     "5141": {
-        "Name": "witch_doctor_death_ward"
+        "Name": "witch_doctor_death_ward",
+        "Ultimate": 1
     },
     "5142": {
         "Name": "riki_smoke_screen"
@@ -454,7 +487,8 @@
         "Name": "riki_permanent_invisibility"
     },
     "5145": {
-        "Name": "riki_tricks_of_the_trade"
+        "Name": "riki_tricks_of_the_trade",
+        "Ultimate": 1
     },
     "5146": {
         "Name": "enigma_malefice"
@@ -466,7 +500,8 @@
         "Name": "enigma_midnight_pulse"
     },
     "5149": {
-        "Name": "enigma_black_hole"
+        "Name": "enigma_black_hole",
+        "Ultimate": 1
     },
     "5150": {
         "Name": "tinker_laser"
@@ -478,7 +513,8 @@
         "Name": "tinker_march_of_the_machines"
     },
     "5153": {
-        "Name": "tinker_rearm"
+        "Name": "tinker_rearm",
+        "Ultimate": 1
     },
     "5154": {
         "Name": "sniper_shrapnel"
@@ -490,7 +526,8 @@
         "Name": "sniper_take_aim"
     },
     "5157": {
-        "Name": "sniper_assassinate"
+        "Name": "sniper_assassinate",
+        "Ultimate": 1
     },
     "5158": {
         "Name": "necrolyte_death_pulse"
@@ -506,7 +543,8 @@
         "Hidden": 1
     },
     "5161": {
-        "Name": "necrolyte_reapers_scythe"
+        "Name": "necrolyte_reapers_scythe",
+        "Ultimate": 1
     },
     "5162": {
         "Name": "warlock_fatal_bonds"
@@ -518,7 +556,8 @@
         "Name": "warlock_upheaval"
     },
     "5165": {
-        "Name": "warlock_rain_of_chaos"
+        "Name": "warlock_rain_of_chaos",
+        "Ultimate": 1
     },
     "5166": {
         "Name": "warlock_golem_flaming_fists"
@@ -545,7 +584,8 @@
         "Name": "beastmaster_inner_beast"
     },
     "5177": {
-        "Name": "beastmaster_primal_roar"
+        "Name": "beastmaster_primal_roar",
+        "Ultimate": 1
     },
     "5173": {
         "Name": "queenofpain_shadow_strike"
@@ -557,7 +597,8 @@
         "Name": "queenofpain_scream_of_pain"
     },
     "5176": {
-        "Name": "queenofpain_sonic_wave"
+        "Name": "queenofpain_sonic_wave",
+        "Ultimate": 1
     },
     "5178": {
         "Name": "venomancer_venomous_gale"
@@ -569,7 +610,8 @@
         "Name": "venomancer_plague_ward"
     },
     "5181": {
-        "Name": "venomancer_poison_nova"
+        "Name": "venomancer_poison_nova",
+        "Ultimate": 1
     },
     "5182": {
         "Name": "faceless_void_time_walk"
@@ -584,7 +626,8 @@
         "Name": "faceless_void_time_dilation"
     },
     "5185": {
-        "Name": "faceless_void_chronosphere"
+        "Name": "faceless_void_chronosphere",
+        "Ultimate": 1
     },
     "5186": {
         "Name": "pugna_nether_blast"
@@ -596,7 +639,8 @@
         "Name": "pugna_nether_ward"
     },
     "5189": {
-        "Name": "pugna_life_drain"
+        "Name": "pugna_life_drain",
+        "Ultimate": 1
     },
     "5190": {
         "Name": "phantom_assassin_stifling_dagger"
@@ -608,7 +652,8 @@
         "Name": "phantom_assassin_blur"
     },
     "5193": {
-        "Name": "phantom_assassin_coup_de_grace"
+        "Name": "phantom_assassin_coup_de_grace",
+        "Ultimate": 1
     },
     "5194": {
         "Name": "templar_assassin_refraction"
@@ -620,7 +665,8 @@
         "Name": "templar_assassin_psi_blades"
     },
     "5197": {
-        "Name": "templar_assassin_psionic_trap"
+        "Name": "templar_assassin_psionic_trap",
+        "Ultimate": 1
     },
     "5198": {
         "Name": "templar_assassin_trap"
@@ -638,7 +684,8 @@
         "Name": "viper_corrosive_skin"
     },
     "5221": {
-        "Name": "viper_viper_strike"
+        "Name": "viper_viper_strike",
+        "Ultimate": 1
     },
     "5222": {
         "Name": "luna_lucent_beam"
@@ -650,7 +697,8 @@
         "Name": "luna_lunar_blessing"
     },
     "5225": {
-        "Name": "luna_eclipse"
+        "Name": "luna_eclipse",
+        "Ultimate": 1
     },
     "5226": {
         "Name": "dragon_knight_breathe_fire"
@@ -662,7 +710,8 @@
         "Name": "dragon_knight_dragon_blood"
     },
     "5229": {
-        "Name": "dragon_knight_elder_dragon_form"
+        "Name": "dragon_knight_elder_dragon_form",
+        "Ultimate": 1
     },
     "5232": {
         "Name": "dragon_knight_frost_breath"
@@ -677,7 +726,8 @@
         "Name": "dazzle_shadow_wave"
     },
     "5236": {
-        "Name": "dazzle_weave"
+        "Name": "dazzle_weave",
+        "Ultimate": 1
     },
     "5237": {
         "Name": "rattletrap_battery_assault"
@@ -689,7 +739,8 @@
         "Name": "rattletrap_rocket_flare"
     },
     "5240": {
-        "Name": "rattletrap_hookshot"
+        "Name": "rattletrap_hookshot",
+        "Ultimate": 1
     },
     "5241": {
         "Name": "leshrac_split_earth"
@@ -701,7 +752,8 @@
         "Name": "leshrac_lightning_storm"
     },
     "5244": {
-        "Name": "leshrac_pulse_nova"
+        "Name": "leshrac_pulse_nova",
+        "Ultimate": 1
     },
     "5245": {
         "Name": "furion_sprout"
@@ -713,7 +765,8 @@
         "Name": "furion_force_of_nature"
     },
     "5248": {
-        "Name": "furion_wrath_of_nature"
+        "Name": "furion_wrath_of_nature",
+        "Ultimate": 1
     },
     "5249": {
         "Name": "life_stealer_rage"
@@ -725,7 +778,8 @@
         "Name": "life_stealer_open_wounds"
     },
     "5252": {
-        "Name": "life_stealer_infest"
+        "Name": "life_stealer_infest",
+        "Ultimate": 1
     },
     "5671": {
         "Name": "life_stealer_assimilate",
@@ -737,6 +791,7 @@
     },
     "5253": {
         "Name": "life_stealer_consume",
+        "Ultimate": 1,
         "Hidden": 1
     },
     "5655": {
@@ -769,7 +824,8 @@
         "Name": "dark_seer_surge"
     },
     "5258": {
-        "Name": "dark_seer_wall_of_replica"
+        "Name": "dark_seer_wall_of_replica",
+        "Ultimate": 1
     },
     "5259": {
         "Name": "clinkz_strafe"
@@ -781,7 +837,8 @@
         "Name": "clinkz_wind_walk"
     },
     "5262": {
-        "Name": "clinkz_death_pact"
+        "Name": "clinkz_death_pact",
+        "Ultimate": 1
     },
     "5263": {
         "Name": "omniknight_purification"
@@ -793,7 +850,8 @@
         "Name": "omniknight_degen_aura"
     },
     "5266": {
-        "Name": "omniknight_guardian_angel"
+        "Name": "omniknight_guardian_angel",
+        "Ultimate": 1
     },
     "5267": {
         "Name": "enchantress_untouchable"
@@ -805,7 +863,8 @@
         "Name": "enchantress_natures_attendants"
     },
     "5270": {
-        "Name": "enchantress_impetus"
+        "Name": "enchantress_impetus",
+        "Ultimate": 1
     },
     "5271": {
         "Name": "huskar_inner_vitality"
@@ -817,7 +876,8 @@
         "Name": "huskar_berserkers_blood"
     },
     "5274": {
-        "Name": "huskar_life_break"
+        "Name": "huskar_life_break",
+        "Ultimate": 1
     },
     "5275": {
         "Name": "night_stalker_void"
@@ -829,7 +889,8 @@
         "Name": "night_stalker_hunter_in_the_night"
     },
     "5278": {
-        "Name": "night_stalker_darkness"
+        "Name": "night_stalker_darkness",
+        "Ultimate": 1
     },
     "5279": {
         "Name": "broodmother_spawn_spiderlings"
@@ -847,7 +908,8 @@
         "Name": "broodmother_incapacitating_bite"
     },
     "5282": {
-        "Name": "broodmother_insatiable_hunger"
+        "Name": "broodmother_insatiable_hunger",
+        "Ultimate": 1
     },
     "5285": {
         "Name": "bounty_hunter_shuriken_toss"
@@ -859,7 +921,8 @@
         "Name": "bounty_hunter_wind_walk"
     },
     "5288": {
-        "Name": "bounty_hunter_track"
+        "Name": "bounty_hunter_track",
+        "Ultimate": 1
     },
     "5289": {
         "Name": "weaver_the_swarm"
@@ -871,7 +934,8 @@
         "Name": "weaver_geminate_attack"
     },
     "5292": {
-        "Name": "weaver_time_lapse"
+        "Name": "weaver_time_lapse",
+        "Ultimate": 1
     },
     "5297": {
         "Name": "jakiro_dual_breath"
@@ -883,7 +947,8 @@
         "Name": "jakiro_liquid_fire"
     },
     "5300": {
-        "Name": "jakiro_macropyre"
+        "Name": "jakiro_macropyre",
+        "Ultimate": 1
     },
     "5320": {
         "Name": "batrider_sticky_napalm"
@@ -895,7 +960,8 @@
         "Name": "batrider_firefly"
     },
     "5323": {
-        "Name": "batrider_flaming_lasso"
+        "Name": "batrider_flaming_lasso",
+        "Ultimate": 1
     },
     "5328": {
         "Name": "chen_penitence"
@@ -910,7 +976,8 @@
         "Name": "chen_holy_persuasion"
     },
     "5331": {
-        "Name": "chen_hand_of_god"
+        "Name": "chen_hand_of_god",
+        "Ultimate": 1
     },
     "5334": {
         "Name": "spectre_spectral_dagger"
@@ -922,7 +989,8 @@
         "Name": "spectre_dispersion"
     },
     "5337": {
-        "Name": "spectre_haunt"
+        "Name": "spectre_haunt",
+        "Ultimate": 1
     },
     "5338": {
         "Name": "spectre_reality"
@@ -937,7 +1005,8 @@
         "Name": "doom_bringer_infernal_blade"
     },
     "5342": {
-        "Name": "doom_bringer_doom"
+        "Name": "doom_bringer_doom",
+        "Ultimate": 1
     },
     "5343": {
         "Name": "doom_bringer_empty1"
@@ -955,11 +1024,13 @@
         "Name": "ancient_apparition_chilling_touch"
     },
     "5348": {
-        "Name": "ancient_apparition_ice_blast"
+        "Name": "ancient_apparition_ice_blast",
+        "Ultimate": 1
     },
     "5349": {
         "Name": "ancient_apparition_ice_blast_release",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "5353": {
         "Name": "spirit_breaker_charge_of_darkness"
@@ -971,7 +1042,8 @@
         "Name": "spirit_breaker_greater_bash"
     },
     "5356": {
-        "Name": "spirit_breaker_nether_strike"
+        "Name": "spirit_breaker_nether_strike",
+        "Ultimate": 1
     },
     "5357": {
         "Name": "ursa_earthshock"
@@ -983,7 +1055,8 @@
         "Name": "ursa_fury_swipes"
     },
     "5360": {
-        "Name": "ursa_enrage"
+        "Name": "ursa_enrage",
+        "Ultimate": 1
     },
     "5361": {
         "Name": "gyrocopter_rocket_barrage"
@@ -995,7 +1068,8 @@
         "Name": "gyrocopter_flak_cannon"
     },
     "5364": {
-        "Name": "gyrocopter_call_down"
+        "Name": "gyrocopter_call_down",
+        "Ultimate": 1
     },
     "5365": {
         "Name": "alchemist_acid_spray"
@@ -1011,7 +1085,8 @@
         "Name": "alchemist_goblins_greed"
     },
     "5369": {
-        "Name": "alchemist_chemical_rage"
+        "Name": "alchemist_chemical_rage",
+        "Ultimate": 1
     },
     "5370": {
         "Name": "invoker_quas"
@@ -1029,10 +1104,14 @@
         "Name": "invoker_empty2"
     },
     "5375": {
-        "Name": "invoker_invoke"
+        "Name": "invoker_invoke",
+        "Ultimate": 1,
+        "LevelAvailable": 1
     },
     "5690": {
-        "Name": "invoker_attribute_bonus"
+        "Name": "invoker_attribute_bonus",
+        "LevelsBetweenUpgrades": 1,
+        "LevelAvailable": 25
     },
     "5376": {
         "Name": "invoker_cold_snap",
@@ -1087,7 +1166,8 @@
         "Name": "silencer_last_word"
     },
     "5380": {
-        "Name": "silencer_global_silence"
+        "Name": "silencer_global_silence",
+        "Ultimate": 1
     },
     "5391": {
         "Name": "obsidian_destroyer_arcane_orb"
@@ -1102,7 +1182,8 @@
         "Name": "obsidian_destroyer_mind_over_matter"
     },
     "5394": {
-        "Name": "obsidian_destroyer_sanity_eclipse"
+        "Name": "obsidian_destroyer_sanity_eclipse",
+        "Ultimate": 1
     },
     "5395": {
         "Name": "lycan_summon_wolves"
@@ -1114,7 +1195,8 @@
         "Name": "lycan_feral_impulse"
     },
     "5398": {
-        "Name": "lycan_shapeshift"
+        "Name": "lycan_shapeshift",
+        "Ultimate": 1
     },
     "5399": {
         "Name": "lycan_summon_wolves_critical_strike"
@@ -1136,11 +1218,13 @@
         "Hidden": 1
     },
     "5415": {
-        "Name": "lone_druid_true_form"
+        "Name": "lone_druid_true_form",
+        "Ultimate": 1
     },
     "5416": {
         "Name": "lone_druid_true_form_druid",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "5417": {
         "Name": "lone_druid_true_form_battle_cry",
@@ -1165,7 +1249,8 @@
         "Name": "brewmaster_drunken_brawler"
     },
     "5403": {
-        "Name": "brewmaster_primal_split"
+        "Name": "brewmaster_primal_split",
+        "Ultimate": 1
     },
     "5404": {
         "Name": "brewmaster_earth_hurl_boulder"
@@ -1201,7 +1286,8 @@
         "Name": "shadow_demon_shadow_poison_release"
     },
     "5425": {
-        "Name": "shadow_demon_demonic_purge"
+        "Name": "shadow_demon_demonic_purge",
+        "Ultimate": 1
     },
     "5426": {
         "Name": "chaos_knight_chaos_bolt"
@@ -1213,7 +1299,8 @@
         "Name": "chaos_knight_chaos_strike"
     },
     "5429": {
-        "Name": "chaos_knight_phantasm"
+        "Name": "chaos_knight_phantasm",
+        "Ultimate": 1
     },
     "5430": {
         "Name": "meepo_earthbind"
@@ -1225,7 +1312,10 @@
         "Name": "meepo_geostrike"
     },
     "5433": {
-        "Name": "meepo_divided_we_stand"
+        "Name": "meepo_divided_we_stand",
+        "Ultimate": 1,
+        "LevelsBetweenUpgrades": 7,
+        "LevelAvailable": 3
     },
     "5434": {
         "Name": "treant_natures_guise"
@@ -1237,7 +1327,8 @@
         "Name": "treant_living_armor"
     },
     "5437": {
-        "Name": "treant_overgrowth"
+        "Name": "treant_overgrowth",
+        "Ultimate": 1
     },
     "5649": {
         "Name": "treant_eyes_in_the_forest",
@@ -1256,7 +1347,8 @@
         "Name": "ogre_magi_bloodlust"
     },
     "5441": {
-        "Name": "ogre_magi_multicast"
+        "Name": "ogre_magi_multicast",
+        "Ultimate": 1
     },
     "5442": {
         "Name": "undying_decay"
@@ -1275,7 +1367,8 @@
         "Name": "undying_tombstone_zombie_deathstrike"
     },
     "5447": {
-        "Name": "undying_flesh_golem"
+        "Name": "undying_flesh_golem",
+        "Ultimate": 1
     },
     "5448": {
         "Name": "rubick_telekinesis"
@@ -1291,7 +1384,8 @@
         "Name": "rubick_null_field"
     },
     "5452": {
-        "Name": "rubick_spell_steal"
+        "Name": "rubick_spell_steal",
+        "Ultimate": 1
     },
     "5453": {
         "Name": "rubick_empty1"
@@ -1321,7 +1415,8 @@
         "Name": "disruptor_kinetic_field"
     },
     "5461": {
-        "Name": "disruptor_static_storm"
+        "Name": "disruptor_static_storm",
+        "Ultimate": 1
     },
     "5462": {
         "Name": "nyx_assassin_impale"
@@ -1333,7 +1428,8 @@
         "Name": "nyx_assassin_spiked_carapace"
     },
     "5465": {
-        "Name": "nyx_assassin_vendetta"
+        "Name": "nyx_assassin_vendetta",
+        "Ultimate": 1
     },
     "5666": {
         "Name": "nyx_assassin_burrow",
@@ -1353,11 +1449,13 @@
         "Name": "naga_siren_rip_tide"
     },
     "5470": {
-        "Name": "naga_siren_song_of_the_siren"
+        "Name": "naga_siren_song_of_the_siren",
+        "Ultimate": 1
     },
     "5478": {
         "Name": "naga_siren_song_of_the_siren_cancel",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "5471": {
         "Name": "keeper_of_the_light_illuminate"
@@ -1375,7 +1473,8 @@
         "Name": "keeper_of_the_light_empty2"
     },
     "5474": {
-        "Name": "keeper_of_the_light_spirit_form"
+        "Name": "keeper_of_the_light_spirit_form",
+        "Ultimate": 1
     },
     "5475": {
         "Name": "keeper_of_the_light_recall"
@@ -1405,7 +1504,8 @@
         "Name": "visage_gravekeepers_cloak"
     },
     "5483": {
-        "Name": "visage_summon_familiars"
+        "Name": "visage_summon_familiars",
+        "Ultimate": 1
     },
     "5484": {
         "Name": "visage_summon_familiars_stone_form"
@@ -1420,7 +1520,8 @@
         "Name": "wisp_overcharge"
     },
     "5488": {
-        "Name": "wisp_relocate"
+        "Name": "wisp_relocate",
+        "Ultimate": 1
     },
     "5489": {
         "Name": "wisp_tether_break",
@@ -1442,7 +1543,8 @@
         "Name": "slark_essence_shift"
     },
     "5497": {
-        "Name": "slark_shadow_dance"
+        "Name": "slark_shadow_dance",
+        "Ultimate": 1
     },
     "5504": {
         "Name": "medusa_split_shot"
@@ -1454,7 +1556,8 @@
         "Name": "medusa_mana_shield"
     },
     "5507": {
-        "Name": "medusa_stone_gaze"
+        "Name": "medusa_stone_gaze",
+        "Ultimate": 1
     },
     "5508": {
         "Name": "troll_warlord_berserkers_rage"
@@ -1469,7 +1572,8 @@
         "Name": "troll_warlord_fervor"
     },
     "5512": {
-        "Name": "troll_warlord_battle_trance"
+        "Name": "troll_warlord_battle_trance",
+        "Ultimate": 1
     },
     "5514": {
         "Name": "centaur_hoof_stomp"
@@ -1481,7 +1585,8 @@
         "Name": "centaur_return"
     },
     "5517": {
-        "Name": "centaur_stampede"
+        "Name": "centaur_stampede",
+        "Ultimate": 1
     },
     "5518": {
         "Name": "magnataur_shockwave"
@@ -1493,7 +1598,8 @@
         "Name": "magnataur_skewer"
     },
     "5521": {
-        "Name": "magnataur_reverse_polarity"
+        "Name": "magnataur_reverse_polarity",
+        "Ultimate": 1
     },
     "5524": {
         "Name": "shredder_whirling_death"
@@ -1505,7 +1611,8 @@
         "Name": "shredder_reactive_armor"
     },
     "5527": {
-        "Name": "shredder_chakram"
+        "Name": "shredder_chakram",
+        "Ultimate": 1
     },
     "5645": {
         "Name": "shredder_chakram_2",
@@ -1513,7 +1620,8 @@
     },
     "5528": {
         "Name": "shredder_return_chakram",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "5646": {
         "Name": "shredder_return_chakram_2",
@@ -1529,7 +1637,8 @@
         "Name": "bristleback_bristleback"
     },
     "5551": {
-        "Name": "bristleback_warpath"
+        "Name": "bristleback_warpath",
+        "Ultimate": 1
     },
     "5565": {
         "Name": "tusk_ice_shards"
@@ -1549,7 +1658,8 @@
         "Name": "tusk_frozen_sigil"
     },
     "5568": {
-        "Name": "tusk_walrus_punch"
+        "Name": "tusk_walrus_punch",
+        "Ultimate": 1
     },
     "5672": {
         "Name": "tusk_walrus_kick",
@@ -1565,7 +1675,8 @@
         "Name": "skywrath_mage_ancient_seal"
     },
     "5584": {
-        "Name": "skywrath_mage_mystic_flare"
+        "Name": "skywrath_mage_mystic_flare",
+        "Ultimate": 1
     },
     "5585": {
         "Name": "abaddon_death_coil"
@@ -1577,7 +1688,8 @@
         "Name": "abaddon_frostmourne"
     },
     "5588": {
-        "Name": "abaddon_borrowed_time"
+        "Name": "abaddon_borrowed_time",
+        "Ultimate": 1
     },
     "5589": {
         "Name": "elder_titan_echo_stomp"
@@ -1599,7 +1711,8 @@
         "Name": "elder_titan_natural_order_spirit"
     },
     "5594": {
-        "Name": "elder_titan_earth_splitter"
+        "Name": "elder_titan_earth_splitter",
+        "Ultimate": 1
     },
     "5595": {
         "Name": "legion_commander_overwhelming_odds"
@@ -1611,7 +1724,8 @@
         "Name": "legion_commander_moment_of_courage"
     },
     "5598": {
-        "Name": "legion_commander_duel"
+        "Name": "legion_commander_duel",
+        "Ultimate": 1
     },
     "5603": {
         "Name": "ember_spirit_searing_chains"
@@ -1623,7 +1737,8 @@
         "Name": "ember_spirit_flame_guard"
     },
     "5606": {
-        "Name": "ember_spirit_fire_remnant"
+        "Name": "ember_spirit_fire_remnant",
+        "Ultimate": 1
     },
     "5607": {
         "Name": "ember_spirit_activate_fire_remnant"
@@ -1645,7 +1760,8 @@
         "Hidden": 1
     },
     "5612": {
-        "Name": "earth_spirit_magnetize"
+        "Name": "earth_spirit_magnetize",
+        "Ultimate": 1
     },
     "5613": {
         "Name": "abyssal_underlord_firestorm"
@@ -1657,11 +1773,13 @@
         "Name": "abyssal_underlord_atrophy_aura"
     },
     "5616": {
-        "Name": "abyssal_underlord_dark_rift"
+        "Name": "abyssal_underlord_dark_rift",
+        "Ultimate": 1
     },
     "5617": {
         "Name": "abyssal_underlord_cancel_dark_rift",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "5619": {
         "Name": "terrorblade_reflection"
@@ -1673,7 +1791,8 @@
         "Name": "terrorblade_metamorphosis"
     },
     "5622": {
-        "Name": "terrorblade_sunder"
+        "Name": "terrorblade_sunder",
+        "Ultimate": 1
     },
     "5623": {
         "Name": "phoenix_icarus_dive"
@@ -1696,7 +1815,8 @@
         "Name": "phoenix_sun_ray_toggle_move"
     },
     "5630": {
-        "Name": "phoenix_supernova"
+        "Name": "phoenix_supernova",
+        "Ultimate": 1
     },
     "5631": {
         "Name": "phoenix_launch_fire_spirit",
@@ -1712,7 +1832,8 @@
         "Name": "oracle_purifying_flames"
     },
     "5640": {
-        "Name": "oracle_false_promise"
+        "Name": "oracle_false_promise",
+        "Ultimate": 1
     },
     "5643": {
         "Name": "broodmother_spin_web_destroy"
@@ -1738,7 +1859,8 @@
         "Hidden": 1
     },
     "5725": {
-        "Name": "monkey_king_wukongs_command"
+        "Name": "monkey_king_wukongs_command",
+        "Ultimate": 1
     },
     "5723": {
         "Name": "monkey_king_jingu_mastery"
@@ -1753,11 +1875,13 @@
         "Name": "pangolier_heartpiercer"
     },
     "6343\t// unique ID number for this ability.": {
-        "Name": "pangolier_gyroshell"
+        "Name": "pangolier_gyroshell",
+        "Ultimate": 1
     },
     "6459": {
         "Name": "pangolier_gyroshell_stop",
-        "Hidden": 1
+        "Hidden": 1,
+        "Ultimate": 1
     },
     "6339": {
         "Name": "dark_willow_bramble_maze"
@@ -1766,7 +1890,8 @@
         "Name": "dark_willow_bedlam"
     },
     "8340": {
-        "Name": "dark_willow_terrorize"
+        "Name": "dark_willow_terrorize",
+        "Ultimate": 1
     },
     "6341": {
         "Name": "dark_willow_shadow_realm"
@@ -1825,7 +1950,8 @@
         "Hidden": 1
     },
     "5209": {
-        "Name": "courier_shield"
+        "Name": "courier_shield",
+        "Ultimate": 1
     },
     "5210": {
         "Name": "courier_burst"
@@ -2048,10 +2174,12 @@
         "Name": "greevil_shadow_strike"
     },
     "5535": {
-        "Name": "greevil_laguna_blade"
+        "Name": "greevil_laguna_blade",
+        "Ultimate": 1
     },
     "5546": {
-        "Name": "greevil_poison_nova"
+        "Name": "greevil_poison_nova",
+        "Ultimate": 1
     },
     "5547": {
         "Name": "greevil_ice_wall"
@@ -2075,7 +2203,8 @@
         "Name": "greevil_leech_seed"
     },
     "5558": {
-        "Name": "greevil_echo_slam"
+        "Name": "greevil_echo_slam",
+        "Ultimate": 1
     },
     "5559": {
         "Name": "greevil_natures_attendants"
@@ -2087,7 +2216,8 @@
         "Name": "greevil_purification"
     },
     "5562": {
-        "Name": "greevil_flesh_golem"
+        "Name": "greevil_flesh_golem",
+        "Ultimate": 1
     },
     "5563": {
         "Name": "greevil_hook"
@@ -2096,7 +2226,8 @@
         "Name": "greevil_rot"
     },
     "5569": {
-        "Name": "greevil_black_hole"
+        "Name": "greevil_black_hole",
+        "Ultimate": 1
     },
     "5536": {
         "Name": "greevil_miniboss_black_nightmare"
@@ -2132,7 +2263,8 @@
         "Name": "greevil_miniboss_green_living_armor"
     },
     "5571": {
-        "Name": "greevil_miniboss_green_overgrowth"
+        "Name": "greevil_miniboss_green_overgrowth",
+        "Ultimate": 1
     },
     "5572": {
         "Name": "greevil_miniboss_orange_dragon_slave"
@@ -2171,7 +2303,8 @@
         "Name": "techies_suicide"
     },
     "5602": {
-        "Name": "techies_remote_mines"
+        "Name": "techies_remote_mines",
+        "Ultimate": 1
     },
     "5635// unique ID number for this ability.": {
         "Name": "techies_focused_detonate"
@@ -2187,13 +2320,16 @@
         "Hidden": 1
     },
     "5662": {
-        "Name": "cny2015_sonic_wave"
+        "Name": "cny2015_sonic_wave",
+        "Ultimate": 1
     },
     "5663": {
-        "Name": "cny2015_black_hole"
+        "Name": "cny2015_black_hole",
+        "Ultimate": 1
     },
     "5664": {
-        "Name": "cny2015_chronosphere"
+        "Name": "cny2015_chronosphere",
+        "Ultimate": 1
     },
     "5651": {
         "Name": "winter_wyvern_arctic_burn"
@@ -2205,7 +2341,8 @@
         "Name": "winter_wyvern_cold_embrace"
     },
     "5654": {
-        "Name": "winter_wyvern_winters_curse"
+        "Name": "winter_wyvern_winters_curse",
+        "Ultimate": 1
     },
     "5665": {
         "Name": "cny_beast_teleport",
@@ -2221,7 +2358,8 @@
         "Name": "arc_warden_spark_wraith"
     },
     "5683": {
-        "Name": "arc_warden_tempest_double"
+        "Name": "arc_warden_tempest_double",
+        "Ultimate": 1
     },
     "6285": {
         "Name": "special_bonus_undefined"
