@@ -132,13 +132,14 @@ class WorldData(object):
             # generic_hidden
             if id == 6251:
                 continue
-
-            # skip hidden abilities
-            if isAbilityHidden('abilities.json', str(id)):
-                continue
             
             # if we are considering level-based restrictions
             if bCanBeLeveled:
+            
+                # skip hidden abilities
+                if isAbilityHidden('abilities.json', str(id)):
+                    continue
+
                 player = self.get_player_by_id(player_id)
                 p_level = player['unit'].level
                 a_level = ability.level
@@ -147,6 +148,22 @@ class WorldData(object):
                     continue
                 
                 bUlt = isAbilityUltimate('abilities.json', str(id))
+                if bUlt:
+                    # can't level ultimate past 3 levels
+                    if a_level >= 3:
+                        continue
+                        
+                    start_level = 6
+                    level_interval = 6
+                    if p_level < start_level:
+                        continue
+                    if p_level < (start_level + (a_level * level_interval)):
+                        continue
+                else:
+                    # can't level abilities past 4 levels (invoker exception)
+                    if a_level >= 4:
+                        continue
+                    
 
             ids.append(id)
         return ids
