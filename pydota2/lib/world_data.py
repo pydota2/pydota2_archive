@@ -22,7 +22,7 @@ from __future__ import division
 from __future__ import print_function
 
 import six
-from pydota2.gen_data.json_lookup import isAbilityHidden, isAbilityUltimate
+from pydota2.gen_data.json_lookup import *
 
 """
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
@@ -153,8 +153,8 @@ class WorldData(object):
                     if a_level >= 3:
                         continue
                         
-                    start_level = 6
-                    level_interval = 6
+                    start_level = getUltStartingLevel('abilities.json', str(id))
+                    level_interval = getUltLevelInterval('abilities.json', str(id))
                     if p_level < start_level:
                         continue
                     if p_level < (start_level + (a_level * level_interval)):
