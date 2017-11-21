@@ -2,27 +2,27 @@ from os.path import join
 import re
 import json
 
-lineCount = 0
 
-abilities = {}
 
-def writeData(data):
-    with open(join('pydota2', 'gen_data', 'abilities.json'), 'w') as outfile:
+def writeData(data, fname):
+    with open(join('pydota2', 'gen_data', fname), 'w') as outfile:
         json.dump(data, outfile, indent = 4)
 
-        
-shiftCount = 0
-abilitiesCount = 0
-currName = None
-abilityID = None
-if __name__ == "__main__":
-    fName = open('C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\scripts\\npc\\npc_abilities.txt', 'r')
+def processHeroes():
+    fName = open('C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\scripts\\npc\\npc_heroes.txt', 'r')
 
     content = fName.readlines()
     content = [x.strip() for x in content]
     #print(len(content))
 
     fName.close()
+    
+    shiftCount = 0
+    heroCount = 0
+    currName = None
+    heroID = None
+    lineCount = 0
+    heroes = {}
 
     for line in content:
         lineCount += 1
@@ -36,8 +36,72 @@ if __name__ == "__main__":
             
             if shiftCount == 1:
                 currName = None
+                heroID = None
+            continue
+            
+        if shiftCount == 1:
+            comment = line[:2] == '//'
+            underscore = line.find('_')
+            if not comment and underscore > 0:
+                #print(line)
+                heroCount += 1
+                currName = line.strip().replace('"','')
+        
+        if shiftCount == 2:
+            comment = line[:2] == '//'
+            if not comment:
+                if line[:8] == '"HeroID"':
+                    res = re.split(r'\s{2,}', line)
+                    res[1] = res[1].replace('"','')
+                    heroID = res[1]
+                    heroes[res[1]] = {}
+                    if currName != None:
+                        heroes[res[1]]['Name'] = currName
+                        heroes[res[1]]['Talents'] = {}
+                    else:
+                        print("ERROR: Name missing!")
+                        break
+                        
+                if line.find('special_bonus') > 0:
+                    if heroID != None:
+                        res = re.split(r'\s{2,}', line)
+                        heroes[heroID]['Talents']['Talent_'+str(len(heroes[heroID]['Talents'])+1)] = res[1].replace('"', '')
+                    else:
+                        print("Error: HeroID missing!")
+                        break
+                    
+    print('Processed %d heroes' % (heroCount))
+    writeData(heroes, 'heroes.json')
+
+def processAbilities():
+    fName = open('C:\\Program Files (x86)\\Steam\\steamapps\\common\\dota 2 beta\\game\\dota\\scripts\\npc\\npc_abilities.txt', 'r')
+
+    content = fName.readlines()
+    content = [x.strip() for x in content]
+    #print(len(content))
+
+    fName.close()
+    
+    shiftCount = 0
+    abilitiesCount = 0
+    currName = None
+    abilityID = None
+    lineCount = 0
+    abilities = {}
+
+    for line in content:
+        lineCount += 1
+
+        if line == '{':
+            shiftCount += 1
+            continue
+
+        if line == '}':
+            shiftCount -= 1
+            
+            if shiftCount == 1:
+                currName = None
                 abilityID = None
-                
             continue
         
         if shiftCount == 1:
@@ -45,7 +109,7 @@ if __name__ == "__main__":
             underscore = line.find('_')
             if not comment and underscore > 0:
                 #print(line)
-                abilitiesCount = abilitiesCount + 1
+                abilitiesCount += 1
                 currName = line.strip().replace('"','')
                 
         if shiftCount == 2:
@@ -94,4 +158,8 @@ if __name__ == "__main__":
                         
     #print(abilities)
     print('Processed %d abilities' % (abilitiesCount))
-    writeData(abilities)
+    writeData(abilities, 'abilities.json')
+    
+if __name__ == "__main__":
+    processAbilities()
+    processHeroes()
