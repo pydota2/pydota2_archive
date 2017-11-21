@@ -43,7 +43,8 @@ local function GetLastServerReply(hBot)
     if serverReply ~= nil then
         -- dbg.myPrint("Need to Process new Server Reply")
         if serverReply.status == 200 then
-            dbg.myPrint("Packet RTT: ", RealTime() - serverReply.Time)
+            hBot.rtt = RealTime() - serverReply.Time
+            dbg.myPrint("Packet RTT: ", hBot.rtt)
             -- dbg.myPrint("Server Data: ", serverReply.Data)
             return serverReply.Data[tostring(hBot:GetPlayerID())]
         else
@@ -86,6 +87,7 @@ function X:DoInit(hBot)
 
     self.Init = true
     hBot.mybot = self
+    hBot.rtt = nil
 
     local fullName = hBot:GetUnitName()
     self.Name = string.sub(fullName, 15, string.len(fullName))

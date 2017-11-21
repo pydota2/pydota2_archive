@@ -9,6 +9,11 @@
 
 globalInit = false
 
+function toboolean(number)
+    if number >= 1 then return true end
+    return false
+end
+
 function table_length(tbl)
     local lengthNum = 0
 

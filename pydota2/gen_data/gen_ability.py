@@ -47,7 +47,7 @@ def processHeroes():
                 heroCount += 1
                 currName = line.strip().replace('"','')
         
-        if shiftCount == 2:
+        if shiftCount == 2 and currName and currName != 'npc_dota_hero_base':
             comment = line[:2] == '//'
             if not comment:
                 if line[:8] == '"HeroID"':
@@ -66,6 +66,14 @@ def processHeroes():
                     if heroID != None:
                         res = re.split(r'\s{2,}', line)
                         heroes[heroID]['Talents']['Talent_'+str(len(heroes[heroID]['Talents'])+1)] = res[1].replace('"', '')
+                    else:
+                        print("Error: HeroID missing!")
+                        break
+                
+                if line[:18] == '"MovementTurnRate"':
+                    if heroID != None:
+                        res = re.split(r'\s{2,}', line)
+                        heroes[heroID]['TurnRate'] = float(res[1].replace('"', ''))
                     else:
                         print("Error: HeroID missing!")
                         break

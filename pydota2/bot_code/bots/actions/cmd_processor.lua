@@ -4,6 +4,7 @@
 -------------------------------------------------------------------------------
 
 local actionNone            = require( GetScriptDirectory().."/actions/none" )
+local actionClearAction     = require( GetScriptDirectory().."/actions/clear" )
 local actionLevelAbility    = require( GetScriptDirectory().."/actions/atomic_level_ability" )
 local actionMove            = require( GetScriptDirectory().."/actions/move_to_location" )
 
@@ -11,8 +12,9 @@ local CmdProcessor = {}
 
 LookUpTable = {
     ['1'] = actionNone,
-    ['2'] = actionLevelAbility,
-    ['3'] = actionMove,
+    ['2'] = actionClearAction,
+    ['3'] = actionLevelAbility,
+    ['4'] = actionMove,
 }
 
 function CmdProcessor:Run(hBot, tblActions)
@@ -26,6 +28,7 @@ function CmdProcessor:Run(hBot, tblActions)
     for key, value in pairs(tblActions) do
         local cmd = LookUpTable[key]
         if cmd ~= nil then
+            dbg.myPrint("Executing Action: ", cmd.Name)
             -- NOTE: It is assumed that the first argument (if args required)
             --       will be the handle to the bot, followed by arguments 
             --       provided by the `agent`.

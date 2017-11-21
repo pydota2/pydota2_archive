@@ -40,6 +40,13 @@ HOST = '127.0.0.1'
 post_connected = False
 post_queue = multiprocessing.Queue()
 
+rtt_lock = threading.Lock()
+rtt_queue = {}
+
+def getRttQueue():
+    global rtt_lock, rtt_queue
+    return rtt_queue, rtt_lock
+
 class ClientThread(threading.Thread):
     def __init__(self, threadID, name, port):
         threading.Thread.__init__(self)
@@ -78,6 +85,7 @@ class ClientThread(threading.Thread):
     @app.route('/', methods=['POST'])
     def post():
         global post_connected
+        global rtt_queue
         
         #print('IN POST')
         response = {}
@@ -91,12 +99,17 @@ class ClientThread(threading.Thread):
                     # this should raise an HTTPException
                     abort(400, 'POST Data was not JSON')
 
-                if request.content_length < 1000 and request.content_length != 0:
+                if request.content_length < 2400 and request.content_length != 0:
                     print("Received Post: ", str(data))
                     
                     response['Type'] = data['Type']
                     
                     if data['Type'] == 'P':
+                        
+                        rtt_lock.acquire()
+                        rtt_queue = data
+                        rtt_lock.release()
+                        
                         response['Data'] = {}
                         while not post_queue.empty():
                             action_tuple = ClientThread.get_from_post_queue()

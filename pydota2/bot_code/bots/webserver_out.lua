@@ -86,7 +86,13 @@ function webserver.CreatePollPacket(hBot)
     
     json.Type = packet.TYPE_POLL
     json.Time = RealTime()
-    json.PlayerID = hBot:GetPlayerID()
+    
+    for pid = 1,5,1 do
+        hHero = GetTeamMember(pid)
+        if hHero.rtt then
+            json[tostring(hHero:GetPlayerID())] = hHero.rtt
+        end
+    end
     
     return dkjson.encode(json)
 end

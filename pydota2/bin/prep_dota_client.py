@@ -43,10 +43,10 @@ DEFAULT_LIN_INSTALL_PATH = 'TODO'
 def main(unused_argv):
     if sys.platform == 'linux':
         print('Linux')
-        copy_tree(BOT_REPO, DEFAULT_LIN_INSTALL_PATH, update=1)
+        copy_tree(BOT_REPO, DEFAULT_LIN_INSTALL_PATH) #, update=1)
     elif sys.platform[:3] == 'win':
         print('Windows')
-        copy_tree(BOT_REPO, DEFAULT_WIN_INSTALL_PATH, update=1)
+        copy_tree(BOT_REPO, DEFAULT_WIN_INSTALL_PATH) #, update=1)
     else:
         print('Unsupported OS: %s' % sys.platform)
 

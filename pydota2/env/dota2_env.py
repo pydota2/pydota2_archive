@@ -168,7 +168,10 @@ class Dota2Env(environment.Base):
         # TODO - do we need to create a separate world_state object or can 
         #        we just leverage self._features.transform_obs for this???
         if self._obs.game_state in [4, 5]:
-            self._world_state = world_data.WorldData(self._obs)
+            if not self._world_state:
+                self._world_state = world_data.WorldData(self._obs)
+            self._world_state.update_world_data(self._obs)
+                
             #print(self._world_state.get_my_players)
             #print(self._world_state.get_my_minions)
         

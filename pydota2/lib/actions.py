@@ -59,6 +59,11 @@ class ArgumentType(collections.namedtuple(
         return cls(-1, "<none>", (len(options),), lambda a: options[a[0]])
     
     @classmethod
+    def string(cls, string):
+        """Create an ArgumentType with a single string in."""
+        return cls(-1, "<none>", (string,), lambda a: a[0])
+        
+    @classmethod
     def scalar(cls, value):
         """Create an ArgumentType with a single scalar in range(value)."""
         return cls(-1, "<none>", (value,), lambda a: a[0])
@@ -84,15 +89,16 @@ class ArgumentType(collections.namedtuple(
         return cls(id_, name, sizes, None)
 
 class Arguments(collections.namedtuple("Arguments", [
-    "player_id", "location", "handle", "tree_id", "ability_id",
-    "queued"])):
+    "player_id", "location", "handle", "tree_id", "ability_str",
+    "queued", "bool"])):
     """The full list of argument types.
     Take a look at TYPES and FUNCTION_TYPES for more details.
     Attributes:
         location: A location vector (X, Y, Z(optional))
         obj_handle: a handle to a unit or ability object
         tree_id: A unique ID for a specific tree in map
-        queued: Whether the action should be done now or later.
+        queued: Whether the action should be done now or later or over-write action.
+        bool: A way to supply boolean (True / False) arguments to a command.
     """
     ___slots__ = ()
     
@@ -110,9 +116,10 @@ ArgType_QUEUE   = 2
 
 # The list of known types.
 TYPES = Arguments.types(
+    bool = ArgumentType.enum([False, True]),
     queued = ArgumentType.enum([ArgType_NORMAL, ArgType_PUSH, ArgType_QUEUE]),
     player_id = ArgumentType.scalar(10),
-    ability_id = ArgumentType.scalar(7000),
+    ability_str = ArgumentType.string(""),
     location = ArgumentType.location(),
     handle = ArgumentType.handle([0]),
     tree_id = ArgumentType.tree_id([0]),
@@ -121,14 +128,15 @@ TYPES = Arguments.types(
 # Which argument types do each function need?
 FUNCTION_TYPES = {
     'cmd_atomic': [],
-    'cmd_level_ability': [TYPES.ability_id],
+    'cmd_level_ability': [TYPES.ability_str],
     'cmd_ability': [],
     'cmd_ability_location': [TYPES.location],
     'cmd_ability_unit': [TYPES.handle],
     'cmd_ability_tree': [TYPES.tree_id],
     'cmd_ability_toggle': [], # for radiance, Medusa mana-shield, etc.
     'cmd_no_op': [],
-    'move_to_location': [TYPES.location],
+    'cmd_bool': [TYPES.bool],
+    'move_to_location': [TYPES.location, TYPES.queued],
     'attack_unit': [TYPES.handle],
 }
 
@@ -218,7 +226,9 @@ FUNCTIONS = Functions([
     Function.team_func(0, "use_glyph", FUNCTION_TYPES['cmd_atomic'],
                        lambda obs: obs.game_state in [4,5] and obs.glyph_cooldown < obs.dota_time),  
     Function.hero_func(1, "no_op", FUNCTION_TYPES['cmd_no_op']),
-    Function.ability(2, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'], 1,
+    Function.hero_func(2, "clear_action", FUNCTION_TYPES['cmd_bool'], 
+                       avail_fn=lambda obs: obs.game_state in [4,5]),
+    Function.hero_func(3, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'],
                        avail_fn=lambda obs: obs.game_state in [4,5]),
 ])
 # pylint: enable=line-too-long

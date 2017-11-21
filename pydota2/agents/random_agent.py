@@ -40,11 +40,11 @@ class RandomAgent(base_agent.BaseAgent):
                 for player_id in pIDs:
                     function_id = numpy.random.choice(obs.observation['available_actions'])
                     print('RandomAgent chose random action: %d for player_id %d' % (function_id, player_id))
-                    if function_id == 2:
-                        ability_ids = world_state.get_player_ability_ids(player_id, False) #TODO - remove False when implemented
+                    if function_id == 3:
+                        ability_ids = world_state.get_player_ability_ids(player_id, True) #TODO - remove False when implemented
                         if len(ability_ids) > 0:
                             rand = numpy.random.randint(0, len(ability_ids))
-                            name = getNameOfKey('abilities.json', str(ability_ids[rand]))
+                            name = ability_ids[rand]
                             print('PID: %d, Rand: %d, RandName: %s, AbilityIDS: %s' % (player_id, rand, name, str(ability_ids)))
                             args = [[name]]
                         else:

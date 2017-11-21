@@ -23,7 +23,7 @@ def getUltStartingLevel(fname, key):
     fname = JoinPath('pydota2', 'gen_data', fname)
     with open(fname, 'r') as infile:
         data = json.load(infile)
-        if 'LevelAvailable' in data[key].keys()
+        if 'LevelAvailable' in data[key].keys():
             return data[key]['LevelAvailable']
         else:
             return 6
@@ -32,11 +32,21 @@ def getUltLevelInterval(fname, key):
     fname = JoinPath('pydota2', 'gen_data', fname)
     with open(fname, 'r') as infile:
         data = json.load(infile)
-        if 'LevelsBetweenUpgrades' in data[key].keys()
+        if 'LevelsBetweenUpgrades' in data[key].keys():
             return data[key]['LevelsBetweenUpgrades']
         else:
             return 6
 
+def getTalentChoice(heroID, tier):
+    fname = JoinPath('pydota2', 'gen_data', 'heroes.json')
+    with open(fname, 'r') as infile:
+        data = json.load(infile)
+        if 'Talents' in data[heroID].keys():
+            talents = data[heroID]['Talents']
+            tier = (tier-1)*2+1
+            return talents['Talent_'+str(tier)], talents['Talent_'+str(tier+1)]
+        else:
+            return None, None
 
 if __name__ == "__main__":
     print(getNameOfKey('abilities.json', '5014'))

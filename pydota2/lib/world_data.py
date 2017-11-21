@@ -22,7 +22,9 @@ from __future__ import division
 from __future__ import print_function
 
 import six
+import collections
 from pydota2.gen_data.json_lookup import *
+from pydota2.lib.client_connector import getRttQueue
 
 """
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
@@ -37,6 +39,20 @@ class HeroSelectionData(object):
         assert data.game_state == 3
         
 
+class PlayerData(object):
+    """Maintain certain information about our players."""
+    def __init__(self, pid):
+        self.pid = pid
+        self.rtt = collections.deque(maxlen=10)
+    
+    def save_last_update(self, udata, pdata):
+        self.pdata = pdata
+        self.udata = udata
+    
+    def _update_rtt(self, rtt):
+        self.rtt.append(rtt)
+        self.avg_rtt = sum(self.rtt)/float(len(self.rtt))
+        
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
 
@@ -46,11 +62,49 @@ class WorldData(object):
         assert data.game_state in [4,5]
         
         self.team_id = data.team_id
+        self.player_data = {}
+        self.last_update = -1000.0
+               
+        self._create_units(data.units)
+        self._update_players(data.players)
         
-        self.create_units(data.units)
-        self.update_players(data.players)
+        for player_id in self.good_players.keys():
+            self.player_data[player_id] = PlayerData(player_id)
+            self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
+                                                         self.good_players[player_id]['player'])
+    
+    def update_rtt(self):
+        data, lock = getRttQueue()
+        lock.acquire()
+        if len(data) > 0 and data['Time'] > self.last_update:
+            self.last_update = data['Time']
+            for player_id in self.player_data.keys():
+                if str(player_id) in data.keys():
+                    self.player_data[player_id]._update_rtt(data[str(player_id)])
+                    print(player_id, " average RTT: ", self.player_data[player_id].avg_rtt)
+        lock.release()
+    
+    def update_world_data(self, data):
+        # make sure we are in game
+        assert data.game_state in [4,5]
+        
+        self._create_units(data.units)
+        self._update_players(data.players)
+        
+        for player_id in self.good_players.keys():
+            if not player_id in self.player_data.keys():
+                self.player_data[player_id] = PlayerData(player_id)
+            self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
+                                                         self.good_players[player_id]['player'])
+        
+        self.update_rtt()
+        
+    def store_player_info(self, data):
+        for player in self.good_players.keys():
+            if not player in self.player_data.keys():
+                self.player_data = self.good_players[player]
 
-    def create_units(self, unit_data):
+    def _create_units(self, unit_data):
         self.good_players = {}  # on my team
         self.bad_players = {}   # on enemy team
         
@@ -84,7 +138,7 @@ class WorldData(object):
                 #print("INVALID UNIT TYPE:\n%s" % str(unit))
                 bInvalidFound = True
     
-    def update_players(self, player_data):
+    def _update_players(self, player_data):
         for player in player_data:
             if player.player_id in self.good_players.keys():
                 self.good_players[player.player_id]['player'] = player
@@ -124,6 +178,9 @@ class WorldData(object):
     
     # this returns only ability IDs of abilties that can be leveled
     def get_player_ability_ids(self, player_id, bCanBeLeveled=True):
+        if self.get_available_level_points(player_id) == 0:
+            return []
+        
         abilities = self.get_player_abilities(player_id)
         ids = []
         for ability in abilities:
@@ -163,9 +220,15 @@ class WorldData(object):
                     # can't level abilities past 4 levels (invoker exception)
                     if a_level >= 4:
                         continue
-                    
-
-            ids.append(id)
+            ids.append(getNameOfKey('abilities.json', str(id)))
+        
+        #TODO - add Talents
+        #tier = 1
+        #choice_1, choice_2 = getTalentChoice(str(player_id), tier)
+        #if choice_1 and choice_2:
+        #    ids.append(choice_1)
+        #    ids.append(choice_2)
+        
         return ids
 
     def get_player_items(self, player_id):
@@ -182,6 +245,9 @@ class WorldData(object):
     
     def get_player_ids(self):
         return self.good_players.keys()
+        
+    def get_reachable_distance(self, player_id):
+        return 0
     
     @property
     def get_my_players(self):
