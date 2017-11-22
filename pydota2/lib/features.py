@@ -120,7 +120,7 @@ class Features(object):
         return self._valid_functions
 
     @sw.decorate
-    def transform_obs(self, obs):
+    def transform_obs(self, obs, ws):
         """
            Transform Dota2 observations into something an agent can handle.
            Observations come to us through the CMsgBotWorldState protobufs, 
@@ -145,6 +145,8 @@ class Features(object):
             obs.time_of_day,
             obs.glyph_cooldown,
         ], dtype=np.float32)
+        
+        
         
         """
         # hero specific observations
@@ -173,24 +175,32 @@ class Features(object):
         # unit specific observations
         """
         
-        # comprehensive list of all available actions
-        out['available_actions'] = np.array(self.available_actions(obs), dtype=np.int32)
+        # comprehensive list of all available actions        
+        out['available_actions'] = {}
+        if obs.game_state in [4,5] and ws:
+            pIDs = ws.get_player_ids()
+            if len(pIDs) == 5:
+                pIDs.append(0)
+                for pid in pIDs:
+                    out['available_actions'][pid] = np.array(self.available_actions(pid, obs, ws), dtype=np.int32)
+        elif obs.game_state == 3:
+            out['available_actions'][0] = np.array(self.available_actions(0, obs, None), dtype=np.int32)
 
         return out
 
     @sw.decorate
-    def available_actions(self, obs):
+    def available_actions(self, pid, obs, ws):
         """Return a list of available action ids."""
         available_actions = set()
         
         for i, func in six.iteritems(actions.FUNCTIONS_AVAILABLE):
-            if func.avail_fn(obs):
+            if func.avail_fn(pid, obs, ws):
                 available_actions.add(i)
 
         return list(available_actions)
     
     @sw.decorate
-    def transform_action(self, obs, func_call, skip_available=False):
+    def transform_action(self, obs, ws, func_call, skip_available=False):
         """Tranform an agent-style action to one that Dota2 can consume.
         Args:
           obs: a `sc_pb.Observation` from the previous frame.
@@ -210,7 +220,7 @@ class Features(object):
             raise ValueError("Invalid function id: %s." % func_id)
 
         # Available?
-        if not (skip_available or func_id in self.available_actions(obs)):
+        if not (skip_available or func_id in self.available_actions(func_call.player_id, obs, ws)):
             raise ValueError("Function %s/%s is currently not available" % (
             func_id, func.name))
 

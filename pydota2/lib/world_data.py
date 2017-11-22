@@ -244,7 +244,7 @@ class WorldData(object):
         return []
     
     def get_player_ids(self):
-        return self.good_players.keys()
+        return list(self.good_players.keys())
         
     def get_reachable_distance(self, player_id):
         return 0

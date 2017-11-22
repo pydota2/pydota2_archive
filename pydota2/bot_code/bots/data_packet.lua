@@ -38,7 +38,11 @@ end
 function DataPacket:GetLastReply(key, pID)
     if DataPacket.LastPacket[key] and not DataPacket.LastPacket[key].reported[pID] then
         DataPacket.LastPacket[key].reported[pID] = true
-        dbg.myPrint("Getting Last Packet Reply")
+        if pID == 0 then
+            dbg.myPrint("Getting Last TEAM Packet Reply")
+        else
+            dbg.myPrint("Getting MY Last Packet Reply")
+        end
         return DataPacket.LastPacket[key].lastReply
     end
     return nil

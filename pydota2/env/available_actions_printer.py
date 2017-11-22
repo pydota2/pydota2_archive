@@ -35,10 +35,11 @@ class AvailableActionsPrinter(base_env_wrapper.BaseEnvWrapper):
   def step(self, *args, **kwargs):
     all_obs = super(AvailableActionsPrinter, self).step(*args, **kwargs)
     for obs in all_obs:
-      for avail in obs.observation["available_actions"]:
-        if avail not in self._seen:
-          self._seen.add(avail)
-          self._print(self._action_spec.functions[avail].str(True))
+      for pid in obs.observation["available_actions"].keys():
+        for avail in obs.observation["available_actions"][pid]:
+          if avail not in self._seen:
+            self._seen.add(avail)
+            self._print(self._action_spec.functions[avail].str(True))
     return all_obs
 
   def _print(self, s):

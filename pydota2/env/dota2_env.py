@@ -152,9 +152,11 @@ class Dota2Env(environment.Base):
             return self.reset()
 
         # send each agent action to the dota2 client bot(s)
+        #print("Actions:")
+        #print(actions)
         self._parallel.run(
             (self._post_controller.add_to_post_queue, 
-             self._features.transform_action(self._obs, a))
+             self._features.transform_action(self._obs, self._world_state, a))
             for a in actions[0]
         )
 
@@ -167,6 +169,7 @@ class Dota2Env(environment.Base):
         
         # TODO - do we need to create a separate world_state object or can 
         #        we just leverage self._features.transform_obs for this???
+        agent_obs = []
         if self._obs.game_state in [4, 5]:
             if not self._world_state:
                 self._world_state = world_data.WorldData(self._obs)
@@ -175,7 +178,9 @@ class Dota2Env(environment.Base):
             #print(self._world_state.get_my_players)
             #print(self._world_state.get_my_minions)
         
-        agent_obs = [self._features.transform_obs(self._obs)]
+            agent_obs = [self._features.transform_obs(self._obs, self._world_state)]
+        else:
+            agent_obs = [self._features.transform_obs(self._obs, None)]
         
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?

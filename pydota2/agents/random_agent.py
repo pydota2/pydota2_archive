@@ -38,7 +38,7 @@ class RandomAgent(base_agent.BaseAgent):
             pIDs = world_state.get_player_ids()
             if len(pIDs) == 5:
                 for player_id in pIDs:
-                    function_id = numpy.random.choice(obs.observation['available_actions'])
+                    function_id = numpy.random.choice(obs.observation['available_actions'][player_id])
                     print('RandomAgent chose random action: %d for player_id %d' % (function_id, player_id))
                     if function_id == 3:
                         ability_ids = world_state.get_player_ability_ids(player_id, True) #TODO - remove False when implemented
@@ -53,6 +53,13 @@ class RandomAgent(base_agent.BaseAgent):
                         args = [[numpy.random.randint(0, size) for size in arg.sizes]
                                 for arg in self.action_spec.functions[function_id].args]
                     selected_actions.append(actions.FunctionCall(player_id, function_id, args))
+                
+                # now add team-wide functions, (we use pid = 0)
+                function_id = numpy.random.choice(obs.observation['available_actions'][0])
+                print('RandomAgent chose random action: %d for the team' % (function_id))
+                args = [[numpy.random.randint(0, size) for size in arg.sizes]
+                         for arg in self.action_spec.functions[function_id].args]
+                selected_actions.append(actions.FunctionCall(0, function_id, args))
 
         #print("RandomAgent selected actions:", selected_actions)
         return selected_actions

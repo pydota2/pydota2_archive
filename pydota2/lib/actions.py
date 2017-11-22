@@ -143,7 +143,8 @@ FUNCTION_TYPES = {
 # Which ones need an ability?
 ABILITY_FUNCTIONS = {'cmd_ability'}
 
-always = lambda _: True
+team_true = lambda pid, obs, ws: pid == 0
+hero_true = lambda pid, obs, ws: pid > 0 and obs.game_state in [4,5]
     
 class Function(collections.namedtuple(
     "Function", ["id", "name", "ability_id", "general_id", 
@@ -164,17 +165,22 @@ class Function(collections.namedtuple(
     __slots__ = ()
 
     @classmethod
-    def team_func(cls, id_, name, function_type, avail_fn=always):
+    def pick_func(cls, id_, name, function_type, avail_fn=lambda pid, obs, ws: pid == 0 and obs.game_state == 3):
+        """Define a function representing hero-selection actions take by hero-selection-agent."""
+        return cls(id_, name, 0, 0, function_type, avail_fn)
+        
+    @classmethod
+    def team_func(cls, id_, name, function_type, avail_fn=team_true):
         """Define a function representing team-wide actions take by master-agent."""
         return cls(id_, name, 0, 0, function_type, avail_fn)
 
     @classmethod
-    def hero_func(cls, id_, name, function_type, avail_fn=always):
+    def hero_func(cls, id_, name, function_type, avail_fn=hero_true):
         """Define a function representing a hero action."""
         return cls(id_, name, 0, 0, function_type, avail_fn)
     
     @classmethod
-    def ability(cls, id_, name, function_type, ability_id, general_id=0, avail_fn=always):
+    def ability(cls, id_, name, function_type, ability_id, general_id=0, avail_fn=hero_true):
         """Define a function represented as a game ability."""
         return cls(id_, name, ability_id, general_id, function_type, avail_fn)
                
@@ -224,12 +230,13 @@ class Functions(object):
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
     Function.team_func(0, "use_glyph", FUNCTION_TYPES['cmd_atomic'],
-                       lambda obs: obs.game_state in [4,5] and obs.glyph_cooldown < obs.dota_time),  
+                       lambda pid, obs, ws: pid == 0 and obs.game_state in [4,5] and 
+                       (obs.glyph_cooldown == 0.0 or obs.glyph_cooldown < obs.dota_time)),  
     Function.hero_func(1, "no_op", FUNCTION_TYPES['cmd_no_op']),
-    Function.hero_func(2, "clear_action", FUNCTION_TYPES['cmd_bool'], 
-                       avail_fn=lambda obs: obs.game_state in [4,5]),
+    Function.hero_func(2, "clear_action", FUNCTION_TYPES['cmd_bool']),
     Function.hero_func(3, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'],
-                       avail_fn=lambda obs: obs.game_state in [4,5]),
+                       avail_fn=lambda pid, obs, ws: obs.game_state in [4,5] and 
+                       pid > 0 and ws.get_available_level_points(pid) > 0),
 ])
 # pylint: enable=line-too-long
 

@@ -72,12 +72,15 @@ function X:Think(hBot)
         ServerUpdate()
         X.lastUpdateTime = GameTime()
     end
+
+    -- process the team commands (called by a bot, doesn't matter which one)
+    self:ProcessTeamCommands(hBot)
+    
+    -- process the commands for this bot
+    self:ProcessCommands(hBot)
     
     -- draw debug info to Game UI
     --dbg.draw()
-
-    --dbg.myPrint("Process Commands")
-    self:ProcessCommands(hBot)
 end
 
 function X:DoInit(hBot)
@@ -91,6 +94,20 @@ function X:DoInit(hBot)
 
     local fullName = hBot:GetUnitName()
     self.Name = string.sub(fullName, 15, string.len(fullName))
+end
+
+function X:ProcessTeamCommands(hBot)
+    local serverReply = server.GetLastReply(packet.TYPE_POLL, 0)
+    if serverReply ~= nil then
+        if serverReply.status == 200 then
+            local tblActions = serverReply.Data['0']
+            if tblActions then
+                cmd_proc:Run(hBot, tblActions)
+            end
+        else
+            dbg.myPrint("Server Error: ", serverReply.Data)
+        end
+    end
 end
 
 function X:ProcessCommands(hBot)

@@ -43,6 +43,8 @@ function CmdProcessor:Run(hBot, tblActions)
                 cmd:Call()
             elseif cmd.NumArgs == 1 then
                 cmd:Call(hBot)
+            elseif cmd.NumArgs == 4 then
+                cmd:Call(hBot, value[1], value[2], value[3])
             else
                 dbg.pause("Unimplemented number of Cmd Args for ", cmd.Name, ": ", cmd.NumArgs)
             end
