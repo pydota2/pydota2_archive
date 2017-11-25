@@ -21,10 +21,12 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import math
 import six
 import collections
 from pydota2.gen_data.json_lookup import *
 from pydota2.lib.client_connector import getRttQueue
+import pydota2.lib.location as loc
 
 """
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
@@ -41,9 +43,11 @@ class HeroSelectionData(object):
 
 class PlayerData(object):
     """Maintain certain information about our players."""
-    def __init__(self, pid):
-        self.pid = pid
+    def __init__(self, pID, heroID):
+        self.pid = pID
+        self.hero_id = heroID
         self.rtt = collections.deque(maxlen=10)
+        self.avg_rtt = 0.25
     
     def save_last_update(self, udata, pdata):
         self.pdata = pdata
@@ -52,6 +56,23 @@ class PlayerData(object):
     def _update_rtt(self, rtt):
         self.rtt.append(rtt)
         self.avg_rtt = sum(self.rtt)/float(len(self.rtt))
+    
+    def get_location(self):
+        return loc.Location.build(self.udata.location)
+    
+    def time_to_face_location(self, location):
+        loc_delta = loc.Location.build(location) - self.get_location()
+        desired_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+        current_facing = self.udata.facing
+        # we want a facing differential between 180 and -180 degrees
+        # since we will always turn in the direction of smaller angle,
+        # never more than a 180 degree turn
+        facing_delta = math.fabs(desired_facing - current_facing - 180.0)
+        return facing_delta/math.degrees(getTurnRate(self.hero_id))
+        
+    def get_reachable_distance(self, time_adj=0.0):
+        currSpd = self.udata.current_movement_speed
+        return (self.avg_rtt - time_adj) * currSpd
         
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
@@ -69,7 +90,8 @@ class WorldData(object):
         self._update_players(data.players)
         
         for player_id in self.good_players.keys():
-            self.player_data[player_id] = PlayerData(player_id)
+            self.player_data[player_id] = PlayerData(player_id, 
+                self.good_players[player_id]['player'].hero_id)
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
     
@@ -81,8 +103,11 @@ class WorldData(object):
             for player_id in self.player_data.keys():
                 if str(player_id) in data.keys():
                     self.player_data[player_id]._update_rtt(data[str(player_id)])
-                    print(player_id, " average RTT: ", self.player_data[player_id].avg_rtt)
+                    print(player_id, " average RTT: ", self.get_player_rtt(player_id))
         lock.release()
+        
+    def get_player_rtt(self, player_id):
+        return self.player_data[player_id].avg_rtt
     
     def update_world_data(self, data):
         # make sure we are in game
@@ -93,7 +118,8 @@ class WorldData(object):
         
         for player_id in self.good_players.keys():
             if not player_id in self.player_data.keys():
-                self.player_data[player_id] = PlayerData(player_id)
+                self.player_data[player_id] = PlayerData(player_id, 
+                    self.good_players[player_id]['player'].hero_id)
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
         
@@ -245,9 +271,6 @@ class WorldData(object):
     
     def get_player_ids(self):
         return list(self.good_players.keys())
-        
-    def get_reachable_distance(self, player_id):
-        return 0
     
     @property
     def get_my_players(self):

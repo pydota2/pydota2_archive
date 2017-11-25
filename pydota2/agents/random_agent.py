@@ -21,6 +21,7 @@ import numpy
 
 from pydota2.agents import base_agent
 from pydota2.lib import actions
+import pydota2.lib.location as loc
 from pydota2.gen_data.json_lookup import getNameOfKey
 
 class RandomAgent(base_agent.BaseAgent):
@@ -49,17 +50,26 @@ class RandomAgent(base_agent.BaseAgent):
                             args = [[name]]
                         else:
                             args = [[0]]
+                    elif function_id == 4:
+                        rand = loc.Location.uniform_rand()
+                        scaled_rand = rand.scale(world_state.player_data[player_id].get_reachable_distance())
+                        curr_loc = world_state.player_data[player_id].get_location()
+                        new_loc = curr_loc + scaled_rand
+                        args = [[new_loc.x, new_loc.y, new_loc.z], [0]]
+                        
+                        # TODO - implement move action to use normal/push/queued styles
                     else:
                         args = [[numpy.random.randint(0, size) for size in arg.sizes]
                                 for arg in self.action_spec.functions[function_id].args]
                     selected_actions.append(actions.FunctionCall(player_id, function_id, args))
                 
                 # now add team-wide functions, (we use pid = 0)
-                function_id = numpy.random.choice(obs.observation['available_actions'][0])
-                print('RandomAgent chose random action: %d for the team' % (function_id))
-                args = [[numpy.random.randint(0, size) for size in arg.sizes]
-                         for arg in self.action_spec.functions[function_id].args]
-                selected_actions.append(actions.FunctionCall(0, function_id, args))
+                if len(obs.observation['available_actions'][0]) > 0:
+                    function_id = numpy.random.choice(obs.observation['available_actions'][0])
+                    print('RandomAgent chose random action: %d for the team' % (function_id))
+                    args = [[numpy.random.randint(0, size) for size in arg.sizes]
+                             for arg in self.action_spec.functions[function_id].args]
+                    selected_actions.append(actions.FunctionCall(0, function_id, args))
 
         #print("RandomAgent selected actions:", selected_actions)
         return selected_actions

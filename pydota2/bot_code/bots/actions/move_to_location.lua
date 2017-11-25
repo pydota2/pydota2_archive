@@ -10,7 +10,18 @@ MoveToLocation.NumArgs = 3
 
 -------------------------------------------------
 
+ABILITY_STANDARD    = 0
+ABILITY_PUSH        = 1
+ABILITY_QUEUE       = 2
+
 function MoveToLocation:Call( hUnit, vLoc, iType )
+    if not hUnit:IsAlive() or hUnit:IsRooted() or hUnit:IsStunned() then
+        dbg.pause("[ERROR] - MoveToLocation under death/root/stun")
+        return
+    end
+    
+    dbg.myPrint("Moving to: ", vLoc[1], vLoc[2], " from ", hUnit:GetLocation().x, hUnit:GetLocation().y)
+    
     iType = iType[1]
     
     vLoc = Vector(vLoc[1], vLoc[2], vLoc[3])
@@ -23,6 +34,8 @@ function MoveToLocation:Call( hUnit, vLoc, iType )
         hUnit:ActionPush_MoveToLocation(vLoc)
     elseif iType == ABILITY_QUEUE then
         hUnit:ActionQueue_MoveToLocation(vLoc)
+    else
+        dbg.pause("[ERROR] - Unknown iType: ", iType)
     end
 end
 

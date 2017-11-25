@@ -76,7 +76,7 @@ class ArgumentType(collections.namedtuple(
     @classmethod
     def location(cls):  # No range because it's unknown at this time.
         """Create an ArgumentType that is represented by a location.Location."""
-        return cls(-1, "<none>", (0, 0), lambda a: location.Location(*a).floor())
+        return cls(-1, "<none>", (0, 0, 0), lambda a: location.Location(*a).floor())
 
     @classmethod
     def tree_id(cls, valid_tree_ids):
@@ -229,14 +229,17 @@ class Functions(object):
         
 # pylint: disable=line-too-long
 FUNCTIONS = Functions([
-    Function.team_func(0, "use_glyph", FUNCTION_TYPES['cmd_atomic'],
+    Function.team_func(0, "team_glyph", FUNCTION_TYPES['cmd_atomic'],
                        lambda pid, obs, ws: pid == 0 and obs.game_state in [4,5] and 
                        (obs.glyph_cooldown == 0.0 or obs.glyph_cooldown < obs.dota_time)),  
-    Function.hero_func(1, "no_op", FUNCTION_TYPES['cmd_no_op']),
-    Function.hero_func(2, "clear_action", FUNCTION_TYPES['cmd_bool']),
-    Function.hero_func(3, "cmd_level_ability", FUNCTION_TYPES['cmd_level_ability'],
+    Function.hero_func(1, "hero_no_op", FUNCTION_TYPES['cmd_no_op']),
+    Function.hero_func(2, "hero_clear_action", FUNCTION_TYPES['cmd_bool']),
+    Function.hero_func(3, "hero_level_ability", FUNCTION_TYPES['cmd_level_ability'],
                        avail_fn=lambda pid, obs, ws: obs.game_state in [4,5] and 
                        pid > 0 and ws.get_available_level_points(pid) > 0),
+    Function.hero_func(4, "hero_move_to_location", FUNCTION_TYPES['move_to_location'], 
+                       avail_fn=lambda pid, obs, ws: obs.game_state in [4,5] and
+                       pid > 0),
 ])
 # pylint: enable=line-too-long
 

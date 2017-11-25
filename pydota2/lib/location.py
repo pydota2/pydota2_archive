@@ -35,6 +35,11 @@ class Location(collections.namedtuple("Location", ["x", "y", "z"])):
   def unit_rand(cls):
     """Return a Location with x, y chosen randomly with 0 <= x < 1, 0 <= y < 1."""
     return cls(random.random(), random.random(), 0)
+    
+  @classmethod
+  def uniform_rand(cls):
+    """Return a Location with x, y chosen randomly with -1.0 <= x < 1.0, -1.0 <= y < 1.0"""
+    return cls(random.uniform(-1.0, 1.0), random.uniform(-1.0, 1.0), 0)
 
   def assign_to(self, obj):
     """Assign `x`, `y` and `z` to an object that has properties `x`, `y`, and `z`."""
@@ -60,15 +65,15 @@ class Location(collections.namedtuple("Location", ["x", "y", "z"])):
 
   def floor(self):
     """Round `x` and `y` down to integers."""
-    return Location(int(math.floor(self.x)), int(math.floor(self.y)))
+    return Location(int(math.floor(self.x)), int(math.floor(self.y)), self.z)
 
   def ceil(self):
     """Round `x` and `y` up to integers."""
-    return Location(int(math.ceil(self.x)), int(math.ceil(self.y)))
+    return Location(int(math.ceil(self.x)), int(math.ceil(self.y)), self.z)
 
   def abs(self):
     """Take the absolute value of `x` and `y`."""
-    return Location(abs(self.x), abs(self.y))
+    return Location(abs(self.x), abs(self.y), self.z)
 
   def len(self):
     """Length of the vector to this point."""
@@ -101,7 +106,8 @@ class Location(collections.namedtuple("Location", ["x", "y", "z"])):
 
   def rotate_rad(self, angle):
     return Location(self.x * math.cos(angle) - self.y * math.sin(angle),
-                 self.x * math.sin(angle) + self.y * math.cos(angle))
+                 self.x * math.sin(angle) + self.y * math.cos(angle),
+                 self.z)
 
   def rotate_rand(self, angle=180):
     return self.rotate_deg(random.randint(-angle, angle))
@@ -111,40 +117,40 @@ class Location(collections.namedtuple("Location", ["x", "y", "z"])):
     return self.dist(loc) < radius
 
   def __str__(self):
-    return "%.6f,%.6f" % self
+    return "%.6f,%.6f,%.6f" % self
 
   def __neg__(self):
-    return Location(-self.x, -self.y)
+    return Location(-self.x, -self.y, self.z)
 
   def __add__(self, loc_or_val):
     if isinstance(loc_or_val, Location):
-      return Location(self.x + loc_or_val.x, self.y + loc_or_val.y)
+      return Location(self.x + loc_or_val.x, self.y + loc_or_val.y, self.z)
     else:
-      return Location(self.x + loc_or_val, self.y + loc_or_val)
+      return Location(self.x + loc_or_val, self.y + loc_or_val, self.z)
 
   def __sub__(self, loc_or_val):
     if isinstance(loc_or_val, Location):
-      return Location(self.x - loc_or_val.x, self.y - loc_or_val.y)
+      return Location(self.x - loc_or_val.x, self.y - loc_or_val.y, self.z)
     else:
-      return Location(self.x - loc_or_val, self.y - loc_or_val)
+      return Location(self.x - loc_or_val, self.y - loc_or_val, self.z)
 
   def __mul__(self, loc_or_val):
     if isinstance(loc_or_val, Location):
-      return Location(self.x * loc_or_val.x, self.y * loc_or_val.y)
+      return Location(self.x * loc_or_val.x, self.y * loc_or_val.y, self.z)
     else:
-      return Location(self.x * loc_or_val, self.y * loc_or_val)
+      return Location(self.x * loc_or_val, self.y * loc_or_val, self.z)
 
   def __truediv__(self, loc_or_val):
     if isinstance(loc_or_val, Location):
-      return Location(self.x / loc_or_val.x, self.y / loc_or_val.y)
+      return Location(self.x / loc_or_val.x, self.y / loc_or_val.y, self.z)
     else:
-      return Location(self.x / loc_or_val, self.y / loc_or_val)
+      return Location(self.x / loc_or_val, self.y / loc_or_val, self.z)
 
   def __floordiv__(self, loc_or_val):
     if isinstance(loc_or_val, Location):
-      return Location(int(self.x // loc_or_val.x), int(self.y // loc_or_val.y))
+      return Location(int(self.x // loc_or_val.x), int(self.y // loc_or_val.y), int(self.z))
     else:
-      return Location(int(self.x // loc_or_val), int(self.y // loc_or_val))
+      return Location(int(self.x // loc_or_val), int(self.y // loc_or_val), int(self.z))
 
   __div__ = __truediv__
 

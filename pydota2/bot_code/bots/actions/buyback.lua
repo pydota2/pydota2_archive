@@ -3,19 +3,19 @@
 --- GITHUB REPO: https://github.com/pydota2
 -------------------------------------------------------------------------------
 
-local ActionClear = {}
+local ActionBuyback = {}
 
-ActionClear.Name = "Clear Action"
-ActionClear.NumArgs = 2
+ActionBuyback.Name = "Buyback Action"
+ActionBuyback.NumArgs = 1
 
 -------------------------------------------------
 
-function ActionClear:Call(hHero, bStop)
-    --print_table(bStop)
-    dbg.myPrint("ClearAction with stop: ", toboolean(bStop[1]))
-    hHero:Action_ClearActions(toboolean(bStop[1]))
+function ActionBuyback:Call(hHero)
+    if not hHero:IsAlive() then
+        hHero:ActionImmediate_Buyback()
+    end
 end
 
 -------------------------------------------------
 
-return ActionClear
+return ActionBuyback

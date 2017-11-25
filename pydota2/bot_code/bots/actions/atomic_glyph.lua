@@ -3,19 +3,17 @@
 --- GITHUB REPO: https://github.com/pydota2
 -------------------------------------------------------------------------------
 
-local ActionClear = {}
+local ActionGlyph = {}
 
-ActionClear.Name = "Clear Action"
-ActionClear.NumArgs = 2
+ActionGlyph.Name = "Glyph Action"
+ActionGlyph.NumArgs = 1
 
 -------------------------------------------------
 
-function ActionClear:Call(hHero, bStop)
-    --print_table(bStop)
-    dbg.myPrint("ClearAction with stop: ", toboolean(bStop[1]))
-    hHero:Action_ClearActions(toboolean(bStop[1]))
+function ActionGlyph:Call(hHero)
+    hHero:ActionImmediate_Glyph()
 end
 
 -------------------------------------------------
 
-return ActionClear
+return ActionGlyph

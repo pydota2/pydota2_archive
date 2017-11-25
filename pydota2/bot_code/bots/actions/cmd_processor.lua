@@ -3,18 +3,28 @@
 --- GITHUB REPO: https://github.com/pydota2
 -------------------------------------------------------------------------------
 
+-- Atomic Actions
+local actionGlyph           = require( GetScriptDirectory().."/actions/atomic_glyph" )
+local actionLevelAbility    = require( GetScriptDirectory().."/actions/atomic_level_ability" )
+
+-- Hero Functions
 local actionNone            = require( GetScriptDirectory().."/actions/none" )
 local actionClearAction     = require( GetScriptDirectory().."/actions/clear" )
-local actionLevelAbility    = require( GetScriptDirectory().."/actions/atomic_level_ability" )
+local actionBuyback         = require( GetScriptDirectory().."/actions/buyback" )
+
 local actionMove            = require( GetScriptDirectory().."/actions/move_to_location" )
+local actionAttackUnit      = require( GetScriptDirectory().."/actions/attack_unit" )
 
 local CmdProcessor = {}
 
 LookUpTable = {
+    ['0'] = actionGlyph,
     ['1'] = actionNone,
     ['2'] = actionClearAction,
     ['3'] = actionLevelAbility,
     ['4'] = actionMove,
+    ['5'] = actionAttackUnit,
+    ['6'] = actionBuyback,
 }
 
 function CmdProcessor:Run(hBot, tblActions)
