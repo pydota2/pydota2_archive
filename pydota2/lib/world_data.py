@@ -46,16 +46,16 @@ class PlayerData(object):
     def __init__(self, pID, heroID):
         self.pid = pID
         self.hero_id = heroID
-        self.rtt = collections.deque(maxlen=10)
-        self.avg_rtt = 0.25
+        self.prtt = collections.deque(maxlen=10)
+        self.avg_prtt = 0.3
     
     def save_last_update(self, udata, pdata):
         self.pdata = pdata
         self.udata = udata
     
-    def _update_rtt(self, rtt):
-        self.rtt.append(rtt)
-        self.avg_rtt = sum(self.rtt)/float(len(self.rtt))
+    def _update_prtt(self, prtt):
+        self.prtt.append(prtt)
+        self.avg_prtt = sum(self.prtt)/float(len(self.prtt))
     
     def get_location(self):
         return loc.Location.build(self.udata.location)
@@ -72,7 +72,7 @@ class PlayerData(object):
         
     def get_reachable_distance(self, time_adj=0.0):
         currSpd = self.udata.current_movement_speed
-        return (self.avg_rtt - time_adj) * currSpd
+        return (self.avg_prtt - time_adj) * currSpd
         
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
@@ -95,19 +95,19 @@ class WorldData(object):
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
     
-    def update_rtt(self):
+    def update_prtt(self):
         data, lock = getRttQueue()
         lock.acquire()
         if len(data) > 0 and data['Time'] > self.last_update:
             self.last_update = data['Time']
             for player_id in self.player_data.keys():
                 if str(player_id) in data.keys():
-                    self.player_data[player_id]._update_rtt(data[str(player_id)])
-                    print(player_id, " average RTT: ", self.get_player_rtt(player_id))
+                    self.player_data[player_id]._update_prtt(data[str(player_id)])
+                    print(player_id, " average RTT: ", self.get_player_prtt(player_id))
         lock.release()
         
-    def get_player_rtt(self, player_id):
-        return self.player_data[player_id].avg_rtt
+    def get_player_prtt(self, player_id):
+        return self.player_data[player_id].avg_prtt
     
     def update_world_data(self, data):
         # make sure we are in game
@@ -123,7 +123,7 @@ class WorldData(object):
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
         
-        self.update_rtt()
+        self.update_prtt()
         
     def store_player_info(self, data):
         for player in self.good_players.keys():

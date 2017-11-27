@@ -20,7 +20,7 @@ function MoveToLocation:Call( hUnit, vLoc, iType )
         return
     end
     
-    dbg.myPrint("Moving to: ", vLoc[1], vLoc[2], " from ", hUnit:GetLocation().x, hUnit:GetLocation().y)
+    --dbg.myPrint("Moving to: <", vLoc[1],", " vLoc[2], "> from <", hUnit:GetLocation().x, ", ", hUnit:GetLocation().y, ">")
     
     iType = iType[1]
     
