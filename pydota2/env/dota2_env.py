@@ -188,7 +188,7 @@ class Dota2Env(environment.Base):
         discount = self._discount
         
         print("Game State: %d" % (self._obs.game_state))
-        if self._obs.game_state == 5:  # Episode over.
+        if self._obs.game_state == 6:  # Episode over.
             self._state = environment.StepType.LAST
             discount = 0
     

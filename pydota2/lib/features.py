@@ -139,6 +139,12 @@ class Features(object):
             obs.game_state,
         ], dtype=np.int32)
         
+        # score tracking
+        # TODO - implement once we decide how to track "goodness"
+        out["score_cumulative"] = np.array([
+            0,
+        ], dtype=np.int32)
+        
         # team specific observations
         out['team'] = np.array([
             obs.dota_time,

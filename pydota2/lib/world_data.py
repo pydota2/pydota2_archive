@@ -61,15 +61,20 @@ class PlayerData(object):
         return loc.Location.build(self.udata.location)
 
     def get_location_xyz(self):
-        loc = self.get_location()
-        return loc.x, loc.y, loc.z
+        l = self.get_location()
+        return l.x, l.y, l.z
     
     def time_to_face_heading(self, heading):
         # we want a facing differential between 180 and -180 degrees
         # since we will always turn in the direction of smaller angle,
         # never more than a 180 degree turn
-        facing_delta = math.fabs(heading - self.udata.facing - 180.0)
-        return facing_delta/math.degrees(getTurnRate(self.hero_id))
+        diff = math.fabs(heading - self.udata.facing)
+        if diff > 180.0:
+            diff = math.fabs(360.0 - diff)
+        time_to_turn_180 = 0.03*math.pi/getTurnRate(self.hero_id)
+        #print("[%d] Facing: %f, Heading: %f, Diff: %f, TurnTime180: %f, TimeToTurn: %f" % 
+        #     (self.pid, self.udata.facing, heading, diff, time_to_turn_180, (diff/180.0)*time_to_turn_180))
+        return (diff/180.0)*time_to_turn_180
 
     def time_to_face_location(self, location):
         loc_delta = loc.Location.build(location) - self.get_location()
@@ -78,16 +83,20 @@ class PlayerData(object):
         
     def get_reachable_distance(self, time_adj=0.0):
         currSpd = self.udata.current_movement_speed
-        return (self.avg_prtt - time_adj) * currSpd
+        timeAvail = self.avg_prtt - time_adj
+        dist = timeAvail * currSpd
+        #print("[%d] Speed: %f, TimeAvail: %f, Reachable Distance: %f" % 
+        #     (self.pid, currSpd, timeAvail, dist))
+        return dist
 
     def max_reachable_location(self, heading):
         ttfh = self.time_to_face_heading(heading)
         max_reachable_dist = self.get_reachable_distance(ttfh)
         rad_angle = math.pi/2.0 - math.radians(heading)
-        loc = self.get_location()
-        retLoc =loc.Location(loc.x + max_reachable_dist*math.cos(rad_angle), 
-                             loc.y + max_reachable_dist*math.sin(rad_angle),
-                             loc.z)
+        l = self.get_location()
+        retLoc = loc.Location(l.x + 10.0*max_reachable_dist*math.cos(rad_angle), 
+                              l.y + 10.0*max_reachable_dist*math.sin(rad_angle),
+                              l.z)
         return retLoc
         
     def get_abilities(self):
@@ -131,7 +140,7 @@ class WorldData(object):
             for player_id in self.player_data.keys():
                 if str(player_id) in data.keys():
                     self.player_data[player_id]._update_prtt(data[str(player_id)])
-                    print(player_id, " average RTT: ", self.get_player_prtt(player_id))
+                    #print(player_id, " average RTT: ", self.get_player_prtt(player_id))
         lock.release()
         
     def get_player_prtt(self, player_id):
@@ -207,8 +216,8 @@ class WorldData(object):
                 skilled_pts += ability.level
             level = player.get_level()
             delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
-            if delta > 0:
-                print('%s [Lvl: %d] is able to level %d abilities' % (player.get_name(), level, delta))
+            #if delta > 0:
+            #    print('%s [Lvl: %d] is able to level %d abilities' % (player.get_name(), level, delta))
             return max(delta,0)
         return 0
         

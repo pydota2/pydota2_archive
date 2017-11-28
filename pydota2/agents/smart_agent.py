@@ -74,6 +74,7 @@ class QLearningTable:
         if state not in self.q_table.index:
             # append new state to q table
             self.q_table = self.q_table.append(pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
+            print("SIZE OF Q TABLE: %d" % (len(self.q_table)))
 
 
 class MoveAgent(base_agent.BaseAgent):
@@ -112,7 +113,7 @@ class MoveAgent(base_agent.BaseAgent):
         
 
             loc_delta = self.dest_loc - player_loc
-            desired_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+            desired_degree_facing = int(math.degrees(math.atan2(loc_delta.y, loc_delta.x)))
 
             current_state = np.zeros(1)
             current_state[0] = desired_degree_facing
@@ -148,10 +149,10 @@ class MoveAgent(base_agent.BaseAgent):
                 selected_actions.append(actions.FunctionCall(pid, _HERO_NO_OP, []))
 
             elif smart_action == ACTION_CLEAR_ACTION:
-                selected_actions.append(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [0]))
+                selected_actions.append(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [[0]]))
             
             elif smart_action == ACTION_CLEAR_ACTION_STOP:
-                selected_actions(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [1]))
+                selected_actions.append(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [[1]]))
             
             elif smart_action == ACTION_MOVE:
                 if _HERO_MOVE_TO_LOCATION in obs.observation["available_actions"][pid]:
