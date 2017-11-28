@@ -7,7 +7,7 @@ import pandas as pd
 from pydota2.agents import base_agent
 from pydota2.lib import actions
 from pydota2.lib import features
-from pydota2.lib import Location as loc
+import pydota2.lib.location as loc
 
 _NOT_QUEUED = [0]
 
@@ -17,7 +17,7 @@ _HERO_MOVE_TO_LOCATION = actions.FUNCTIONS.hero_move_to_location.id
 
 ACTION_DO_NOTHING           = 'DoNothing'
 ACTION_CLEAR_ACTION         = 'ClearAction'
-ACTION_CLEAR_ACTOIN_STOP    = 'ClearActionStop'
+ACTION_CLEAR_ACTION_STOP    = 'ClearActionStop'
 ACTION_MOVE                 = 'Move'
 
 smart_actions = [
@@ -112,7 +112,7 @@ class MoveAgent(base_agent.BaseAgent):
         
 
             loc_delta = self.dest_loc - player_loc
-            desire_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+            desired_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
 
             current_state = np.zeros(1)
             current_state[0] = desired_degree_facing

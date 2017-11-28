@@ -90,6 +90,18 @@ class PlayerData(object):
                              loc.z)
         return retLoc
         
+    def get_abilities(self):
+        return self.udata.abilities
+        
+    def get_level(self):
+        return self.udata.level
+        
+    def get_name(self):
+        return self.udata.name
+        
+    def get_items(self):
+        return self.udata.items
+        
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
 
@@ -188,14 +200,15 @@ class WorldData(object):
                 self.bad_players[player.player_id]['player'] = player
 
     def get_available_level_points(self, player_id):
-        if player_id in self.good_players.keys():
+        player = self.get_player_by_id(player_id)
+        if player:
             skilled_pts = 0
-            for ability in self.get_player_abilities(player_id):
+            for ability in player.get_abilities():
                 skilled_pts += ability.level
-            level = self.good_players[player_id]['unit'].level
+            level = player.get_level()
             delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
             if delta > 0:
-                print('%s [Lvl: %d] is able to level %d abilities' % (self.good_players[player_id]['unit'].name, level, delta))
+                print('%s [Lvl: %d] is able to level %d abilities' % (player.get_name(), level, delta))
             return max(delta,0)
         return 0
         
@@ -206,16 +219,14 @@ class WorldData(object):
         return None
 
     def get_player_by_id(self, player_id):
-        if player_id in self.good_players.keys():
-            return self.good_players[player_id]
-        elif player_id in self.bad_players.keys():
-            return self.bad_players[player_id]
+        if player_id in self.player_data.keys():
+            return self.player_data[player_id]
         return None
 
     def get_player_abilities(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
-            return player['unit'].abilities
+            return player.get_player_abilities()
         return []
     
     # this returns only ability IDs of abilties that can be leveled
@@ -240,7 +251,7 @@ class WorldData(object):
                     continue
 
                 player = self.get_player_by_id(player_id)
-                p_level = player['unit'].level
+                p_level = player.get_level()
                 a_level = ability.level
                 
                 if a_level >= int(float(p_level/2.0)+0.5):
@@ -276,17 +287,17 @@ class WorldData(object):
     def get_player_items(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
-            return player['unit'].items
+            return player.get_items()
         return []
 
     def get_player_location(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
-            return player['unit'].location
+            return player.get_location()
         return []
     
     def get_player_ids(self):
-        return list(self.good_players.keys())
+        return list(self.player_data.keys())
     
     @property
     def get_my_players(self):

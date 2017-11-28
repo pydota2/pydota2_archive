@@ -49,11 +49,12 @@ def getTalentChoice(heroID, tier):
             return None, None
 
 def getTurnRate(heroID):
+    strHeroID = str(heroID)
     fname = JoinPath('pydota2', 'gen_data', 'heroes.json')
     with open(fname, 'r') as infile:
         data = json.load(infile)
-        if 'TurnRate' in data[heroID].keys():
-            return data[heroID]['TurnRate']
+        if 'TurnRate' in data[strHeroID].keys():
+            return data[strHeroID]['TurnRate']
         else:
             print('<ERROR>: Missing TurnRate for pID: %d' % heroID)
             return 0.5
