@@ -4,32 +4,37 @@ import math
 import numpy as np
 import pandas as pd
 
-"""
-THIS FILE IS NOT COMPLETE AND WILL NOT COMPILE CURRENTLY
-ALSO, THIS FILE IS CURRENTLY FOR STARCRAFT2, NOT DOTA2
-IT IS HERE TO SERVE AS GUIDANCE IN HOW TO WRITE A SMART
-AGENT.
-"""
-
 from pydota2.agents import base_agent
 from pydota2.lib import actions
 from pydota2.lib import features
+from pydota2.lib import Location as loc
 
-_NO_OP = actions.FUNCTIONS.no_op.id
-_ATTACK_MINIMAP = actions.FUNCTIONS.attack.id
+_NOT_QUEUED = [0]
 
-ACTION_DO_NOTHING = 'donothing'
-ACTION_ATTACK = 'attack'
+_HERO_NO_OP = actions.FUNCTIONS.hero_no_op.id
+_HERO_CLEAR_ACTION = actions.FUNCTIONS.hero_clear_action.id
+_HERO_MOVE_TO_LOCATION = actions.FUNCTIONS.hero_move_to_location.id
+
+ACTION_DO_NOTHING           = 'DoNothing'
+ACTION_CLEAR_ACTION         = 'ClearAction'
+ACTION_CLEAR_ACTOIN_STOP    = 'ClearActionStop'
+ACTION_MOVE                 = 'Move'
 
 smart_actions = [
     ACTION_DO_NOTHING,
-    ACTION_ATTACK,
+    ACTION_CLEAR_ACTION,
+    ACTION_CLEAR_ACTION_STOP,
 ]
 
-KILL_UNIT_REWARD = 0.2
-KILL_BUILDING_REWARD = 0.5
+# create our 8-directional moves
+for mm_degree in range(0, 360, 45):
+    smart_actions.append(ACTION_MOVE+ '_' + str(mm_degree))
 
-# Stolen from https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
+TIME_STEP_REWARD        = -1.0
+TIME_STEP_CLOSER_REWARD = -0.5
+ARRIVED_AT_LOC_REWARD   = 10.0
+
+# Based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
 class QLearningTable:
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         self.actions = actions  # a list
@@ -48,7 +53,7 @@ class QLearningTable:
             # some actions have the same value
             state_action = state_action.reindex(np.random.permutation(state_action.index))
             
-            action = state_action.values.argmax()
+            action = state_action.argmax()
         else:
             # choose random action
             action = np.random.choice(self.actions)
@@ -70,124 +75,89 @@ class QLearningTable:
             # append new state to q table
             self.q_table = self.q_table.append(pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
 
-class SmartAgent(base_agent.BaseAgent):
+
+class MoveAgent(base_agent.BaseAgent):
     def __init__(self):
-        super(SmartAgent, self).__init__()
+        super(MoveAgent, self).__init__()
+        
         self.qlearn = QLearningTable(actions=list(range(len(smart_actions))))
         
-        self.previous_killed_unit_score = 0
-        self.previous_killed_building_score = 0
-        
-        self.previous_action = None
-        self.previous_state = None
-        
-    def transformLocation(self, x, x_distance, y, y_distance):
-        if not self.base_top_left:
-            return [x - x_distance, y - y_distance]
-        
-        return [x + x_distance, y + y_distance]
-        
-    def step(self, obs):
-        super(SmartAgent, self).step(obs)
-        
-        player_y, player_x = (obs.observation['minimap'][_PLAYER_RELATIVE] == _PLAYER_SELF).nonzero()
-        self.base_top_left = 1 if player_y.any() and player_y.mean() <= 31 else 0
-        
-        unit_type = obs.observation['screen'][_UNIT_TYPE]
+        self.dest_loc = loc.center
 
-        depot_y, depot_x = (unit_type == _TERRAN_SUPPLY_DEPOT).nonzero()
-        supply_depot_count = supply_depot_count = 1 if depot_y.any() else 0
+        self.previous_dist = {}
+        self.previous_action = {}
+        self.previous_state = {}
+        
+    def step(self, obs, world_state):
+        super(MoveAgent, self).step(obs)
 
-        barracks_y, barracks_x = (unit_type == _TERRAN_BARRACKS).nonzero()
-        barracks_count = 1 if barracks_y.any() else 0
-            
-        supply_limit = obs.observation['player'][4]
-        army_supply = obs.observation['player'][5]
-        
-        killed_unit_score = obs.observation['score_cumulative'][5]
-        killed_building_score = obs.observation['score_cumulative'][6]
-        
-        current_state = [
-            supply_depot_count,
-            barracks_count,
-            supply_limit,
-            army_supply,
-        ]
-        
-        if self.previous_action is not None:
-            reward = 0
-                
-            if killed_unit_score > self.previous_killed_unit_score:
-                reward += KILL_UNIT_REWARD
-                    
-            if killed_building_score > self.previous_killed_building_score:
-                reward += KILL_BUILDING_REWARD
-                
-            self.qlearn.learn(str(self.previous_state), self.previous_action, reward, str(current_state))
-        
-        rl_action = self.qlearn.choose_action(str(current_state))
-        smart_action = smart_actions[rl_action]
-        
-        self.previous_killed_unit_score = killed_unit_score
-        self.previous_killed_building_score = killed_building_score
-        self.previous_state = current_state
-        self.previous_action = rl_action
-        
-        if smart_action == ACTION_DO_NOTHING:
-            return actions.FunctionCall(_NO_OP, [])
+        if not world_state:
+            return []
 
-        elif smart_action == ACTION_SELECT_SCV:
-            unit_type = obs.observation['screen'][_UNIT_TYPE]
-            unit_y, unit_x = (unit_type == _TERRAN_SCV).nonzero()
-                
-            if unit_y.any():
-                i = random.randint(0, len(unit_y) - 1)
-                target = [unit_x[i], unit_y[i]]
-                
-                return actions.FunctionCall(_SELECT_POINT, [_SCREEN, target])
+        pids = world_state.get_player_ids()
+        if len(pids) < 5:
+            return []
+
+        selected_actions = []
+        for pid in pids:
+            player = world_state.get_player_by_id(pid)
+            player_loc = player.get_location()
+            dist_to_loc = player_loc.dist(self.dest_loc)
+
+            # initialize our previous variables if first valid step
+            if not pid in self.previous_dist.keys():
+                self.previous_dist[pid] = dist_to_loc
+                self.previous_action[pid] = None
+                self.previous_state[pid] = None
         
-        elif smart_action == ACTION_BUILD_SUPPLY_DEPOT:
-            if _BUILD_SUPPLY_DEPOT in obs.observation['available_actions']:
-                unit_type = obs.observation['screen'][_UNIT_TYPE]
-                unit_y, unit_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
+
+            loc_delta = self.dest_loc - player_loc
+            desire_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+
+            current_state = np.zeros(1)
+            current_state[0] = desired_degree_facing
+
+            # if we previously took an action, evaluate its reward
+            if self.previous_action[pid] is not None:
+                reward = 0
+
+                if dist_to_loc < 50:
+                    reward += ARRIVED_AT_LOC_REWARD
+                elif dist_to_loc < self.previous_dist[pid]:
+                    reward += TIME_STEP_CLOSER_REWARD
+                else:
+                    reward += TIME_STEP_REWARD
                 
-                if unit_y.any():
-                    target = self.transformLocation(int(unit_x.mean()), 0, int(unit_y.mean()), 20)
-                
-                    return actions.FunctionCall(_BUILD_SUPPLY_DEPOT, [_SCREEN, target])
-        
-        elif smart_action == ACTION_BUILD_BARRACKS:
-            if _BUILD_BARRACKS in obs.observation['available_actions']:
-                unit_type = obs.observation['screen'][_UNIT_TYPE]
-                unit_y, unit_x = (unit_type == _TERRAN_COMMANDCENTER).nonzero()
-                
-                if unit_y.any():
-                    target = self.transformLocation(int(unit_x.mean()), 20, int(unit_y.mean()), 0)
+                # update our learning model with the reward for that action
+                self.qlearn.learn(str(self.previous_state[pid]), self.previous_action[pid], reward, str(current_state))
             
-                    return actions.FunctionCall(_BUILD_BARRACKS, [_SCREEN, target])
-    
-        elif smart_action == ACTION_SELECT_BARRACKS:
-            unit_type = obs.observation['screen'][_UNIT_TYPE]
-            unit_y, unit_x = (unit_type == _TERRAN_BARRACKS).nonzero()
-                
-            if unit_y.any():
-                target = [int(unit_x.mean()), int(unit_y.mean())]
-        
-                return actions.FunctionCall(_SELECT_POINT, [_SCREEN, target])
-        
-        elif smart_action == ACTION_BUILD_MARINE:
-            if _TRAIN_MARINE in obs.observation['available_actions']:
-                return actions.FunctionCall(_TRAIN_MARINE, [[1]])
-        
-        elif smart_action == ACTION_SELECT_ARMY:
-            if _SELECT_ARMY in obs.observation['available_actions']:
-                return actions.FunctionCall(_SELECT_ARMY, [[0]])
-        
-        elif smart_action == ACTION_ATTACK:
-            if _ATTACK_MINIMAP in obs.observation["available_actions"]:
-                if self.base_top_left:
-                    return actions.FunctionCall(_ATTACK_MINIMAP, [[1], [39, 45]])
+            # choose an action to take give our learning model
+            rl_action = self.qlearn.choose_action(str(current_state))
+            smart_action = smart_actions[rl_action]
             
-                return actions.FunctionCall(_ATTACK_MINIMAP, [[1], [21, 24]])
-        
-        return actions.FunctionCall(_NO_OP, [])
+            self.previous_dist[pid] = dist_to_loc
+            self.previous_state[pid] = current_state
+            self.previous_action[pid] = rl_action
+            
+            degrees = 0
+            if '_' in smart_action:
+                smart_action, degrees = smart_action.split('_')
+                degrees = int(degrees)
+                
+            if smart_action == ACTION_DO_NOTHING:
+                selected_actions.append(actions.FunctionCall(pid, _HERO_NO_OP, []))
+
+            elif smart_action == ACTION_CLEAR_ACTION:
+                selected_actions.append(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [0]))
+            
+            elif smart_action == ACTION_CLEAR_ACTION_STOP:
+                selected_actions(actions.FunctionCall(pid, _HERO_CLEAR_ACTION, [1]))
+            
+            elif smart_action == ACTION_MOVE:
+                if _HERO_MOVE_TO_LOCATION in obs.observation["available_actions"][pid]:
+                    selected_actions.append(actions.FunctionCall(pid, _HERO_MOVE_TO_LOCATION, 
+                                            [player.max_reachable_location(degrees), _NOT_QUEUED]))
+            else:
+                selected_actions.append(actions.FunctionCall(pid, _HERO_NO_OP, []))
+
+        return selected_actions

@@ -59,20 +59,36 @@ class PlayerData(object):
     
     def get_location(self):
         return loc.Location.build(self.udata.location)
+
+    def get_location_xyz(self):
+        loc = self.get_location()
+        return loc.x, loc.y, loc.z
     
-    def time_to_face_location(self, location):
-        loc_delta = loc.Location.build(location) - self.get_location()
-        desired_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
-        current_facing = self.udata.facing
+    def time_to_face_heading(self, heading):
         # we want a facing differential between 180 and -180 degrees
         # since we will always turn in the direction of smaller angle,
         # never more than a 180 degree turn
-        facing_delta = math.fabs(desired_facing - current_facing - 180.0)
+        facing_delta = math.fabs(heading - self.udata.facing - 180.0)
         return facing_delta/math.degrees(getTurnRate(self.hero_id))
+
+    def time_to_face_location(self, location):
+        loc_delta = loc.Location.build(location) - self.get_location()
+        desired_heading = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+        return self.time_to_face_heading(desired_heading)
         
     def get_reachable_distance(self, time_adj=0.0):
         currSpd = self.udata.current_movement_speed
         return (self.avg_prtt - time_adj) * currSpd
+
+    def max_reachable_location(self, heading):
+        ttfh = self.time_to_face_heading(heading)
+        max_reachable_dist = self.get_reachable_distance(ttfh)
+        rad_angle = math.pi/2.0 - math.radians(heading)
+        loc = self.get_location()
+        retLoc =loc.Location(loc.x + max_reachable_dist*math.cos(rad_angle), 
+                             loc.y + max_reachable_dist*math.sin(rad_angle),
+                             loc.z)
+        return retLoc
         
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""

@@ -32,12 +32,7 @@ from pydota2.lib import location
 THIS FILE IS NOT COMPLETE
 """
 
-#def no_op():
-#    print("no_op")
 
-#def cmd_atomic():
-#    print("cmd_atomic")
-    
 class ArgumentType(collections.namedtuple(
     "ArgumentType", ["id", "name", "sizes", "fn"])):
     """Represents a single argument type.
