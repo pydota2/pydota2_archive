@@ -12,7 +12,8 @@ local actionNone            = require( GetScriptDirectory().."/actions/none" )
 local actionClearAction     = require( GetScriptDirectory().."/actions/clear" )
 local actionBuyback         = require( GetScriptDirectory().."/actions/buyback" )
 
-local actionMove            = require( GetScriptDirectory().."/actions/move_to_location" )
+--local actionMove            = require( GetScriptDirectory().."/actions/move_to_location" )
+local actionMove            = require( GetScriptDirectory().."/actions/move_directly" )
 local actionAttackUnit      = require( GetScriptDirectory().."/actions/attack_unit" )
 
 local CmdProcessor = {}

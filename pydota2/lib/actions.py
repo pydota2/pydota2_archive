@@ -234,7 +234,8 @@ FUNCTIONS = Functions([
                        pid > 0 and ws.get_available_level_points(pid) > 0),
     Function.hero_func(4, "hero_move_to_location", FUNCTION_TYPES['move_to_location'], 
                        avail_fn=lambda pid, obs, ws: obs.game_state in [4,5] and
-                       pid > 0),
+                       pid > 0 and ws.is_player_alive(pid) and not ws.is_player_rooted(pid) and
+                       not ws.is_player_stunned(pid)),
 ])
 # pylint: enable=line-too-long
 

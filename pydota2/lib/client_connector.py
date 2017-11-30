@@ -100,7 +100,7 @@ class ClientThread(threading.Thread):
                     abort(400, 'POST Data was not JSON')
 
                 if request.content_length < 2400 and request.content_length != 0:
-                    print("Received Post: ", str(data))
+                    #print("Received Post: ", str(data))
                     
                     response['Type'] = data['Type']
                     
@@ -113,7 +113,7 @@ class ClientThread(threading.Thread):
                         response['Data'] = {}
                         while not post_queue.empty():
                             action_tuple = ClientThread.get_from_post_queue()
-                            print('Action Tuple To Send To Dota: ', action_tuple)
+                            #print('Action Tuple To Send To Dota: ', action_tuple)
                             if action_tuple:
                                 response['Data'][str(action_tuple[0])] = {}
                                 response['Data'][str(action_tuple[0])][str(action_tuple[1])] = action_tuple[2]
@@ -132,5 +132,5 @@ class ClientThread(threading.Thread):
             response['status'] = 401
             abort(400, 'Request Method is not POST')
 
-        print('SENDING RESPONSE:\n', response)
+        #print('SENDING RESPONSE:\n', response)
         return jsonify(response)

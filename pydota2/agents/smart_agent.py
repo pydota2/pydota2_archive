@@ -1,8 +1,12 @@
+import sys
 import random
 import math
+import json
 
 import numpy as np
 import pandas as pd
+
+from pydota2.env import environment
 
 from pydota2.agents import base_agent
 from pydota2.lib import actions
@@ -36,7 +40,7 @@ ARRIVED_AT_LOC_REWARD   = 10.0
 
 # Based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
 class QLearningTable:
-    def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
+    def __init__(self, actions, learning_rate=0.1, reward_decay=0.0, e_greedy=0.95):
         self.actions = actions  # a list
         self.lr = learning_rate
         self.gamma = reward_decay
@@ -54,9 +58,11 @@ class QLearningTable:
             state_action = state_action.reindex(np.random.permutation(state_action.index))
             
             action = state_action.argmax()
+            #print("Best Action: ", str(action))
         else:
             # choose random action
             action = np.random.choice(self.actions)
+            #print("Random Action: ", str(action))
             
         return action
 
@@ -74,7 +80,21 @@ class QLearningTable:
         if state not in self.q_table.index:
             # append new state to q table
             self.q_table = self.q_table.append(pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
-            print("SIZE OF Q TABLE: %d" % (len(self.q_table)))
+            
+    def load_table(self, infile):
+        with open(infile, 'r') as f:
+            json_data = json.load(f)
+            self.q_table = pd.io.json.json_normalize(json_data)
+    
+    def dump_table(self, outfile=None):
+        if outfile:
+            temp = sys.stdout
+            sys.stdout = open('log.txt', 'w')
+        
+        print(self.q_table.to_json(orient='table'))
+        
+        if outfile:
+            sys.stdout = temp
 
 
 class MoveAgent(base_agent.BaseAgent):
@@ -91,6 +111,10 @@ class MoveAgent(base_agent.BaseAgent):
         
     def step(self, obs, world_state):
         super(MoveAgent, self).step(obs)
+        
+        #if self.steps >= 300:
+        #    self.qlearn.dump_table()
+        #    self._state = environment.StepType.LAST
 
         if not world_state:
             return []
@@ -123,13 +147,19 @@ class MoveAgent(base_agent.BaseAgent):
                 reward = 0
 
                 if dist_to_loc < 50:
-                    reward += ARRIVED_AT_LOC_REWARD
+                    reward += 10.0
+                    self._state = environment.StepType.LAST
                 elif dist_to_loc < self.previous_dist[pid]:
-                    reward += TIME_STEP_CLOSER_REWARD
+                    reward += -0.5
+                elif dist_to_loc == self.previous_dist[pid]:
+                    reward += -1.0
                 else:
-                    reward += TIME_STEP_REWARD
+                    reward += -2.0
                 
                 # update our learning model with the reward for that action
+                print("From State '%s' took Action '%s' and got '%f' reward arriving at new_state '%s'" % 
+                      (self.previous_state[pid], self.previous_action[pid], reward, current_state))
+                print("Prev Dist was '%f', New Dist is '%f'" % (self.previous_dist[pid], dist_to_loc))
                 self.qlearn.learn(str(self.previous_state[pid]), self.previous_action[pid], reward, str(current_state))
             
             # choose an action to take give our learning model

@@ -57,6 +57,9 @@ class PlayerData(object):
         self.prtt.append(prtt)
         self.avg_prtt = sum(self.prtt)/float(len(self.prtt))
     
+    def is_alive(self):
+        return self.pdata.is_alive
+    
     def get_location(self):
         return loc.Location.build(self.udata.location)
 
@@ -94,8 +97,8 @@ class PlayerData(object):
         max_reachable_dist = self.get_reachable_distance(ttfh)
         rad_angle = math.pi/2.0 - math.radians(heading)
         l = self.get_location()
-        retLoc = loc.Location(l.x + 10.0*max_reachable_dist*math.cos(rad_angle), 
-                              l.y + 10.0*max_reachable_dist*math.sin(rad_angle),
+        retLoc = loc.Location(l.x + 5.0*max_reachable_dist*math.cos(rad_angle), 
+                              l.y + 5.0*max_reachable_dist*math.sin(rad_angle),
                               l.z)
         return retLoc
         
@@ -110,6 +113,12 @@ class PlayerData(object):
         
     def get_items(self):
         return self.udata.items
+        
+    def get_is_stunned(self):
+        return self.udata.is_stunned
+        
+    def get_is_rooted(self):
+        return self.udata.is_rooted
         
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
@@ -245,8 +254,14 @@ class WorldData(object):
         
         abilities = self.get_player_abilities(player_id)
         ids = []
+        
+        player = self.get_player_by_id(player_id)
+        p_level = player.get_level()
+        
+        a_ids = []
         for ability in abilities:
             id = ability.ability_id
+            a_ids.append(id)
             
             # generic_hidden
             if id == 6251:
@@ -259,8 +274,7 @@ class WorldData(object):
                 if isAbilityHidden('abilities.json', str(id)):
                     continue
 
-                player = self.get_player_by_id(player_id)
-                p_level = player.get_level()
+                
                 a_level = ability.level
                 
                 if a_level >= int(float(p_level/2.0)+0.5):
@@ -284,15 +298,67 @@ class WorldData(object):
                         continue
             ids.append(getNameOfKey('abilities.json', str(id)))
         
-        #TODO - add Talents
-        #tier = 1
-        #choice_1, choice_2 = getTalentChoice(str(player_id), tier)
-        #if choice_1 and choice_2:
-        #    ids.append(choice_1)
-        #    ids.append(choice_2)
+        ability_names = [getNameOfKey('abilities.json', str(id)) for id in a_ids]
+        t1_talent_picked = False
+        if p_level >= 10:
+            tier = 1
+            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
+            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+                ids.append(choice_1)
+                ids.append(choice_2)
+            else:
+                t1_talent_picked = True
         
+        t2_talent_picked = False
+        if p_level >= 15 and t1_talent_picked:
+            tier = 2
+            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
+            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+                ids.append(choice_1)
+                ids.append(choice_2)
+            else:
+                t2_talent_picked = True
+        
+        t3_talent_picked = False
+        if p_level >= 20 and t2_talent_picked:
+            tier = 3
+            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
+            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+                ids.append(choice_1)
+                ids.append(choice_2)
+            else:
+                t3_talent_picked = True
+        
+        t4_talent_picked = False
+        if p_level >= 25 and t1_talent_picked:
+            tier = 4
+            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
+            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+                ids.append(choice_1)
+                ids.append(choice_2)
+            else:
+                t4_talent_picked = True
+                
         return ids
 
+    def is_player_alive(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player.is_alive()
+        return False
+    
+    def is_player_stunned(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player.get_is_stunned()
+        return False
+    
+    def is_player_rooted(self, player_id):
+        player = self.get_player_by_id(player_id)
+        if player:
+            return player.get_is_rooted()
+        return False
+    
     def get_player_items(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
@@ -303,7 +369,7 @@ class WorldData(object):
         player = self.get_player_by_id(player_id)
         if player:
             return player.get_location()
-        return []
+        return loc.center
     
     def get_player_ids(self):
         return list(self.player_data.keys())
