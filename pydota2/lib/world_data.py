@@ -82,7 +82,12 @@ class AbilityData(object):
             return ability_data[str(self.ability_id)]['LevelsBetweenUpgrades']
         else:
             return 6
-
+    
+    def __str__(self):
+        ret  = "<AbilityData>\n"
+        ret += "\tName: %s\n" % (self.get_name())
+        ret += "\tLevel: %d\n" % (self.get_level())
+        return ret
 
 # NOTE: Items are "abilities" in all respects in Dota2
 class ItemData(object):
@@ -94,6 +99,29 @@ class ItemData(object):
     def get_name(self):
         return ability_data[str(self.item_id)]['Name']
 
+    def __str__(self):
+        ret  = "<ItemData>\n"
+        ret += "\tName: %s\n" % self.get_name()
+        return ret
+
+class ModifierData(object):
+    """Maintain certain information about modifiers."""
+    def __init__(self, data):
+        self.data = data
+    
+    def get_name(self):
+        return self.data.name
+    
+    def get_stack_count(self):
+        return self.data.stack_count
+    
+    def get_remaining_duration(self):
+        return self.data.remaining_duration
+
+    def __str__(self):
+        ret  = "<ModifierData>\n"
+        ret += "\tName: %s\n" % self.get_name()
+        return ret
         
 class PlayerData(object):
     """Maintain certain information about our players."""
@@ -104,12 +132,14 @@ class PlayerData(object):
         self.avg_prtt = 0.3
         self.abilities = []
         self.items = []
+        self.modifiers = []
     
     def save_last_update(self, udata, pdata):
         self.pdata = pdata
         self.udata = udata
         self.update_abilities()
         self.update_items()
+        self.update_modifiers()
     
     def get_name(self):
         return hero_data[str(self.hero_id)]['Name']
@@ -188,21 +218,43 @@ class PlayerData(object):
         for item in self.udata.items:
             self.items.append(ItemData(item.ability_id, item))
     
+    def update_modifiers(self):
+        self.modifiers = []
+        for mod in self.udata.modifiers:
+            self.modifiers.append(ModifierData(mod))
+    
     def get_abilities(self):
         return self.abilities
-        
+    
+    def get_ability_points(self):
+        return self.udata.ability_points
+    
     def get_level(self):
         return self.udata.level
         
     def get_items(self):
-        return self.udata.items
-        
+        return self.items
+    
+    def get_modifiers(self):
+        return self.modifiers
+    
     def get_is_stunned(self):
         return self.udata.is_stunned
         
     def get_is_rooted(self):
         return self.udata.is_rooted
-        
+
+    def __str__(self):
+        ret  = "<PlayerData>\n"
+        ret += "\tName: %s\n" % self.get_name()
+        for ability in self.get_abilities():
+            ret += str(ability)
+        for item in self.get_items():
+            ret += str(item)
+        for mod in self.get_modifiers():
+            ret += str(mod)
+        return ret
+    
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
 
@@ -256,13 +308,7 @@ class WorldData(object):
                     self.good_players[player_id]['player'].hero_id)
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
-        
         self.update_prtt()
-        
-    def store_player_info(self, data):
-        for player in self.good_players.keys():
-            if not player in self.player_data.keys():
-                self.player_data = self.good_players[player]
 
     def _create_units(self, unit_data):
         self.good_players = {}  # on my team
@@ -308,14 +354,7 @@ class WorldData(object):
     def get_available_level_points(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
-            skilled_pts = 0
-            for ability in player.get_abilities():
-                skilled_pts += ability.get_level()
-            level = player.get_level()
-            delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
-            #if delta > 0:
-            #    print('%s [Lvl: %d] is able to level %d abilities' % (player.get_name(), level, delta))
-            return max(delta,0)
+            return player.get_ability_points()
         return 0
         
     def get_unit_by_handle(self, unit_data, handle):

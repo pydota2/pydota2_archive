@@ -292,6 +292,7 @@ class ReplayProcessor(multiprocessing.Process):
         files = sorted(glob.glob(os.path.join(replay_path, '*.bin')))
         max_frames = int(os.path.basename(files[-1])[:-4])+1
 
+        ws = None
         for fname in files:
             self.stats.replay_stats.steps += 1
             step = int(os.path.basename(fname)[:-4])+1
@@ -302,16 +303,20 @@ class ReplayProcessor(multiprocessing.Process):
             if data:
                 #print('Game State: %d -- Step %d' % (data.game_state, step))
                 if data.game_state in [4,5]:
-                    #print(data)
-                    world_state = world_data.WorldData(data)
-                    #print(world_state.get_my_players)
-                    world_state.get_available_level_points(0)
-                    #p = world_state.get_player_by_id(0)
-                    #if p and p['unit'] and p['unit'].level > 2:
-                    #    val = world_state.get_player_abilities(0)
-                    #    if len(val) > 0:
-                    #        print(val)
-                    #        break
+                    
+                    if step == 400:
+                        print(data)
+                        break
+                    
+                    if not ws:
+                        ws = world_data.WorldData(data)
+                    else:
+                        ws.update_world_data(data)
+                    
+                    #pids = ws.get_player_ids()
+                    #for pid in pids:
+                    #    player = ws.get_player_by_id(pid)
+                    #    print(player)
 
     def _print(self, s):
         for line in str(s).strip().splitlines():
