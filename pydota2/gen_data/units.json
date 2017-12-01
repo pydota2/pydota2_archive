@@ -1,0 +1,877 @@
+{
+    "npc_dota_units_base": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_thinker": {},
+    "npc_dota_companion": {},
+    "npc_dota_loadout_generic": {},
+    "npc_dota_creep_badguys_ranged": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_ranged_upgraded": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_ranged_upgraded_mega": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_ranged": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_ranged_upgraded": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_ranged_upgraded_mega": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_melee": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_melee_upgraded": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_melee_upgraded_mega": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_melee": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_melee_upgraded": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_melee_upgraded_mega": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower1_top": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower1_mid": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower1_bot": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower2_top": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower2_mid": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower2_bot": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower3_top": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower3_mid": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower3_bot": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_tower4": {
+        "PhysicalResist": 29.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower1_top": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower1_mid": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower1_bot": {
+        "PhysicalResist": 17.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower2_top": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower2_mid": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower2_bot": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower3_top": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower3_mid": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower3_bot": {
+        "PhysicalResist": 19.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_tower4": {
+        "PhysicalResist": 29.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_fillers": {
+        "PhysicalResist": 14.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_healers": {
+        "PhysicalResist": 24.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_fillers": {
+        "PhysicalResist": 14.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_healers": {
+        "PhysicalResist": 24.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_melee_rax_top": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_melee_rax_mid": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_melee_rax_bot": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_range_rax_top": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_range_rax_mid": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_range_rax_bot": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_melee_rax_top": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_melee_rax_mid": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_melee_rax_bot": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_range_rax_top": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_range_rax_mid": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_range_rax_bot": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_fort": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_fort": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_siege": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_goodguys_siege_upgraded": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_goodguys_siege_upgraded_mega": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_badguys_siege": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_badguys_siege_upgraded": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_badguys_siege_upgraded_mega": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 80.0
+    },
+    "dota_fountain": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_juggernaut_healing_ward": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_healing_campfire": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_zeus_cloud": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_tusk_frozen_sigil1": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_tusk_frozen_sigil2": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_tusk_frozen_sigil3": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_tusk_frozen_sigil4": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_elder_titan_ancestral_spirit": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_kobold": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_kobold_tunneler": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_kobold_taskmaster": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_centaur_outrunner": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_centaur_khan": {
+        "PhysicalResist": 4.0
+    },
+    "npc_dota_neutral_fel_beast": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_polar_furbolg_champion": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_neutral_polar_furbolg_ursa_warrior": {
+        "PhysicalResist": 4.0
+    },
+    "npc_dota_neutral_mud_golem": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_neutral_mud_golem_split": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_neutral_mud_golem_split_doom": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_neutral_ogre_mauler": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_ogre_magi": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_giant_wolf": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_alpha_wolf": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_neutral_wildkin": {
+        "PhysicalResist": 2.0
+    },
+    "npc_dota_neutral_enraged_wildkin": {
+        "PhysicalResist": 4.0
+    },
+    "npc_dota_neutral_satyr_soulstealer": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_satyr_hellcaller": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_jungle_stalker": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_elder_jungle_stalker": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_prowler_acolyte": {
+        "PhysicalResist": 10.0
+    },
+    "npc_dota_neutral_prowler_shaman": {
+        "PhysicalResist": 11.0
+    },
+    "npc_dota_neutral_rock_golem": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_granite_golem": {
+        "PhysicalResist": 8.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_big_thunder_lizard": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_small_thunder_lizard": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_neutral_gnoll_assassin": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_ghost": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_wraith_ghost": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_dark_troll": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_dark_troll_warlord": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_satyr_trickster": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_forest_troll_berserker": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_forest_troll_high_priest": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_neutral_harpy_scout": {
+        "PhysicalResist": 1.0
+    },
+    "npc_dota_neutral_harpy_storm": {
+        "PhysicalResist": 2.0
+    },
+    "npc_dota_neutral_black_drake": {
+        "PhysicalResist": -1.0
+    },
+    "npc_dota_neutral_black_dragon": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 70.0
+    },
+    "npc_dota_necronomicon_warrior_1": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_necronomicon_warrior_2": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_necronomicon_warrior_3": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_necronomicon_archer_1": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_necronomicon_archer_2": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_necronomicon_archer_3": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 40.0
+    },
+    "npc_dota_observer_wards": {},
+    "npc_dota_sentry_wards": {},
+    "npc_dota_courier": {},
+    "npc_dota_flying_courier\t // deprecated": {
+        "PhysicalResist": 10.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_witch_doctor_death_ward": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_shadow_shaman_ward_1": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_shadow_shaman_ward_2": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_shadow_shaman_ward_3": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_venomancer_plague_ward_1": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_venomancer_plague_ward_2": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_venomancer_plague_ward_3": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_venomancer_plague_ward_4": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_lesser_eidolon": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_eidolon": {
+        "PhysicalResist": 3.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_greater_eidolon": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_dire_eidolon": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_furion_treant": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_furion_treant_large": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_invoker_forged_spirit": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_broodmother_spiderling": {
+        "PhysicalResist": 8.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_broodmother_spiderite": {
+        "PhysicalResist": 8.0,
+        "MagicResist": 50.0
+    },
+    "npc_dota_dark_troll_warlord_skeleton_warrior": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_wraith_king_skeleton_warrior": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_enraged_wildkin_tornado": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_roshan": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 55.0
+    },
+    "npc_dota_roshan_halloween": {
+        "PhysicalResist": 29.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_roshan_halloween_minion": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "ent_dota_radiant_candybucket": {},
+    "ent_dota_dire_candybucket": {},
+    "npc_dota_warlock_golem_1": {
+        "PhysicalResist": 6.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_warlock_golem_2": {
+        "PhysicalResist": 9.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_warlock_golem_3": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_warlock_golem_scepter_1": {
+        "PhysicalResist": 6.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_warlock_golem_scepter_2": {
+        "PhysicalResist": 9.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_warlock_golem_scepter_3": {
+        "PhysicalResist": 12.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_scout_hawk": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_greater_hawk": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_hawk": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_hawk_1": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_hawk_2": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_hawk_3": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_hawk_4": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_beastmaster_boar": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_greater_boar": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_boar_1": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_boar_2": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_boar_3": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_boar_4": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_brewmaster_earth_1": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_brewmaster_earth_2": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_brewmaster_earth_3": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_brewmaster_storm_1": {
+        "PhysicalResist": 2.0
+    },
+    "npc_dota_brewmaster_storm_2": {
+        "PhysicalResist": 2.0
+    },
+    "npc_dota_brewmaster_storm_3": {
+        "PhysicalResist": 2.0
+    },
+    "npc_dota_brewmaster_fire_1": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_brewmaster_fire_2": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_brewmaster_fire_3": {
+        "PhysicalResist": 6.0
+    },
+    "npc_dota_unit_tombstone1": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_unit_tombstone2": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_unit_tombstone3": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_unit_tombstone4": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_unit_undying_zombie": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_unit_undying_zombie_torso": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_pugna_nether_ward_1": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_pugna_nether_ward_2": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_pugna_nether_ward_3": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_pugna_nether_ward_4": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_templar_assassin_psionic_trap": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_rattletrap_cog": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_rattletrap_rocket": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_broodmother_web": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_stormspirit_remnant": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_ember_spirit_remnant": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_earth_spirit_stone": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_slark_visual": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_weaver_swarm": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_death_prophet_torment": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_gyrocopter_homing_missile": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_plasma_field": {},
+    "npc_dota_lycan_wolf1": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_lycan_wolf2": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_lycan_wolf3": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_lycan_wolf4": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 80.0
+    },
+    "npc_dota_lone_druid_bear1": {
+        "PhysicalResist": 3.0
+    },
+    "npc_dota_lone_druid_bear2": {
+        "PhysicalResist": 4.0
+    },
+    "npc_dota_lone_druid_bear3": {
+        "PhysicalResist": 5.0
+    },
+    "npc_dota_lone_druid_bear4": {
+        "PhysicalResist": 6.0
+    },
+    "npc_dota_visage_familiar1": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 35.0
+    },
+    "npc_dota_visage_familiar2": {
+        "PhysicalResist": 1.0,
+        "MagicResist": 35.0
+    },
+    "npc_dota_visage_familiar3": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 35.0
+    },
+    "ent_dota_halloffame": {},
+    "npc_dota_wisp_spirit": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_beastmaster_axe": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_troll_warlord_axe": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_creep_goodguys_melee_diretide": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_goodguys_ranged_diretide": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_melee_diretide": {
+        "PhysicalResist": 2.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_creep_badguys_ranged_diretide": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_siege_diretide": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_badguys_siege_diretide": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_halloween_chaos_unit": {
+        "PhysicalResist": 5.0,
+        "MagicResist": 33.0
+    },
+    "npc_dota_roquelaire": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_greevil": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_loot_greevil": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_black": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_blue": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_red": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_yellow": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_white": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_white": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_black": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_red": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_blue": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_yellow": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_green": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_orange": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_miniboss_purple": {
+        "PhysicalResist": 25.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_orange": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_purple": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_greevil_minion_green": {
+        "PhysicalResist": 15.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_phoenix_sun": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_target_dummy": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 25.0
+    },
+    "npc_dota_looping_sound": {},
+    "npc_dota_invisible_vision_source": {},
+    "npc_dota_techies_land_mine": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_techies_stasis_trap": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_techies_remote_mine": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_techies_minefield_sign": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_treant_eyes": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_phantomassassin_gravestone": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_goodguys_cny_beast": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 0.0
+    },
+    "npc_dota_badguys_cny_beast": {
+        "PhysicalResist": 4.0,
+        "MagicResist": 0.0
+    },
+    "dota_death_prophet_exorcism_spirit": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_dark_willow_creature": {
+        "PhysicalResist": 0.0
+    }
+}

@@ -24,9 +24,21 @@ from __future__ import print_function
 import math
 import six
 import collections
-from pydota2.gen_data.json_lookup import *
 from pydota2.lib.client_connector import getRttQueue
 import pydota2.lib.location as loc
+from pydota2.lib.gfile import *
+import json
+
+
+def load_json_file(fname):
+    fname = JoinPath('pydota2', 'gen_data', fname)
+    with open(fname, 'r') as infile:
+        return json.load(infile)
+
+        
+ability_data = None
+hero_data = None
+unit_data = None
 
 """
 THIS FILE IS NOT COMPLETE ALTHOUGH IT WILL COMPILE
@@ -41,6 +53,48 @@ class HeroSelectionData(object):
         assert data.game_state == 3
         
 
+class AbilityData(object):
+    """Maintain certain information about abilities."""
+    def __init__(self, id, data):
+        self.ability_id = id
+        self.data = data
+    
+    def get_name(self):
+        return ability_data[str(self.ability_id)]['Name']
+    
+    def get_level(self):
+        return self.data.level
+    
+    def is_hidden(self):
+        return 'Hidden' in ability_data[str(self.ability_id)].keys()
+        
+    def is_ultimate(self):
+        return 'Ultimate' in ability_data[str(self.ability_id)].keys()
+        
+    def get_ult_starting_level(self):
+        if 'LevelAvailable' in ability_data[str(self.ability_id)].keys():
+            return ability_data[str(self.ability_id)]['LevelAvailable']
+        else:
+            return 6
+    
+    def get_ult_level_interval(self):
+        if 'LevelsBetweenUpgrades' in ability_data[str(self.ability_id)].keys():
+            return ability_data[str(self.ability_id)]['LevelsBetweenUpgrades']
+        else:
+            return 6
+
+
+# NOTE: Items are "abilities" in all respects in Dota2
+class ItemData(object):
+    """Maintain certain information about items."""
+    def __init__(self, id, data):
+        self.item_id = id
+        self.data = data
+    
+    def get_name(self):
+        return ability_data[str(self.item_id)]['Name']
+
+        
 class PlayerData(object):
     """Maintain certain information about our players."""
     def __init__(self, pID, heroID):
@@ -48,10 +102,25 @@ class PlayerData(object):
         self.hero_id = heroID
         self.prtt = collections.deque(maxlen=10)
         self.avg_prtt = 0.3
+        self.abilities = []
+        self.items = []
     
     def save_last_update(self, udata, pdata):
         self.pdata = pdata
         self.udata = udata
+        self.update_abilities()
+        self.update_items()
+    
+    def get_name(self):
+        return hero_data[str(self.hero_id)]['Name']
+        
+    def get_talent_choice(self, tier):
+        if 'Talents' in hero_data[str(self.hero_id)].keys():
+            talents = hero_data[str(self.hero_id)]['Talents']
+            tier = (tier-1)*2+1
+            return talents['Talent_'+str(tier)], talents['Talent_'+str(tier+1)]
+        else:
+            return None, None
     
     def _update_prtt(self, prtt):
         self.prtt.append(prtt)
@@ -66,6 +135,13 @@ class PlayerData(object):
     def get_location_xyz(self):
         l = self.get_location()
         return l.x, l.y, l.z
+        
+    def get_turn_rate(self):
+        if 'TurnRate' in hero_data[str(self.hero_id)].keys():
+            return hero_data[str(self.hero_id)]['TurnRate']
+        else:
+            print('<ERROR>: Missing TurnRate for pID: %d' % self.hero_id)
+            return 0.5
     
     def time_to_face_heading(self, heading):
         # we want a facing differential between 180 and -180 degrees
@@ -74,7 +150,7 @@ class PlayerData(object):
         diff = math.fabs(heading - self.udata.facing)
         if diff > 180.0:
             diff = math.fabs(360.0 - diff)
-        time_to_turn_180 = 0.03*math.pi/getTurnRate(self.hero_id)
+        time_to_turn_180 = 0.03*math.pi/self.get_turn_rate()
         #print("[%d] Facing: %f, Heading: %f, Diff: %f, TurnTime180: %f, TimeToTurn: %f" % 
         #     (self.pid, self.udata.facing, heading, diff, time_to_turn_180, (diff/180.0)*time_to_turn_180))
         return (diff/180.0)*time_to_turn_180
@@ -101,15 +177,22 @@ class PlayerData(object):
                               l.y + 5.0*max_reachable_dist*math.sin(rad_angle),
                               l.z)
         return retLoc
-        
+    
+    def update_abilities(self):
+        self.abilities = []
+        for ab in self.udata.abilities:
+            self.abilities.append(AbilityData(ab.ability_id, ab))
+    
+    def update_items(self):
+        self.items = []
+        for item in self.udata.items:
+            self.items.append(ItemData(item.ability_id, item))
+    
     def get_abilities(self):
-        return self.udata.abilities
+        return self.abilities
         
     def get_level(self):
         return self.udata.level
-        
-    def get_name(self):
-        return self.udata.name
         
     def get_items(self):
         return self.udata.items
@@ -124,9 +207,14 @@ class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
 
     def __init__(self, data):
+        global ability_data, hero_data, unit_data
         """Takes data from Valve provided JSON-like text files."""
         # make sure we are in game
         assert data.game_state in [4,5]
+        
+        ability_data = load_json_file('abilities.json')
+        hero_data = load_json_file('heroes.json')
+        unit_data = load_json_file('units.json')
         
         self.team_id = data.team_id
         self.player_data = {}
@@ -222,7 +310,7 @@ class WorldData(object):
         if player:
             skilled_pts = 0
             for ability in player.get_abilities():
-                skilled_pts += ability.level
+                skilled_pts += ability.get_level()
             level = player.get_level()
             delta = level - skilled_pts - sum(1 for v in [17, 19, 21, 22, 23, 24] if level >= v)
             #if delta > 0:
@@ -244,24 +332,24 @@ class WorldData(object):
     def get_player_abilities(self, player_id):
         player = self.get_player_by_id(player_id)
         if player:
-            return player.get_player_abilities()
+            return player.get_abilities()
         return []
     
     # this returns only ability IDs of abilties that can be leveled
     def get_player_ability_ids(self, player_id, bCanBeLeveled=True):
         if self.get_available_level_points(player_id) == 0:
             return []
-        
-        abilities = self.get_player_abilities(player_id)
-        ids = []
-        
+
         player = self.get_player_by_id(player_id)
+        abilities = self.get_player_abilities(player_id)
+        
         p_level = player.get_level()
         
+        ids = []
         a_ids = []
         for ability in abilities:
             id = ability.ability_id
-            a_ids.append(id)
+            a_ids.append(ability.get_name())
             
             # generic_hidden
             if id == 6251:
@@ -271,23 +359,22 @@ class WorldData(object):
             if bCanBeLeveled:
             
                 # skip hidden abilities
-                if isAbilityHidden('abilities.json', str(id)):
+                if ability.is_hidden():
                     continue
 
                 
-                a_level = ability.level
+                a_level = ability.get_level()
                 
                 if a_level >= int(float(p_level/2.0)+0.5):
                     continue
-                
-                bUlt = isAbilityUltimate('abilities.json', str(id))
-                if bUlt:
+
+                if ability.is_ultimate():
                     # can't level ultimate past 3 levels
                     if a_level >= 3:
                         continue
                         
-                    start_level = getUltStartingLevel('abilities.json', str(id))
-                    level_interval = getUltLevelInterval('abilities.json', str(id))
+                    start_level = ability.get_ult_starting_level()
+                    level_interval = ability.get_ult_level_interval()
                     if p_level < start_level:
                         continue
                     if p_level < (start_level + (a_level * level_interval)):
@@ -296,14 +383,14 @@ class WorldData(object):
                     # can't level abilities past 4 levels (invoker exception)
                     if a_level >= 4:
                         continue
-            ids.append(getNameOfKey('abilities.json', str(id)))
-        
-        ability_names = [getNameOfKey('abilities.json', str(id)) for id in a_ids]
+            
+            # if we get here it can be leveled or we didn't care
+            ids.append(ability.get_name())
+
         t1_talent_picked = False
         if p_level >= 10:
-            tier = 1
-            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
-            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+            choice_1, choice_2 = player.get_talent_choice(1)
+            if (not choice_1 in a_ids) and (not choice_2 in a_ids):
                 ids.append(choice_1)
                 ids.append(choice_2)
             else:
@@ -311,9 +398,8 @@ class WorldData(object):
         
         t2_talent_picked = False
         if p_level >= 15 and t1_talent_picked:
-            tier = 2
-            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
-            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+            choice_1, choice_2 = player.get_talent_choice(2)
+            if (not choice_1 in a_ids) and (not choice_2 in a_ids):
                 ids.append(choice_1)
                 ids.append(choice_2)
             else:
@@ -321,19 +407,17 @@ class WorldData(object):
         
         t3_talent_picked = False
         if p_level >= 20 and t2_talent_picked:
-            tier = 3
-            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
-            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+            choice_1, choice_2 = player.get_talent_choice(3)
+            if (not choice_1 in a_ids) and (not choice_2 in a_ids):
                 ids.append(choice_1)
                 ids.append(choice_2)
             else:
                 t3_talent_picked = True
         
         t4_talent_picked = False
-        if p_level >= 25 and t1_talent_picked:
-            tier = 4
-            choice_1, choice_2 = getTalentChoice(str(player_id), tier)
-            if (not choice_1 in ability_names) and (not choice_2 in ability_names):
+        if p_level >= 25 and t3_talent_picked:
+            choice_1, choice_2 = player.get_talent_choice(4)
+            if (not choice_1 in a_ids) and (not choice_2 in a_ids):
                 ids.append(choice_1)
                 ids.append(choice_2)
             else:
