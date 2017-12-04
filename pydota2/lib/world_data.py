@@ -51,6 +51,7 @@ class HeroSelectionData(object):
         """Takes data from Valve provided JSON-like text files."""
         # make sure we are in hero selection
         assert data.game_state == 3
+        self.data = data
         
 
 class AbilityData(object):
@@ -281,7 +282,8 @@ class PlayerData(object):
         for mod in self.get_modifiers():
             ret += str(mod)
         return ret
-    
+
+
 class WorldData(object):
     """Expose world data in a more useful form than the raw protos."""
 
@@ -514,6 +516,9 @@ class WorldData(object):
         if player:
             return player.get_items()
         return []
+
+    def get_unit_location(self, unit):
+        return loc.Location.build(unit.location)
 
     def get_player_location(self, player_id):
         player = self.get_player_by_id(player_id)

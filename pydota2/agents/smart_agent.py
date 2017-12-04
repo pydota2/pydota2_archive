@@ -4,13 +4,13 @@ import math
 import json
 
 import numpy as np
-import pandas as pd
 
 from pydota2.env import environment
 
 from pydota2.agents import base_agent
 from pydota2.lib import actions
 from pydota2.lib import features
+from pydota.ml_algo import QLearning
 import pydota2.lib.location as loc
 
 _NOT_QUEUED = [0]
@@ -38,70 +38,12 @@ TIME_STEP_REWARD        = -1.0
 TIME_STEP_CLOSER_REWARD = -0.5
 ARRIVED_AT_LOC_REWARD   = 10.0
 
-# Based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
-class QLearningTable:
-    def __init__(self, actions, learning_rate=0.1, reward_decay=0.0, e_greedy=0.95):
-        self.actions = actions  # a list
-        self.lr = learning_rate
-        self.gamma = reward_decay
-        self.epsilon = e_greedy
-        self.q_table = pd.DataFrame(columns=self.actions)
-
-    def choose_action(self, observation):
-        self.check_state_exist(observation)
-        
-        if np.random.uniform() < self.epsilon:
-            # choose best action
-            state_action = self.q_table.ix[observation, :]
-            
-            # some actions have the same value
-            state_action = state_action.reindex(np.random.permutation(state_action.index))
-            
-            action = state_action.argmax()
-            #print("Best Action: ", str(action))
-        else:
-            # choose random action
-            action = np.random.choice(self.actions)
-            #print("Random Action: ", str(action))
-            
-        return action
-
-    def learn(self, s, a, r, s_):
-        self.check_state_exist(s_)
-        self.check_state_exist(s)
-        
-        q_predict = self.q_table.ix[s, a]
-        q_target = r + self.gamma * self.q_table.ix[s_, :].max()
-        
-        # update
-        self.q_table.ix[s, a] += self.lr * (q_target - q_predict)
-
-    def check_state_exist(self, state):
-        if state not in self.q_table.index:
-            # append new state to q table
-            self.q_table = self.q_table.append(pd.Series([0] * len(self.actions), index=self.q_table.columns, name=state))
-            
-    def load_table(self, infile):
-        with open(infile, 'r') as f:
-            json_data = json.load(f)
-            self.q_table = pd.io.json.json_normalize(json_data)
-    
-    def dump_table(self, outfile=None):
-        if outfile:
-            temp = sys.stdout
-            sys.stdout = open('log.txt', 'w')
-        
-        print(self.q_table.to_json(orient='table'))
-        
-        if outfile:
-            sys.stdout = temp
-
 
 class MoveAgent(base_agent.BaseAgent):
     def __init__(self):
         super(MoveAgent, self).__init__()
         
-        self.qlearn = QLearningTable(actions=list(range(len(smart_actions))))
+        self.qlearn = QLearning(actions=list(range(len(smart_actions))))
         
         self.dest_loc = loc.center
 
@@ -135,7 +77,6 @@ class MoveAgent(base_agent.BaseAgent):
                 self.previous_action[pid] = None
                 self.previous_state[pid] = None
         
-
             loc_delta = self.dest_loc - player_loc
             desired_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
             
@@ -158,8 +99,19 @@ class MoveAgent(base_agent.BaseAgent):
             else
                 raise Exception("Bad Desired Angle: %f" % desired_degree_facing)
 
-            current_state = np.zeros(1)
-            current_state[0] = desired_degree_facing
+            # discretize our location to a square cell (200 units wide and tall)
+            x_grid = int(player_loc.x / 200.0)
+            y_grid = int(player_loc.y / 200.0)
+
+            # estimated state space size: 156,800
+            current_state = np.zeros(3)
+            current_state[0] = x_grid                   # 140 x_grid values
+            current_state[1] = y_grid                   # 140 y_grid values
+            current_state[2] = desired_degree_facing    # 8 facing values
+
+            # with 156,800 states and 11 possible actions we estimate our full
+            # models contains 1,724,800 state-action nodes
+
 
             # if we previously took an action, evaluate its reward
             if self.previous_action[pid] is not None:
