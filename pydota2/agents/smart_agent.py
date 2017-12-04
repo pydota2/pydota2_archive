@@ -137,7 +137,26 @@ class MoveAgent(base_agent.BaseAgent):
         
 
             loc_delta = self.dest_loc - player_loc
-            desired_degree_facing = int(math.degrees(math.atan2(loc_delta.y, loc_delta.x)))
+            desired_degree_facing = math.degrees(math.atan2(loc_delta.y, loc_delta.x))
+            
+            if desired_degree_facing < 22.5 or desired_degree_facing >= (360.0 - 22.5):
+                desired_degree_facing = int(0)
+            elif desired_degree_facing < (45.0+22.5) or desired_degree_facing >= 22.5:
+                desired_degree_facing = int(45)
+            elif desired_degree_facing < (90.0+22.5) or desired_degree_facing >= (90.0-22.5):
+                desired_degree_facing = int(90)
+            elif desired_degree_facing < (135.0+22.5) or desired_degree_facing >= (135.0-22.5):
+                desired_degree_facing = int(135)
+            elif desired_degree_facing < (180.0+22.5) or desired_degree_facing >= (180.0-22.5):
+                desired_degree_facing = int(180)
+            elif desired_degree_facing < (225.0+22.5) or desired_degree_facing >= (225.0-22.5):
+                desired_degree_facing = int(225)
+            elif desired_degree_facing < (270.0+22.5) or desired_degree_facing >= (270.0-22.5):
+                desired_degree_facing = int(270)
+            elif desired_degree_facing < (315.0+22.5) or desired_degree_facing >= (315.0-22.5):
+                desired_degree_facing = int(315)
+            else
+                raise Exception("Bad Desired Angle: %f" % desired_degree_facing)
 
             current_state = np.zeros(1)
             current_state[0] = desired_degree_facing

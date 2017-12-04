@@ -65,6 +65,18 @@ class AbilityData(object):
     def get_level(self):
         return self.data.level
     
+    def get_cast_range(self):
+        return self.data.cast_range
+    
+    def get_cd_remaining(self):
+        return self.data.cooldown_remaining
+    
+    def get_channel_time(self):
+        return self.data.channel_time
+    
+    def is_channeling(self):
+        return self.data.is_channeling
+    
     def is_hidden(self):
         return 'Hidden' in ability_data[str(self.ability_id)].keys()
         
@@ -89,6 +101,7 @@ class AbilityData(object):
         ret += "\tLevel: %d\n" % (self.get_level())
         return ret
 
+        
 # NOTE: Items are "abilities" in all respects in Dota2
 class ItemData(object):
     """Maintain certain information about items."""
@@ -98,12 +111,22 @@ class ItemData(object):
     
     def get_name(self):
         return ability_data[str(self.item_id)]['Name']
-
+    
+    def get_charges(self):
+        return self.data.charges
+    
+    def get_secondary_charges(self):
+        return self.data.secondary_charges
+    
+    def get_power_treads_stat(self):
+        return self.data.power_treads_stat
+    
     def __str__(self):
         ret  = "<ItemData>\n"
         ret += "\tName: %s\n" % self.get_name()
         return ret
 
+        
 class ModifierData(object):
     """Maintain certain information about modifiers."""
     def __init__(self, data):
@@ -111,6 +134,9 @@ class ModifierData(object):
     
     def get_name(self):
         return self.data.name
+    
+    def get_ability_id(self):
+        return self.data.ability_id
     
     def get_stack_count(self):
         return self.data.stack_count
@@ -122,6 +148,7 @@ class ModifierData(object):
         ret  = "<ModifierData>\n"
         ret += "\tName: %s\n" % self.get_name()
         return ret
+
         
 class PlayerData(object):
     """Maintain certain information about our players."""
