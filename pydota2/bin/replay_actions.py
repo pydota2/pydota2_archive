@@ -33,6 +33,7 @@ import time
 import platform
 import glob
 import json
+import math
 
 from future.builtins import range    # pylint: disable=redefined-builtin
 import six
@@ -49,7 +50,6 @@ FLAGS = flags.FLAGS
 flags.DEFINE_integer("parallel", 1, "How many instances to run in parallel.")
 flags.DEFINE_integer("step_mul", 1, "How many game steps per observation.")
 flags.DEFINE_string("replays", replay_dir, "Path to a directory of replays.")
-flags.mark_flag_as_required("replays")
 
 import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
 
@@ -188,13 +188,15 @@ class ReplayProcessor(multiprocessing.Process):
                             self.process_replay(replay_path, replay_info['team_id'])
                     finally:
                         self.replay_queue.task_done()
+
                 self._update_stage("shutdown")
             except KeyboardInterrupt:
                 return
-            except:
-                print("[Run Replay] Unexpected error:", sys.exc_info()[0])
-                self.stats.replay_stats.crashing_replays.add(replay_name)
-                raise
+
+            #except:
+            #    print("[Run Replay] Unexpected error:", sys.exc_info()[0])
+            #    self.stats.replay_stats.crashing_replays.add(replay_name)
+            #    raise
 
     def _ingest_frame(self, frame_name):
         """Load a specific frame into an object."""
@@ -304,19 +306,23 @@ class ReplayProcessor(multiprocessing.Process):
                 #print('Game State: %d -- Step %d' % (data.game_state, step))
                 if data.game_state in [4,5]:
                     
-                    if step == 400:
-                        print(data)
-                        break
+                    #if step == 400:
+                    #    print(data)
+                    #    break
                     
                     if not ws:
                         ws = world_data.WorldData(data)
                     else:
                         ws.update_world_data(data)
                     
-                    #pids = ws.get_player_ids()
-                    #for pid in pids:
-                    #    player = ws.get_player_by_id(pid)
-                    #    print(player)
+                    pids = ws.get_player_ids()
+                    for pid in pids:
+                        player = ws.get_player_by_id(pid)
+                        activity = player.get_anim_activity()
+                        mv_delta = player.get_movement_vector()
+                        mv_dist = mv_delta.len()
+                        if math.fabs(mv_delta.x) >= 10.0 or math.fabs(mv_delta.y) >= 10.0:
+                            print("[%f] %s {%d} moved %.2f units @ %.2f <%.2f> degrees <%.2f, %.2f>" % (data.dota_time, player.get_name(), activity, mv_dist, player.udata.facing, mv_delta.heading(), mv_delta.x, mv_delta.y))
 
     def _print(self, s):
         for line in str(s).strip().splitlines():
@@ -368,7 +374,7 @@ def main(unused_argv):
     stats_thread.start()
 
     # TODO - get rid of the [1:] at end, currently testing looking only at RADIANT replay
-    FLAGS.replays = get_available_replays(replay_dir)[1:]
+    FLAGS.replays = get_available_replays(replay_dir)
     #print(FLAGS.replays)
 
     try:

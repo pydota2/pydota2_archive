@@ -59,6 +59,10 @@ class Location(collections.namedtuple("Location", ["x", "y", "z"])):
     dy = self.y - other.y
     return dx**2 + dy**2
 
+  def heading(self):
+    """Heading in degrees from one point to another."""
+    return math.degrees(math.atan2(self.y, self.x))
+
   def round(self):
     """Round `x` and `y` to integers."""
     return Location(int(round(self.x)), int(round(self.y)), int(round(self.z)))

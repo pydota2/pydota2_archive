@@ -161,8 +161,16 @@ class PlayerData(object):
         self.abilities = []
         self.items = []
         self.modifiers = []
+
+        self.prev_pdata = None
+        self.prev_udata = None
+        self.pdata = None
+        self.udata = None
     
     def save_last_update(self, udata, pdata):
+        self.prev_pdata = self.pdata
+        self.prev_udata = self.udata
+
         self.pdata = pdata
         self.udata = udata
         self.update_abilities()
@@ -186,9 +194,17 @@ class PlayerData(object):
     
     def is_alive(self):
         return self.pdata.is_alive
+
+    def get_anim_activity(self):
+        return self.udata.anim_activity
     
     def get_location(self):
         return loc.Location.build(self.udata.location)
+
+    def get_movement_vector(self):
+        if self.prev_udata:
+            return self.get_location() - loc.Location.build(self.prev_udata.location)
+        return self.get_location()
 
     def get_location_xyz(self):
         l = self.get_location()
