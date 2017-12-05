@@ -38,8 +38,8 @@ def main(unused_argv):
     threads = []
     try:
         # Create our threads
-        t1 = createRadiantThread(save_to_proto=True)
-        t2 = createDireThread(save_to_proto=True)
+        t1 = createRadiantThread(save_proto=True)
+        t2 = createDireThread(save_proto=True)
 
         # Start our threads
         t1.start()

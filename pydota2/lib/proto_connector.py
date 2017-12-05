@@ -48,7 +48,7 @@ sDate = "{:%Y_%m_%d_%H%M_}".format(datetime.now())
 threadLock = threading.Lock()
 
 class ProtoThread(threading.Thread):
-    def __init__(self, threadID, name, save_proto=True):
+    def __init__(self, threadID, name, save_proto=True, process_proto=True):
         threading.Thread.__init__(self)
         self.threadID = threadID
         self.name = name  # should be either 'Radiant' or 'Dire'
@@ -58,6 +58,7 @@ class ProtoThread(threading.Thread):
             self.port = DIRE_PORT
         self.num_proto = 0
         self.save_proto = save_proto
+        self.process_proto = process_proto
         self.bDone = False
         self.proto_queue = Queue(maxsize=1)
 
@@ -66,14 +67,14 @@ class ProtoThread(threading.Thread):
         data_frame.ParseFromString(data)
         # Get lock to synchronize threads
         #threadLock.acquire()
-        self.proto_queue.put(data_frame)
+        self.proto_queue.put(data_frame, timeout=0.5)
         # Free lock to release for next thread
         #threadLock.release()
 
     def get_from_proto_queue(self):
         # Get lock to synchronize threads
         #threadLock.acquire()
-        return self.proto_queue.get()
+        return self.proto_queue.get(timeout=0.5)
         # Free lock to release for next thread
         #threadLock.release()
         
@@ -110,14 +111,15 @@ class ProtoThread(threading.Thread):
                         print("%s proto stream not found! Exiting!" % self.name)
                         break
 
-                    if binSize:
+                    else:
                         protoSize = unpack("@I", binSize)
                         print("%s protoSize: %d" % (self.name, protoSize[0]))
                         binData = s.recv(protoSize[0])
 
                         if self.save_proto:
                             self.save_proto_to_file(binData)
-                        self.add_to_proto_queue(binData)
+                        if self.process_proto:
+                            self.add_to_proto_queue(binData)
 
                         self.num_proto += 1
                         print("Process %d protos" % self.num_proto)
@@ -127,9 +129,9 @@ class ProtoThread(threading.Thread):
                 s.close()
 
 
-def createRadiantThread(save_to_proto=False, callback=None):
-    return ProtoThread(1, 'Radiant', save_to_proto, callback)
+def createRadiantThread(save_proto=False):
+    return ProtoThread(1, 'Radiant', save_proto, process_proto=False)
 
 
-def createDireThread(save_to_proto=False, callback=None):
-    return ProtoThread(2, 'Dire', save_to_proto, callback)
+def createDireThread(save_proto=False):
+    return ProtoThread(2, 'Dire', save_proto, process_proto=False)

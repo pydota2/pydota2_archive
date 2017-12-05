@@ -10,7 +10,7 @@ from pydota2.env import environment
 from pydota2.agents import base_agent
 from pydota2.lib import actions
 from pydota2.lib import features
-from pydota.ml_algo import QLearning
+from pydota2.ml_algo.q_learn import QLearning
 import pydota2.lib.location as loc
 
 _NOT_QUEUED = [0]
@@ -96,7 +96,7 @@ class MoveAgent(base_agent.BaseAgent):
                 desired_degree_facing = int(270)
             elif desired_degree_facing < (315.0+22.5) or desired_degree_facing >= (315.0-22.5):
                 desired_degree_facing = int(315)
-            else
+            else:
                 raise Exception("Bad Desired Angle: %f" % desired_degree_facing)
 
             # discretize our location to a square cell (200 units wide and tall)
