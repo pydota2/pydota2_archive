@@ -2,3 +2,4 @@
 *.*.swp
 .idea/
 .DS_Store
+replays/*/
