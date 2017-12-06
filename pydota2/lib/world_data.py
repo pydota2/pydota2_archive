@@ -150,6 +150,20 @@ class ModifierData(object):
         ret += "\tName: %s\n" % self.get_name()
         return ret
 
+
+class UnitData(object):
+    """Maintain certain information about units."""
+    def __init__(self, handle, data):
+        self.handle = handle
+        self.data = data
+
+    def get_name(self):
+        return self.data.name
+
+    def __str__(self):
+        ret  = "<UnitData>\n"
+        ret += "\tName: %s\n" % self.get_name()
+        return ret
         
 class PlayerData(object):
     """Maintain certain information about our players."""
@@ -196,10 +210,10 @@ class PlayerData(object):
         return self.pdata.is_alive
 
     def get_anim_activity(self):
-        return self.udata.anim_activity
+        return self.udata.data.anim_activity
     
     def get_location(self):
-        return loc.Location.build(self.udata.location)
+        return loc.Location.build(self.udata.data.location)
 
     def get_movement_vector(self):
         if self.prev_udata:
@@ -221,12 +235,12 @@ class PlayerData(object):
         # we want a facing differential between 180 and -180 degrees
         # since we will always turn in the direction of smaller angle,
         # never more than a 180 degree turn
-        diff = math.fabs(heading - self.udata.facing)
+        diff = math.fabs(heading - self.udata.data.facing)
         if diff > 180.0:
             diff = math.fabs(360.0 - diff)
         time_to_turn_180 = 0.03*math.pi/self.get_turn_rate()
         #print("[%d] Facing: %f, Heading: %f, Diff: %f, TurnTime180: %f, TimeToTurn: %f" % 
-        #     (self.pid, self.udata.facing, heading, diff, time_to_turn_180, (diff/180.0)*time_to_turn_180))
+        #     (self.pid, self.udata.data.facing, heading, diff, time_to_turn_180, (diff/180.0)*time_to_turn_180))
         return (diff/180.0)*time_to_turn_180
 
     def time_to_face_location(self, location):
@@ -235,7 +249,7 @@ class PlayerData(object):
         return self.time_to_face_heading(desired_heading)
         
     def get_reachable_distance(self, time_adj=0.0):
-        currSpd = self.udata.current_movement_speed
+        currSpd = self.udata.data.current_movement_speed
         timeAvail = self.avg_prtt - time_adj
         dist = timeAvail * currSpd
         #print("[%d] Speed: %f, TimeAvail: %f, Reachable Distance: %f" % 
@@ -254,27 +268,27 @@ class PlayerData(object):
     
     def update_abilities(self):
         self.abilities = []
-        for ab in self.udata.abilities:
+        for ab in self.udata.data.abilities:
             self.abilities.append(AbilityData(ab.ability_id, ab))
     
     def update_items(self):
         self.items = []
-        for item in self.udata.items:
+        for item in self.udata.data.items:
             self.items.append(ItemData(item.ability_id, item))
     
     def update_modifiers(self):
         self.modifiers = []
-        for mod in self.udata.modifiers:
+        for mod in self.udata.data.modifiers:
             self.modifiers.append(ModifierData(mod))
     
     def get_abilities(self):
         return self.abilities
     
     def get_ability_points(self):
-        return self.udata.ability_points
+        return self.udata.data.ability_points
     
     def get_level(self):
-        return self.udata.level
+        return self.udata.data.level
         
     def get_items(self):
         return self.items
@@ -283,10 +297,10 @@ class PlayerData(object):
         return self.modifiers
     
     def get_is_stunned(self):
-        return self.udata.is_stunned
+        return self.udata.data.is_stunned
         
     def get_is_rooted(self):
-        return self.udata.is_rooted
+        return self.udata.data.is_rooted
 
     def __str__(self):
         ret  = "<PlayerData>\n"
@@ -325,6 +339,14 @@ class WorldData(object):
                 self.good_players[player_id]['player'].hero_id)
             self.player_data[player_id].save_last_update(self.good_players[player_id]['unit'], 
                                                          self.good_players[player_id]['player'])
+        
+        # initialization of various unit-handle lookup lists
+
+        self.good_ancient = None
+        self.bad_ancient = None
+
+        self.good_courier = None
+        self.bad_courier = None
     
     def update_prtt(self):
         data, lock = getRttQueue()
@@ -359,31 +381,47 @@ class WorldData(object):
         self.good_players = {}  # on my team
         self.bad_players = {}   # on enemy team
         
+        self.units = {}
+
         self.good_hero_units = []
         self.bad_hero_units = []
         
-        self.good_courier = None
-        self.bad_courier = None
+        self.good_shrines = []
+        self.bad_shrines = []
         
         bInvalidFound = False
         for unit in unit_data:
+            self.units[unit.handle] = UnitData(unit.handle, unit)
+
             if unit.unit_type == 1:  # HERO
                 if unit.team_id == self.team_id:
-                    self.good_players[unit.player_id] = {'unit': unit}
+                    self.good_players[unit.player_id] = {'unit': self.units[unit.handle]}
                 else:
-                    self.bad_players[unit.player_id] = {'unit': unit}
+                    self.bad_players[unit.player_id] = {'unit': self.units[unit.handle]}
 
             elif unit.unit_type == 2:  # CREEP HERO
                 if unit.team_id == self.team_id:
-                    self.good_hero_units.append(unit)
+                    self.good_hero_units.append(unit.handle)
                 else:
-                    self.bad_hero_units.append(unit)
+                    self.bad_hero_units.append(unit.handle)
+                    
+            elif unit.unit_type == 8:  # SHRINES
+                if unit.team_id == self.team_id:
+                    self.good_shrines.append(self.units[unit.handle])
+                else:
+                    self.bad_shrines.append(self.units[unit.handle])
+
+            elif unit.unit_type == 9:  # ANCIENT
+                if unit.team_id == self.team_id:
+                    self.good_ancient = self.units[unit.handle]
+                else:
+                    self.bad_ancient = self.units[unit.handle]
             
             elif unit.unit_type == 11:  # COURIER
                 if unit.team_id == self.team_id:
-                    self.good_courier = unit
+                    self.good_courier = self.units[unit.handle]
                 else:
-                    self.bad_courier = unit
+                    self.bad_courier = self.units[unit.handle]
             
             elif unit.unit_type == 0:  # INVALID
                 #print("INVALID UNIT TYPE:\n%s" % str(unit))

@@ -10753,7 +10753,7 @@
             90.0
         ]
     },
-    "5652\t// unique ID number for this ability.": {
+    "5652": {
         "Name": "winter_wyvern_splinter_blast",
         "AOE": 1,
         "TargetMask": 2,

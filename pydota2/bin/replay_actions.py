@@ -53,6 +53,14 @@ flags.DEFINE_string("replays", replay_dir, "Path to a directory of replays.")
 
 import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
 
+from pydota2.lib.gfile import *
+def load_json_file(fname):
+    fname = JoinPath('pydota2', 'gen_data', fname)
+    with open(fname, 'r') as infile:
+        return json.load(infile)
+
+ability_data = load_json_file('abilities.json')
+
 def get_available_replays(path):
     d = os.path.join('.', path)
     return [os.path.join(d, o) for o in os.listdir(d) if os.path.isdir(os.path.join(d,o))]
@@ -295,6 +303,13 @@ class ReplayProcessor(multiprocessing.Process):
         max_frames = int(os.path.basename(files[-1])[:-4])+1
 
         ws = None
+
+        anim_activities = {}
+        ab_activities = {}
+        tree_activities = {}
+        roshan_kills = []
+        courier_kills = []
+
         for fname in files:
             self.stats.replay_stats.steps += 1
             step = int(os.path.basename(fname)[:-4])+1
@@ -319,10 +334,81 @@ class ReplayProcessor(multiprocessing.Process):
                     for pid in pids:
                         player = ws.get_player_by_id(pid)
                         activity = player.get_anim_activity()
-                        mv_delta = player.get_movement_vector()
-                        mv_dist = mv_delta.len()
-                        if math.fabs(mv_delta.x) >= 10.0 or math.fabs(mv_delta.y) >= 10.0:
-                            print("[%f] %s {%d} moved %.2f units @ %.2f <%.2f> degrees <%.2f, %.2f>" % (data.dota_time, player.get_name(), activity, mv_dist, player.udata.facing, mv_delta.heading(), mv_delta.x, mv_delta.y))
+                        #mv_delta = player.get_movement_vector()
+                        #mv_dist = mv_delta.len()
+                        #if math.fabs(mv_delta.x) >= 10.0 or math.fabs(mv_delta.y) >= 10.0:
+                        #    print("[%f] %s {%d} moved %.2f units @ %.2f <%.2f> degrees <%.2f, %.2f>" % (data.dota_time, player.get_name(), activity, mv_dist, player.udata.facing, mv_delta.heading(), mv_delta.x, mv_delta.y))
+
+                        if not activity in anim_activities.keys():
+                            anim_activities[activity] = 1
+                        else:
+                            anim_activities[activity] += 1
+
+                    for ab_event in data.ability_events:
+                        if not ab_event.ability_id in ab_activities.keys():
+                            ab_activities[ab_event.ability_id] = [(data.dota_time, ab_event.player_id, ab_event.unit_handle, ab_event.location, ab_event.is_channel_start)]
+                        else:
+                            ab_activities[ab_event.ability_id].append((data.dota_time, ab_event.player_id, ab_event.unit_handle, ab_event.location, ab_event.is_channel_start))
+
+                    for tree_event in data.tree_events:
+                        if not tree_event.tree_id in tree_activities.keys():
+                            tree_activities[tree_event.tree_id] = [(tree_event.location, tree_event.destroyed, tree_event.respawned, tree_event.delayed)]
+                        else:
+                            tree_activities[tree_event.tree_id].append((data.dota_time, tree_event.location, tree_event.destroyed, tree_event.respawned, tree_event.delayed))
+
+                    for rk in data.roshan_killed_events:
+                        roshan_kills.append((data.dota_time, rk))
+
+                    for ck in data.courier_killed_events:
+                        courier_kills.append((data.dota_time, ck))
+
+                    if len(ws.good_hero_units) > 0:
+                        print("Allied Hero Units:")
+                    for uh in ws.good_hero_units:
+                        print(uh)
+
+                    if len(ws.bad_hero_units) > 0:
+                        print("Enemy Hero Units:")
+                    for uh in ws.bad_hero_units:
+                        print(uh)
+
+
+        anim_count = 0
+        for k in anim_activities.keys():
+            anim_count += anim_activities[k]
+
+        print('Animation Activities')
+        for k in sorted(anim_activities.keys()):
+            print("[%4d] Count: %5d, Perct: %5.2f%%" % (k, anim_activities[k], 100.0*float(anim_activities[k])/float(anim_count)))
+
+        ab_count = 0
+        for k in ab_activities.keys():
+            ab_count += len(ab_activities[k])
+
+        print('Item/Ability Use Acitivites')
+        for k in sorted(ab_activities.keys()):
+            if k < 5000:
+                print("[%4d] Count: %5d, Perct: %5.2f%%" % (k, len(ab_activities[k]), 100.0*float(len(ab_activities[k]))/float(ab_count)))
+            else:
+                a_name = "<UNKNOWN>"
+                try:
+                    a_name = ability_data[str(k)]['Name']
+                except:
+                    pass
+
+                print("[%4d] Count: %5d, Perct: %5.2f%% -- %s" % (k, len(ab_activities[k]), 100.0*float(len(ab_activities[k]))/float(ab_count), a_name))
+
+        print('\n%d Tree Events' % (len(tree_activities.keys())))
+
+        print('\n%d Courier Kills' % (len(courier_kills)))
+        for ck in courier_kills:
+            print(ck)
+            print(str(ws.units[ck[1].killer_unit_handle]))
+
+        print('\n%d Roshan Kills' % (len(roshan_kills)))
+        for rk in roshan_kills:
+            print(rk)
+            print(str(ws.units[rk[1].killer_unit_handle]))
 
     def _print(self, s):
         for line in str(s).strip().splitlines():
