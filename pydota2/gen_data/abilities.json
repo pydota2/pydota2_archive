@@ -9080,7 +9080,7 @@
             0.0
         ]
     },
-    "6344\t// unique ID number for this ability.": {
+    "6344": {
         "Name": "pangolier_swashbuckle",
         "TargetMask": 1,
         "DamageType": 1,
@@ -9120,12 +9120,12 @@
             120.0
         ]
     },
-    "6346\t// unique ID number for this ability.": {
+    "6346": {
         "Name": "pangolier_heartpiercer",
         "Passive": 1,
         "TargetMask": 0
     },
-    "6343\t// unique ID number for this ability.": {
+    "6343": {
         "Name": "pangolier_gyroshell",
         "TargetMask": 4,
         "DamageType": 2,
@@ -10635,7 +10635,7 @@
             300.0
         ]
     },
-    "5635// unique ID number for this ability.": {
+    "5635": {
         "Name": "techies_focused_detonate",
         "AOE": 1,
         "TargetMask": 1,
@@ -10646,7 +10646,7 @@
             1.0
         ]
     },
-    "5636// unique ID number for this ability.": {
+    "5636": {
         "Name": "techies_remote_mines_self_detonate",
         "TargetMask": 4,
         "DamageType": 2

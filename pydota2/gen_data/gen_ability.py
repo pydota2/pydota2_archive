@@ -183,8 +183,8 @@ def processAbilities():
             comment = line[:2] == '//'
             if not comment:
                 if line[:4] == '"ID"':
-                    res = re.split(r'\s{2,}', line)
-                    res[1] = res[1].replace('"','')
+                    res = re.split(r'\s{1,}', line)
+                    res[1] = res[1].replace('"','').replace('//', '')
                     abilityID = res[1]
                     abilities[res[1]] = {}
                     if currName != None:
