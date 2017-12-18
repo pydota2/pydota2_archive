@@ -350,6 +350,21 @@ class ReplayProcessor(multiprocessing.Process):
                         else:
                             ab_activities[ab_event.ability_id].append((data.dota_time, ab_event.player_id, ab_event.unit_handle, ab_event.location, ab_event.is_channel_start))
 
+                        """
+                        try:
+                            p_name = ws.get_player_by_id(ab_event.player_id).get_name()
+                        except:
+                            p_name = str(ab_event.player_id)
+                            pass
+                        try:
+                            u_name = ws.get_unit_by_handle(data.units, ab_event.unit_handle).name
+                        except:
+                            u_name = str(ab_event.unit_handle)
+                            pass
+
+                        print("[%d] used by %s against %s" % (ab_event.ability_id, p_name, u_name))
+                        """
+
                     for tree_event in data.tree_events:
                         if not tree_event.tree_id in tree_activities.keys():
                             tree_activities[tree_event.tree_id] = [(tree_event.location, tree_event.destroyed, tree_event.respawned, tree_event.delayed)]
@@ -397,6 +412,7 @@ class ReplayProcessor(multiprocessing.Process):
                     pass
 
                 print("[%4d] Count: %5d, Perct: %5.2f%% -- %s" % (k, len(ab_activities[k]), 100.0*float(len(ab_activities[k]))/float(ab_count), a_name))
+
 
         print('\n%d Tree Events' % (len(tree_activities.keys())))
 

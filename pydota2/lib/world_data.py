@@ -160,6 +160,24 @@ class UnitData(object):
     def get_name(self):
         return self.data.name
 
+    def get_location(self):
+        return loc.Location.build(self.data.location)
+
+    def get_facing(self):
+        return self.data.facing
+
+    def get_anim_activity(self):
+        return self.data.anim_activity
+
+    def get_curr_move_speed(self):
+        return self.data.current_movement_speed
+    
+    def is_stunned(self):
+        return self.data.is_stunned
+
+    def is_rooted(self):
+        return self.data.is_rooted
+
     def __str__(self):
         ret  = "<UnitData>\n"
         ret += "\tName: %s\n" % self.get_name()
@@ -210,15 +228,15 @@ class PlayerData(object):
         return self.pdata.is_alive
 
     def get_anim_activity(self):
-        return self.udata.data.anim_activity
+        return self.udata.get_anim_activity()
 
     def get_location(self):
-        return loc.Location.build(self.udata.data.location)
+        return self.udata.get_location()
 
     def get_movement_vector(self):
         if self.prev_udata:
             return self.get_location() - loc.Location.build(self.prev_udata.location)
-        return self.get_location()
+        return loc.center
 
     def get_location_xyz(self):
         l = self.get_location()
@@ -235,7 +253,7 @@ class PlayerData(object):
         # we want a facing differential between 180 and -180 degrees
         # since we will always turn in the direction of smaller angle,
         # never more than a 180 degree turn
-        diff = math.fabs(heading - self.udata.data.facing)
+        diff = math.fabs(heading - self.udata.get_facing())
         if diff > 180.0:
             diff = math.fabs(360.0 - diff)
         time_to_turn_180 = 0.03*math.pi/self.get_turn_rate()
@@ -249,7 +267,7 @@ class PlayerData(object):
         return self.time_to_face_heading(desired_heading)
 
     def get_reachable_distance(self, time_adj=0.0):
-        currSpd = self.udata.data.current_movement_speed
+        currSpd = self.udata.get_curr_move_speed()
         timeAvail = self.avg_prtt - time_adj
         dist = timeAvail * currSpd
         #print("[%d] Speed: %f, TimeAvail: %f, Reachable Distance: %f" %
@@ -297,10 +315,10 @@ class PlayerData(object):
         return self.modifiers
 
     def get_is_stunned(self):
-        return self.udata.data.is_stunned
+        return self.udata.is_stunned()
 
     def get_is_rooted(self):
-        return self.udata.data.is_rooted
+        return self.udata.is_rooted()
 
     def __str__(self):
         ret  = "<PlayerData>\n"
