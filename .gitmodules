@@ -1,0 +1,3 @@
+[submodule "pydota2/simulator"]
+	path = pydota2/simulator
+	url = https://github.com/pydota2/SimDota2.git
