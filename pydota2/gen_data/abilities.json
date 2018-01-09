@@ -1220,9 +1220,6 @@
             11.0
         ],
         "Manacost": [
-            110.0,
-            120.0,
-            130.0,
             140.0
         ]
     },
@@ -1372,10 +1369,10 @@
             0.3
         ],
         "Cooldown": [
-            32.0,
+            40.0,
+            35.0,
             30.0,
-            28.0,
-            26.0
+            25.0
         ],
         "Manacost": [
             50.0
@@ -2583,9 +2580,9 @@
             0.4
         ],
         "Cooldown": [
-            14.0,
-            14.0,
-            14.0,
+            20.0,
+            18.0,
+            16.0,
             14.0
         ],
         "Manacost": [
@@ -4285,6 +4282,8 @@
         "TargetMask": 4,
         "Ultimate": 1,
         "Cooldown": [
+            180.0,
+            170.0,
             160.0
         ],
         "Castpoint": [
@@ -6162,9 +6161,9 @@
             0.2
         ],
         "Cooldown": [
-            8.0,
+            11.0,
+            9.0,
             7.0,
-            6.0,
             5.0
         ],
         "Manacost": [
@@ -14320,6 +14319,11 @@
     },
     "7002": {
         "Name": "special_bonus_unique_shadow_demon_5",
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7061": {
+        "Name": "special_bonus_unique_shadow_demon_6",
         "Passive": 1,
         "TargetMask": 0
     },

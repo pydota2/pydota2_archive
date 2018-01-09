@@ -82,6 +82,14 @@ def processHeroes():
     heroID = None
     lineCount = 0
     heroes = {}
+    
+    heroValues = [
+        "MovementTurnRate",
+        "MovementSpeed",
+        "AttackRange",
+        "ProjectileSpeed",
+        "AttackRate",
+    ]
 
     for line in content:
         lineCount += 1
@@ -129,13 +137,13 @@ def processHeroes():
                         print("Error: HeroID missing!")
                         break
                 
-                if line[:18] == '"MovementTurnRate"':
-                    if heroID != None:
+                for value in heroValues:
+                    if heroID != None and line[:len(value)+2] == ('"'+value+'"'):
                         res = re.split(r'\s{2,}', line)
-                        heroes[heroID]['TurnRate'] = float(res[1].replace('"', ''))
-                    else:
-                        print("Error: HeroID missing!")
-                        break
+                        if res[1].find('.') >= 0:
+                            heroes[heroID][value] = float(res[1].replace('"', ''))
+                        else:
+                            heroes[heroID][value] = int(res[1].replace('"', ''))
                     
     print('Processed %d heroes' % (heroCount))
     writeData(heroes, 'heroes.json')

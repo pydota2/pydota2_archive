@@ -11,7 +11,11 @@
             "Talent_7": "special_bonus_unique_antimage_4",
             "Talent_8": "special_bonus_unique_antimage_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.45,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.5
     },
     "2": {
         "Name": "npc_dota_hero_axe",
@@ -25,7 +29,10 @@
             "Talent_7": "special_bonus_unique_axe_2",
             "Talent_8": "special_bonus_unique_axe"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "3": {
         "Name": "npc_dota_hero_bane",
@@ -39,7 +46,11 @@
             "Talent_7": "special_bonus_unique_bane_2",
             "Talent_8": "special_bonus_unique_bane_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 400,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.6
     },
     "4": {
         "Name": "npc_dota_hero_bloodseeker",
@@ -53,7 +64,10 @@
             "Talent_7": "special_bonus_unique_bloodseeker",
             "Talent_8": "special_bonus_unique_bloodseeker_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "5": {
         "Name": "npc_dota_hero_crystal_maiden",
@@ -67,7 +81,11 @@
             "Talent_7": "special_bonus_unique_crystal_maiden_1",
             "Talent_8": "special_bonus_unique_crystal_maiden_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 275,
+        "MovementTurnRate": 0.5
     },
     "6": {
         "Name": "npc_dota_hero_drow_ranger",
@@ -81,7 +99,11 @@
             "Talent_7": "special_bonus_unique_drow_ranger_1",
             "Talent_8": "special_bonus_cooldown_reduction_50"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 625,
+        "ProjectileSpeed": 1250,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.7
     },
     "7": {
         "Name": "npc_dota_hero_earthshaker",
@@ -95,7 +117,11 @@
             "Talent_7": "special_bonus_magic_resistance_50",
             "Talent_8": "special_bonus_unique_earthshaker"
         },
-        "TurnRate": 0.9
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.9
     },
     "8": {
         "Name": "npc_dota_hero_juggernaut",
@@ -109,7 +135,11 @@
             "Talent_7": "special_bonus_hp_600",
             "Talent_8": "special_bonus_unique_juggernaut_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.4,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "9": {
         "Name": "npc_dota_hero_mirana",
@@ -123,7 +153,11 @@
             "Talent_7": "special_bonus_unique_mirana_2",
             "Talent_8": "special_bonus_unique_mirana_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 630,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "11": {
         "Name": "npc_dota_hero_nevermore",
@@ -137,21 +171,29 @@
             "Talent_7": "special_bonus_unique_nevermore_1",
             "Talent_8": "special_bonus_cooldown_reduction_40"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 1.0
     },
     "10": {
         "Name": "npc_dota_hero_morphling",
         "Talents": {
             "Talent_1": "special_bonus_agility_10",
             "Talent_2": "special_bonus_unique_morphling_1",
-            "Talent_3": "special_bonus_unique_morphling_4",
+            "Talent_3": "special_bonus_unique_morphling_8",
             "Talent_4": "special_bonus_attack_speed_30",
             "Talent_5": "special_bonus_unique_morphling_5",
-            "Talent_6": "special_bonus_unique_morphling_8",
+            "Talent_6": "special_bonus_unique_morphling_4",
             "Talent_7": "special_bonus_unique_morphling_6",
             "Talent_8": "special_bonus_unique_morphling_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.5,
+        "AttackRange": 350,
+        "ProjectileSpeed": 1300,
+        "MovementSpeed": 280,
+        "MovementTurnRate": 0.6
     },
     "12": {
         "Name": "npc_dota_hero_phantom_lancer",
@@ -165,7 +207,10 @@
             "Talent_7": "special_bonus_unique_phantom_lancer_4",
             "Talent_8": "special_bonus_30_crit_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.6
     },
     "13": {
         "Name": "npc_dota_hero_puck",
@@ -179,7 +224,11 @@
             "Talent_7": "special_bonus_gold_income_70",
             "Talent_8": "special_bonus_unique_puck_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "14": {
         "Name": "npc_dota_hero_pudge",
@@ -193,7 +242,11 @@
             "Talent_7": "special_bonus_unique_pudge_3",
             "Talent_8": "special_bonus_unique_pudge_1"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 280,
+        "MovementTurnRate": 0.7
     },
     "15": {
         "Name": "npc_dota_hero_razor",
@@ -207,7 +260,11 @@
             "Talent_7": "special_bonus_attack_speed_100",
             "Talent_8": "special_bonus_unique_razor_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 475,
+        "ProjectileSpeed": 2000,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "16": {
         "Name": "npc_dota_hero_sand_king",
@@ -221,13 +278,16 @@
             "Talent_7": "special_bonus_hp_regen_35",
             "Talent_8": "special_bonus_unique_sand_king_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "17": {
         "Name": "npc_dota_hero_storm_spirit",
         "Talents": {
             "Talent_1": "special_bonus_attack_damage_20",
-            "Talent_2": "special_bonus_mp_regen_2",
+            "Talent_2": "special_bonus_mp_regen_175",
             "Talent_3": "special_bonus_unique_storm_spirit_5",
             "Talent_4": "special_bonus_hp_300",
             "Talent_5": "special_bonus_unique_storm_spirit",
@@ -235,7 +295,11 @@
             "Talent_7": "special_bonus_unique_storm_spirit_3",
             "Talent_8": "special_bonus_unique_storm_spirit_4"
         },
-        "TurnRate": 0.8
+        "AttackRate": 1.7,
+        "AttackRange": 480,
+        "ProjectileSpeed": 1100,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.8
     },
     "18": {
         "Name": "npc_dota_hero_sven",
@@ -249,7 +313,11 @@
             "Talent_7": "special_bonus_unique_sven_2",
             "Talent_8": "special_bonus_unique_sven"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.8,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "19": {
         "Name": "npc_dota_hero_tiny",
@@ -263,7 +331,10 @@
             "Talent_7": "special_bonus_unique_tiny_3",
             "Talent_8": "special_bonus_unique_tiny_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "20": {
         "Name": "npc_dota_hero_vengefulspirit",
@@ -277,7 +348,11 @@
             "Talent_7": "special_bonus_unique_vengeful_spirit_1",
             "Talent_8": "special_bonus_unique_vengeful_spirit_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 400,
+        "ProjectileSpeed": 1500,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "21": {
         "Name": "npc_dota_hero_windrunner",
@@ -291,7 +366,11 @@
             "Talent_7": "special_bonus_unique_windranger_4",
             "Talent_8": "special_bonus_cooldown_reduction_30"
         },
-        "TurnRate": 0.8
+        "AttackRate": 1.5,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1250,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.8
     },
     "22": {
         "Name": "npc_dota_hero_zuus",
@@ -305,7 +384,11 @@
             "Talent_7": "special_bonus_cast_range_200",
             "Talent_8": "special_bonus_unique_zeus_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 350,
+        "ProjectileSpeed": 1100,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.6
     },
     "23": {
         "Name": "npc_dota_hero_kunkka",
@@ -319,7 +402,10 @@
             "Talent_7": "special_bonus_unique_kunkka_3",
             "Talent_8": "special_bonus_unique_kunkka_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.6
     },
     "25": {
         "Name": "npc_dota_hero_lina",
@@ -333,7 +419,11 @@
             "Talent_7": "special_bonus_unique_lina_1",
             "Talent_8": "special_bonus_attack_range_175"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.6,
+        "AttackRange": 670,
+        "ProjectileSpeed": 1000,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "31": {
         "Name": "npc_dota_hero_lich",
@@ -347,7 +437,11 @@
             "Talent_7": "special_bonus_unique_lich_1",
             "Talent_8": "special_bonus_unique_lich_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.5
     },
     "26": {
         "Name": "npc_dota_hero_lion",
@@ -361,7 +455,11 @@
             "Talent_7": "special_bonus_unique_lion_2",
             "Talent_8": "special_bonus_unique_lion_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.5
     },
     "27": {
         "Name": "npc_dota_hero_shadow_shaman",
@@ -375,7 +473,11 @@
             "Talent_7": "special_bonus_unique_shadow_shaman_3",
             "Talent_8": "special_bonus_unique_shadow_shaman_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 400,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "28": {
         "Name": "npc_dota_hero_slardar",
@@ -389,7 +491,11 @@
             "Talent_7": "special_bonus_unique_slardar",
             "Talent_8": "special_bonus_unique_slardar_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.5
     },
     "29": {
         "Name": "npc_dota_hero_tidehunter",
@@ -403,7 +509,10 @@
             "Talent_7": "special_bonus_cooldown_reduction_25",
             "Talent_8": "special_bonus_attack_damage_250"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "30": {
         "Name": "npc_dota_hero_witch_doctor",
@@ -417,7 +526,11 @@
             "Talent_7": "special_bonus_unique_witch_doctor_2",
             "Talent_8": "special_bonus_unique_witch_doctor_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "32": {
         "Name": "npc_dota_hero_riki",
@@ -431,7 +544,10 @@
             "Talent_7": "special_bonus_unique_riki_4",
             "Talent_8": "special_bonus_unique_riki_5"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 275,
+        "MovementTurnRate": 0.6
     },
     "33": {
         "Name": "npc_dota_hero_enigma",
@@ -445,7 +561,11 @@
             "Talent_7": "special_bonus_unique_enigma_2",
             "Talent_8": "special_bonus_unique_enigma"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.5
     },
     "34": {
         "Name": "npc_dota_hero_tinker",
@@ -459,7 +579,11 @@
             "Talent_7": "special_bonus_unique_tinker",
             "Talent_8": "special_bonus_unique_tinker_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.6
     },
     "35": {
         "Name": "npc_dota_hero_sniper",
@@ -473,7 +597,11 @@
             "Talent_7": "special_bonus_attack_range_125",
             "Talent_8": "special_bonus_unique_sniper_2"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 3000,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.7
     },
     "36": {
         "Name": "npc_dota_hero_necrolyte",
@@ -487,7 +615,11 @@
             "Talent_7": "special_bonus_unique_necrophos_2",
             "Talent_8": "special_bonus_unique_necrophos"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "37": {
         "Name": "npc_dota_hero_warlock",
@@ -501,7 +633,11 @@
             "Talent_7": "special_bonus_unique_warlock_2",
             "Talent_8": "special_bonus_unique_warlock_1"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "38": {
         "Name": "npc_dota_hero_beastmaster",
@@ -515,7 +651,11 @@
             "Talent_7": "special_bonus_unique_beastmaster_4",
             "Talent_8": "special_bonus_unique_beastmaster_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.5
     },
     "39": {
         "Name": "npc_dota_hero_queenofpain",
@@ -529,7 +669,11 @@
             "Talent_7": "special_bonus_unique_queen_of_pain_2",
             "Talent_8": "special_bonus_spell_block_20"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.5,
+        "AttackRange": 550,
+        "ProjectileSpeed": 1500,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "40": {
         "Name": "npc_dota_hero_venomancer",
@@ -543,7 +687,11 @@
             "Talent_7": "special_bonus_unique_venomancer_6",
             "Talent_8": "special_bonus_unique_venomancer"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 450,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 275,
+        "MovementTurnRate": 0.5
     },
     "41": {
         "Name": "npc_dota_hero_faceless_void",
@@ -557,7 +705,10 @@
             "Talent_7": "special_bonus_unique_faceless_void_4",
             "Talent_8": "special_bonus_unique_faceless_void_2"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 1.0
     },
     "42": {
         "Name": "npc_dota_hero_skeleton_king",
@@ -571,7 +722,11 @@
             "Talent_7": "special_bonus_unique_wraith_king_2",
             "Talent_8": "special_bonus_unique_wraith_king_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.5
     },
     "43": {
         "Name": "npc_dota_hero_death_prophet",
@@ -585,7 +740,11 @@
             "Talent_7": "special_bonus_unique_death_prophet_4",
             "Talent_8": "special_bonus_unique_death_prophet"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1000,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.5
     },
     "44": {
         "Name": "npc_dota_hero_phantom_assassin",
@@ -599,7 +758,10 @@
             "Talent_7": "special_bonus_unique_phantom_assassin_2",
             "Talent_8": "special_bonus_unique_phantom_assassin_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.6
     },
     "45": {
         "Name": "npc_dota_hero_pugna",
@@ -613,7 +775,11 @@
             "Talent_7": "special_bonus_unique_pugna_2",
             "Talent_8": "special_bonus_unique_pugna_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 630,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 335,
+        "MovementTurnRate": 0.5
     },
     "46": {
         "Name": "npc_dota_hero_templar_assassin",
@@ -627,7 +793,11 @@
             "Talent_7": "special_bonus_unique_templar_assassin_5",
             "Talent_8": "special_bonus_unique_templar_assassin"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 140,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.7
     },
     "47": {
         "Name": "npc_dota_hero_viper",
@@ -641,7 +811,11 @@
             "Talent_7": "special_bonus_unique_viper_3",
             "Talent_8": "special_bonus_attack_damage_120"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 575,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 275,
+        "MovementTurnRate": 0.5
     },
     "48": {
         "Name": "npc_dota_hero_luna",
@@ -655,7 +829,11 @@
             "Talent_7": "special_bonus_lifesteal_25",
             "Talent_8": "special_bonus_unique_luna_5"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 330,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 330,
+        "MovementTurnRate": 0.6
     },
     "49": {
         "Name": "npc_dota_hero_dragon_knight",
@@ -669,13 +847,17 @@
             "Talent_7": "special_bonus_strength_40",
             "Talent_8": "special_bonus_unique_dragon_knight_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "50": {
         "Name": "npc_dota_hero_dazzle",
         "Talents": {
-            "Talent_1": "special_bonus_attack_damage_60",
-            "Talent_2": "special_bonus_hp_175",
+            "Talent_1": "special_bonus_attack_damage_75",
+            "Talent_2": "special_bonus_hp_200",
             "Talent_3": "special_bonus_cast_range_125",
             "Talent_4": "special_bonus_unique_dazzle_2",
             "Talent_5": "special_bonus_movement_speed_50",
@@ -683,7 +865,11 @@
             "Talent_7": "special_bonus_unique_dazzle_1",
             "Talent_8": "special_bonus_unique_dazzle_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.6
     },
     "51": {
         "Name": "npc_dota_hero_rattletrap",
@@ -697,7 +883,10 @@
             "Talent_7": "special_bonus_unique_clockwerk_4",
             "Talent_8": "special_bonus_unique_clockwerk"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.6
     },
     "52": {
         "Name": "npc_dota_hero_leshrac",
@@ -711,7 +900,11 @@
             "Talent_7": "special_bonus_unique_leshrac_1",
             "Talent_8": "special_bonus_unique_leshrac_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 325,
+        "MovementTurnRate": 0.5
     },
     "53": {
         "Name": "npc_dota_hero_furion",
@@ -725,7 +918,11 @@
             "Talent_7": "special_bonus_unique_furion_3",
             "Talent_8": "special_bonus_unique_furion"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1125,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "54": {
         "Name": "npc_dota_hero_life_stealer",
@@ -739,7 +936,10 @@
             "Talent_7": "special_bonus_unique_lifestealer_3",
             "Talent_8": "special_bonus_unique_lifestealer"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.85,
+        "AttackRange": 150,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 1.0
     },
     "55": {
         "Name": "npc_dota_hero_dark_seer",
@@ -753,7 +953,10 @@
             "Talent_7": "special_bonus_unique_dark_seer_4",
             "Talent_8": "special_bonus_unique_dark_seer"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "56": {
         "Name": "npc_dota_hero_clinkz",
@@ -767,7 +970,11 @@
             "Talent_7": "special_bonus_unique_clinkz_2",
             "Talent_8": "special_bonus_unique_clinkz_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 640,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "57": {
         "Name": "npc_dota_hero_omniknight",
@@ -777,11 +984,14 @@
             "Talent_3": "special_bonus_exp_boost_35",
             "Talent_4": "special_bonus_attack_damage_90",
             "Talent_5": "special_bonus_unique_omniknight_2",
-            "Talent_6": "special_bonus_mp_regen_4",
+            "Talent_6": "special_bonus_mp_regen_3",
             "Talent_7": "special_bonus_unique_omniknight_1",
             "Talent_8": "special_bonus_unique_omniknight_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.6
     },
     "58": {
         "Name": "npc_dota_hero_enchantress",
@@ -795,7 +1005,11 @@
             "Talent_7": "special_bonus_unique_enchantress_4",
             "Talent_8": "special_bonus_unique_enchantress_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 340,
+        "MovementTurnRate": 0.5
     },
     "59": {
         "Name": "npc_dota_hero_huskar",
@@ -809,7 +1023,11 @@
             "Talent_7": "special_bonus_attack_range_125",
             "Talent_8": "special_bonus_unique_huskar_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.6,
+        "AttackRange": 400,
+        "ProjectileSpeed": 1400,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "60": {
         "Name": "npc_dota_hero_night_stalker",
@@ -823,7 +1041,10 @@
             "Talent_7": "special_bonus_unique_night_stalker_2",
             "Talent_8": "special_bonus_unique_night_stalker"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "61": {
         "Name": "npc_dota_hero_broodmother",
@@ -837,7 +1058,10 @@
             "Talent_7": "special_bonus_unique_broodmother_1",
             "Talent_8": "special_bonus_unique_broodmother_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 270,
+        "MovementTurnRate": 0.5
     },
     "62": {
         "Name": "npc_dota_hero_bounty_hunter",
@@ -851,7 +1075,10 @@
             "Talent_7": "special_bonus_evasion_50",
             "Talent_8": "special_bonus_unique_bounty_hunter_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.6
     },
     "63": {
         "Name": "npc_dota_hero_weaver",
@@ -865,7 +1092,11 @@
             "Talent_7": "special_bonus_unique_weaver_2",
             "Talent_8": "special_bonus_unique_weaver_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.8,
+        "AttackRange": 425,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 280,
+        "MovementTurnRate": 0.5
     },
     "64": {
         "Name": "npc_dota_hero_jakiro",
@@ -879,7 +1110,11 @@
             "Talent_7": "special_bonus_unique_jakiro_3",
             "Talent_8": "special_bonus_unique_jakiro"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 400,
+        "ProjectileSpeed": 1100,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.5
     },
     "65": {
         "Name": "npc_dota_hero_batrider",
@@ -893,7 +1128,11 @@
             "Talent_7": "special_bonus_unique_batrider_1",
             "Talent_8": "special_bonus_unique_batrider_2"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.7,
+        "AttackRange": 375,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 1.0
     },
     "66": {
         "Name": "npc_dota_hero_chen",
@@ -907,7 +1146,11 @@
             "Talent_7": "special_bonus_unique_chen_1",
             "Talent_8": "special_bonus_unique_chen_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 650,
+        "ProjectileSpeed": 1100,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.6
     },
     "67": {
         "Name": "npc_dota_hero_spectre",
@@ -921,7 +1164,10 @@
             "Talent_7": "special_bonus_unique_spectre_4",
             "Talent_8": "special_bonus_unique_spectre_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "69": {
         "Name": "npc_dota_hero_doom_bringer",
@@ -935,7 +1181,10 @@
             "Talent_7": "special_bonus_unique_doom_1",
             "Talent_8": "special_bonus_cleave_100"
         },
-        "TurnRate": 0.5
+        "AttackRate": 2.0,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.5
     },
     "68": {
         "Name": "npc_dota_hero_ancient_apparition",
@@ -949,7 +1198,11 @@
             "Talent_7": "special_bonus_unique_ancient_apparition_1",
             "Talent_8": "special_bonus_unique_ancient_apparition_5"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 675,
+        "ProjectileSpeed": 1250,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "70": {
         "Name": "npc_dota_hero_ursa",
@@ -963,7 +1216,10 @@
             "Talent_7": "special_bonus_unique_ursa_5",
             "Talent_8": "special_bonus_unique_ursa"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "71": {
         "Name": "npc_dota_hero_spirit_breaker",
@@ -977,7 +1233,10 @@
             "Talent_7": "special_bonus_unique_spirit_breaker_1",
             "Talent_8": "special_bonus_hp_800"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.9,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "72": {
         "Name": "npc_dota_hero_gyrocopter",
@@ -991,7 +1250,11 @@
             "Talent_7": "special_bonus_unique_gyrocopter_1",
             "Talent_8": "special_bonus_unique_gyrocopter_5"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 365,
+        "ProjectileSpeed": 3000,
+        "MovementSpeed": 320,
+        "MovementTurnRate": 0.6
     },
     "73": {
         "Name": "npc_dota_hero_alchemist",
@@ -1005,7 +1268,10 @@
             "Talent_7": "special_bonus_unique_alchemist_3",
             "Talent_8": "special_bonus_unique_alchemist_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "74": {
         "Name": "npc_dota_hero_invoker",
@@ -1019,7 +1285,11 @@
             "Talent_7": "special_bonus_unique_invoker_2",
             "Talent_8": "special_bonus_unique_invoker_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 280,
+        "MovementTurnRate": 0.5
     },
     "75": {
         "Name": "npc_dota_hero_silencer",
@@ -1033,7 +1303,11 @@
             "Talent_7": "special_bonus_unique_silencer_3",
             "Talent_8": "special_bonus_unique_silencer_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1000,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "76": {
         "Name": "npc_dota_hero_obsidian_destroyer",
@@ -1047,7 +1321,11 @@
             "Talent_7": "special_bonus_unique_outworld_devourer",
             "Talent_8": "special_bonus_spell_lifesteal_15"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 450,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.5
     },
     "77": {
         "Name": "npc_dota_hero_lycan",
@@ -1061,7 +1339,10 @@
             "Talent_7": "special_bonus_unique_lycan_2",
             "Talent_8": "special_bonus_unique_lycan_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "78": {
         "Name": "npc_dota_hero_brewmaster",
@@ -1075,12 +1356,15 @@
             "Talent_7": "special_bonus_unique_brewmaster_2",
             "Talent_8": "special_bonus_unique_brewmaster_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.6
     },
     "79": {
         "Name": "npc_dota_hero_shadow_demon",
         "Talents": {
-            "Talent_1": "special_bonus_strength_10",
+            "Talent_1": "special_bonus_unique_shadow_demon_6",
             "Talent_2": "special_bonus_exp_boost_25",
             "Talent_3": "special_bonus_movement_speed_40",
             "Talent_4": "special_bonus_unique_shadow_demon_4",
@@ -1089,7 +1373,11 @@
             "Talent_7": "special_bonus_unique_shadow_demon_1",
             "Talent_8": "special_bonus_unique_shadow_demon_5"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     },
     "80": {
         "Name": "npc_dota_hero_lone_druid",
@@ -1103,7 +1391,11 @@
             "Talent_7": "special_bonus_unique_lone_druid_9",
             "Talent_8": "special_bonus_unique_lone_druid_7"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 320,
+        "MovementTurnRate": 0.5
     },
     "81": {
         "Name": "npc_dota_hero_chaos_knight",
@@ -1117,7 +1409,10 @@
             "Talent_7": "special_bonus_unique_chaos_knight_2",
             "Talent_8": "special_bonus_unique_chaos_knight_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 325,
+        "MovementTurnRate": 0.5
     },
     "82": {
         "Name": "npc_dota_hero_meepo",
@@ -1131,7 +1426,10 @@
             "Talent_7": "special_bonus_hp_600",
             "Talent_8": "special_bonus_unique_meepo"
         },
-        "TurnRate": 0.65
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.65
     },
     "83": {
         "Name": "npc_dota_hero_treant",
@@ -1145,7 +1443,10 @@
             "Talent_7": "special_bonus_unique_treant",
             "Talent_8": "special_bonus_unique_treant_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.9,
+        "AttackRange": 150,
+        "MovementSpeed": 270,
+        "MovementTurnRate": 0.5
     },
     "84": {
         "Name": "npc_dota_hero_ogre_magi",
@@ -1159,7 +1460,10 @@
             "Talent_7": "special_bonus_movement_speed_90",
             "Talent_8": "special_bonus_unique_ogre_magi_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.6
     },
     "85": {
         "Name": "npc_dota_hero_undying",
@@ -1173,7 +1477,10 @@
             "Talent_7": "special_bonus_reincarnation_200",
             "Talent_8": "special_bonus_unique_undying_2"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.6
     },
     "86": {
         "Name": "npc_dota_hero_rubick",
@@ -1187,7 +1494,11 @@
             "Talent_7": "special_bonus_unique_rubick_4",
             "Talent_8": "special_bonus_unique_rubick_5"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 1125,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.7
     },
     "87": {
         "Name": "npc_dota_hero_disruptor",
@@ -1201,7 +1512,11 @@
             "Talent_7": "special_bonus_unique_disruptor_4",
             "Talent_8": "special_bonus_unique_disruptor_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.5
     },
     "88": {
         "Name": "npc_dota_hero_nyx_assassin",
@@ -1215,7 +1530,10 @@
             "Talent_7": "special_bonus_agility_100",
             "Talent_8": "special_bonus_unique_nyx_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "89": {
         "Name": "npc_dota_hero_naga_siren",
@@ -1229,7 +1547,10 @@
             "Talent_7": "special_bonus_evasion_30",
             "Talent_8": "special_bonus_unique_naga_siren_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.5
     },
     "90": {
         "Name": "npc_dota_hero_keeper_of_the_light",
@@ -1243,7 +1564,11 @@
             "Talent_7": "special_bonus_unique_keeper_of_the_light_3",
             "Talent_8": "special_bonus_unique_keeper_of_the_light"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 335,
+        "MovementTurnRate": 0.5
     },
     "91": {
         "Name": "npc_dota_hero_wisp",
@@ -1257,7 +1582,11 @@
             "Talent_7": "special_bonus_unique_wisp_2",
             "Talent_8": "special_bonus_hp_regen_50"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 575,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.7
     },
     "92": {
         "Name": "npc_dota_hero_visage",
@@ -1271,7 +1600,11 @@
             "Talent_7": "special_bonus_unique_visage_5",
             "Talent_8": "special_bonus_unique_visage_6"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "93": {
         "Name": "npc_dota_hero_slark",
@@ -1285,12 +1618,16 @@
             "Talent_7": "special_bonus_unique_slark_3",
             "Talent_8": "special_bonus_unique_slark_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "ProjectileSpeed": 0,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "94": {
         "Name": "npc_dota_hero_medusa",
         "Talents": {
-            "Talent_1": "special_bonus_attack_damage_25",
+            "Talent_1": "special_bonus_attack_damage_20",
             "Talent_2": "special_bonus_evasion_12",
             "Talent_3": "special_bonus_attack_speed_30",
             "Talent_4": "special_bonus_unique_medusa_3",
@@ -1299,7 +1636,11 @@
             "Talent_7": "special_bonus_unique_medusa_2",
             "Talent_8": "special_bonus_unique_medusa_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 275,
+        "MovementTurnRate": 0.5
     },
     "95": {
         "Name": "npc_dota_hero_troll_warlord",
@@ -1313,7 +1654,11 @@
             "Talent_7": "special_bonus_unique_troll_warlord",
             "Talent_8": "special_bonus_unique_troll_warlord_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.5
     },
     "96": {
         "Name": "npc_dota_hero_centaur",
@@ -1327,7 +1672,10 @@
             "Talent_7": "special_bonus_unique_centaur_1",
             "Talent_8": "special_bonus_unique_centaur_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.5
     },
     "97": {
         "Name": "npc_dota_hero_magnataur",
@@ -1341,7 +1689,10 @@
             "Talent_7": "special_bonus_unique_magnus_2",
             "Talent_8": "special_bonus_unique_magnus_5"
         },
-        "TurnRate": 0.8
+        "AttackRate": 1.8,
+        "AttackRange": 150,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.8
     },
     "98": {
         "Name": "npc_dota_hero_shredder",
@@ -1355,7 +1706,10 @@
             "Talent_7": "special_bonus_unique_timbersaw",
             "Talent_8": "special_bonus_unique_timbersaw_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "99": {
         "Name": "npc_dota_hero_bristleback",
@@ -1369,7 +1723,10 @@
             "Talent_7": "special_bonus_spell_lifesteal_15",
             "Talent_8": "special_bonus_unique_bristleback_3"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.8,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 1.0
     },
     "100": {
         "Name": "npc_dota_hero_tusk",
@@ -1383,7 +1740,10 @@
             "Talent_7": "special_bonus_unique_tusk_4",
             "Talent_8": "special_bonus_unique_tusk_5"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.7
     },
     "101": {
         "Name": "npc_dota_hero_skywrath_mage",
@@ -1397,7 +1757,11 @@
             "Talent_7": "special_bonus_gold_income_50",
             "Talent_8": "special_bonus_unique_skywrath_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 600,
+        "ProjectileSpeed": 1000,
+        "MovementSpeed": 330,
+        "MovementTurnRate": 0.5
     },
     "102": {
         "Name": "npc_dota_hero_abaddon",
@@ -1411,7 +1775,10 @@
             "Talent_7": "special_bonus_unique_abaddon",
             "Talent_8": "special_bonus_unique_abaddon_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.5
     },
     "103": {
         "Name": "npc_dota_hero_elder_titan",
@@ -1425,7 +1792,10 @@
             "Talent_7": "special_bonus_unique_elder_titan_3",
             "Talent_8": "special_bonus_lifesteal_100"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 315,
+        "MovementTurnRate": 0.5
     },
     "104": {
         "Name": "npc_dota_hero_legion_commander",
@@ -1439,7 +1809,10 @@
             "Talent_7": "special_bonus_unique_legion_commander",
             "Talent_8": "special_bonus_unique_legion_commander_2"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 320,
+        "MovementTurnRate": 0.5
     },
     "106": {
         "Name": "npc_dota_hero_ember_spirit",
@@ -1453,7 +1826,10 @@
             "Talent_7": "special_bonus_unique_ember_spirit_4",
             "Talent_8": "special_bonus_unique_ember_spirit_5"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "107": {
         "Name": "npc_dota_hero_earth_spirit",
@@ -1467,7 +1843,10 @@
             "Talent_7": "special_bonus_unique_earth_spirit_2",
             "Talent_8": "special_bonus_unique_earth_spirit_3"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "109": {
         "Name": "npc_dota_hero_terrorblade",
@@ -1481,7 +1860,11 @@
             "Talent_7": "special_bonus_unique_terrorblade",
             "Talent_8": "special_bonus_unique_terrorblade_3"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.5,
+        "AttackRange": 150,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 310,
+        "MovementTurnRate": 0.5
     },
     "110": {
         "Name": "npc_dota_hero_phoenix",
@@ -1495,7 +1878,11 @@
             "Talent_7": "special_bonus_unique_phoenix_1",
             "Talent_8": "special_bonus_unique_phoenix_5"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.7,
+        "AttackRange": 500,
+        "ProjectileSpeed": 1100,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 1.0
     },
     "111": {
         "Name": "npc_dota_hero_oracle",
@@ -1509,7 +1896,11 @@
             "Talent_7": "special_bonus_unique_oracle_3",
             "Talent_8": "special_bonus_unique_oracle"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.4,
+        "AttackRange": 620,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 0.5
     },
     "105": {
         "Name": "npc_dota_hero_techies",
@@ -1523,12 +1914,20 @@
             "Talent_7": "special_bonus_attack_damage_251",
             "Talent_8": "special_bonus_unique_techies_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 700,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 270,
+        "MovementTurnRate": 0.5
     },
     "127": {
         "Name": "npc_dota_hero_target_dummy",
         "Talents": {},
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 700,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 270,
+        "MovementTurnRate": 0.5
     },
     "112": {
         "Name": "npc_dota_hero_winter_wyvern",
@@ -1542,7 +1941,11 @@
             "Talent_7": "special_bonus_unique_winter_wyvern_3",
             "Talent_8": "special_bonus_unique_winter_wyvern_4"
         },
-        "TurnRate": 0.5
+        "AttackRate": 1.7,
+        "AttackRange": 425,
+        "ProjectileSpeed": 700,
+        "MovementSpeed": 285,
+        "MovementTurnRate": 0.5
     },
     "113": {
         "Name": "npc_dota_hero_arc_warden",
@@ -1556,7 +1959,11 @@
             "Talent_7": "special_bonus_lifesteal_30",
             "Talent_8": "special_bonus_unique_arc_warden"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 625,
+        "ProjectileSpeed": 900,
+        "MovementSpeed": 280,
+        "MovementTurnRate": 0.6
     },
     "108": {
         "Name": "npc_dota_hero_abyssal_underlord",
@@ -1570,7 +1977,10 @@
             "Talent_7": "special_bonus_unique_underlord",
             "Talent_8": "special_bonus_unique_underlord_4"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 290,
+        "MovementTurnRate": 0.6
     },
     "114": {
         "Name": "npc_dota_hero_monkey_king",
@@ -1584,7 +1994,10 @@
             "Talent_7": "special_bonus_unique_monkey_king_4",
             "Talent_8": "special_bonus_unique_monkey_king_6"
         },
-        "TurnRate": 0.6
+        "AttackRate": 1.7,
+        "AttackRange": 300,
+        "MovementSpeed": 300,
+        "MovementTurnRate": 0.6
     },
     "120": {
         "Name": "npc_dota_hero_pangolier",
@@ -1598,7 +2011,10 @@
             "Talent_7": "special_bonus_unique_pangolier_4",
             "Talent_8": "special_bonus_unique_pangolier_5"
         },
-        "TurnRate": 1.0
+        "AttackRate": 1.7,
+        "AttackRange": 150,
+        "MovementSpeed": 305,
+        "MovementTurnRate": 1.0
     },
     "119": {
         "Name": "npc_dota_hero_dark_willow",
@@ -1612,6 +2028,10 @@
             "Talent_7": "special_bonus_attack_speed_200",
             "Talent_8": "special_bonus_unique_dark_willow_2"
         },
-        "TurnRate": 0.7
+        "AttackRate": 1.3,
+        "AttackRange": 475,
+        "ProjectileSpeed": 1200,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.7
     }
 }
