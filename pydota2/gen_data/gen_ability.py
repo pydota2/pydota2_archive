@@ -89,6 +89,12 @@ def processHeroes():
         "AttackRange",
         "ProjectileSpeed",
         "AttackRate",
+        "AttributeBaseStrength",
+        "AttributeStrengthGain",
+        "AttributeBaseIntelligence",
+        "AttributeIntelligenceGain",
+        "AttributeBaseAgility",
+        "AttributeAgilityGain",
     ]
 
     for line in content:
@@ -139,11 +145,16 @@ def processHeroes():
                 
                 for value in heroValues:
                     if heroID != None and line[:len(value)+2] == ('"'+value+'"'):
-                        res = re.split(r'\s{2,}', line)
-                        if res[1].find('.') >= 0:
-                            heroes[heroID][value] = float(res[1].replace('"', ''))
-                        else:
-                            heroes[heroID][value] = int(res[1].replace('"', ''))
+                        res = re.split(r'\s{1,}', line)
+                        try:
+                            if res[1].find('.') >= 0:
+                                heroes[heroID][value] = float(res[1].replace('"', ''))
+                            elif res[1].find('_') >= 0:
+                                heroes[heroID][value] = str(res[1].replace('"', ''))
+                            else:
+                                heroes[heroID][value] = int(res[1].replace('"', ''))
+                        except Exception as e:
+                            print(e, res)
                     
     print('Processed %d heroes' % (heroCount))
     writeData(heroes, 'heroes.json')
