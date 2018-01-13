@@ -95,6 +95,7 @@ def processHeroes():
         "AttributeIntelligenceGain",
         "AttributeBaseAgility",
         "AttributeAgilityGain",
+        "ArmorPhysical",
     ]
 
     for line in content:
