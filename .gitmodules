@@ -1,3 +1,6 @@
 [submodule "pydota2/simulator"]
 	path = pydota2/simulator
 	url = https://github.com/pydota2/SimDota2.git
+[submodule "pydota2/Dota2-JSONData"]
+	path = pydota2/Dota2-JSONData
+	url = https://github.com/pydota2/Dota2-JSONData.git
