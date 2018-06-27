@@ -29,6 +29,7 @@ from __future__ import division
 from __future__ import print_function
 
 import socket
+import select
 import threading
 from datetime import datetime
 from six.moves.queue import Queue
@@ -105,24 +106,26 @@ class ProtoThread(threading.Thread):
             try:
                 self.bDone = False
                 while not self.bDone:
-                    binSize = s.recv(4)
+                    ready, _, _ = select.select([s], [], [])
+                    if len(ready) > 0:
+                        binSize = ready[0].recv(4)
 
-                    if not binSize:
-                        print("%s proto stream not found! Exiting!" % self.name)
-                        break
+                        if not binSize:
+                            print("%s proto stream not found! Exiting!" % self.name)
+                            break
 
-                    else:
-                        protoSize = unpack("@I", binSize)
-                        print("%s protoSize: %d" % (self.name, protoSize[0]))
-                        binData = s.recv(protoSize[0])
+                        else:
+                            protoSize = unpack("@I", binSize)
+                            print("%s protoSize: %d" % (self.name, protoSize[0]))
+                            binData = ready[0].recv(protoSize[0])
 
-                        if self.save_proto:
-                            self.save_proto_to_file(binData)
-                        if self.process_proto:
-                            self.add_to_proto_queue(binData)
+                            if self.save_proto:
+                                self.save_proto_to_file(binData)
+                            if self.process_proto:
+                                self.add_to_proto_queue(binData)
 
-                        self.num_proto += 1
-                        print("Process %d protos" % self.num_proto)
+                            self.num_proto += 1
+                            print("Process %d protos" % self.num_proto)
             finally:
                 print("Closing Socket")
                 s.shutdown(socket.SHUT_RDWR)

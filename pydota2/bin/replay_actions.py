@@ -182,6 +182,10 @@ class ReplayProcessor(multiprocessing.Process):
                         replay_name = os.path.basename(replay_path)
                         self.stats.replay = replay_name
                         self._print("Got replay: '%s'" % replay_path)
+
+                        # TODO - below is test code to see what Valve has fixed
+                        #self._ingest_frame(os.path.join(replay_path, '000058.bin'))
+                        
                         self._update_stage("open replay directory")
                         #TODO - process the replay info (total game time, winner, timestep interval)
                         replay_info = self.summarize_replay(replay_path)
@@ -212,6 +216,9 @@ class ReplayProcessor(multiprocessing.Process):
             proto_frame = open(frame_name, 'rb')
             data_frame = _pb.CMsgBotWorldState()
             data_frame.ParseFromString(proto_frame.read())
+
+            #TODO - uncomment to see protobuf values
+            #print(data_frame)
             proto_frame.close()
             return data_frame
         except Exception as e:
@@ -256,8 +263,9 @@ class ReplayProcessor(multiprocessing.Process):
 
         data = {}
         indx = 0
-        for fname in [files[0], files[-2500]]:
+        for fname in [files[0], files[-1]]:
             try:
+                # load the first and last frame in our replay
                 data[indx] = self._ingest_frame(fname)
             except Exception as e:
                 print('Protobuf loading error: %s for file %s' % (str(e), fname))
@@ -291,6 +299,7 @@ class ReplayProcessor(multiprocessing.Process):
             print(data[1])
             raise
         
+        print(info)
         return info
 
     def process_replay(self, replay_path, team_id):
@@ -400,7 +409,7 @@ class ReplayProcessor(multiprocessing.Process):
         for k in ab_activities.keys():
             ab_count += len(ab_activities[k])
 
-        print('Item/Ability Use Acitivites')
+        print('Item/Ability Use Activites')
         for k in sorted(ab_activities.keys()):
             if k < 5000:
                 print("[%4d] Count: %5d, Perct: %5.2f%%" % (k, len(ab_activities[k]), 100.0*float(len(ab_activities[k]))/float(ab_count)))
@@ -495,7 +504,7 @@ def main(unused_argv):
         replay_queue_thread.start()
 
         for i in range(FLAGS.parallel):
-            p = ReplayProcessor(i, replay_queue, stats_queue)
+            p = ReplayProcessor(i, replay_queue, stats_queue)            
             p.daemon = True
             p.start()
             time.sleep(1)    # Stagger startups, otherwise they seem to conflict somehow
