@@ -504,7 +504,7 @@ def main(unused_argv):
         replay_queue_thread.start()
 
         for i in range(FLAGS.parallel):
-            p = ReplayProcessor(i, replay_queue, stats_queue)            
+            p = ReplayProcessor(i, replay_queue, stats_queue)
             p.daemon = True
             p.start()
             time.sleep(1)    # Stagger startups, otherwise they seem to conflict somehow

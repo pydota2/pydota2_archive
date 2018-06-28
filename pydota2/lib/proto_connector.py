@@ -105,10 +105,14 @@ class ProtoThread(threading.Thread):
             
             try:
                 self.bDone = False
+                self.recv_threshold = 0.333333
+                last_recv_time = datetime.now()
                 while not self.bDone:
-                    ready, _, _ = select.select([s], [], [])
-                    if len(ready) > 0:
-                        binSize = ready[0].recv(4)
+                    readers, _, _ = select.select([s], [], [])
+                    new_time = datetime.now()
+                    if len(readers) > 0 and self.recv_threshold < (new_time - last_recv_time).total_seconds():
+                        last_recv_time = new_time
+                        binSize = readers[0].recv(4)
 
                         if not binSize:
                             print("%s proto stream not found! Exiting!" % self.name)
@@ -117,7 +121,7 @@ class ProtoThread(threading.Thread):
                         else:
                             protoSize = unpack("@I", binSize)
                             print("%s protoSize: %d" % (self.name, protoSize[0]))
-                            binData = ready[0].recv(protoSize[0])
+                            binData = readers[0].recv(protoSize[0])
 
                             if self.save_proto:
                                 self.save_proto_to_file(binData)
