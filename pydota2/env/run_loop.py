@@ -38,8 +38,8 @@ def run_loop(agents, hs_agents, env, max_frames=0):
     for agent in hs_agents:
         print("IMPLEMENT HS AGENT SETUP")
 
-    try:
-        while True:
+    while True:
+        try:
             timesteps = env.reset()
             for a in agents:
                 a.reset()
@@ -64,9 +64,9 @@ def run_loop(agents, hs_agents, env, max_frames=0):
                     if timesteps[0].last():
                         break
                     timesteps = env.step(actions)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        elapsed_time = time.time() - start_time
-        print("Took %.3f seconds for %s steps: %.3f fps" % (
-                elapsed_time, total_frames, total_frames / elapsed_time))
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        finally:
+            elapsed_time = time.time() - start_time
+            print("Took %.3f seconds for %s steps: %.3f fps" % (
+                   elapsed_time, total_frames, total_frames / elapsed_time))

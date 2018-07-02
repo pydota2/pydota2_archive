@@ -13,6 +13,8 @@ from pydota2.lib import features
 from pydota2.ml_algo.q_learn import QLearning
 import pydota2.lib.location as loc
 
+_CELL_GRID_SIZE = 100.0
+
 _NOT_QUEUED = [0]
 
 _HERO_NO_OP = actions.FUNCTIONS.hero_no_op.id
@@ -26,14 +28,15 @@ ACTION_MOVE                 = 'Move'
 
 smart_actions = [
     ACTION_DO_NOTHING,
-    ACTION_CLEAR_ACTION,
-    ACTION_CLEAR_ACTION_STOP,
+    # ACTION_CLEAR_ACTION,
+    # ACTION_CLEAR_ACTION_STOP,
 ]
 
 # create our 8-directional moves
 for mm_degree in range(0, 360, 45):
     smart_actions.append(ACTION_MOVE+ '_' + str(mm_degree))
 
+DEFAULT_REWARD          = -2.0
 TIME_STEP_REWARD        = -1.0
 TIME_STEP_CLOSER_REWARD = -0.5
 ARRIVED_AT_LOC_REWARD   = 10.0
@@ -99,14 +102,15 @@ class MoveAgent(base_agent.BaseAgent):
             else:
                 raise Exception("Bad Desired Angle: %f" % desired_degree_facing)
 
-            # discretize our location to a square cell (200 units wide and tall)
-            x_grid = int(player_loc.x / 200.0)
-            y_grid = int(player_loc.y / 200.0)
+            # discretize our location to a square cell (_CELL_GRID_SIZE units wide and tall)
+            x_grid = int(player_loc.x / _CELL_GRID_SIZE)
+            y_grid = int(player_loc.y / _CELL_GRID_SIZE)
 
-            # estimated state space size: 156,800
+            # estimated state space size: 8 * (14000 x 14000) / (_CELL_GRID_SIZE * _CELL_GRID_SIZE)
+            # example: 156,800 with _CELL_GRID_SIZE == 100.0
             current_state = np.zeros(3)
-            current_state[0] = x_grid                   # 140 x_grid values
-            current_state[1] = y_grid                   # 140 y_grid values
+            current_state[0] = x_grid                   # (14,000 / _CELL_GRID_SIZE) x_grid values
+            current_state[1] = y_grid                   # (14,000 / _CELL_GRID_SIZE) y_grid values
             current_state[2] = desired_degree_facing    # 8 facing values
 
             # with 156,800 states and 11 possible actions we estimate our full
@@ -118,14 +122,14 @@ class MoveAgent(base_agent.BaseAgent):
                 reward = 0
 
                 if dist_to_loc < 50:
-                    reward += 10.0
+                    reward += ARRIVED_AT_LOCATION_REWARD
                     self._state = environment.StepType.LAST
                 elif dist_to_loc < self.previous_dist[pid]:
-                    reward += -0.5
+                    reward += TIME_STEP_CLOSER_REWARD
                 elif dist_to_loc == self.previous_dist[pid]:
-                    reward += -1.0
+                    reward += TIME_STEP_REWARD
                 else:
-                    reward += -2.0
+                    reward += DEFAULT_REWARD
                 
                 # update our learning model with the reward for that action
                 print("From State '%s' took Action '%s' and got '%f' reward arriving at new_state '%s'" % 
