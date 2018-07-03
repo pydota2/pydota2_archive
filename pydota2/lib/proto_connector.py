@@ -43,6 +43,7 @@ HOST            = '127.0.0.1'      # The remote host
 RADIANT_PORT    = 12120 # The same port as used by the server
 DIRE_PORT       = 12121 # The same port as used by the server
 DIR_REPLAY      = 'replays'
+FRAME_INTERVAL  = 10.0
 
 sDate = "{:%Y_%m_%d_%H%M_}".format(datetime.now())
 
@@ -105,7 +106,7 @@ class ProtoThread(threading.Thread):
             
             try:
                 self.bDone = False
-                self.recv_threshold = 0.333333
+                self.recv_threshold = FRAME_INTERVAL/30.0
                 last_recv_time = datetime.now()
                 while not self.bDone:
                     readers, _, _ = select.select([s], [], [])

@@ -71,8 +71,9 @@ class ClientThread(threading.Thread):
         print("Starting HTTP POST Thread %d for %s" % (self.threadID, self.name))
         try:
             app.run(host=HOST, debug=False, port=self.port)
-        except KeyboardInterrupt:
-            print("Caught KeyboardInterrupt, ClientThread exiting.")
+        except (KeyboardInterrupt, SystemExit):
+            print("Caught KeyboardInterrupt or SystemExit: ClientThread exiting.")
+            raise
             
     def quit(self):
         func = request.environ.get('werkzeug.server.shutdown')

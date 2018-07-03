@@ -126,8 +126,8 @@ def main(unused_argv):
         t.start()
         threads.append(t)
 
-    except KeyboardInterrupt:
-        print("Caught KeyboardInterrupt, exiting.")
+    except (KeyboardInterrupt, SystemExit):
+        print("Caught KeyboardInterrupt or SystemExit: exiting.")
     finally:
         # Wait for all threads to complete
         for t in threads:
