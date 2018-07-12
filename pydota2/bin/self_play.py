@@ -60,8 +60,8 @@ def main(unused_argv):
     threads = []
     try:
         # create our CMsgBotWorldState threads
-        t1 = createRadiantThread(save_to_proto=True, callback=processRadiantData)
-        #t2 = createDireThread(save_to_proto=True, callback=processDireData)
+        t1 = createRadiantThread(save_proto=True, callback=processRadiantData)
+        #t2 = createDireThread(save_proto=True, callback=processDireData)
         thrRadiantControl = ClientThread(3, 'Radiant', CLIENT_RADIANT_PORT)
         #thrDireControl = ClientThread(4, 'Dire', CLIENT_DIRE_PORT)
         

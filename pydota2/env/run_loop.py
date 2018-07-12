@@ -43,32 +43,46 @@ def run_loop(agents, hs_agents, env, max_frames=0):
             timesteps = env.reset()
             for a in agents:
                 a.reset()
-            while True:
-                try:
-                    total_frames += 1
+            
+            # make sure we got our first protobuf
+            if len(timesteps) > 0:
+                while True:
+                    try:
+                        #print("[run_loop.py] processing timestep")
+                        total_frames += 1
 
-                    if timesteps[0].observation['game_loop'][0] in [4,5]:
-                        actions = [agent.step(timestep, env.world_state())
-                                   for agent, timestep in zip(agents, timesteps)]
-                        #print('run_loop actions:', actions)
-                        if max_frames and total_frames >= max_frames:
-                            return
-                        if timesteps[0].last():
-                            break
-                        timesteps = env.step(actions)
-                    # TODO - fix below for Hero Selection
-                    else:
-                        actions = [agent.step(timestep, env.world_state())
-                                   for agent, timestep in zip(agents, timesteps)]
-                        if max_frames and total_frames >= max_frames:
-                            return
-                        if timesteps[0].last():
-                            break
-                        timesteps = env.step(actions)
-                except (KeyboardInterrupt, SystemExit):
-                    raise
+                        if timesteps[0].observation['game_loop'][0] in [4,5]:
+                            actions = [agent.step(timestep, env.world_state())
+                                       for agent, timestep in zip(agents, timesteps)]
+                            #print('run_loop actions:', actions)
+                            if max_frames and total_frames >= max_frames:
+                                return
+                            if timesteps[0].last():
+                                break
+                            timesteps = env.step(actions)
+                        # TODO - fix below for Hero Selection
+                        else:
+                            actions = [agent.step(timestep, env.world_state())
+                                       for agent, timestep in zip(agents, timesteps)]
+                            if max_frames and total_frames >= max_frames:
+                                return
+                            if timesteps[0].last():
+                                break
+                            timesteps = env.step(actions)
+                    except (KeyboardInterrupt, SystemExit):
+                        raise
+                    except IndexError:
+                        print("[run_loop.py] failed to obtain a protobuffer")
+                        pass
+                    except Exception, err:
+                        print("[run_loop.py] Exception:")
+                        print("\t%s" % (err))
+                        print("\t%s" % (err.strerror))
+                        raise
         except (KeyboardInterrupt, SystemExit):
             raise
+        except Exception:
+            break
         finally:
             elapsed_time = time.time() - start_time
             print("Took %.3f seconds for %s steps: %.3f fps" % (

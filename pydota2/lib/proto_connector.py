@@ -67,18 +67,15 @@ class ProtoThread(threading.Thread):
     def add_to_proto_queue(self, data):
         data_frame = _pb.CMsgBotWorldState()
         data_frame.ParseFromString(data)
-        # Get lock to synchronize threads
-        #threadLock.acquire()
-        self.proto_queue.put(data_frame, timeout=0.5)
-        # Free lock to release for next thread
-        #threadLock.release()
+        self.proto_queue.put(data_frame, timeout=FRAME_INTERVAL/30.0)
 
     def get_from_proto_queue(self):
-        # Get lock to synchronize threads
-        #threadLock.acquire()
-        return self.proto_queue.get(timeout=0.5)
-        # Free lock to release for next thread
-        #threadLock.release()
+        try:
+            return self.proto_queue.get(timeout=FRAME_INTERVAL/30.0)
+        except:
+            print("Got EMPTY Protobuf!!!")
+            pass
+        return {}
         
     def run(self):
         print("Starting Protobuf Thread %d for %s" % (self.threadID, self.name))

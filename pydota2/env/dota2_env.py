@@ -17,6 +17,8 @@ from pydota2.lib import run_parallel
 from pydota2.lib import stopwatch
 from pydota2.lib import world_data
 
+import pydota2.protobuf.CMsgBotWorldState_pb2 as _pb
+
 sw = stopwatch.sw
 
 """
@@ -134,9 +136,9 @@ class Dota2Env(environment.Base):
     def reset(self):
         """Start a new episode."""
         self._episode_steps = 0
-        if self._episode_count:
-              # No need to restart for the first episode.
-              self._restart()
+        #if self._episode_count:
+            # No need to restart for the first episode.
+            # self._restart()
 
         self._episode_count += 1
         logging.info("Starting episode: %s", self._episode_count)
@@ -165,32 +167,35 @@ class Dota2Env(environment.Base):
 
     def _step(self):
         self._obs = self._proto_controller.get_from_proto_queue()
-        print("Current Protobuf Timestamp: %f" % self._obs.dota_time)
         
         # TODO - do we need to create a separate world_state object or can 
         #        we just leverage self._features.transform_obs for this???
         agent_obs = []
-        if self._obs.game_state in [4, 5]:
-            if not self._world_state:
-                self._world_state = world_data.WorldData(self._obs)
-            self._world_state.update_world_data(self._obs)
-                
-            #print(self._world_state.get_my_players)
-            #print(self._world_state.get_my_minions)
-        
-            agent_obs = [self._features.transform_obs(self._obs, self._world_state)]
-        else:
-            agent_obs = [self._features.transform_obs(self._obs, None)]
-        
+
         # TODO(tewalds): How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
         outcome = [0] * self._num_players
         discount = self._discount
         
-        print("Game State: %d" % (self._obs.game_state))
-        if self._obs.game_state == 6:  # Episode over.
-            self._state = environment.StepType.LAST
-            discount = 0
+        if isinstance(self._obs, _pb.CMsgBotWorldState):
+            print("Current Protobuf Timestamp: %f" % self._obs.dota_time)
+            
+            if self._obs.game_state in [4, 5]:
+                if not self._world_state:
+                    self._world_state = world_data.WorldData(self._obs)
+                self._world_state.update_world_data(self._obs)
+                    
+                #print(self._world_state.get_my_players)
+                #print(self._world_state.get_my_minions)
+            
+                agent_obs = [self._features.transform_obs(self._obs, self._world_state)]
+            else:
+                agent_obs = [self._features.transform_obs(self._obs, None)]
+        
+            print("Game State: %d" % (self._obs.game_state))
+            if self._obs.game_state == 6:  # Episode over.
+                self._state = environment.StepType.LAST
+                discount = 0
     
         """
         if self._score_index >= 0:  # Game score, not win/loss reward.
