@@ -43,10 +43,10 @@ def run_loop(agents, hs_agents, env, max_frames=0):
             timesteps = env.reset()
             for a in agents:
                 a.reset()
-            
-            # make sure we got our first protobuf
-            if len(timesteps) > 0:
-                while True:
+
+            while True:
+                # make sure we got our first protobuf
+                if len(timesteps) > 0:
                     try:
                         #print("[run_loop.py] processing timestep")
                         total_frames += 1
@@ -60,6 +60,7 @@ def run_loop(agents, hs_agents, env, max_frames=0):
                             if timesteps[0].last():
                                 break
                             timesteps = env.step(actions)
+
                         # TODO - fix below for Hero Selection
                         else:
                             actions = [agent.step(timestep, env.world_state())
@@ -69,19 +70,23 @@ def run_loop(agents, hs_agents, env, max_frames=0):
                             if timesteps[0].last():
                                 break
                             timesteps = env.step(actions)
+
                     except (KeyboardInterrupt, SystemExit):
                         raise
                     except IndexError:
                         print("[run_loop.py] failed to obtain a protobuffer")
                         pass
-                    except Exception, err:
+                    except Exception as err:
                         print("[run_loop.py] Exception:")
                         print("\t%s" % (err))
-                        print("\t%s" % (err.strerror))
                         raise
+                else:
+                    timesteps = env.reset()
+                
         except (KeyboardInterrupt, SystemExit):
             raise
-        except Exception:
+        except Exception as err:
+            print("Exception: '%s'" % (err))
             break
         finally:
             elapsed_time = time.time() - start_time

@@ -484,11 +484,11 @@
         "MagicResist": 0.0
     },
     "npc_dota_broodmother_spiderling": {
-        "PhysicalResist": 8.0,
+        "PhysicalResist": 0.0,
         "MagicResist": 50.0
     },
     "npc_dota_broodmother_spiderite": {
-        "PhysicalResist": 8.0,
+        "PhysicalResist": 0.0,
         "MagicResist": 50.0
     },
     "npc_dota_dark_troll_warlord_skeleton_warrior": {
@@ -497,7 +497,7 @@
     },
     "npc_dota_wraith_king_skeleton_warrior": {
         "PhysicalResist": 1.0,
-        "MagicResist": 0.0
+        "MagicResist": 50.0
     },
     "npc_dota_enraged_wildkin_tornado": {
         "PhysicalResist": 0.0,

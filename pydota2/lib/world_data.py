@@ -84,6 +84,9 @@ class AbilityData(object):
     def is_ultimate(self):
         return 'Ultimate' in ability_data[str(self.ability_id)].keys()
 
+    def is_talent(self):
+        return 'Talent' in ability_data[str(self.ability_id)].keys()
+
     def get_ult_starting_level(self):
         if 'LevelAvailable' in ability_data[str(self.ability_id)].keys():
             return ability_data[str(self.ability_id)]['LevelAvailable']
@@ -558,6 +561,9 @@ class WorldData(object):
                 if ability.is_hidden():
                     continue
 
+                # skip talents here
+                if ability.is_talent():
+                    continue
 
                 a_level = ability.get_level()
 

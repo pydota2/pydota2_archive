@@ -209,6 +209,8 @@ def processAbilities():
                     abilities[res[1]] = {}
                     if currName != None:
                         abilities[res[1]]['Name'] = currName
+                        if "special_" in currName:
+                            abilities[res[1]]['Talent'] = 1
                     else:
                         print("ERROR: Name missing!")
                         break

@@ -35,7 +35,7 @@ class RandomAgent(base_agent.BaseAgent):
         super(RandomAgent, self).step(obs)
         
         selected_actions = []
-        if world_state:
+        if world_state and len(obs) > 0:
             pIDs = world_state.get_player_ids()
             if len(pIDs) == 5:
                 for player_id in pIDs:
