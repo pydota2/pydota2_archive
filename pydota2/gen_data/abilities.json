@@ -9249,6 +9249,89 @@
             140.0
         ]
     },
+    "8000": {
+        "Name": "grimstroke_dark_artistry",
+        "TargetMask": 1,
+        "Castpoint": [
+            0.8
+        ],
+        "Cooldown": [
+            11.0,
+            9.0,
+            7.0,
+            5.0
+        ],
+        "Manacost": [
+            100.0,
+            110.0,
+            120.0,
+            130.0
+        ],
+        "DamageType": 2
+    },
+    "8006": {
+        "Name": "grimstroke_ink_creature",
+        "TargetMask": 2,
+        "TargetTeam": 1,
+        "DamageType": 2,
+        "Castpoint": [
+            0.0
+        ],
+        "Cooldown": [
+            32.0,
+            28.0,
+            24.0,
+            20.0
+        ],
+        "Manacost": [
+            110.0,
+            120.0,
+            130.0,
+            140.0
+        ]
+    },
+    "8007": {
+        "Name": "grimstroke_spirit_walk",
+        "TargetMask": 2,
+        "TargetTeam": 2,
+        "DamageType": 2,
+        "Cooldown": [
+            30.0,
+            25.0,
+            20.0,
+            15.0
+        ],
+        "Castpoint": [
+            0.15
+        ],
+        "Manacost": [
+            90.0,
+            100.0,
+            110.0,
+            120.0
+        ]
+    },
+    "6491": {
+        "Name": "grimstroke_soul_chain",
+        "AOE": 1,
+        "TargetMask": 2,
+        "Ultimate": 1,
+        "TargetTeam": 1,
+        "DamageType": 2,
+        "Cooldown": [
+            80.0,
+            65.0,
+            50.0
+        ],
+        "Castpoint": [
+            0.15
+        ],
+        "Manacost": [
+            150.0,
+            200.0,
+            250.0
+        ]
+    },
     "5350": {
         "Name": "backdoor_protection",
         "Passive": 1,
@@ -15780,6 +15863,30 @@
     },
     "6465": {
         "Name": "special_bonus_unique_dark_willow_2",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "8001": {
+        "Name": "special_bonus_unique_grimstroke_1",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "8002": {
+        "Name": "special_bonus_unique_grimstroke_2",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "8003": {
+        "Name": "special_bonus_unique_grimstroke_3",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "8004": {
+        "Name": "special_bonus_unique_grimstroke_4",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0

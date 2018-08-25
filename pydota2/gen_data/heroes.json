@@ -2845,5 +2845,30 @@
         "AttributeAgilityGain": 1.6,
         "MovementSpeed": 295,
         "MovementTurnRate": 0.7
+    },
+    "121": {
+        "Name": "npc_dota_hero_grimstroke",
+        "Talents": {
+            "Talent_1": "special_bonus_movement_speed_30",
+            "Talent_2": "special_bonus_gold_income_15",
+            "Talent_3": "special_bonus_spell_amplify_12",
+            "Talent_4": "special_bonus_cast_range_125",
+            "Talent_5": "special_bonus_unique_grimstroke_3",
+            "Talent_6": "special_bonus_unique_grimstroke_4",
+            "Talent_7": "special_bonus_unique_grimstroke_1",
+            "Talent_8": "special_bonus_unique_grimstroke_2"
+        },
+        "ArmorPhysical": 0,
+        "AttackRate": 1.7,
+        "AttackRange": 550,
+        "ProjectileSpeed": 900,
+        "AttributeBaseStrength": 21,
+        "AttributeStrengthGain": 2.2,
+        "AttributeBaseAgility": 18,
+        "AttributeAgilityGain": 1.9,
+        "AttributeBaseIntelligence": 23,
+        "AttributeIntelligenceGain": 3.3,
+        "MovementSpeed": 295,
+        "MovementTurnRate": 0.6
     }
 }

@@ -873,5 +873,12 @@
     },
     "npc_dota_dark_willow_creature": {
         "PhysicalResist": 0.0
+    },
+    "npc_dota_mutation_pocket_roshan": {
+        "PhysicalResist": 18.0,
+        "MagicResist": 55.0
+    },
+    "npc_dota_grimstroke_ink_creature": {
+        "PhysicalResist": 0.0
     }
 }
