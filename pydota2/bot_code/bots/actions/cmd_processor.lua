@@ -40,12 +40,13 @@ function CmdProcessor:Run(hBot, tblActions)
         local cmd = LookUpTable[key]
         if cmd ~= nil then
             dbg.myPrint("Executing Action: ", cmd.Name)
-            -- NOTE: It is assumed that the first argument (if args required)
+            -- NOTE: It is assumed that the first arguement (if args required)
             --       will be the handle to the bot, followed by arguments 
             --       provided by the `agent`.
             --       `Agent` args are double nested lists [[]], as some args
-            --       specify a location for example so: [[-7000,-7000,128], [2]]
-            --       to do a move_to_location (X,Y,Z) in Queued fashion
+            --       specify a location.
+            --       Example: [[-7000,-7000,128], [2]]
+            --                to do a move_to_location (X,Y,Z) in Queued fashion
             if cmd.NumArgs == 2 then
                 cmd:Call(hBot, value[1])
             elseif cmd.NumArgs == 3 then

@@ -172,7 +172,7 @@ class Dota2Env(environment.Base):
         #        we just leverage self._features.transform_obs for this???
         agent_obs = []
 
-        # TODO(tewalds): How should we handle more than 2 agents and the case where
+        # TODO: How should we handle more than 2 agents and the case where
         # the episode can end early for some agents?
         outcome = [0] * self._num_players
         discount = self._discount
