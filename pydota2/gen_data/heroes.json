@@ -159,7 +159,7 @@
             "Talent_7": "special_bonus_magic_resistance_50",
             "Talent_8": "special_bonus_unique_earthshaker"
         },
-        "ArmorPhysical": 1,
+        "ArmorPhysical": 0,
         "AttackRate": 1.7,
         "AttackRange": 150,
         "ProjectileSpeed": 0,
@@ -844,12 +844,12 @@
     "36": {
         "Name": "npc_dota_hero_necrolyte",
         "Talents": {
-            "Talent_1": "special_bonus_attack_damage_40",
+            "Talent_1": "special_bonus_attack_damage_30",
             "Talent_2": "special_bonus_strength_10",
             "Talent_3": "special_bonus_unique_necrophos_3",
             "Talent_4": "special_bonus_unique_necrophos_4",
             "Talent_5": "special_bonus_magic_resistance_20",
-            "Talent_6": "special_bonus_attack_speed_80",
+            "Talent_6": "special_bonus_attack_speed_70",
             "Talent_7": "special_bonus_unique_necrophos_2",
             "Talent_8": "special_bonus_unique_necrophos"
         },
@@ -2588,7 +2588,7 @@
         "Talents": {
             "Talent_1": "special_bonus_movement_speed_20",
             "Talent_2": "special_bonus_evasion_10",
-            "Talent_3": "special_bonus_hp_300",
+            "Talent_3": "special_bonus_hp_250",
             "Talent_4": "special_bonus_attack_speed_25",
             "Talent_5": "special_bonus_all_stats_10",
             "Talent_6": "special_bonus_unique_terrorblade_2",

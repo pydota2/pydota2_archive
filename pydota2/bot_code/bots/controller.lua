@@ -99,16 +99,18 @@ function X:DoInit(hBot)
 end
 
 function X:ProcessTeamCommands(hBot)
+    local tblActions = nil
     local serverReply = server.GetLastReply(packet.TYPE_POLL, 0)
     if serverReply ~= nil then
         if serverReply.status == 200 then
-            local tblActions = serverReply.Data['0']
-            if tblActions then
-                cmd_proc:Run(hBot, tblActions)
-            end
+            tblActions = serverReply.Data['0']
         else
             dbg.myPrint("Server Error: ", serverReply.Data)
         end
+    end
+    
+    if tblActions then
+        cmd_proc:Run(hBot, tblActions)
     end
 end
 
