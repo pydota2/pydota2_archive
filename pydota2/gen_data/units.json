@@ -55,155 +55,155 @@
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower1_top": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower1_mid": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower1_bot": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower2_top": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower2_mid": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower2_bot": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower3_top": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower3_mid": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower3_bot": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_tower4": {
-        "PhysicalResist": 29.0,
+        "PhysicalResist": 21.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower1_top": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower1_mid": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower1_bot": {
-        "PhysicalResist": 17.0,
+        "PhysicalResist": 12.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower2_top": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower2_mid": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower2_bot": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower3_top": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower3_mid": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower3_bot": {
-        "PhysicalResist": 19.0,
+        "PhysicalResist": 14.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_tower4": {
-        "PhysicalResist": 29.0,
+        "PhysicalResist": 21.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_fillers": {
-        "PhysicalResist": 14.0,
+        "PhysicalResist": 10.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_healers": {
-        "PhysicalResist": 24.0,
+        "PhysicalResist": 17.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_fillers": {
-        "PhysicalResist": 14.0,
+        "PhysicalResist": 10.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_healers": {
-        "PhysicalResist": 24.0,
+        "PhysicalResist": 17.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_melee_rax_top": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_melee_rax_mid": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_melee_rax_bot": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_range_rax_top": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_range_rax_mid": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_range_rax_bot": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_melee_rax_top": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_melee_rax_mid": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_melee_rax_bot": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_range_rax_top": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_range_rax_mid": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_range_rax_bot": {
-        "PhysicalResist": 12.0,
+        "PhysicalResist": 9.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_fort": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_badguys_fort": {
-        "PhysicalResist": 18.0,
+        "PhysicalResist": 13.0,
         "MagicResist": 0.0
     },
     "npc_dota_goodguys_siege": {
@@ -485,11 +485,11 @@
     },
     "npc_dota_broodmother_spiderling": {
         "PhysicalResist": 0.0,
-        "MagicResist": 50.0
+        "MagicResist": 40.0
     },
     "npc_dota_broodmother_spiderite": {
         "PhysicalResist": 0.0,
-        "MagicResist": 50.0
+        "MagicResist": 40.0
     },
     "npc_dota_dark_troll_warlord_skeleton_warrior": {
         "PhysicalResist": 1.0,
@@ -498,6 +498,10 @@
     "npc_dota_wraith_king_skeleton_warrior": {
         "PhysicalResist": 1.0,
         "MagicResist": 50.0
+    },
+    "npc_dota_clinkz_skeleton_archer": {
+        "PhysicalResist": 0.0,
+        "MagicResist": 0.0
     },
     "npc_dota_enraged_wildkin_tornado": {
         "PhysicalResist": 0.0,
@@ -718,6 +722,7 @@
         "MagicResist": 35.0
     },
     "ent_dota_halloffame": {},
+    "ent_dota_promo": {},
     "npc_dota_wisp_spirit": {
         "PhysicalResist": 0.0
     },
@@ -831,6 +836,9 @@
         "MagicResist": 25.0
     },
     "npc_dota_phoenix_sun": {
+        "PhysicalResist": 0.0
+    },
+    "npc_dota_ignis_fatuus": {
         "PhysicalResist": 0.0
     },
     "npc_dota_target_dummy": {

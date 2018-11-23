@@ -64,6 +64,25 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7314": {
+        "Name": "antimage_counterspell",
+        "TargetMask": 4,
+        "Castpoint": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "Cooldown": [
+            15.0,
+            11.0,
+            7.0,
+            3.0
+        ],
+        "Manacost": [
+            40.0
+        ]
+    },
     "5006": {
         "Name": "antimage_mana_void",
         "Ultimate": 1,
@@ -168,13 +187,19 @@
         "TargetMask": 2,
         "TargetTeam": 1,
         "Castpoint": [
-            0.4
+            0.3
         ],
         "Cooldown": [
-            8.0
+            12.0,
+            10.0,
+            8.0,
+            6.0
         ],
         "Manacost": [
-            95.0
+            70.0,
+            90.0,
+            110.0,
+            130.0
         ]
     },
     "5011": {
@@ -294,7 +319,9 @@
             0.4
         ],
         "Cooldown": [
-            60.0
+            70.0,
+            60.0,
+            50.0
         ],
         "Manacost": [
             200.0,
@@ -396,9 +423,9 @@
             0.69
         ],
         "Cooldown": [
-            18.0,
+            21.0,
+            19.0,
             17.0,
-            16.0,
             15.0
         ],
         "Manacost": [
@@ -865,9 +892,9 @@
             0.25
         ],
         "Cooldown": [
-            14.0,
+            17.0,
+            15.0,
             13.0,
-            12.0,
             11.0
         ],
         "Manacost": [
@@ -1328,6 +1355,7 @@
     "5081": {
         "Name": "shadow_shaman_mass_serpent_ward",
         "Ultimate": 1,
+        "AOE": 1,
         "TargetMask": 1,
         "DamageType": 1,
         "Castpoint": [
@@ -1385,11 +1413,7 @@
     "5084": {
         "Name": "razor_unstable_current",
         "Passive": 1,
-        "TargetMask": 0,
-        "DamageType": 2,
-        "Cooldown": [
-            5.0
-        ]
+        "TargetMask": 0
     },
     "5085": {
         "Name": "razor_eye_of_the_storm",
@@ -1592,16 +1616,13 @@
             0.0
         ],
         "Cooldown": [
-            35.0,
-            30.0,
-            25.0,
-            20.0
+            36.0,
+            32.0,
+            28.0,
+            24.0
         ],
         "Manacost": [
-            25.0,
-            25.0,
-            25.0,
-            25.0
+            40.0
         ]
     },
     "5097": {
@@ -1650,10 +1671,10 @@
             0.3
         ],
         "Cooldown": [
-            21.0,
+            22.0,
             20.0,
-            19.0,
-            18.0
+            18.0,
+            16.0
         ],
         "Manacost": [
             85.0
@@ -1708,10 +1729,10 @@
         "TargetMask": 4,
         "DamageType": 2,
         "Cooldown": [
-            34.0,
-            26.0,
-            18.0,
-            10.0
+            40.0,
+            32.0,
+            24.0,
+            16.0
         ],
         "Castpoint": [
             0.0,
@@ -1720,10 +1741,7 @@
             0.0
         ],
         "Manacost": [
-            60.0,
-            50.0,
-            40.0,
-            30.0
+            60.0
         ]
     },
     "5104": {
@@ -1767,9 +1785,9 @@
         ],
         "Cooldown": [
             23.0,
-            21.0,
-            19.0,
-            17.0
+            20.0,
+            17.0,
+            14.0
         ],
         "Manacost": [
             120.0,
@@ -1809,9 +1827,9 @@
             0.2
         ],
         "Cooldown": [
-            24.0,
-            20.0,
-            16.0,
+            27.0,
+            22.0,
+            17.0,
             12.0
         ],
         "Manacost": [
@@ -2100,7 +2118,7 @@
             0.3
         ],
         "Cooldown": [
-            45.0
+            0.0
         ],
         "Manacost": [
             100.0,
@@ -2171,9 +2189,7 @@
         "TargetMask": 4,
         "DamageType": 2,
         "Castpoint": [
-            0.3,
-            0.3,
-            0.3
+            0.0
         ],
         "Cooldown": [
             110.0,
@@ -2278,11 +2294,42 @@
             7.0
         ],
         "Manacost": [
-            125.0,
-            150.0,
-            170.0,
-            190.0
+            105.0,
+            130.0,
+            155.0,
+            180.0
         ]
+    },
+    "7311": {
+        "Name": "lich_dark_sorcery",
+        "TargetMask": 4,
+        "Cooldown": [
+            25.0,
+            20.0,
+            15.0,
+            10.0
+        ]
+    },
+    "7325": {
+        "Name": "lich_sinister_gaze",
+        "TargetMask": 2,
+        "TargetTeam": 1,
+        "Cooldown": [
+            30.0
+        ],
+        "Manacost": [
+            120.0,
+            130.0,
+            140.0,
+            150.0
+        ]
+    },
+    "7312": {
+        "Name": "lich_frost_aura",
+        "Passive": 1,
+        "Aura": 1,
+        "TargetMask": 0,
+        "TargetTeam": 2
     },
     "5135": {
         "Name": "lich_frost_armor",
@@ -2308,23 +2355,23 @@
         ]
     },
     "5136": {
-        "Name": "lich_dark_ritual",
+        "Name": "lich_frost_shield",
         "TargetMask": 2,
         "TargetTeam": 2,
         "Castpoint": [
-            0.4,
-            0.4,
-            0.4,
-            0.4
+            0.2
         ],
         "Cooldown": [
-            60.0,
-            46.0,
-            32.0,
-            18.0
+            30.0,
+            25.0,
+            20.0,
+            15.0
         ],
         "Manacost": [
-            0.0
+            100.0,
+            110.0,
+            120.0,
+            130.0
         ]
     },
     "5137": {
@@ -2456,9 +2503,9 @@
             0.3
         ],
         "Cooldown": [
-            16.0,
-            12.0,
+            10.0,
             8.0,
+            6.0,
             4.0
         ],
         "Manacost": [
@@ -2693,8 +2740,22 @@
     },
     "5156": {
         "Name": "sniper_take_aim",
-        "Passive": 1,
-        "TargetMask": 0
+        "TargetMask": 4,
+        "Castpoint": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "Cooldown": [
+            15.0,
+            12.0,
+            9.0,
+            6.0
+        ],
+        "Manacost": [
+            30.0
+        ]
     },
     "5157": {
         "Name": "sniper_assassinate",
@@ -2911,13 +2972,46 @@
             0.3
         ],
         "Cooldown": [
-            60.0
+            45.0
         ],
         "Manacost": [
             50.0,
             60.0,
             70.0,
             80.0
+        ]
+    },
+    "7230": {
+        "Name": "beastmaster_call_of_the_wild_boar",
+        "TargetMask": 4,
+        "Castpoint": [
+            0.3
+        ],
+        "Cooldown": [
+            42.0,
+            38.0,
+            34.0,
+            30.0
+        ],
+        "Manacost": [
+            50.0
+        ]
+    },
+    "7231": {
+        "Name": "beastmaster_call_of_the_wild_hawk",
+        "AOE": 1,
+        "TargetMask": 1,
+        "Castpoint": [
+            0.3
+        ],
+        "Cooldown": [
+            60.0,
+            50.0,
+            40.0,
+            30.0
+        ],
+        "Manacost": [
+            30.0
         ]
     },
     "5170": {
@@ -3293,28 +3387,33 @@
         "TargetMask": 2,
         "TargetTeam": 4,
         "Castpoint": [
-            0.3,
-            0.3,
-            0.3,
-            0.3
+            0.25
         ],
         "Cooldown": [
-            14.0,
             11.0,
-            8.0,
+            9.0,
+            7.0,
             5.0
         ],
         "Manacost": [
-            50.0,
-            50.0,
-            50.0,
+            35.0,
+            40.0,
+            45.0,
             50.0
         ]
     },
     "5192": {
         "Name": "phantom_assassin_blur",
-        "Passive": 1,
-        "TargetMask": 0
+        "TargetMask": 4,
+        "Cooldown": [
+            60.0,
+            55.0,
+            50.0,
+            45.0
+        ],
+        "Manacost": [
+            20.0
+        ]
     },
     "5193": {
         "Name": "phantom_assassin_coup_de_grace",
@@ -3616,7 +3715,10 @@
             18.0
         ],
         "Manacost": [
-            80.0
+            80.0,
+            100.0,
+            120.0,
+            140.0
         ]
     },
     "5234": {
@@ -3648,10 +3750,10 @@
             0.3
         ],
         "Cooldown": [
-            12.0,
-            10.0,
-            8.0,
-            6.0
+            13.0,
+            11.0,
+            9.0,
+            7.0
         ],
         "Manacost": [
             90.0,
@@ -3680,6 +3782,12 @@
             100.0,
             100.0
         ]
+    },
+    "7304": {
+        "Name": "dazzle_bad_juju",
+        "Passive": 1,
+        "TargetMask": 0,
+        "Ultimate": 1
     },
     "5237": {
         "Name": "rattletrap_battery_assault",
@@ -4111,9 +4219,9 @@
             0.4
         ],
         "Cooldown": [
-            13.0,
+            16.0,
+            14.0,
             12.0,
-            11.0,
             10.0
         ],
         "Manacost": [
@@ -4126,9 +4234,7 @@
         "Ultimate": 1,
         "DamageType": 2,
         "Castpoint": [
-            0.4,
-            0.4,
-            0.4
+            0.2
         ],
         "Cooldown": [
             100.0,
@@ -4206,6 +4312,23 @@
             75.0
         ]
     },
+    "7319": {
+        "Name": "clinkz_burning_army",
+        "Ultimate": 1,
+        "TargetMask": 1,
+        "DamageType": 1,
+        "Castpoint": [
+            0.0
+        ],
+        "Cooldown": [
+            110.0
+        ],
+        "Manacost": [
+            125.0,
+            175.0,
+            225.0
+        ]
+    },
     "5262": {
         "Name": "clinkz_death_pact",
         "TargetMask": 2,
@@ -4252,16 +4375,37 @@
         "TargetMask": 2,
         "TargetTeam": 2,
         "Castpoint": [
-            0.35
+            0.25
         ],
         "Cooldown": [
-            30.0,
-            26.0,
-            22.0,
-            18.0
+            17.0,
+            16.0,
+            15.0,
+            14.0
         ],
         "Manacost": [
-            85.0
+            75.0
+        ]
+    },
+    "7323": {
+        "Name": "omniknight_pacify",
+        "AOE": 1,
+        "TargetMask": 1,
+        "DamageType": 2,
+        "Castpoint": [
+            0.3
+        ],
+        "Cooldown": [
+            18.0,
+            16.0,
+            14.0,
+            12.0
+        ],
+        "Manacost": [
+            50.0,
+            60.0,
+            70.0,
+            80.0
         ]
     },
     "5265": {
@@ -4276,9 +4420,9 @@
         "TargetMask": 4,
         "Ultimate": 1,
         "Cooldown": [
-            180.0,
-            170.0,
-            160.0
+            160.0,
+            150.0,
+            140.0
         ],
         "Castpoint": [
             0.4
@@ -4381,6 +4525,25 @@
             170.0
         ]
     },
+    "7300": {
+        "Name": "huskar_inner_fire",
+        "TargetMask": 4,
+        "Castpoint": [
+            0.2
+        ],
+        "Cooldown": [
+            18.0,
+            16.0,
+            14.0,
+            12.0
+        ],
+        "Manacost": [
+            75.0,
+            100.0,
+            125.0,
+            150.0
+        ]
+    },
     "5272": {
         "Name": "huskar_burning_spear",
         "TargetMask": 2,
@@ -4456,19 +4619,15 @@
     },
     "5276": {
         "Name": "night_stalker_crippling_fear",
-        "TargetMask": 2,
-        "TargetTeam": 1,
+        "TargetMask": 4,
         "Castpoint": [
-            0.3,
-            0.3,
-            0.3,
-            0.3
+            0.2
         ],
         "Cooldown": [
-            24.0,
+            30.0,
+            25.0,
             20.0,
-            16.0,
-            12.0
+            15.0
         ],
         "Manacost": [
             50.0
@@ -4477,16 +4636,7 @@
     "5277": {
         "Name": "night_stalker_hunter_in_the_night",
         "Passive": 1,
-        "TargetMask": 0,
-        "Cooldown": [
-            30.0,
-            26.0,
-            22.0,
-            18.0
-        ],
-        "Manacost": [
-            80.0
-        ]
+        "TargetMask": 0
     },
     "5278": {
         "Name": "night_stalker_darkness",
@@ -4499,13 +4649,13 @@
         ],
         "Cooldown": [
             160.0,
-            120.0,
-            80.0
+            140.0,
+            120.0
         ],
         "Manacost": [
-            0.0,
-            0.0,
-            0.0
+            125.0,
+            175.0,
+            225.0
         ]
     },
     "5279": {
@@ -4603,9 +4753,9 @@
         "TargetMask": 0,
         "Cooldown": [
             12.0,
-            10.0,
-            8.0,
-            6.0
+            9.0,
+            6.0,
+            3.0
         ]
     },
     "5287": {
@@ -4690,8 +4840,8 @@
         "Passive": 1,
         "TargetMask": 0,
         "Cooldown": [
+            9.0,
             7.0,
-            6.0,
             5.0,
             3.0
         ]
@@ -4920,6 +5070,26 @@
             120.0
         ]
     },
+    "7306": {
+        "Name": "chen_divine_favor",
+        "TargetMask": 2,
+        "TargetTeam": 2,
+        "Castpoint": [
+            0.3,
+            0.3,
+            0.3,
+            0.3
+        ],
+        "Cooldown": [
+            26.0,
+            24.0,
+            22.0,
+            20.0
+        ],
+        "Manacost": [
+            110.0
+        ]
+    },
     "5522": {
         "Name": "chen_test_of_faith_teleport",
         "TargetMask": 2,
@@ -4953,10 +5123,7 @@
             0.3
         ],
         "Cooldown": [
-            32.0,
-            24.0,
-            18.0,
-            10.0
+            15.0
         ],
         "Manacost": [
             70.0,
@@ -5084,7 +5251,10 @@
             0.0
         ],
         "Cooldown": [
-            55.0
+            55.0,
+            50.0,
+            45.0,
+            40.0
         ],
         "Manacost": [
             60.0,
@@ -5185,26 +5355,19 @@
     },
     "5347": {
         "Name": "ancient_apparition_chilling_touch",
-        "AOE": 1,
-        "TargetMask": 1,
-        "DamageType": 2,
-        "Castpoint": [
-            0.01,
-            0.01,
-            0.01,
-            0.01
-        ],
+        "TargetMask": 2,
+        "TargetTeam": 1,
         "Cooldown": [
-            50.0,
-            42.0,
-            34.0,
-            26.0
+            15.0,
+            11.0,
+            7.0,
+            3.0
         ],
         "Manacost": [
-            110.0,
-            120.0,
-            130.0,
-            140.0
+            30.0,
+            50.0,
+            70.0,
+            90.0
         ]
     },
     "5348": {
@@ -5259,6 +5422,19 @@
             100.0,
             100.0,
             100.0
+        ]
+    },
+    "7301": {
+        "Name": "spirit_breaker_bulldoze",
+        "TargetMask": 4,
+        "Cooldown": [
+            22.0
+        ],
+        "Manacost": [
+            25.0,
+            30.0,
+            35.0,
+            40.0
         ]
     },
     "5354": {
@@ -5848,24 +6024,13 @@
         "TargetTeam": 2
     },
     "5684": {
-        "Name": "obsidian_destroyer_mind_over_matter",
-        "AOE": 1,
-        "TargetMask": 1,
-        "DamageType": 2,
-        "Castpoint": [
-            0.2
-        ],
+        "Name": "obsidian_destroyer_equilibrium",
+        "TargetMask": 4,
         "Cooldown": [
-            16.0,
-            14.0,
-            12.0,
-            10.0
+            18.0
         ],
         "Manacost": [
-            80.0,
-            100.0,
-            120.0,
-            140.0
+            50.0
         ]
     },
     "5394": {
@@ -5917,12 +6082,15 @@
             0.3
         ],
         "Cooldown": [
-            60.0,
-            55.0,
             50.0,
-            45.0
+            45.0,
+            40.0,
+            35.0
         ],
         "Manacost": [
+            25.0,
+            30.0,
+            35.0,
             40.0
         ]
     },
@@ -5978,12 +6146,6 @@
     "5413": {
         "Name": "lone_druid_rabid",
         "TargetMask": 4,
-        "Castpoint": [
-            0.5,
-            0.5,
-            0.5,
-            0.5
-        ],
         "Cooldown": [
             35.0
         ],
@@ -5992,6 +6154,25 @@
             50.0,
             50.0,
             50.0
+        ]
+    },
+    "7309": {
+        "Name": "lone_druid_spirit_link",
+        "TargetMask": 4,
+        "Castpoint": [
+            0.5
+        ],
+        "Cooldown": [
+            44.0,
+            36.0,
+            28.0,
+            20.0
+        ],
+        "Manacost": [
+            50.0,
+            60.0,
+            70.0,
+            80.0
         ]
     },
     "5414": {
@@ -6108,6 +6289,11 @@
             5.0
         ]
     },
+    "7308": {
+        "Name": "lone_druid_spirit_bear_defender",
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "5420": {
         "Name": "lone_druid_spirit_bear_demolish",
         "Passive": 1,
@@ -6127,9 +6313,9 @@
         ],
         "Manacost": [
             90.0,
-            105.0,
-            130.0,
-            150.0
+            100.0,
+            110.0,
+            120.0
         ]
     },
     "5401": {
@@ -6149,10 +6335,38 @@
             25.0
         ]
     },
+    "7310": {
+        "Name": "brewmaster_cinder_brew",
+        "AOE": 1,
+        "TargetMask": 1,
+        "Castpoint": [
+            0.2
+        ],
+        "Cooldown": [
+            20.0,
+            18.0,
+            16.0,
+            14.0
+        ],
+        "Manacost": [
+            50.0
+        ]
+    },
     "5402": {
         "Name": "brewmaster_drunken_brawler",
-        "Passive": 1,
-        "TargetMask": 0
+        "TargetMask": 4,
+        "Cooldown": [
+            20.0,
+            19.0,
+            18.0,
+            17.0
+        ],
+        "Manacost": [
+            35.0,
+            40.0,
+            45.0,
+            50.0
+        ]
     },
     "5403": {
         "Name": "brewmaster_primal_split",
@@ -6280,10 +6494,10 @@
         "TargetMask": 1,
         "DamageType": 3,
         "Cooldown": [
-            13.0,
-            12.0,
-            11.0,
-            10.0
+            26.0,
+            24.0,
+            22.0,
+            20.0
         ],
         "Castpoint": [
             0.3,
@@ -6292,10 +6506,7 @@
             0.3
         ],
         "Manacost": [
-            50.0,
-            60.0,
-            70.0,
-            80.0
+            110.0
         ]
     },
     "5423": {
@@ -6375,10 +6586,10 @@
             0.3
         ],
         "Cooldown": [
-            18.0,
-            14.0,
+            20.0,
+            15.0,
             10.0,
-            6.0
+            5.0
         ],
         "Manacost": [
             50.0
@@ -6387,7 +6598,13 @@
     "5428": {
         "Name": "chaos_knight_chaos_strike",
         "Passive": 1,
-        "TargetMask": 0
+        "TargetMask": 0,
+        "Cooldown": [
+            7.0,
+            6.0,
+            5.0,
+            4.0
+        ]
     },
     "5429": {
         "Name": "chaos_knight_phantasm",
@@ -6448,6 +6665,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7318": {
+        "Name": "meepo_ransack",
+        "Passive": 1,
+        "TargetMask": 0,
+        "DamageType": 3
+    },
     "5433": {
         "Name": "meepo_divided_we_stand",
         "Passive": 1,
@@ -6459,7 +6682,8 @@
     "5434": {
         "Name": "treant_natures_guise",
         "Passive": 1,
-        "TargetMask": 0
+        "TargetMask": 0,
+        "DamageType": 2
     },
     "5435": {
         "Name": "treant_leech_seed",
@@ -6551,7 +6775,10 @@
             0.45
         ],
         "Cooldown": [
-            12.0
+            12.0,
+            11.0,
+            10.0,
+            9.0
         ],
         "Manacost": [
             75.0,
@@ -6599,7 +6826,10 @@
             0.45
         ],
         "Cooldown": [
-            20.0
+            20.0,
+            18.0,
+            16.0,
+            14.0
         ],
         "Manacost": [
             65.0
@@ -6698,14 +6928,11 @@
         "Name": "undying_flesh_golem",
         "TargetMask": 4,
         "Ultimate": 1,
+        "DamageType": 2,
         "Cooldown": [
-            75.0,
-            75.0,
-            75.0
+            110.0
         ],
         "Manacost": [
-            100.0,
-            100.0,
             100.0
         ]
     },
@@ -6765,6 +6992,11 @@
         "Cooldown": [
             30.0
         ]
+    },
+    "7320": {
+        "Name": "rubick_arcane_supremacy",
+        "Passive": 1,
+        "TargetMask": 0
     },
     "5452": {
         "Name": "rubick_spell_steal",
@@ -7010,16 +7242,16 @@
             0.65
         ],
         "Cooldown": [
+            45.0,
             40.0,
-            40.0,
-            40.0,
-            40.0
+            35.0,
+            30.0
         ],
         "Manacost": [
             70.0,
-            80.0,
-            90.0,
-            100.0
+            85.0,
+            100.0,
+            115.0
         ]
     },
     "5468": {
@@ -7041,22 +7273,14 @@
     },
     "5469": {
         "Name": "naga_siren_rip_tide",
-        "TargetMask": 4,
+        "Passive": 1,
+        "TargetMask": 0,
         "DamageType": 2,
         "Castpoint": [
             0.0,
             0.0,
             0.0,
             0.0
-        ],
-        "Cooldown": [
-            10.0
-        ],
-        "Manacost": [
-            80.0,
-            90.0,
-            100.0,
-            110.0
         ]
     },
     "5470": {
@@ -7104,10 +7328,7 @@
             0.3
         ],
         "Cooldown": [
-            10.0,
-            10.0,
-            10.0,
-            10.0
+            11.0
         ],
         "Manacost": [
             150.0,
@@ -7136,6 +7357,24 @@
             160.0
         ]
     },
+    "7316": {
+        "Name": "keeper_of_the_light_will_o_wisp",
+        "AOE": 1,
+        "TargetMask": 1,
+        "TargetTeam": 1,
+        "Ultimate": 1,
+        "Castpoint": [
+            0.1
+        ],
+        "Cooldown": [
+            120.0
+        ],
+        "Manacost": [
+            200.0,
+            300.0,
+            400.0
+        ]
+    },
     "5473": {
         "Name": "keeper_of_the_light_chakra_magic",
         "TargetMask": 2,
@@ -7147,9 +7386,9 @@
             0.3
         ],
         "Cooldown": [
-            17.0,
+            20.0,
+            18.0,
             16.0,
-            15.0,
             14.0
         ],
         "Manacost": [
@@ -7210,14 +7449,16 @@
             0.3
         ],
         "Cooldown": [
+            30.0,
+            25.0,
             20.0,
-            16.0,
-            12.0
+            15.0
         ],
         "Manacost": [
-            50.0,
-            50.0,
-            50.0
+            100.0,
+            125.0,
+            150.0,
+            175.0
         ]
     },
     "5477": {
@@ -7387,9 +7628,9 @@
         ],
         "Cooldown": [
             26.0,
+            24.0,
             22.0,
-            18.0,
-            14.0
+            20.0
         ],
         "Manacost": [
             120.0,
@@ -7520,6 +7761,8 @@
         "Ultimate": 1,
         "TargetMask": 4,
         "Cooldown": [
+            80.0,
+            70.0,
             60.0
         ],
         "Manacost": [
@@ -7638,20 +7881,18 @@
     },
     "5512": {
         "Name": "troll_warlord_battle_trance",
-        "Ultimate": 1,
         "TargetMask": 4,
+        "Ultimate": 1,
         "Castpoint": [
             0.0,
             0.0,
             0.0
         ],
         "Cooldown": [
-            35.0
+            90.0
         ],
         "Manacost": [
-            75.0,
-            75.0,
-            75.0
+            150.0
         ]
     },
     "5514": {
@@ -7686,10 +7927,7 @@
             5.0
         ],
         "Castpoint": [
-            0.5,
-            0.5,
-            0.5,
-            0.5
+            0.4
         ],
         "Manacost": [
             0.0,
@@ -7700,21 +7938,26 @@
     },
     "5516": {
         "Name": "centaur_return",
-        "Passive": 1,
-        "TargetMask": 0,
-        "DamageType": 1
+        "TargetMask": 4,
+        "DamageType": 1,
+        "Cooldown": [
+            55.0,
+            50.0,
+            45.0,
+            40.0
+        ]
     },
     "5517": {
         "Name": "centaur_stampede",
         "TargetMask": 4,
         "Ultimate": 1,
         "Cooldown": [
-            90.0,
-            75.0,
-            60.0
+            110.0,
+            100.0,
+            90.0
         ],
         "Manacost": [
-            100.0
+            150.0
         ]
     },
     "5518": {
@@ -7729,16 +7972,16 @@
             0.3
         ],
         "Cooldown": [
-            10.0,
-            9.0,
-            8.0,
-            7.0
+            14.0,
+            13.0,
+            12.0,
+            11.0
         ],
         "Manacost": [
             90.0,
-            90.0,
-            90.0,
-            90.0
+            100.0,
+            110.0,
+            120.0
         ]
     },
     "5519": {
@@ -7772,7 +8015,10 @@
             0.3
         ],
         "Cooldown": [
-            25.0
+            26.0,
+            24.0,
+            22.0,
+            20.0
         ],
         "Manacost": [
             80.0,
@@ -7803,7 +8049,7 @@
     "5524": {
         "Name": "shredder_whirling_death",
         "TargetMask": 4,
-        "DamageType": 2,
+        "DamageType": 3,
         "Castpoint": [
             0.0,
             0.0,
@@ -8060,6 +8306,24 @@
             75.0,
             75.0,
             75.0
+        ]
+    },
+    "7322": {
+        "Name": "tusk_tag_team",
+        "TargetMask": 4,
+        "TargetTeam": 1,
+        "DamageType": 1,
+        "Castpoint": [
+            0.0
+        ],
+        "Cooldown": [
+            15.0
+        ],
+        "Manacost": [
+            40.0,
+            50.0,
+            60.0,
+            70.0
         ]
     },
     "5568": {
@@ -8966,13 +9230,10 @@
         "Name": "monkey_king_mischief",
         "TargetMask": 4,
         "Castpoint": [
-            0.0,
-            0.0,
-            0.0,
             0.0
         ],
         "Cooldown": [
-            3.0
+            20.0
         ],
         "Manacost": [
             0.0,
@@ -9118,6 +9379,11 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7307": {
+        "Name": "pangolier_lucky_shot",
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6343": {
         "Name": "pangolier_gyroshell",
         "TargetMask": 4,
@@ -9212,6 +9478,9 @@
             26.0,
             20.0,
             14.0
+        ],
+        "Castpoint": [
+            0.0
         ],
         "Manacost": [
             70.0,
@@ -11303,6 +11572,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7200": {
+        "Name": "special_bonus_cleave_40",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6631": {
         "Name": "special_bonus_cleave_60",
         "Talent": 1,
@@ -11311,6 +11586,12 @@
     },
     "6827": {
         "Name": "special_bonus_cleave_100",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7201": {
+        "Name": "special_bonus_cleave_130",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0
@@ -12335,6 +12616,18 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7372": {
+        "Name": "special_bonus_attack_base_damage_30",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7370": {
+        "Name": "special_bonus_attack_base_damage_45",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "5992": {
         "Name": "special_bonus_attack_range_50",
         "Talent": 1,
@@ -12763,6 +13056,12 @@
     },
     "7045": {
         "Name": "special_bonus_20_crit_15",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7145": {
+        "Name": "special_bonus_50_crit_40",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0
@@ -13217,6 +13516,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7360": {
+        "Name": "special_bonus_unique_lich_4",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6041": {
         "Name": "special_bonus_unique_rubick",
         "Talent": 1,
@@ -13661,6 +13966,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7371": {
+        "Name": "special_bonus_unique_templar_assassin_7",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6072": {
         "Name": "special_bonus_unique_crystal_maiden_1",
         "Talent": 1,
@@ -14035,6 +14346,18 @@
     },
     "6602": {
         "Name": "special_bonus_unique_abaddon_3",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7335": {
+        "Name": "special_bonus_unique_abaddon_4",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7340": {
+        "Name": "special_bonus_unique_abaddon_5",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0
@@ -14735,6 +15058,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7350": {
+        "Name": "special_bonus_unique_elder_titan_4",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6172": {
         "Name": "special_bonus_unique_ember_spirit_1",
         "Talent": 1,
@@ -15415,6 +15744,12 @@
     },
     "6712": {
         "Name": "special_bonus_unique_outworld_devourer_3",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7375": {
+        "Name": "special_bonus_unique_outworld_devourer_4",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0
