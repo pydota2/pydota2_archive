@@ -1730,9 +1730,9 @@
         "DamageType": 2,
         "Cooldown": [
             40.0,
-            32.0,
-            24.0,
-            16.0
+            34.0,
+            28.0,
+            22.0
         ],
         "Castpoint": [
             0.0,
@@ -3411,8 +3411,11 @@
             50.0,
             45.0
         ],
+        "Castpoint": [
+            0.4
+        ],
         "Manacost": [
-            20.0
+            30.0
         ]
     },
     "5193": {
@@ -3750,10 +3753,10 @@
             0.3
         ],
         "Cooldown": [
-            13.0,
-            11.0,
-            9.0,
-            7.0
+            14.0,
+            12.0,
+            10.0,
+            8.0
         ],
         "Manacost": [
             90.0,
@@ -4528,6 +4531,7 @@
     "7300": {
         "Name": "huskar_inner_fire",
         "TargetMask": 4,
+        "DamageType": 2,
         "Castpoint": [
             0.2
         ],
@@ -6163,10 +6167,10 @@
             0.5
         ],
         "Cooldown": [
-            44.0,
+            43.0,
             36.0,
-            28.0,
-            20.0
+            29.0,
+            22.0
         ],
         "Manacost": [
             50.0,
@@ -6374,8 +6378,8 @@
         "Ultimate": 1,
         "Cooldown": [
             140.0,
-            120.0,
-            100.0
+            130.0,
+            120.0
         ],
         "Castpoint": [
             0.65
@@ -6947,9 +6951,9 @@
             0.1
         ],
         "Cooldown": [
-            28.0,
+            34.0,
+            30.0,
             26.0,
-            24.0,
             22.0
         ],
         "Manacost": [
@@ -7370,9 +7374,9 @@
             120.0
         ],
         "Manacost": [
-            200.0,
-            300.0,
-            400.0
+            250.0,
+            350.0,
+            450.0
         ]
     },
     "5473": {
@@ -7728,10 +7732,7 @@
             6.0
         ],
         "Manacost": [
-            55.0,
-            50.0,
-            45.0,
-            40.0
+            60.0
         ]
     },
     "5495": {
@@ -8549,7 +8550,7 @@
             0.4
         ],
         "Cooldown": [
-            16.0
+            17.0
         ],
         "Manacost": [
             80.0,
@@ -9578,8 +9579,8 @@
         "Ultimate": 1,
         "TargetTeam": 1,
         "Cooldown": [
-            80.0,
-            65.0,
+            90.0,
+            70.0,
             50.0
         ],
         "Castpoint": [
@@ -11536,6 +11537,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7383": {
+        "Name": "special_bonus_corruption_3",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "7011": {
         "Name": "special_bonus_corruption_4",
         "Talent": 1,
@@ -12226,6 +12233,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7384": {
+        "Name": "special_bonus_agility_6",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6014": {
         "Name": "special_bonus_agility_8",
         "Talent": 1,
@@ -12234,6 +12247,12 @@
     },
     "6029": {
         "Name": "special_bonus_agility_10",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7386": {
+        "Name": "special_bonus_agility_12",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0
@@ -15118,6 +15137,12 @@
         "Passive": 1,
         "TargetMask": 0
     },
+    "7385": {
+        "Name": "special_bonus_reincarnation_250",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
     "6174": {
         "Name": "special_bonus_unique_lion",
         "Talent": 1,
@@ -16002,6 +16027,12 @@
     },
     "7036": {
         "Name": "special_bonus_unique_lone_druid_9",
+        "Talent": 1,
+        "Passive": 1,
+        "TargetMask": 0
+    },
+    "7382": {
+        "Name": "special_bonus_unique_lone_druid_10",
         "Talent": 1,
         "Passive": 1,
         "TargetMask": 0

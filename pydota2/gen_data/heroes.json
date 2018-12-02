@@ -29,7 +29,7 @@
         "Talents": {
             "Talent_1": "special_bonus_strength_8",
             "Talent_2": "special_bonus_attack_speed_40",
-            "Talent_3": "special_bonus_mp_regen_4",
+            "Talent_3": "special_bonus_mp_regen_3",
             "Talent_4": "special_bonus_movement_speed_30",
             "Talent_5": "special_bonus_hp_regen_25",
             "Talent_6": "special_bonus_unique_axe_3",
@@ -45,7 +45,7 @@
         "AttributeIntelligenceGain": 1.6,
         "AttributeBaseAgility": 20,
         "AttributeAgilityGain": 2.2,
-        "MovementSpeed": 290,
+        "MovementSpeed": 295,
         "MovementTurnRate": 0.6
     },
     "3": {
@@ -94,7 +94,7 @@
         "AttributeIntelligenceGain": 1.7,
         "AttributeBaseAgility": 24,
         "AttributeAgilityGain": 3.0,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5
     },
     "5": {
@@ -178,7 +178,7 @@
             "Talent_1": "special_bonus_all_stats_5",
             "Talent_2": "special_bonus_movement_speed_20",
             "Talent_3": "special_bonus_unique_juggernaut",
-            "Talent_4": "special_bonus_attack_speed_25",
+            "Talent_4": "special_bonus_attack_speed_20",
             "Talent_5": "special_bonus_armor_10",
             "Talent_6": "special_bonus_unique_juggernaut_3",
             "Talent_7": "special_bonus_hp_600",
@@ -194,7 +194,7 @@
         "AttributeIntelligenceGain": 1.4,
         "AttributeBaseAgility": 36,
         "AttributeAgilityGain": 2.4,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.6
     },
     "9": {
@@ -293,7 +293,7 @@
         "AttributeIntelligenceGain": 2.0,
         "AttributeBaseAgility": 29,
         "AttributeAgilityGain": 2.6,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "13": {
@@ -315,7 +315,7 @@
         "AttributeBaseStrength": 17,
         "AttributeStrengthGain": 2.2,
         "AttributeBaseIntelligence": 23,
-        "AttributeIntelligenceGain": 2.4,
+        "AttributeIntelligenceGain": 2.7,
         "AttributeBaseAgility": 22,
         "AttributeAgilityGain": 1.7,
         "MovementSpeed": 295,
@@ -343,7 +343,7 @@
         "AttributeIntelligenceGain": 1.5,
         "AttributeBaseAgility": 14,
         "AttributeAgilityGain": 1.5,
-        "MovementSpeed": 275,
+        "MovementSpeed": 280,
         "MovementTurnRate": 0.7
     },
     "15": {
@@ -387,12 +387,12 @@
         "AttackRate": 1.7,
         "AttackRange": 150,
         "AttributeBaseStrength": 22,
-        "AttributeStrengthGain": 2.9,
+        "AttributeStrengthGain": 2.8,
         "AttributeBaseIntelligence": 16,
         "AttributeIntelligenceGain": 1.8,
         "AttributeBaseAgility": 19,
-        "AttributeAgilityGain": 2.1,
-        "MovementSpeed": 285,
+        "AttributeAgilityGain": 1.8,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5
     },
     "17": {
@@ -414,7 +414,7 @@
         "AttributeBaseStrength": 21,
         "AttributeStrengthGain": 2.0,
         "AttributeBaseIntelligence": 22,
-        "AttributeIntelligenceGain": 3.0,
+        "AttributeIntelligenceGain": 3.2,
         "AttributeBaseAgility": 22,
         "AttributeAgilityGain": 1.5,
         "MovementSpeed": 285,
@@ -442,7 +442,7 @@
         "AttributeIntelligenceGain": 1.3,
         "AttributeBaseAgility": 21,
         "AttributeAgilityGain": 2.0,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "19": {
@@ -466,7 +466,7 @@
         "AttributeIntelligenceGain": 1.6,
         "AttributeBaseAgility": 0,
         "AttributeAgilityGain": 0.0,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5
     },
     "20": {
@@ -565,7 +565,7 @@
         "AttributeIntelligenceGain": 1.5,
         "AttributeBaseAgility": 14,
         "AttributeAgilityGain": 1.3,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.6
     },
     "25": {
@@ -580,7 +580,7 @@
             "Talent_7": "special_bonus_unique_lina_1",
             "Talent_8": "special_bonus_attack_range_175"
         },
-        "ArmorPhysical": -1,
+        "ArmorPhysical": 0,
         "AttackRate": 1.6,
         "AttackRange": 670,
         "ProjectileSpeed": 1000,
@@ -615,7 +615,7 @@
         "AttributeIntelligenceGain": 3.6,
         "AttributeBaseAgility": 15,
         "AttributeAgilityGain": 2.0,
-        "MovementSpeed": 315,
+        "MovementSpeed": 310,
         "MovementTurnRate": 0.5
     },
     "26": {
@@ -675,16 +675,16 @@
             "Talent_2": "special_bonus_attack_damage_25",
             "Talent_3": "special_bonus_hp_300",
             "Talent_4": "special_bonus_unique_slardar_2",
-            "Talent_5": "special_bonus_attack_speed_50",
+            "Talent_5": "special_bonus_lifesteal_30",
             "Talent_6": "special_bonus_night_vision_1000",
             "Talent_7": "special_bonus_unique_slardar",
             "Talent_8": "special_bonus_unique_slardar_3"
         },
-        "ArmorPhysical": 2,
+        "ArmorPhysical": 3,
         "AttackRate": 1.7,
         "AttackRange": 150,
         "ProjectileSpeed": 0,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5,
         "AttributeBaseStrength": 21,
         "AttributeStrengthGain": 3.1,
@@ -763,7 +763,7 @@
         "AttributeIntelligenceGain": 1.3,
         "AttributeBaseAgility": 30,
         "AttributeAgilityGain": 2.2,
-        "MovementSpeed": 275,
+        "MovementSpeed": 280,
         "MovementTurnRate": 0.6
     },
     "33": {
@@ -961,7 +961,7 @@
         "AttributeStrengthGain": 1.9,
         "AttributeBaseIntelligence": 17,
         "AttributeIntelligenceGain": 1.8,
-        "AttributeBaseAgility": 22,
+        "AttributeBaseAgility": 26,
         "AttributeAgilityGain": 2.8,
         "MovementSpeed": 275,
         "MovementTurnRate": 0.5
@@ -969,7 +969,7 @@
     "41": {
         "Name": "npc_dota_hero_faceless_void",
         "Talents": {
-            "Talent_1": "special_bonus_attack_damage_20",
+            "Talent_1": "special_bonus_attack_damage_15",
             "Talent_2": "special_bonus_strength_8",
             "Talent_3": "special_bonus_unique_faceless_void_3",
             "Talent_4": "special_bonus_hp_300",
@@ -987,7 +987,7 @@
         "AttributeAgilityGain": 2.8,
         "AttributeBaseIntelligence": 15,
         "AttributeIntelligenceGain": 1.5,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 1.0
     },
     "42": {
@@ -1012,14 +1012,14 @@
         "AttributeIntelligenceGain": 1.6,
         "AttributeBaseAgility": 18,
         "AttributeAgilityGain": 1.7,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.5
     },
     "43": {
         "Name": "npc_dota_hero_death_prophet",
         "Talents": {
             "Talent_1": "special_bonus_attack_damage_40",
-            "Talent_2": "special_bonus_magic_resistance_12",
+            "Talent_2": "special_bonus_magic_resistance_15",
             "Talent_3": "special_bonus_unique_death_prophet_3",
             "Talent_4": "special_bonus_cast_range_150",
             "Talent_5": "special_bonus_hp_500",
@@ -1037,7 +1037,7 @@
         "AttributeAgilityGain": 1.4,
         "AttributeBaseIntelligence": 21,
         "AttributeIntelligenceGain": 3.0,
-        "MovementSpeed": 305,
+        "MovementSpeed": 315,
         "MovementTurnRate": 0.5
     },
     "44": {
@@ -1045,7 +1045,7 @@
         "Talents": {
             "Talent_1": "special_bonus_hp_150",
             "Talent_2": "special_bonus_attack_damage_15",
-            "Talent_3": "special_bonus_corruption_4",
+            "Talent_3": "special_bonus_corruption_3",
             "Talent_4": "special_bonus_cleave_30",
             "Talent_5": "special_bonus_lifesteal_20",
             "Talent_6": "special_bonus_unique_phantom_assassin",
@@ -1142,11 +1142,11 @@
     "48": {
         "Name": "npc_dota_hero_luna",
         "Talents": {
-            "Talent_1": "special_bonus_attack_speed_20",
+            "Talent_1": "special_bonus_attack_speed_15",
             "Talent_2": "special_bonus_cast_range_200",
             "Talent_3": "special_bonus_unique_luna_2",
             "Talent_4": "special_bonus_movement_speed_30",
-            "Talent_5": "special_bonus_all_stats_10",
+            "Talent_5": "special_bonus_all_stats_8",
             "Talent_6": "special_bonus_unique_luna_1",
             "Talent_7": "special_bonus_lifesteal_25",
             "Talent_8": "special_bonus_unique_luna_5"
@@ -1158,7 +1158,7 @@
         "AttributeBaseStrength": 16,
         "AttributeStrengthGain": 2.2,
         "AttributeBaseAgility": 18,
-        "AttributeAgilityGain": 3.3,
+        "AttributeAgilityGain": 3.1,
         "AttributeBaseIntelligence": 16,
         "AttributeIntelligenceGain": 1.9,
         "MovementSpeed": 330,
@@ -1186,7 +1186,7 @@
         "AttributeAgilityGain": 2.0,
         "AttributeBaseIntelligence": 15,
         "AttributeIntelligenceGain": 1.7,
-        "MovementSpeed": 280,
+        "MovementSpeed": 285,
         "MovementTurnRate": 0.6
     },
     "50": {
@@ -1208,7 +1208,7 @@
         "AttributeBaseStrength": 18,
         "AttributeStrengthGain": 2.5,
         "AttributeBaseIntelligence": 25,
-        "AttributeIntelligenceGain": 3.4,
+        "AttributeIntelligenceGain": 3.2,
         "AttributeBaseAgility": 21,
         "AttributeAgilityGain": 1.7,
         "MovementSpeed": 310,
@@ -1275,7 +1275,7 @@
             "Talent_7": "special_bonus_unique_furion_3",
             "Talent_8": "special_bonus_unique_furion"
         },
-        "ArmorPhysical": 1,
+        "ArmorPhysical": 2,
         "AttackRate": 1.7,
         "AttackRange": 600,
         "ProjectileSpeed": 1125,
@@ -1284,7 +1284,7 @@
         "AttributeBaseIntelligence": 23,
         "AttributeIntelligenceGain": 2.9,
         "AttributeBaseAgility": 18,
-        "AttributeAgilityGain": 2.4,
+        "AttributeAgilityGain": 3.3,
         "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
@@ -1333,7 +1333,7 @@
         "AttributeAgilityGain": 1.2,
         "AttributeBaseIntelligence": 21,
         "AttributeIntelligenceGain": 2.7,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.6
     },
     "56": {
@@ -1343,14 +1343,14 @@
             "Talent_2": "special_bonus_armor_5",
             "Talent_3": "special_bonus_evasion_20",
             "Talent_4": "special_bonus_unique_clinkz_1",
-            "Talent_5": "special_bonus_attack_range_100",
+            "Talent_5": "special_bonus_attack_range_125",
             "Talent_6": "special_bonus_hp_regen_16",
             "Talent_7": "special_bonus_unique_clinkz_2",
             "Talent_8": "special_bonus_unique_clinkz_3"
         },
         "ArmorPhysical": 0,
         "AttackRate": 1.7,
-        "AttackRange": 640,
+        "AttackRange": 650,
         "ProjectileSpeed": 900,
         "AttributeBaseStrength": 12,
         "AttributeStrengthGain": 1.9,
@@ -1397,7 +1397,7 @@
             "Talent_7": "special_bonus_unique_enchantress_4",
             "Talent_8": "special_bonus_unique_enchantress_5"
         },
-        "ArmorPhysical": -2.0,
+        "ArmorPhysical": 0.0,
         "AttackRate": 1.7,
         "AttackRange": 575,
         "ProjectileSpeed": 900,
@@ -1456,7 +1456,7 @@
         "AttributeIntelligenceGain": 1.6,
         "AttributeBaseAgility": 18,
         "AttributeAgilityGain": 2.3,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5
     },
     "61": {
@@ -1480,7 +1480,7 @@
         "AttributeAgilityGain": 2.2,
         "AttributeBaseIntelligence": 18,
         "AttributeIntelligenceGain": 2.0,
-        "MovementSpeed": 270,
+        "MovementSpeed": 275,
         "MovementTurnRate": 0.5
     },
     "62": {
@@ -1501,7 +1501,7 @@
         "AttributeBaseStrength": 20,
         "AttributeStrengthGain": 2.5,
         "AttributeBaseAgility": 21,
-        "AttributeAgilityGain": 3.0,
+        "AttributeAgilityGain": 2.7,
         "AttributeBaseIntelligence": 19,
         "AttributeIntelligenceGain": 2.0,
         "MovementSpeed": 315,
@@ -1628,7 +1628,7 @@
         "AttributeAgilityGain": 1.8,
         "AttributeBaseIntelligence": 16,
         "AttributeIntelligenceGain": 1.9,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.5
     },
     "69": {
@@ -1652,7 +1652,7 @@
         "AttributeAgilityGain": 0.9,
         "AttributeBaseIntelligence": 15,
         "AttributeIntelligenceGain": 2.1,
-        "MovementSpeed": 280,
+        "MovementSpeed": 285,
         "MovementTurnRate": 0.5
     },
     "68": {
@@ -1685,7 +1685,7 @@
         "Talents": {
             "Talent_1": "special_bonus_mp_regen_3",
             "Talent_2": "special_bonus_strength_8",
-            "Talent_3": "special_bonus_agility_16",
+            "Talent_3": "special_bonus_agility_14",
             "Talent_4": "special_bonus_unique_ursa_4",
             "Talent_5": "special_bonus_unique_ursa_3",
             "Talent_6": "special_bonus_unique_ursa",
@@ -1725,7 +1725,7 @@
         "AttributeAgilityGain": 1.7,
         "AttributeBaseIntelligence": 14,
         "AttributeIntelligenceGain": 1.8,
-        "MovementSpeed": 280,
+        "MovementSpeed": 285,
         "MovementTurnRate": 0.5
     },
     "72": {
@@ -1745,7 +1745,7 @@
         "AttackRange": 365,
         "ProjectileSpeed": 3000,
         "AttributeBaseStrength": 19,
-        "AttributeStrengthGain": 2.1,
+        "AttributeStrengthGain": 2.3,
         "AttributeBaseAgility": 19,
         "AttributeAgilityGain": 2.8,
         "AttributeBaseIntelligence": 19,
@@ -1774,7 +1774,7 @@
         "AttributeAgilityGain": 1.2,
         "AttributeBaseIntelligence": 25,
         "AttributeIntelligenceGain": 1.8,
-        "MovementSpeed": 290,
+        "MovementSpeed": 295,
         "MovementTurnRate": 0.6
     },
     "74": {
@@ -1839,7 +1839,7 @@
             "Talent_7": "special_bonus_unique_outworld_devourer",
             "Talent_8": "special_bonus_spell_lifesteal_15"
         },
-        "ArmorPhysical": 0.5,
+        "ArmorPhysical": 1.5,
         "AttackRate": 1.7,
         "AttackRange": 450,
         "ProjectileSpeed": 900,
@@ -1848,7 +1848,7 @@
         "AttributeBaseAgility": 24,
         "AttributeAgilityGain": 2.0,
         "AttributeBaseIntelligence": 28,
-        "AttributeIntelligenceGain": 2.7,
+        "AttributeIntelligenceGain": 3.0,
         "MovementSpeed": 315,
         "MovementTurnRate": 0.5
     },
@@ -1879,7 +1879,7 @@
     "78": {
         "Name": "npc_dota_hero_brewmaster",
         "Talents": {
-            "Talent_1": "special_bonus_attack_damage_30",
+            "Talent_1": "special_bonus_attack_damage_20",
             "Talent_2": "special_bonus_hp_200",
             "Talent_3": "special_bonus_unique_brewmaster_3",
             "Talent_4": "special_bonus_magic_resistance_20",
@@ -1929,22 +1929,22 @@
         "Name": "npc_dota_hero_lone_druid",
         "Talents": {
             "Talent_1": "special_bonus_hp_250",
-            "Talent_2": "special_bonus_attack_range_175",
+            "Talent_2": "special_bonus_attack_range_150",
             "Talent_3": "special_bonus_unique_lone_druid_4",
             "Talent_4": "special_bonus_unique_lone_druid_2",
             "Talent_5": "special_bonus_unique_lone_druid_8",
-            "Talent_6": "special_bonus_unique_lone_druid_6",
+            "Talent_6": "special_bonus_unique_lone_druid_10",
             "Talent_7": "special_bonus_unique_lone_druid_9",
             "Talent_8": "special_bonus_unique_lone_druid_7"
         },
-        "ArmorPhysical": 0,
+        "ArmorPhysical": -2,
         "AttackRate": 1.7,
         "AttackRange": 550,
         "ProjectileSpeed": 900,
         "AttributeBaseStrength": 18,
         "AttributeStrengthGain": 2.4,
-        "AttributeBaseAgility": 24,
-        "AttributeAgilityGain": 2.7,
+        "AttributeBaseAgility": 20,
+        "AttributeAgilityGain": 2.4,
         "AttributeBaseIntelligence": 13,
         "AttributeIntelligenceGain": 1.4,
         "MovementSpeed": 340,
@@ -2019,7 +2019,7 @@
         "AttributeAgilityGain": 2.0,
         "AttributeBaseIntelligence": 20,
         "AttributeIntelligenceGain": 1.8,
-        "MovementSpeed": 265,
+        "MovementSpeed": 270,
         "MovementTurnRate": 0.5
     },
     "84": {
@@ -2043,7 +2043,7 @@
         "AttributeAgilityGain": 1.6,
         "AttributeBaseIntelligence": 15,
         "AttributeIntelligenceGain": 2.0,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "85": {
@@ -2055,7 +2055,7 @@
             "Talent_4": "special_bonus_unique_undying_4",
             "Talent_5": "special_bonus_unique_undying",
             "Talent_6": "special_bonus_unique_undying_5",
-            "Talent_7": "special_bonus_reincarnation_200",
+            "Talent_7": "special_bonus_reincarnation_250",
             "Talent_8": "special_bonus_unique_undying_2"
         },
         "ArmorPhysical": 2,
@@ -2067,7 +2067,7 @@
         "AttributeAgilityGain": 0.8,
         "AttributeBaseIntelligence": 27,
         "AttributeIntelligenceGain": 2.8,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.6
     },
     "86": {
@@ -2141,7 +2141,7 @@
         "AttributeAgilityGain": 2.2,
         "AttributeBaseIntelligence": 18,
         "AttributeIntelligenceGain": 2.1,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.5
     },
     "89": {
@@ -2149,7 +2149,7 @@
         "Talents": {
             "Talent_1": "special_bonus_movement_speed_20",
             "Talent_2": "special_bonus_unique_naga_siren_4",
-            "Talent_3": "special_bonus_agility_15",
+            "Talent_3": "special_bonus_agility_12",
             "Talent_4": "special_bonus_strength_14",
             "Talent_5": "special_bonus_unique_naga_siren_2",
             "Talent_6": "special_bonus_unique_naga_siren",
@@ -2235,7 +2235,7 @@
         "AttackRange": 600,
         "ProjectileSpeed": 900,
         "AttributeBaseStrength": 24,
-        "AttributeStrengthGain": 3.2,
+        "AttributeStrengthGain": 3.0,
         "AttributeBaseAgility": 11,
         "AttributeAgilityGain": 1.3,
         "AttributeBaseIntelligence": 22,
@@ -2247,7 +2247,7 @@
         "Name": "npc_dota_hero_slark",
         "Talents": {
             "Talent_1": "special_bonus_strength_10",
-            "Talent_2": "special_bonus_agility_8",
+            "Talent_2": "special_bonus_agility_6",
             "Talent_3": "special_bonus_attack_speed_30",
             "Talent_4": "special_bonus_lifesteal_20",
             "Talent_5": "special_bonus_unique_slark_2",
@@ -2265,7 +2265,7 @@
         "AttributeIntelligenceGain": 1.7,
         "AttributeBaseAgility": 21,
         "AttributeAgilityGain": 1.5,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.7
     },
     "94": {
@@ -2339,7 +2339,7 @@
         "AttributeIntelligenceGain": 1.6,
         "AttributeBaseAgility": 15,
         "AttributeAgilityGain": 1.0,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.5
     },
     "97": {
@@ -2347,9 +2347,9 @@
         "Talents": {
             "Talent_1": "special_bonus_attack_speed_25",
             "Talent_2": "special_bonus_hp_200",
-            "Talent_3": "special_bonus_strength_15",
+            "Talent_3": "special_bonus_strength_12",
             "Talent_4": "special_bonus_unique_magnus_4",
-            "Talent_5": "special_bonus_armor_12",
+            "Talent_5": "special_bonus_armor_10",
             "Talent_6": "special_bonus_unique_magnus_3",
             "Talent_7": "special_bonus_unique_magnus_2",
             "Talent_8": "special_bonus_unique_magnus_5"
@@ -2382,12 +2382,12 @@
         "AttackRate": 1.7,
         "AttackRange": 150,
         "AttributeBaseStrength": 21,
-        "AttributeStrengthGain": 2.1,
+        "AttributeStrengthGain": 2.4,
         "AttributeBaseAgility": 16,
         "AttributeAgilityGain": 1.3,
         "AttributeBaseIntelligence": 21,
         "AttributeIntelligenceGain": 2.4,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "99": {
@@ -2411,7 +2411,7 @@
         "AttributeAgilityGain": 1.8,
         "AttributeBaseIntelligence": 14,
         "AttributeIntelligenceGain": 2.8,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 1.0
     },
     "100": {
@@ -2430,12 +2430,12 @@
         "AttackRate": 1.7,
         "AttackRange": 150,
         "AttributeBaseStrength": 23,
-        "AttributeStrengthGain": 3.0,
+        "AttributeStrengthGain": 3.4,
         "AttributeBaseAgility": 23,
         "AttributeAgilityGain": 2.1,
         "AttributeBaseIntelligence": 18,
         "AttributeIntelligenceGain": 1.7,
-        "MovementSpeed": 295,
+        "MovementSpeed": 300,
         "MovementTurnRate": 0.7
     },
     "101": {
@@ -2547,7 +2547,7 @@
             "Talent_7": "special_bonus_unique_ember_spirit_4",
             "Talent_8": "special_bonus_unique_ember_spirit_5"
         },
-        "ArmorPhysical": -1.0,
+        "ArmorPhysical": 0.0,
         "AttackRate": 1.7,
         "AttackRange": 150,
         "AttributeBaseStrength": 20,
@@ -2580,7 +2580,7 @@
         "AttributeAgilityGain": 1.5,
         "AttributeBaseIntelligence": 18,
         "AttributeIntelligenceGain": 2.1,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "109": {
@@ -2770,7 +2770,7 @@
         "AttributeAgilityGain": 1.3,
         "AttributeBaseIntelligence": 17,
         "AttributeIntelligenceGain": 2.3,
-        "MovementSpeed": 285,
+        "MovementSpeed": 290,
         "MovementTurnRate": 0.6
     },
     "114": {
