@@ -113,6 +113,14 @@ function Think()
     end
 end
 
+function GetBotNames()
+    if ( GetTeam() == TEAM_RADIANT ) then
+        return {"1", "2", "3", "4", "5"}
+    elseif ( GetTeam() == TEAM_DIRE ) then
+        return {"6", "7", "8", "9", "10"}
+    end
+end
+
 function UpdateLaneAssignments()
     if ( GetTeam() == TEAM_RADIANT ) then
         return {
