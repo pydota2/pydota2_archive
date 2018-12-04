@@ -115,9 +115,21 @@ end
 
 function GetBotNames()
     if ( GetTeam() == TEAM_RADIANT ) then
-        return {"1", "2", "3", "4", "5"}
+        return {
+            [1] = "5",
+            [2] = "4",
+            [3] = "3",
+            [4] = "2",
+            [5] = "1",
+        }
     elseif ( GetTeam() == TEAM_DIRE ) then
-        return {"6", "7", "8", "9", "10"}
+        return {
+            [1] = "10",
+            [2] = "9",
+            [3] = "8",
+            [4] = "7",
+            [5] = "6",
+        }
     end
 end
 
